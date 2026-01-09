@@ -1,295 +1,310 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Noah Arquitetura</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Noah Arquitetura</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    body {
-      background-color: #f6f6f6;
-      color: #2c2c2c;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #ffffff;
-      padding: 30px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    header h1 {
-      font-weight: 600;
-      font-size: 22px;
-      letter-spacing: 2px;
-    }
-
-    nav a {
-      margin-left: 30px;
-      text-decoration: none;
-      color: #2c2c2c;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
-
-    nav a:hover {
-      opacity: 0.6;
-    }
-
-  .hero {
-  height: 80vh;
-  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-  url('images/banner.jpg') center/cover;
-  display: flex;
-  align-items: center;
-  padding: 60px;
-  color: #ffffff;
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat', sans-serif;
 }
 
-    }
+body{
+background:#f6f6f6;
+color:#2c2c2c;
+line-height:1.6;
+}
 
-    .hero h2 {
-      font-size: 48px;
-      font-weight: 300;
-      max-width: 600px;
-    }
+header{
+background:#fff;
+padding:30px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #e0e0e0;
+}
 
-    section {
-      padding: 80px 60px;
-      background: #ffffff;
-    }
+header h1{
+font-weight:600;
+font-size:22px;
+letter-spacing:2px;
+}
 
-    section:nth-child(even) {
-      background: #f0f0f0;
-    }
+nav a{
+margin-left:30px;
+text-decoration:none;
+color:#2c2c2c;
+font-size:14px;
+letter-spacing:1px;
+}
 
-    section h3 {
-      font-size: 28px;
-      font-weight: 400;
-      margin-bottom: 20px;
-    }
+nav a:hover{
+opacity:0.6;
+}
 
-    section p {
-      max-width: 800px;
-      font-size: 16px;
-      margin-bottom: 18px;
-    }
+/* BANNER */
+.hero{
+height:80vh;
+background:
+linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+url('images/banner.jpg') center/cover no-repeat;
+display:flex;
+align-items:center;
+padding:60px;
+color:#fff;
+}
 
-    ul {
-      margin: 20px 0 20px 20px;
-    }
+.hero h2{
+font-size:48px;
+font-weight:300;
+max-width:600px;
+}
 
-    ul li {
-      margin-bottom: 8px;
-    }
+/* SEÇÕES */
+section{
+padding:80px 60px;
+background:#fff;
+}
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
+section:nth-child(even){
+background:#f0f0f0;
+}
 
-    .project {
-      background: #ffffff;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      letter-spacing: 1px;
-      border: 1px solid #ddd;
-    }
+section h3{
+font-size:28px;
+font-weight:400;
+margin-bottom:20px;
+}
 
-    footer {
-      background: #1e1e1e;
-      color: #ffffff;
-      text-align: center;
-      padding: 30px;
-      font-size: 13px;
-    }
+section p{
+max-width:800px;
+font-size:16px;
+margin-bottom:18px;
+}
 
-    /* BOTÕES FIXOS */
-    .social-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 9999;
-    }
+ul{
+margin:20px 0 20px 20px;
+}
 
-    .social-buttons a {
-      text-decoration: none;
-      color: #fff;
-      padding: 14px 20px;
-      border-radius: 50px;
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: 0.3s;
-      text-align: center;
-    }
+ul li{
+margin-bottom:8px;
+}
 
-    .whatsapp {
-      background: #25D366;
-    }
+/* FOTOS SOBRE */
+.fotos{
+display:flex;
+justify-content:center;
+gap:30px;
+margin:40px 0;
+flex-wrap:wrap;
+}
 
-    .instagram {
-      background: #E1306C;
-    }
+.fotos img{
+max-width:260px;
+width:100%;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
 
-    .social-buttons a:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
+/* PROJETOS */
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:40px;
+}
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 20px;
-      }
+.project{
+background:#fff;
+border:1px solid #ddd;
+text-align:center;
+overflow:hidden;
+}
 
-      .hero h2 {
-        font-size: 32px;
-      }
+.project img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
 
-      section {
-        padding: 60px 30px;
-      }
-    }
-  </style>
+.project span{
+display:block;
+padding:12px;
+font-size:14px;
+letter-spacing:1px;
+}
+
+/* FOOTER */
+footer{
+background:#1e1e1e;
+color:#fff;
+text-align:center;
+padding:30px;
+font-size:13px;
+}
+
+/* BOTÕES */
+.social-buttons{
+position:fixed;
+bottom:20px;
+right:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
+z-index:9999;
+}
+
+.social-buttons a{
+text-decoration:none;
+color:#fff;
+padding:14px 20px;
+border-radius:50px;
+font-size:14px;
+font-weight:500;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+transition:0.3s;
+text-align:center;
+}
+
+.whatsapp{background:#25D366;}
+.instagram{background:#E1306C;}
+
+.social-buttons a:hover{
+transform:scale(1.05);
+opacity:0.9;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+header{
+flex-direction:column;
+gap:20px;
+}
+
+.hero h2{
+font-size:32px;
+}
+
+section{
+padding:60px 30px;
+}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>NOAH ARQUITETURA</h1>
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#contato">Contato</a>
-  </nav>
+<h1>NOAH ARQUITETURA</h1>
+<nav>
+<a href="#sobre">Sobre</a>
+<a href="#projetos">Projetos</a>
+<a href="#contato">Contato</a>
+</nav>
 </header>
 
 <div class="hero">
-  <h2>Arquitetura contemporânea, funcional e atemporal.</h2>
+<h2>Arquitetura contemporânea, funcional e atemporal.</h2>
 </div>
 
-<section id="Sobre">
-  <h3>Sobre</h3>
+<section id="sobre">
+<h3>Sobre</h3>
 
-  <div style="display:flex; justify-content:center; margin:40px 0;">
-  <img src="images/arquitetosnoah.jpeg"
-       alt="Equipe Noah Arquitetura"
-       style="max-width:300px; width:100%; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+<div class="fotos">
+<img src="images/arquitetosnoah.jpeg" alt="Arquiteta Noah">
+<img src="images/engenheiro.jpeg" alt="Engenheiro Noah">
 </div>
 
-  <p><strong>Noah Arquitetura – Excelência que transforma espaços</strong></p>
+<p><strong>Noah Arquitetura – Excelência que transforma espaços</strong></p>
 
-  <p>
-    A Noah Arquitetura é uma empresa que atua desde 2014 no PR e SC oferecendo soluções completas em arquitetura,
-    sempre unindo técnica, criatividade e compromisso com a qualidade. Nossa missão é transformar sonhos em
-    projetos únicos, funcionais e cheios de personalidade, respeitando as necessidades de cada cliente e
-    valorizando cada detalhe.
-  </p>
+<p>
+A Noah Arquitetura atua desde 2014 no PR e SC oferecendo soluções completas em arquitetura,
+sempre unindo técnica, criatividade e compromisso com a qualidade. Nossa missão é transformar
+sonhos em projetos únicos, funcionais e cheios de personalidade, respeitando as necessidades
+de cada cliente e valorizando cada detalhe.
+</p>
 
-  <p>
-    Somos especialistas na elaboração de laudos técnicos e avaliações de imóveis urbanos em conformidade com
-    a NBR 14.653, trabalhando com precisão, responsabilidade e embasamento técnico para garantir segurança,
-    transparência e credibilidade em cada serviço prestado. Atendemos tanto pessoas físicas quanto empresas,
-    sempre com profissionalismo e ética.
-  </p>
+<p>
+Somos especialistas na elaboração de laudos técnicos e avaliações de imóveis urbanos em
+conformidade com a NBR 14.653, trabalhando com precisão, responsabilidade e embasamento
+técnico para garantir segurança, transparência e credibilidade em cada serviço prestado.
+Atendemos tanto pessoas físicas quanto empresas, sempre com profissionalismo e ética.
+</p>
 
-  <p>
-    Além disso, desenvolvemos projetos arquitetônicos completos, desde a concepção até o detalhamento,
-    criando espaços que unem estética, conforto e funcionalidade. Trabalhamos com:
-  </p>
+<p>
+Além disso, desenvolvemos projetos arquitetônicos completos, desde a concepção até o
+detalhamento, criando espaços que unem estética, conforto e funcionalidade. Trabalhamos com:
+</p>
 
-  <ul>
-    <li>Projetos residenciais e comerciais</li>
-    <li>Modelagem 3D realista e vídeos 3D</li>
-    <li>Design de interiores personalizado</li>
-    <li>Paisagismo</li>
-    <li>Consultorias técnicas</li>
-    <li>Regularizações e documentações</li>
-  </ul>
+<ul>
+<li>Projetos residenciais e comerciais</li>
+<li>Modelagem 3D realista e vídeos 3D</li>
+<li>Design de interiores personalizado</li>
+<li>Paisagismo</li>
+<li>Consultorias técnicas</li>
+<li>Regularizações e documentações</li>
+</ul>
 
-  <p>
-    Cada projeto é pensado de forma exclusiva, refletindo o estilo de vida, os objetivos e o investimento
-    de cada cliente. Utilizamos tecnologia, criatividade e conhecimento técnico para entregar soluções
-    modernas, inteligentes e duradouras.
-  </p>
+<p>
+Cada projeto é pensado de forma exclusiva, refletindo o estilo de vida, os objetivos e o
+investimento de cada cliente. Utilizamos tecnologia, criatividade e conhecimento técnico
+para entregar soluções modernas, inteligentes e duradouras.
+</p>
 
-  <p>
-    Na Noah Arquitetura, acreditamos que arquitetura vai além de construir – é sobre criar experiências,
-    valorizar espaços e melhorar a qualidade de vida. Nosso compromisso é oferecer um atendimento próximo,
-    transparente e eficiente, garantindo tranquilidade em todas as etapas do processo.
-  </p>
+<p>
+Na Noah Arquitetura, acreditamos que arquitetura vai além de construir – é sobre criar
+experiências, valorizar espaços e melhorar a qualidade de vida. Nosso compromisso é oferecer
+um atendimento próximo, transparente e eficiente, garantindo tranquilidade em todas as
+etapas do processo.
+</p>
 </section>
 
 <section id="projetos">
-  <div class="projects">
+<h3>Projetos</h3>
 
-  <div class="project">
-    <img src="images/sobrado.jpg" alt="Projeto Residencial">
-    <span>Projeto Residencial</span>
-  </div>
+<div class="projects">
 
-  <div class="project">
-    <img src="images/misto.jpg" alt="Projeto Comercial">
-    <span>Projeto Comercial</span>
-  </div>
-
-  <div class="project">
-    <img src="images/projeto3.jpg" alt="Interiores">
-    <span>Interiores</span>
-  </div>
-
+<div class="project">
+<img src="images/sobrado.jpg">
+<span>Projeto Residencial</span>
 </div>
 
+<div class="project">
+<img src="images/misto.jpg">
+<span>Projeto Comercial</span>
+</div>
+
+<div class="project">
+<img src="images/projeto3.jpg">
+<span>Interiores</span>
+</div>
+
+</div>
+</section>
 
 <section id="contato">
-  <h3>Contato</h3>
-  <p>
-    📧 noaharquitetura@hotmail.com<br>
-    📞 (43)99614-1663 pr 📞(48)99686589 sc
-  </p>
+<h3>Contato</h3>
+<p>
+📧 noaharquitetura@hotmail.com<br>
+📞 (43) 99614-1663 PR<br>
+📞 (48) 99686-589 SC
+</p>
 </section>
 
 <footer>
-  © 2026 Noah Arquitetura · Todos os direitos reservados
+© 2026 Noah Arquitetura · Todos os direitos reservados
 </footer>
 
-<!-- BOTÕES -->
 <div class="social-buttons">
-
-  <a class="whatsapp"
-     href="https://wa.me/"
-     target="_blank">
-     WhatsApp
-  </a>
-
-  <a class="instagram"
-     href="https://www.instagram.com/noaharquitetura"
-     target="_blank">
-     Instagram
-  </a>
-
+<a class="whatsapp" href="https://wa.me/" target="_blank">WhatsApp</a>
+<a class="instagram" href="https://www.instagram.com/noaharquitetura" target="_blank">Instagram</a>
 </div>
 
 </body>
