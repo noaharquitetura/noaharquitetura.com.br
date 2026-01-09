@@ -55,13 +55,12 @@ nav a:hover{opacity:0.6;}
 
 /* BANNER */
 .hero{
+height:100vh; /* tela inteira */
 background:
 linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-url('images/banner.jpeg') center/cover no-repeat;
-}
-background-attachment:fixed;
+url('images/banner.jpeg') center center / cover no-repeat;
 display:flex;
-align-items:center;
+align-items:flex-end;
 padding:60px;
 color:#fff;
 }
@@ -126,8 +125,12 @@ flex-wrap:wrap;
 }
 
 .fotos img{
-max-width:260px;
-width:100%;
+width:260px;
+height:360px;
+object-fit:cover;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
 border-radius:12px;
 box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
@@ -307,7 +310,7 @@ etapas do processo.
 </div>
 
 <div class="project">
-<img src="images/casa_rosas do siriu.png">
+<img src="images/interior.jpg">
 <span>Interiores</span>
 </div>
 
