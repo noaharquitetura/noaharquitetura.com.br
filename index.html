@@ -20,6 +20,12 @@ body{
 background:#f6f6f6;
 color:#2c2c2c;
 line-height:1.6;
+animation:fade 1.2s ease;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
 }
 
 header{
@@ -45,9 +51,7 @@ font-size:14px;
 letter-spacing:1px;
 }
 
-nav a:hover{
-opacity:0.6;
-}
+nav a:hover{opacity:0.6;}
 
 /* BANNER */
 .hero{
@@ -55,6 +59,7 @@ height:80vh;
 background:
 linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
 url('images/banner.jpg') center/cover no-repeat;
+background-attachment:fixed;
 display:flex;
 align-items:center;
 padding:60px;
@@ -65,6 +70,12 @@ color:#fff;
 font-size:48px;
 font-weight:300;
 max-width:600px;
+animation:slideText 1.2s ease;
+}
+
+@keyframes slideText{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 /* SEÇÕES */
@@ -73,9 +84,7 @@ padding:80px 60px;
 background:#fff;
 }
 
-section:nth-child(even){
-background:#f0f0f0;
-}
+section:nth-child(even){background:#f0f0f0;}
 
 section h3{
 font-size:28px;
@@ -89,15 +98,25 @@ font-size:16px;
 margin-bottom:18px;
 }
 
+/* REVEAL */
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
 ul{
 margin:20px 0 20px 20px;
 }
 
-ul li{
-margin-bottom:8px;
-}
+ul li{margin-bottom:8px;}
 
-/* FOTOS SOBRE */
+/* FOTOS */
 .fotos{
 display:flex;
 justify-content:center;
@@ -126,7 +145,10 @@ background:#fff;
 border:1px solid #ddd;
 text-align:center;
 overflow:hidden;
+transition:.4s;
 }
+
+.project:hover{transform:scale(1.05);}
 
 .project img{
 width:100%;
@@ -171,13 +193,20 @@ font-weight:500;
 box-shadow:0 4px 10px rgba(0,0,0,0.3);
 transition:0.3s;
 text-align:center;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-6px);}
+100%{transform:translateY(0);}
 }
 
 .whatsapp{background:#25D366;}
 .instagram{background:#E1306C;}
 
 .social-buttons a:hover{
-transform:scale(1.05);
+transform:scale(1.1);
 opacity:0.9;
 }
 
@@ -188,13 +217,9 @@ flex-direction:column;
 gap:20px;
 }
 
-.hero h2{
-font-size:32px;
-}
+.hero h2{font-size:32px;}
 
-section{
-padding:60px 30px;
-}
+section{padding:60px 30px;}
 }
 </style>
 </head>
@@ -214,12 +239,12 @@ padding:60px 30px;
 <h2>Arquitetura contemporânea, funcional e atemporal.</h2>
 </div>
 
-<section id="sobre">
+<section id="sobre" class="reveal">
 <h3>Sobre</h3>
 
 <div class="fotos">
-<img src="images/arquitetosnoah.jpeg" alt="Arquiteta Noah">
-<img src="images/engenheiro.jpeg" alt="Engenheiro Noah">
+<img src="images/arquitetosnoah.jpeg">
+<img src="images/engenheiro.jpeg">
 </div>
 
 <p><strong>Noah Arquitetura – Excelência que transforma espaços</strong></p>
@@ -266,7 +291,7 @@ etapas do processo.
 </p>
 </section>
 
-<section id="projetos">
+<section id="projetos" class="reveal">
 <h3>Projetos</h3>
 
 <div class="projects">
@@ -289,7 +314,7 @@ etapas do processo.
 </div>
 </section>
 
-<section id="contato">
+<section id="contato" class="reveal">
 <h3>Contato</h3>
 <p>
 📧 noaharquitetura@hotmail.com<br>
@@ -306,6 +331,19 @@ etapas do processo.
 <a class="whatsapp" href="https://wa.me/" target="_blank">WhatsApp</a>
 <a class="instagram" href="https://www.instagram.com/noaharquitetura" target="_blank">Instagram</a>
 </div>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll",()=>{
+reveals.forEach(el=>{
+const top = el.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+el.classList.add("active");
+}
+});
+});
+</script>
 
 </body>
 </html>
