@@ -5,6 +5,7 @@
   <title>Noah Arquitetura</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -23,21 +24,17 @@
 
     header {
       background: #ffffff;
-      padding: 20px 60px;
+      padding: 30px 60px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #e0e0e0;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .logo img {
-      height: 50px;
+    header h1 {
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: 2px;
     }
 
     nav a {
@@ -46,6 +43,10 @@
       color: #2c2c2c;
       font-size: 14px;
       letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      opacity: 0.6;
     }
 
     .hero {
@@ -75,27 +76,22 @@
 
     section h3 {
       font-size: 28px;
+      font-weight: 400;
       margin-bottom: 20px;
     }
 
-    .sobre-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .sobre-container img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
     section p {
+      max-width: 700px;
+      font-size: 16px;
       margin-bottom: 15px;
     }
 
     ul {
-      margin-left: 20px;
+      margin: 20px 0 20px 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
     }
 
     .projects {
@@ -111,6 +107,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 14px;
+      letter-spacing: 1px;
       border: 1px solid #ddd;
     }
 
@@ -119,32 +117,21 @@
       color: #ffffff;
       text-align: center;
       padding: 30px;
+      font-size: 13px;
     }
-
-    /* BOTÕES */
-    .social-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .social-buttons a {
-      text-decoration: none;
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 50px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .whatsapp { background: #25D366; }
-    .instagram { background: #E1306C; }
 
     @media (max-width: 768px) {
-      .sobre-container {
-        grid-template-columns: 1fr;
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .hero h2 {
+        font-size: 32px;
+      }
+
+      section {
+        padding: 60px 30px;
       }
     }
   </style>
@@ -153,10 +140,7 @@
 <body>
 
 <header>
-  <div class="logo">
-    <img src="logo.png" alt="Noah Arquitetura">
-  </div>
-
+  <h1>NOAH ARQUITETURA</h1>
   <nav>
     <a href="#sobre">Sobre</a>
     <a href="#projetos">Projetos</a>
@@ -169,45 +153,56 @@
 </div>
 
 <section id="sobre">
-  <h3>Quem Somos</h3>
+  <h3>Sobre</h3>
 
-  <div class="sobre-container">
+  <p><strong>Noah Arquitetura – Excelência que transforma espaços</strong></p>
 
-    <div>
-      <p><strong>Noah Arquitetura – Excelência que transforma espaços</strong></p>
+  <p>
+    A Noah Arquitetura é uma empresa que atua desde 2014 no PR e SC oferecendo soluções completas em arquitetura,
+    sempre unindo técnica, criatividade e compromisso com a qualidade. Nossa missão é transformar
+    sonhos em projetos únicos, funcionais e cheios de personalidade, respeitando as necessidades
+    de cada cliente e valorizando cada detalhe.
+  </p>
 
-      <p>
-        Atuamos desde 2014 oferecendo soluções completas em arquitetura,
-        unindo técnica, criatividade e compromisso com a qualidade.
-      </p>
+  <p>
+    Somos especialistas na elaboração de laudos técnicos e avaliações de imóveis urbanos em conformidade
+    com a NBR 14.653, trabalhando com precisão, responsabilidade e embasamento técnico para garantir
+    segurança, transparência e credibilidade em cada serviço prestado. Atendemos tanto pessoas físicas
+    quanto empresas, sempre com profissionalismo e ética.
+  </p>
 
-      <p>
-        Somos especialistas em laudos técnicos e avaliações imobiliárias
-        conforme a NBR 14.653, garantindo segurança e credibilidade.
-      </p>
+  <p>
+    Além disso, desenvolvemos projetos arquitetônicos completos, desde a concepção até o detalhamento,
+    criando espaços que unem estética, conforto e funcionalidade. Trabalhamos com:
+  </p>
 
-      <p>
-        Desenvolvemos projetos arquitetônicos, interiores, paisagismo,
-        3D realista, regularizações e consultorias técnicas.
-      </p>
+  <ul>
+    <li>Projetos residenciais e comerciais</li>
+    <li>Modelagem 3D realista e vídeos 3D</li>
+    <li>Design de interiores personalizado</li>
+    <li>Paisagismo</li>
+    <li>Consultorias técnicas</li>
+    <li>Regularizações e documentações</li>
+  </ul>
 
-      <p>
-        Acreditamos que arquitetura é criar experiências e melhorar
-        a qualidade de vida.
-      </p>
-    </div>
+  <p>
+    Cada projeto é pensado de forma exclusiva, refletindo o estilo de vida, os objetivos e o investimento
+    de cada cliente. Utilizamos tecnologia, criatividade e conhecimento técnico para entregar soluções
+    modernas, inteligentes e duradouras.
+  </p>
 
-    <!-- FOTO DE VOCÊS -->
-    <img src="equipe.png" alt="Equipe Noah Arquitetura">
-
-  </div>
+  <p>
+    Na Noah Arquitetura, acreditamos que arquitetura vai além de construir – é sobre criar experiências,
+    valorizar espaços e melhorar a qualidade de vida. Nosso compromisso é oferecer um atendimento próximo,
+    transparente e eficiente, garantindo tranquilidade em todas as etapas do processo.
+  </p>
 </section>
 
 <section id="projetos">
   <h3>Projetos</h3>
   <div class="projects">
-    <div class="project">Residencial</div>
-    <div class="project">Comercial</div>
+    <div class="project">Projeto Residencial</div>
+    <div class="project">Projeto Comercial</div>
     <div class="project">Interiores</div>
   </div>
 </section>
@@ -215,8 +210,9 @@
 <section id="contato">
   <h3>Contato</h3>
   <p>
+    Entre em contato para orçamentos e parcerias.<br><br>
     📧 noaharquitetura@hotmail.com<br>
-    📞 (00) 00000-0000
+    📞 (48) 
   </p>
 </section>
 
@@ -224,10 +220,27 @@
   © 2026 Noah Arquitetura · Todos os direitos reservados
 </footer>
 
+</body>
+</html>
+
+
 <!-- BOTÕES -->
 <div class="social-buttons">
-  <a class="whatsapp" href="https://wa.me/5599999999999" target="_blank">WhatsApp</a>
-  <a class="instagram" href="https://www.instagram.com/seuinstagram" target="_blank">Instagram</a>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp" 
+     href="https://wa.me/5599999999999" 
+     target="_blank">
+     WhatsApp
+  </a>
+
+  <!-- INSTAGRAM -->
+  <a class="instagram" 
+     href="https://www.instagram.com/noaharquitetura" 
+     target="_blank">
+     Instagram
+  </a>
+
 </div>
 
 </body>
