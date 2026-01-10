@@ -5,7 +5,6 @@
 <title>Noah Arquitetura</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -20,12 +19,6 @@ body{
   background:#f6f6f6;
   color:#2c2c2c;
   line-height:1.6;
-  animation:fade 1.2s ease;
-}
-
-@keyframes fade{
-  from{opacity:0;}
-  to{opacity:1;}
 }
 
 /* HEADER */
@@ -41,7 +34,6 @@ header{
 }
 
 header h1{
-  font-weight:600;
   font-size:22px;
   letter-spacing:2px;
 }
@@ -51,7 +43,6 @@ nav a{
   text-decoration:none;
   color:#2c2c2c;
   font-size:14px;
-  letter-spacing:1px;
 }
 
 nav a:hover{opacity:0.6;}
@@ -61,7 +52,7 @@ nav a:hover{opacity:0.6;}
   height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-    url('images/banner.jpeg') center center / cover no-repeat;
+    url('images/banner.jpeg') center/cover no-repeat;
   display:flex;
   align-items:flex-end;
   padding:60px;
@@ -72,12 +63,6 @@ nav a:hover{opacity:0.6;}
   font-size:48px;
   font-weight:300;
   max-width:600px;
-  animation:slideText 1.2s ease;
-}
-
-@keyframes slideText{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
 }
 
 /* SEÇÕES */
@@ -88,54 +73,48 @@ section{
   margin:0 auto;
 }
 
-section:nth-child(even){background:#f0f0f0;}
+section:nth-of-type(even){background:#f0f0f0;}
 
 section h3{
   font-size:28px;
-  font-weight:400;
-  margin-bottom:20px;
+  margin-bottom:30px;
 }
 
-section p{
+/* SOBRE */
+.sobre-texto p{
   max-width:800px;
-  font-size:16px;
   margin-bottom:18px;
 }
 
-/* REVEAL */
-.reveal{
-  opacity:0;
-  transform:translateY(60px);
-  transition:1s;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* LISTAS */
-ul{
-  margin:20px 0 20px 20px;
-}
-
-ul li{margin-bottom:8px;}
-
-/* FOTOS */
+/* EQUIPE */
 .fotos{
   display:flex;
   justify-content:center;
-  gap:30px;
-  margin:40px 0;
+  gap:40px;
   flex-wrap:wrap;
+  margin:40px 0;
 }
 
-.fotos img{
-  width:260px;
-  height:360px;
+.pessoa{
+  text-align:center;
+}
+
+.pessoa img{
+  width:220px;
+  height:300px;
   object-fit:cover;
   border-radius:12px;
   box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.pessoa strong{
+  display:block;
+  margin-top:12px;
+}
+
+.pessoa span{
+  font-size:14px;
+  color:#666;
 }
 
 /* PROJETOS */
@@ -143,18 +122,13 @@ ul li{margin-bottom:8px;}
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
-  margin-top:40px;
 }
 
 .project{
   background:#fff;
   border:1px solid #ddd;
   text-align:center;
-  overflow:hidden;
-  transition:.4s;
 }
-
-.project:hover{transform:scale(1.05);}
 
 .project img{
   width:100%;
@@ -165,8 +139,11 @@ ul li{margin-bottom:8px;}
 .project span{
   display:block;
   padding:12px;
-  font-size:14px;
-  letter-spacing:1px;
+}
+
+/* CONTATO */
+.contato p{
+  font-size:16px;
 }
 
 /* FOOTER */
@@ -178,44 +155,6 @@ footer{
   font-size:13px;
 }
 
-/* BOTÕES */
-.social-buttons{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  z-index:9999;
-}
-
-.social-buttons a{
-  text-decoration:none;
-  color:#fff;
-  padding:14px 20px;
-  border-radius:50px;
-  font-size:14px;
-  font-weight:500;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
-  transition:0.3s;
-  text-align:center;
-  animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-6px);}
-  100%{transform:translateY(0);}
-}
-
-.whatsapp{background:#25D366;}
-.instagram{background:#E1306C;}
-
-.social-buttons a:hover{
-  transform:scale(1.1);
-  opacity:0.9;
-}
-
 /* MOBILE */
 @media(max-width:768px){
   header{
@@ -224,16 +163,7 @@ footer{
   }
 
   .hero h2{font-size:32px;}
-
   section{padding:60px 30px;}
-}
-
-/* DESKTOP – ajuste fotos */
-@media(min-width:1024px){
-  .fotos img{
-    width:220px;
-    height:300px;
-  }
 }
 </style>
 </head>
@@ -243,40 +173,43 @@ footer{
 <header>
   <h1>NOAH ARQUITETURA</h1>
   <nav>
-    <a href="#sobre">Sobre</a>
     <a href="#projetos">Projetos</a>
+    <a href="#sobre">Sobre Nós</a>
     <a href="#contato">Contato</a>
   </nav>
 </header>
 
 <div class="hero">
-  <h2><strong>Arquitetura que transforma idéias em espaços que acolhem, inspiram e permanecem.</strong></h2>
+  <h2><strong>Arquitetura que transforma ideias em espaços que acolhem, inspiram e permanecem.</strong></h2>
 </div>
 
-  <h2>Noah Arquitetura – Excelência que transforma espaços</h2>
+<section class="sobre-texto">
+  <h3>Noah Arquitetura – Excelência que transforma espaços</h3>
 
   <p>
-    A Noah Arquitetura atua desde 2014 nos estados do Paraná e Santa Catarina, oferecendo soluções completas em arquitetura,
-    sempre unindo técnica, criatividade e compromisso com a qualidade. Nossa missão é transformar sonhos em projetos únicos,
-    funcionais e cheios de personalidade, respeitando as necessidades de cada cliente e valorizando cada detalhe.
+    A Noah Arquitetura atua desde 2014 nos estados do Paraná e Santa Catarina, oferecendo soluções
+    completas em arquitetura, sempre unindo técnica, criatividade e compromisso com a qualidade.
+    Nossa missão é transformar sonhos em projetos únicos, funcionais e cheios de personalidade,
+    respeitando as necessidades de cada cliente e valorizando cada detalhe.
   </p>
 
   <p>
-    Somos especialistas na elaboração de laudos técnicos e avaliações de imóveis urbanos, em conformidade com a
-    <strong>NBR 14.653</strong>, trabalhando com precisão, responsabilidade e embasamento técnico para garantir segurança,
-    transparência e credibilidade em cada serviço prestado. Atendemos tanto pessoas físicas quanto empresas,
-    sempre com profissionalismo e ética.
+    Somos especialistas na elaboração de laudos técnicos e avaliações de imóveis urbanos,
+    em conformidade com a <strong>NBR 14.653</strong>, trabalhando com precisão, responsabilidade
+    e embasamento técnico para garantir segurança, transparência e credibilidade em cada serviço
+    prestado. Atendemos tanto pessoas físicas quanto empresas, sempre com profissionalismo e ética.
   </p>
 
   <p>
-    Além disso, contamos com assessoria jurídica especializada em regularização imobiliária, oferecendo suporte completo
-    nos processos de <strong>usucapião</strong>, desde a análise técnica e documental até o acompanhamento jurídico,
-    proporcionando mais segurança, agilidade e tranquilidade aos nossos clientes.
+    Além disso, contamos com assessoria jurídica especializada em regularização imobiliária,
+    oferecendo suporte completo nos processos de <strong>usucapião</strong>, desde a análise
+    técnica e documental até o acompanhamento jurídico, proporcionando mais segurança,
+    agilidade e tranquilidade aos nossos clientes.
   </p>
 
   <p>
-    Desenvolvemos projetos arquitetônicos completos, desde a concepção até o detalhamento, criando espaços que unem
-    estética, conforto e funcionalidade. Trabalhamos com:
+    Desenvolvemos projetos arquitetônicos completos, desde a concepção até o detalhamento,
+    criando espaços que unem estética, conforto e funcionalidade. Trabalhamos com:
   </p>
 
   <ul>
@@ -289,16 +222,19 @@ footer{
   </ul>
 
   <p>
-    Cada projeto é pensado de forma exclusiva, refletindo o estilo de vida, os objetivos e o investimento de cada cliente.
-    Utilizamos tecnologia, criatividade e conhecimento técnico para entregar soluções modernas, inteligentes e duradouras.
+    Cada projeto é pensado de forma exclusiva, refletindo o estilo de vida, os objetivos e o
+    investimento de cada cliente. Utilizamos tecnologia, criatividade e conhecimento técnico
+    para entregar soluções modernas, inteligentes e duradouras.
   </p>
 
   <p>
-    Na Noah Arquitetura, acreditamos que arquitetura vai além de construir — é sobre criar experiências, valorizar espaços
-    e melhorar a qualidade de vida. Nosso compromisso é oferecer um atendimento próximo, transparente e eficiente,
-    garantindo tranquilidade em todas as etapas do processo.
+    Na Noah Arquitetura, acreditamos que arquitetura vai além de construir — é sobre criar
+    experiências, valorizar espaços e melhorar a qualidade de vida. Nosso compromisso é oferecer
+    um atendimento próximo, transparente e eficiente, garantindo tranquilidade em todas as
+    etapas do processo.
   </p>
 </section>
+
 <section id="projetos">
   <h3>Projetos</h3>
 
@@ -320,91 +256,59 @@ footer{
   </div>
 </section>
 
-  <section id="sobre" class="reveal">
+<section id="sobre">
   <h3>Sobre Nós</h3>
 
   <div class="fotos">
-    <img src="images/arquitetosnoah.jpeg" alt="Noah Arquitetura">
-    <img src="images/engenheiro.jpeg" alt="Equipe Noah Arquitetura">
+    <div class="pessoa">
+      <img src="images/arquitetosnoah.jpeg">
+      <strong>Arquiteta</strong>
+      <span>Projetos & Avaliações</span>
+    </div>
+
+    <div class="pessoa">
+      <img src="images/engenheiro.jpeg">
+      <strong>Engenheiro Civil</strong>
+      <span>Avaliações Imobiliárias</span>
+    </div>
   </div>
 
-</section>
-
-  <section id="sobre" class="reveal">
-  <h3>Sobre Nós</h3>
-
   <p>
-    A Noah Arquitetura é formada por uma equipe multidisciplinar que integra arquitetura, engenharia,
-    designer, técnico em edificações e assessoria jurídica, oferecendo soluções completas, seguras e
-    personalizadas para cada cliente.
+    Nossa equipe é formada por arquiteta, engenheiro, designer e técnico em edificações,
+    além de assessoria jurídica especializada.
   </p>
 
   <p>
-    <strong>Arquitetura</strong><br>
-    A arquiteta responsável atua no desenvolvimento de projetos arquitetônicos residenciais e
-    comerciais, aliando estética, funcionalidade e viabilidade técnica. Possui também atuação na
-    área de avaliações de imóveis, contribuindo com análises criteriosas, embasadas nas normas
-    técnicas vigentes.
+    O engenheiro atua há mais de <strong>20 anos</strong> em avaliações de imóveis,
+    credenciado pela <strong>Caixa Econômica Federal</strong>, seguindo rigorosamente a
+    <strong>NBR 14.653</strong>.
   </p>
 
   <p>
-    <strong>Engenharia</strong><br>
-    O engenheiro da equipe é especialista em avaliações de imóveis urbanos, com mais de
-    <strong>20 anos de experiência</strong>, atuando com precisão e responsabilidade. É profissional
-    credenciado junto à <strong>Caixa Econômica Federal</strong>, assegurando credibilidade,
-    segurança técnica e conformidade com a <strong>NBR 14.653</strong>.
+    A arquiteta também atua na área de avaliações e desenvolvimento de projetos completos.
+    O designer e técnico em edificações desenvolve projetos técnicos, modelagens 3D
+    e moldes para vacuum formagem.
   </p>
 
   <p>
-    <strong>Designer e Técnico em Edificações</strong><br>
-    Atua no desenvolvimento de projetos técnicos, detalhamentos construtivos e
-    <strong>modelagens 3D</strong>, incluindo a criação de <strong>moldes para vacuum formagem</strong>,
-    oferecendo soluções precisas e funcionais para aplicações arquitetônicas, industriais e
-    personalizadas.
-  </p>
-
-  <p>
-    <strong>Assessoria Jurídica</strong><br>
-    Contamos com advogada especializada há mais de 20 anos em <strong>regularização imobiliária e usucapião</strong>,
-    oferecendo suporte jurídico completo, desde a análise técnica e documental até o acompanhamento
-    integral dos processos, proporcionando segurança, agilidade e tranquilidade aos clientes.
-  </p>
-
-  <p>
-    Na Noah Arquitetura, acreditamos que projetos de qualidade nascem da integração entre técnica,
-    criatividade e conhecimento multidisciplinar. Nosso compromisso é entregar soluções completas,
-    confiáveis e duradouras, sempre com atendimento próximo, transparente e eficiente.
+    A assessoria jurídica conta com advogada formada há mais de <strong>25 anos</strong>,
+    atuando em diversas áreas do direito, com especialização em <strong>usucapião</strong>.
   </p>
 </section>
-<section id="contato" class="reveal">
+
+<section id="contato" class="contato">
   <h3>Contato</h3>
   <p>
     📧 noaharquitetura@hotmail.com<br>
-    📞 (43) 99614-1663 PR<br>
-    📞 (48) 99686-5891 SC
+    📞 (43) 99614-1663 – PR<br>
+    📞 (48) 99686-5891 – SC
   </p>
 </section>
+
 <footer>
-  © desde 2014 Noah Arquitetura · Todos os direitos reservados
+  © Desde 2014 · Noah Arquitetura · Todos os direitos reservados
 </footer>
-
-<div class="social-buttons">
-  <a class="whatsapp" href="https://wa.me/" target="_blank">WhatsApp</a>
-  <a class="instagram" href="https://www.instagram.com/noaharquitetura" target="_blank">Instagram</a>
-</div>
-
-<script>
-const reveals = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      el.classList.add("active");
-    }
-  });
-});
-</script>
 
 </body>
 </html>
+
