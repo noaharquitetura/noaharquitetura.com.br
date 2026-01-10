@@ -166,7 +166,7 @@ footer{
   section{padding:60px 30px;}
 }
 
-/* BANNERS FINAIS */
+/* BANNERS FINAIS REFINADOS */
 .banners-final{
   background:#f6f6f6;
   padding:80px 60px;
@@ -183,35 +183,43 @@ footer{
 .banner-card{
   background:#fff;
   border-radius:18px;
-  padding:40px 30px;
+  padding:50px 30px;
   text-align:center;
   box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  transition:all 0.3s ease;
+  transition:transform 0.4s ease, box-shadow 0.4s ease;
   text-decoration:none;
   color:#2c2c2c;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
 }
 
 .banner-card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-10px);
   box-shadow:0 20px 40px rgba(0,0,0,0.12);
 }
 
 .banner-icon{
-  font-size:48px;
   margin-bottom:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .banner-card h4{
-  font-size:20px;
-  margin-bottom:12px;
+  font-size:22px;
+  margin-bottom:14px;
   letter-spacing:0.5px;
+  font-weight:600;
 }
 
 .banner-card p{
-  font-size:14px;
+  font-size:15px;
   color:#666;
+  line-height:1.6;
+  max-width:220px;
 }
-
 </style>
 </head>
 
@@ -248,7 +256,7 @@ footer{
   <p>
     Além disso, contamos com assessoria jurídica especializada em regularização imobiliária,
     oferecendo suporte completo nos processos de <strong>usucapião</strong>, desde a análise
-    técnica e documental até o acompanhamento jurídico, proporcionando mais segurança,
+    técnica e documental até o acompanhamento jurídico pela nossa Advogada Dra. Cássia, proporcionando mais segurança,
     agilidade e tranquilidade aos nossos clientes.
   </p>
   <p>
@@ -263,9 +271,6 @@ footer{
     <li>Consultorias técnicas</li>
     <li>Regularização de obras e documentações imobiliárias</li>
   </ul>
-
-
-  </p>
 </section>
 
 <section id="projetos">
@@ -295,19 +300,51 @@ footer{
   <div class="fotos">
     <div class="pessoa">
       <img src="images/arquitetosnoah.jpeg">
-      <strong>Arquiteta e Designer </strong>
+      <strong>Arquiteta Patrícia e Designer Gráfico e Técnico de Edificações Marcus </strong>
       <span>Projetos & Avaliações</span>
     </div>
 
     <div class="pessoa">
       <img src="images/engenheiro.jpeg">
-      <strong>Engenheiro Civil</strong>
+      <strong>Carlos - Engenheiro Civil</strong>
       <span>Avaliações Imobiliárias</span>
     </div>
   </div>
+</section>
 
-  
- <section id="contato" class="contato">
+<!-- BANNERS FINAIS COM SVG REFINADOS -->
+<section class="banners-final">
+  <div class="banners-grid">
+    <a href="#" class="banner-card">
+      <div class="banner-icon">
+        <!-- Troféu -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#f39c12" viewBox="0 0 24 24"><path d="M17 3H7v2h10V3zm-2 4H9v2h6V7zm-7 5h8v8H8v-8z"/></svg>
+      </div>
+      <h4>Prêmios</h4>
+      <p>Reconhecimentos nacionais e internacionais em arquitetura e design.</p>
+    </a>
+
+    <a href="#" class="banner-card">
+      <div class="banner-icon">
+        <!-- Régua e esquadro -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#3498db" viewBox="0 0 24 24"><path d="M2 22l20-20-2-2-20 20v2h2zm17-17l2 2-3 3-2-2 3-3z"/></svg>
+      </div>
+      <h4>Projetos Personalizados</h4>
+      <p>Cada projeto é único, feito sob medida para nossos clientes.</p>
+    </a>
+
+    <a href="#" class="banner-card">
+      <div class="banner-icon">
+        <!-- Folha -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#27ae60" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.48 3 8.29 7 9.5V13h6v8.5c4-1.21 7-5.02 7-9.5 0-5.52-4.48-10-10-10z"/></svg>
+      </div>
+      <h4>Sustentabilidade</h4>
+      <p>Integramos soluções sustentáveis em todos os nossos projetos.</p>
+    </a>
+  </div>
+</section>
+
+<section id="contato" class="contato">
   <h3>Contato</h3>
   <p>
     📧 noaharquitetura@hotmail.com<br>
