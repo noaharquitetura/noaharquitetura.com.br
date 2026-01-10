@@ -1,313 +1,1022 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Noah Arquitetura</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<iframe class="h-full w-full" sandbox="allow-scripts allow-same-origin" allow="clipboard-write" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-BR&quot;&gt;
+&lt;head&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.13/html-to-image.min.js&quot; integrity=&quot;sha512-iZ2ORl595Wx6miw+GuadDet4WQbdSWS3JLMoNfY8cRGoEFy6oT3G9IbcrBeL6AfkgpA51ETt/faX6yLV+/gFJg==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      (function() {
+        const originalConsole = window.console;
+        window.console = {
+          log: (...args) =&gt; {
+            originalConsole.log(...args);
+            window.parent.postMessage({ type: 'console', message: args.join(' ') }, '*');
+          },
+          error: (...args) =&gt; {
+            originalConsole.error(...args);
+            window.parent.postMessage({ type: 'console', message: 'Error: ' + args.join(' ') }, '*');
+          },
+          warn: (...args) =&gt; {
+            originalConsole.warn(...args);
+            window.parent.postMessage({ type: 'console', message: 'Warning: ' + args.join(' ') }, '*');
+          }
+        };
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+        let requestId = 0;
+        let callbacksMap = new Map();
+        let streamControllers = new Map();
+        
+        window.claude = {
+          complete: (prompt) =&gt; {
+            return new Promise((resolve, reject) =&gt; {
+              const id = requestId++;
+              callbacksMap.set(id, { resolve, reject });
+              window.parent.postMessage({ type: 'claudeComplete', id, prompt }, '*');
+            });
+          }
+        };
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Montserrat', sans-serif;
-}
+        window.storage = {
+          get: (key, shared = false) =&gt; {
+            return new Promise((resolve, reject) =&gt; {
+              const id = requestId++;
+              callbacksMap.set(id, { resolve, reject });
+              window.parent.postMessage({ type: 'storageGet', id, key, shared }, '*');
+            });
+          },
+          set: (key, value, shared = false) =&gt; {
+            return new Promise((resolve, reject) =&gt; {
+              const id = requestId++;
+              callbacksMap.set(id, { resolve, reject });
+              window.parent.postMessage({ type: 'storageSet', id, key, value, shared }, '*');
+            });
+          },
+          delete: (key, shared = false) =&gt; {
+            return new Promise((resolve, reject) =&gt; {
+              const id = requestId++;
+              callbacksMap.set(id, { resolve, reject });
+              window.parent.postMessage({ type: 'storageDelete', id, key, shared }, '*');
+            });
+          },
+          list: (prefix, shared = false) =&gt; {
+            return new Promise((resolve, reject) =&gt; {
+              const id = requestId++;
+              callbacksMap.set(id, { resolve, reject });
+              window.parent.postMessage({ type: 'storageList', id, prefix, shared }, '*');
+            });
+          }
+        };
 
-body{
-  background:#f6f6f6;
-  color:#2c2c2c;
-  line-height:1.6;
-}
+        let pendingBlobs = new Map();
+        URL.createObjectURL = (blob) =&gt; {
+          // Store the blob and create an ID and URL for it
+          const blobId = `blob-${Date.now()}-${Math.random()}`;
+          pendingBlobs.set(blobId, blob);
+          return `blob-request://${blobId}`;
+        };
 
-/* HEADER */
-header{
-  background:#fff;
-  padding:30px 40px;
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #e0e0e0;
-}
+        URL.revokeObjectURL = (url) =&gt; {
+          // Remove the blob from our store
+          const blobId = url.replace(&quot;blob-request://&quot;, &quot;&quot;);
+          pendingBlobs.delete(blobId);
+        };
 
-header h1{
-  font-size:22px;
-  letter-spacing:2px;
-}
+        const getBlobFromURL = (url) =&gt; {
+          const blobId = url.replace(&quot;blob-request://&quot;, &quot;&quot;);
+          return pendingBlobs.get(blobId);
+        };
 
-nav a{
-  margin-left:30px;
-  text-decoration:none;
-  color:#2c2c2c;
-  font-size:14px;
-}
+        // Override global fetch with streaming support
+        window.fetch = (url, init = {}) =&gt; {
+          return new Promise((resolve, reject) =&gt; {
+            const id = requestId++;
+            const channelId = `fetch-${id}-${Date.now()}`;
+            
+            callbacksMap.set(id, { 
+              resolve: (response) =&gt; {
+                // Create a ReadableStream for the response body
+                const stream = new ReadableStream({
+                  start(controller) {
+                    streamControllers.set(channelId, controller);
+                  },
+                  cancel() {
+                    streamControllers.delete(channelId);
+                  }
+                });
+                
+                // Create and return the Response with the stream
+                resolve(new Response(stream, {
+                  status: response.status,
+                  statusText: response.statusText,
+                  headers: response.headers
+                }));
+              },
+              reject,
+              channelId
+            });
+            
+            window.parent.postMessage({
+              type: 'proxyFetch',
+              id,
+              url,
+              init,
+              channelId
+            }, '*');
+          });
+        };
 
-nav a:hover{opacity:0.6;}
+        window.addEventListener('message', async (event) =&gt; {
+          if (event.data.type === 'takeScreenshot') {
+            const rootElement = document.getElementById('artifacts-component-root-html');
+            if (!rootElement) {
+              window.parent.postMessage({
+                type: 'screenshotError',
+                error: new Error('Root element not found'),
+              }, '*');
+            }
+            const screenshot = await htmlToImage.toPng(rootElement, {
+              imagePlaceholder:
+                &quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjePDgwX8ACOQDoNsk0PMAAAAASUVORK5CYII=&quot;,
+            });
+            window.parent.postMessage({
+              type: 'screenshotData',
+              data: screenshot,
+            }, '*');
+          } else if (event.data.type === 'claudeComplete') {
+            const callback = callbacksMap.get(event.data.id);
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+            } else {
+              callback.resolve(event.data.completion);
+            }
+            callbacksMap.delete(event.data.id);
+          } else if (event.data.type === 'proxyFetchResponse') {
+            const callback = callbacksMap.get(event.data.id);
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+              callbacksMap.delete(event.data.id);
+            } else {
+              // Initial response with headers, status, etc.
+              callback.resolve({
+                status: event.data.status,
+                statusText: event.data.statusText,
+                headers: event.data.headers
+              });
+              // Don't delete the callback yet if streaming
+              if (!event.data.body) {
+                callbacksMap.delete(event.data.id);
+              }
+            }
+          } else if (event.data.type === 'proxyFetchStream') {
+            // Handle streaming data chunks
+            const controller = streamControllers.get(event.data.channelId);
+            if (controller) {
+              if (event.data.error) {
+                controller.error(new Error(event.data.error));
+                streamControllers.delete(event.data.channelId);
+              } else if (event.data.done) {
+                controller.close();
+                streamControllers.delete(event.data.channelId);
+                // Clean up the callback
+                const callback = Array.from(callbacksMap.entries()).find(
+                  ([_, value]) =&gt; value.channelId === event.data.channelId
+                );
+                if (callback) {
+                  callbacksMap.delete(callback[0]);
+                }
+              } else if (event.data.chunk) {
+                controller.enqueue(new Uint8Array(event.data.chunk));
+              }
+            }
+          } else if (event.data.type === 'storageGet') {
+            const callback = callbacksMap.get(event.data.id);
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+            } else {
+              callback.resolve(event.data.result);
+            }
+            callbacksMap.delete(event.data.id);
+          } else if (event.data.type === 'storageSet') {
+            const callback = callbacksMap.get(event.data.id);
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+            } else {
+              callback.resolve(event.data.result);
+            }
+            callbacksMap.delete(event.data.id);
+          } else if (event.data.type === 'storageDelete') {
+            const callback = callbacksMap.get(event.data.id);
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+            } else {
+              callback.resolve(event.data.result);
+            }
+            callbacksMap.delete(event.data.id);
+          } else if (event.data.type === 'storageList') {
+            const callback = callbacksMap.get(event.data.id);
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+            } else {
+              callback.resolve(event.data.result);
+            }
+            callbacksMap.delete(event.data.id);
+          }
+        });
 
-/* BANNER */
-.hero{
-  height:100vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-    url('images/banner.jpeg') center/cover no-repeat;
-  display:flex;
-  align-items:flex-end;
-  padding:60px;
-  color:#fff;
-}
+        window.addEventListener('click', (event) =&gt; {
+          const isEl = event.target instanceof HTMLElement;
+          if (!isEl) return;
+    
+          // find ancestor links
+          const linkEl = event.target.closest(&quot;a&quot;);
+          if (!linkEl || !linkEl.href) return;
+    
+          event.preventDefault();
+          event.stopImmediatePropagation();
+    
+          if (linkEl.href.startsWith(&quot;blob-request:&quot;)) {
+            const blob = getBlobFromURL(linkEl.href);
+            if (!blob) return;
+            void blob.arrayBuffer().then((data) =&gt; {
+              window.parent.postMessage({
+                type: &quot;downloadFile&quot;,
+                filename: linkEl.download,
+                data,
+                mimeType: blob.type || &quot;application/octet-stream&quot;,
+              });
+            });
+          } else if (linkEl.href.startsWith(&quot;data:&quot;)) {
+            const [header, base64Data] = linkEl.href.split(&quot;,&quot;);
+            const mimeMatch = header.match(/data:([^;]+)/);
+            const mimeType = mimeMatch ? mimeMatch[1] : &quot;application/octet-stream&quot;;
+            const binaryString = atob(base64Data);
+            const data = Uint8Array.from(binaryString, (c) =&gt;
+              c.charCodeAt(0),
+            ).buffer;
+            window.parent.postMessage({
+              type: &quot;downloadFile&quot;,
+              filename: linkEl.download,
+              data,
+              mimeType,
+            });
+          } else {
+            let linkUrl;
+            try {
+              linkUrl = new URL(linkEl.href);
+            } catch (error) {
+              return;
+            }
+    
+            if (linkUrl.hostname === window.location.hostname) return;
+      
+            window.parent.postMessage({
+              type: 'openExternal',
+              href: linkEl.href,
+            }, '*');
+          }
+      });
 
-.hero h2{
-  font-size:48px;
-  font-weight:300;
-  max-width:600px;
-}
+        const originalOpen = window.open;
+        window.open = function (url) {
+          window.parent.postMessage({
+            type: &quot;openExternal&quot;,
+            href: url,
+          }, &quot;*&quot;);
+        };
 
-/* SEÇÕES */
-section{
-  padding:80px 60px;
-  background:#fff;
-  max-width:1100px;
-  margin:0 auto;
-}
+        window.addEventListener('error', (event) =&gt; {
+          window.parent.postMessage({ type: 'console', message: 'Uncaught Error: ' + event.message }, '*');
+        });
+      })();
+    &lt;/script&gt;
+  
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Noah Arquitetura - Projetos arquitetônicos contemporâneos, laudos técnicos e regularização imobiliária no PR e SC desde 2014.&quot;&gt;
+    &lt;title&gt;Noah Arquitetura | Arquitetura Contemporânea &amp; Laudos Técnicos&lt;/title&gt;
+    &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+    &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-section:nth-of-type(even){background:#f0f0f0;}
+        :root {
+            --primary: #2c3e50;
+            --secondary: #c9a961;
+            --accent: #e67e22;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --white: #ffffff;
+            --gray: #7f8c8d;
+        }
 
-section h3{
-  font-size:28px;
-  margin-bottom:30px;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* SOBRE */
-.sobre-texto p{
-  max-width:800px;
-  margin-bottom:18px;
-}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            overflow-x: hidden;
+        }
 
-/* EQUIPE */
-.fotos{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap;
-  margin:40px 0;
-}
+        /* Header &amp; Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 37, 47, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
 
-.pessoa{
-  text-align:center;
-}
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
 
-.pessoa img{
-  width:220px;
-  height:300px;
-  object-fit:cover;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
 
-.pessoa strong{
-  display:block;
-  margin-top:12px;
-}
+        .logo span {
+            color: var(--secondary);
+        }
 
-.pessoa span{
-  font-size:14px;
-  color:#666;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
 
-/* PROJETOS */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
 
-.project{
-  background:#fff;
-  border:1px solid #ddd;
-  text-align:center;
-}
+        nav a:hover {
+            color: var(--secondary);
+        }
 
-.project img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(26, 37, 47, 0.9)), 
+                        url('data:image/svg+xml,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 800&quot;&gt;&lt;rect fill=&quot;%232c3e50&quot; width=&quot;1200&quot; height=&quot;800&quot;/&gt;&lt;path fill=&quot;%23c9a961&quot; opacity=&quot;0.1&quot; d=&quot;M0 400 L400 200 L800 500 L1200 300 L1200 800 L0 800 Z&quot;/&gt;&lt;/svg&gt;');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
 
-.project span{
-  display:block;
-  padding:12px;
-}
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
 
-/* CONTATO */
-.contato p{
-  font-size:16px;
-}
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
 
-/* FOOTER */
-footer{
-  background:#1e1e1e;
-  color:#fff;
-  text-align:center;
-  padding:30px;
-  font-size:13px;
-}
+        .hero .subtitle {
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
 
-/* MOBILE */
-@media(max-width:768px){
-  header{
-    flex-direction:column;
-    gap:20px;
-  }
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
 
-  .hero h2{font-size:32px;}
-  section{padding:60px 30px;}
-}
-</style>
-</head>
+        .btn {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
 
-<body>
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--dark);
+        }
 
-<header>
-  <h1>NOAH ARQUITETURA</h1>
-  <nav>
-    <a href="#projetos">Projetos</a>
-    <a href="#sobre">Sobre Nós</a>
-    <a href="#contato">Contato</a>
-  </nav>
-</header>
+        .btn-primary:hover {
+            background: #d4b76f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
 
-<div class="hero">
-  <h2><strong>Arquitetura que transforma ideias em espaços que acolhem, inspiram e permanecem.</strong></h2>
-</div>
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
 
-<section class="sobre-texto">
-  <h3>Noah Arquitetura – Excelência que transforma espaços</h3>
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
 
-  <p>
-    A Noah Arquitetura atua desde 2014 nos estados do Paraná e Santa Catarina, oferecendo soluções
-    completas em arquitetura, sempre unindo técnica, criatividade e compromisso com a qualidade.
-    Nossa missão é transformar sonhos em projetos únicos, funcionais e cheios de personalidade,
-    respeitando as necessidades de cada cliente e valorizando cada detalhe.
-  </p>
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+        }
 
-  <p>
-    Somos especialistas na elaboração de laudos técnicos e avaliações de imóveis urbanos,
-    em conformidade com a <strong>NBR 14.653</strong>, trabalhando com precisão, responsabilidade
-    e embasamento técnico para garantir segurança, transparência e credibilidade em cada serviço
-    prestado. Atendemos tanto pessoas físicas quanto empresas, sempre com profissionalismo e ética.
-  </p>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-  <p>
-    Além disso, contamos com assessoria jurídica especializada em regularização imobiliária,
-    oferecendo suporte completo nos processos de <strong>usucapião</strong>, desde a análise
-    técnica e documental até o acompanhamento jurídico, proporcionando mais segurança,
-    agilidade e tranquilidade aos nossos clientes.
-  </p>
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
 
-  <p>
-    Desenvolvemos projetos arquitetônicos completos, desde a concepção até o detalhamento,
-    criando espaços que unem estética, conforto e funcionalidade. Trabalhamos com:
-  </p>
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-  <ul>
-    <li>Projetos residenciais e comerciais</li>
-    <li>Modelagem 3D realista e vídeos 3D</li>
-    <li>Design de interiores personalizado</li>
-    <li>Paisagismo</li>
-    <li>Consultorias técnicas</li>
-    <li>Regularização de obras e documentações imobiliárias</li>
-  </ul>
+        /* About Section */
+        #sobre {
+            background: var(--light);
+        }
 
-  <p>
-    Cada projeto é pensado de forma exclusiva, refletindo o estilo de vida, os objetivos e o
-    investimento de cada cliente. Utilizamos tecnologia, criatividade e conhecimento técnico
-    para entregar soluções modernas, inteligentes e duradouras.
-  </p>
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
 
-  <p>
-    Na Noah Arquitetura, acreditamos que arquitetura vai além de construir — é sobre criar
-    experiências, valorizar espaços e melhorar a qualidade de vida. Nosso compromisso é oferecer
-    um atendimento próximo, transparente e eficiente, garantindo tranquilidade em todas as
-    etapas do processo.
-  </p>
-</section>
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--primary);
+        }
 
-<section id="projetos">
-  <h3>Projetos</h3>
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
 
-  <div class="projects">
-    <div class="project">
-      <img src="images/sobrados.jpeg">
-      <span>Projeto Residencial</span>
-    </div>
+        .about-text strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
 
-    <div class="project">
-      <img src="images/misto.png">
-      <span>Projeto Misto</span>
-    </div>
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
 
-    <div class="project">
-      <img src="images/interior.jpeg">
-      <span>Interiores</span>
-    </div>
-  </div>
-</section>
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            text-align: center;
+        }
 
-<section id="sobre">
-  <h3>Sobre Nós</h3>
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
 
-  <div class="fotos">
-    <div class="pessoa">
-      <img src="images/arquitetosnoah.jpeg">
-      <strong>Arquiteta</strong>
-      <span>Projetos & Avaliações</span>
-    </div>
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
 
-    <div class="pessoa">
-      <img src="images/engenheiro.jpeg">
-      <strong>Engenheiro Civil</strong>
-      <span>Avaliações Imobiliárias</span>
-    </div>
-  </div>
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
 
-  <p>
-    Nossa equipe é formada por arquiteta, engenheiro, designer e técnico em edificações,
-    além de assessoria jurídica especializada.
-  </p>
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
 
-  <p>
-    O engenheiro atua há mais de <strong>20 anos</strong> em avaliações de imóveis,
-    credenciado pela <strong>Caixa Econômica Federal</strong>, seguindo rigorosamente a
-    <strong>NBR 14.653</strong>.
-  </p>
+        .service-list {
+            list-style: none;
+            margin-top: 1rem;
+            text-align: left;
+        }
 
-  <p>
-    A arquiteta também atua na área de avaliações e desenvolvimento de projetos completos.
-    O designer e técnico em edificações desenvolve projetos técnicos, modelagens 3D
-    e moldes para vacuum formagem.
-  </p>
+        .service-list li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
 
-  <p>
-    A assessoria jurídica conta com advogada formada há mais de <strong>25 anos</strong>,
-    atuando em diversas áreas do direito, com especialização em <strong>usucapião</strong>.
-  </p>
-</section>
+        .service-list li:before {
+            content: &quot;✓&quot;;
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
 
-<section id="contato" class="contato">
-  <h3>Contato</h3>
-  <p>
-    📧 noaharquitetura@hotmail.com<br>
-    📞 (43) 99614-1663 – PR<br>
-    📞 (48) 99686-5891 – SC
-  </p>
-</section>
+        /* Projects Gallery */
+        #projetos {
+            background: var(--dark);
+            color: var(--white);
+        }
 
-<footer>
-  © Desde 2014 · Noah Arquitetura · Todos os direitos reservados
-</footer>
+        #projetos .section-title {
+            color: var(--white);
+        }
 
-</body>
-</html>
+        #projetos .section-subtitle {
+            color: var(--light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 400px;
+            cursor: pointer;
+            background: var(--primary);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26, 37, 47, 0.95), transparent);
+            padding: 2rem;
+            transform: translateY(70%);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+
+        .project-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .project-overlay p {
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        #contato {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: var(--white);
+        }
+
+        #contato .section-title {
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .contact-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body id=&quot;artifacts-component-root-html&quot;&gt;
+    &lt;!-- Header --&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;div class=&quot;logo&quot;&gt;NOAH&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+            &lt;button class=&quot;mobile-menu-btn&quot; onclick=&quot;toggleMenu()&quot;&gt;☰&lt;/button&gt;
+            &lt;ul id=&quot;menu&quot;&gt;
+                &lt;li&gt;&lt;a href=&quot;#sobre&quot;&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#servicos&quot;&gt;Serviços&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#projetos&quot;&gt;Portfólio&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#contato&quot;&gt;Contato&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Hero Section --&gt;
+    &lt;section class=&quot;hero&quot;&gt;
+        &lt;div class=&quot;hero-content&quot;&gt;
+            &lt;h1&gt;Arquitetura que transforma &lt;br&gt;sonhos em realidade&lt;/h1&gt;
+            &lt;p class=&quot;subtitle&quot;&gt;CONTEMPORÂNEO · FUNCIONAL · ATEMPORAL&lt;/p&gt;
+            &lt;div class=&quot;cta-buttons&quot;&gt;
+                &lt;a href=&quot;#contato&quot; class=&quot;btn btn-primary&quot;&gt;Iniciar Projeto&lt;/a&gt;
+                &lt;a href=&quot;#projetos&quot; class=&quot;btn btn-secondary&quot;&gt;Ver Portfólio&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- About Section --&gt;
+    &lt;section id=&quot;sobre&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;h2 class=&quot;section-title&quot;&gt;Excelência desde 2014&lt;/h2&gt;
+            &lt;p class=&quot;section-subtitle&quot;&gt;Transformando espaços no Paraná e Santa Catarina com técnica, criatividade e compromisso absoluto com a qualidade&lt;/p&gt;
+            
+            &lt;div class=&quot;about-content&quot;&gt;
+                &lt;div class=&quot;about-text&quot;&gt;
+                    &lt;p&gt;A &lt;strong&gt;Noah Arquitetura&lt;/strong&gt; nasceu da paixão por criar espaços que transcendem o comum. Há mais de uma década, unimos expertise técnica e visão criativa para desenvolver projetos arquitetônicos que refletem a essência e os sonhos de cada cliente.&lt;/p&gt;
+                    
+                    &lt;p&gt;Nossa atuação vai além do projeto arquitetônico: somos especialistas em &lt;strong&gt;laudos técnicos e avaliações imobiliárias&lt;/strong&gt; conforme a NBR 14.653, oferecendo precisão, transparência e segurança jurídica em cada análise. Trabalhamos com embasamento técnico sólido para pessoas físicas, empresas e instituições financeiras.&lt;/p&gt;
+                    
+                    &lt;p&gt;Contamos com &lt;strong&gt;assessoria jurídica especializada em regularização imobiliária&lt;/strong&gt;, incluindo processos de usucapião, desde o levantamento técnico até o acompanhamento judicial completo. Garantimos agilidade, segurança e tranquilidade em cada etapa do processo.&lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;about-text&quot;&gt;
+                    &lt;p&gt;Cada projeto é único. Desenvolvemos soluções personalizadas que equilibram estética, funcionalidade e sustentabilidade, sempre respeitando o estilo de vida e as necessidades específicas de cada cliente.&lt;/p&gt;
+                    
+                    &lt;p&gt;Utilizamos as mais modernas tecnologias de &lt;strong&gt;modelagem 3D e renderização fotorrealística&lt;/strong&gt;, permitindo que você visualize seu projeto com riqueza de detalhes antes mesmo de iniciar a construção.&lt;/p&gt;
+                    
+                    &lt;p&gt;Nossa missão é criar espaços que inspiram, valorizam e melhoram a qualidade de vida. Porque acreditamos que arquitetura não é apenas construir – é transformar sonhos em experiências concretas e memoráveis.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Services Section --&gt;
+    &lt;section id=&quot;servicos&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;h2 class=&quot;section-title&quot;&gt;Serviços Especializados&lt;/h2&gt;
+            &lt;p class=&quot;section-subtitle&quot;&gt;Soluções completas para todas as etapas do seu projeto&lt;/p&gt;
+            
+            &lt;div class=&quot;services-grid&quot;&gt;
+                &lt;div class=&quot;service-card&quot;&gt;
+                    &lt;div class=&quot;service-icon&quot;&gt;🏛️&lt;/div&gt;
+                    &lt;h3&gt;Projetos Arquitetônicos&lt;/h3&gt;
+                    &lt;p&gt;Projetos residenciais e comerciais completos, do conceito à execução.&lt;/p&gt;
+                    &lt;ul class=&quot;service-list&quot;&gt;
+                        &lt;li&gt;Arquitetura residencial&lt;/li&gt;
+                        &lt;li&gt;Arquitetura comercial&lt;/li&gt;
+                        &lt;li&gt;Reforma e ampliação&lt;/li&gt;
+                        &lt;li&gt;Projetos executivos&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;service-card&quot;&gt;
+                    &lt;div class=&quot;service-icon&quot;&gt;📋&lt;/div&gt;
+                    &lt;h3&gt;Laudos &amp; Avaliações&lt;/h3&gt;
+                    &lt;p&gt;Laudos técnicos e avaliações imobiliárias conforme NBR 14.653.&lt;/p&gt;
+                    &lt;ul class=&quot;service-list&quot;&gt;
+                        &lt;li&gt;Avaliação de imóveis urbanos&lt;/li&gt;
+                        &lt;li&gt;Laudos para financiamento&lt;/li&gt;
+                        &lt;li&gt;Perícias técnicas&lt;/li&gt;
+                        &lt;li&gt;Vistoria cautelar&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;service-card&quot;&gt;
+                    &lt;div class=&quot;service-icon&quot;&gt;⚖️&lt;/div&gt;
+                    &lt;h3&gt;Regularização&lt;/h3&gt;
+                    &lt;p&gt;Assessoria jurídica completa em processos de regularização imobiliária.&lt;/p&gt;
+                    &lt;ul class=&quot;service-list&quot;&gt;
+                        &lt;li&gt;Usucapião&lt;/li&gt;
+                        &lt;li&gt;Regularização de obras&lt;/li&gt;
+                        &lt;li&gt;Documentação técnica&lt;/li&gt;
+                        &lt;li&gt;Acompanhamento judicial&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;service-card&quot;&gt;
+                    &lt;div class=&quot;service-icon&quot;&gt;🎨&lt;/div&gt;
+                    &lt;h3&gt;Design de Interiores&lt;/h3&gt;
+                    &lt;p&gt;Ambientes personalizados que refletem seu estilo e necessidades.&lt;/p&gt;
+                    &lt;ul class=&quot;service-list&quot;&gt;
+                        &lt;li&gt;Projeto de interiores&lt;/li&gt;
+                        &lt;li&gt;Especificação de materiais&lt;/li&gt;
+                        &lt;li&gt;Mobiliário planejado&lt;/li&gt;
+                        &lt;li&gt;Iluminação técnica&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;service-card&quot;&gt;
+                    &lt;div class=&quot;service-icon&quot;&gt;🖥️&lt;/div&gt;
+                    &lt;h3&gt;Visualização 3D&lt;/h3&gt;
+                    &lt;p&gt;Tecnologia de ponta para você visualizar cada detalhe do seu projeto.&lt;/p&gt;
+                    &lt;ul class=&quot;service-list&quot;&gt;
+                        &lt;li&gt;Modelagem 3D realista&lt;/li&gt;
+                        &lt;li&gt;Renderização fotorrealística&lt;/li&gt;
+                        &lt;li&gt;Vídeos 3D imersivos&lt;/li&gt;
+                        &lt;li&gt;Tour virtual&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;service-card&quot;&gt;
+                    &lt;div class=&quot;service-icon&quot;&gt;🌿&lt;/div&gt;
+                    &lt;h3&gt;Paisagismo&lt;/h3&gt;
+                    &lt;p&gt;Projetos paisagísticos que harmonizam arquitetura e natureza.&lt;/p&gt;
+                    &lt;ul class=&quot;service-list&quot;&gt;
+                        &lt;li&gt;Jardins residenciais&lt;/li&gt;
+                        &lt;li&gt;Paisagismo comercial&lt;/li&gt;
+                        &lt;li&gt;Áreas de lazer&lt;/li&gt;
+                        &lt;li&gt;Consultoria botânica&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Projects Section --&gt;
+    &lt;section id=&quot;projetos&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;h2 class=&quot;section-title&quot;&gt;Portfólio de Projetos&lt;/h2&gt;
+            &lt;p class=&quot;section-subtitle&quot;&gt;Conheça alguns dos nossos trabalhos que transformaram sonhos em realidade&lt;/p&gt;
+            
+            &lt;div class=&quot;projects-grid&quot;&gt;
+                &lt;div class=&quot;project-card&quot;&gt;
+                    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%232c3e50' width='800' height='600'/%3E%3Cpath fill='%23c9a961' opacity='0.3' d='M0 300 L200 200 L400 350 L600 250 L800 400 L800 600 L0 600 Z'/%3E%3Ctext x='400' y='300' font-size='48' fill='%23fff' text-anchor='middle' font-family='Arial'%3EResidencial%3C/text%3E%3C/svg%3E&quot; alt=&quot;Projeto Residencial&quot; class=&quot;project-image&quot;&gt;
+                    &lt;div class=&quot;project-overlay&quot;&gt;
+                        &lt;h3&gt;Projetos Residenciais&lt;/h3&gt;
+                        &lt;p&gt;Casas e sobrados que unem conforto, funcionalidade e design contemporâneo. Cada ambiente é pensado para proporcionar qualidade de vida e bem-estar.&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;project-card&quot;&gt;
+                    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%231a252f' width='800' height='600'/%3E%3Cpath fill='%23c9a961' opacity='0.3' d='M100 100 L300 100 L300 500 L100 500 Z M400 150 L600 150 L600 450 L400 450 Z'/%3E%3Ctext x='400' y='300' font-size='48' fill='%23fff' text-anchor='middle' font-family='Arial'%3EComercial%3C/text%3E%3C/svg%3E&quot; alt=&quot;Projeto Comercial&quot; class=&quot;project-image&quot;&gt;
+                    &lt;div class=&quot;project-overlay&quot;&gt;
+                        &lt;h3&gt;Projetos Comerciais&lt;/h3&gt;
+                        &lt;p&gt;Espaços comerciais estratégicos que potencializam resultados. Design inteligente para lojas, escritórios e estabelecimentos que se destacam.&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;project-card&quot;&gt;
+                    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%232c3e50' width='800' height='600'/%3E%3Ccircle cx='200' cy='300' r='100' fill='%23c9a961' opacity='0.2'/%3E%3Ccircle cx='600' cy='300' r='120' fill='%23c9a961' opacity='0.15'/%3E%3Ctext x='400' y='300' font-size='48' fill='%23fff' text-anchor='middle' font-family='Arial'%3EInteriores%3C/text%3E%3C/svg%3E&quot; alt=&quot;Design de Interiores&quot; class=&quot;project-image&quot;&gt;
+                    &lt;div class=&quot;project-overlay&quot;&gt;
+                        &lt;h3&gt;Design de Interiores&lt;/h3&gt;
+                        &lt;p&gt;Ambientes personalizados com identidade única. Do conceito aos detalhes finais, criamos espaços que refletem seu estilo de vida.&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Contact Section --&gt;
+    &lt;section id=&quot;contato&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;h2 class=&quot;section-title&quot;&gt;Vamos Conversar?&lt;/h2&gt;
+            &lt;p class=&quot;section-subtitle&quot;&gt;Entre em contato e transforme suas ideias em projetos reais&lt;/p&gt;
+            
+            &lt;div class=&quot;contact-grid&quot;&gt;
+                &lt;div class=&quot;contact-item&quot;&gt;
+                    &lt;div class=&quot;contact-icon&quot;&gt;📧&lt;/div&gt;
+                    &lt;h3&gt;E-mail&lt;/h3&gt;
+                    &lt;a href=&quot;mailto:noaharquitetura@hotmail.com&quot;&gt;noaharquitetura@hotmail.com&lt;/a&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;contact-item&quot;&gt;
+                    &lt;div class=&quot;contact-icon&quot;&gt;📱&lt;/div&gt;
+                    &lt;h3&gt;Paraná&lt;/h3&gt;
+                    &lt;a href=&quot;tel:+5543996141663&quot;&gt;(43) 99614-1663&lt;/a&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;contact-item&quot;&gt;
+                    &lt;div class=&quot;contact-icon&quot;&gt;📱&lt;/div&gt;
+                    &lt;h3&gt;Santa Catarina&lt;/h3&gt;
+                    &lt;a href=&quot;tel:+5548996865899&quot;&gt;(48) 99686-5899&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;social-links&quot;&gt;
+                &lt;a href=&quot;https://wa.me/5543996141663&quot; class=&quot;social-link&quot; target=&quot;_blank&quot; title=&quot;WhatsApp&quot;&gt;💬&lt;/a&gt;
+                &lt;a href=&quot;https://www.instagram.com/noaharquitetura&quot; class=&quot;social-link&quot; target=&quot;_blank&quot; title=&quot;Instagram&quot;&gt;📷&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Footer --&gt;
+    &lt;footer&gt;
+        &lt;p&gt;© 2026 Noah Arquitetura · Todos os direitos reservados · PR &amp; SC&lt;/p&gt;
+    &lt;/footer&gt;
+
+    &lt;script&gt;
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link =&gt; {
+            link.addEventListener('click', () =&gt; {
+                document.getElementById('menu').classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^=&quot;#&quot;]').forEach(anchor =&gt; {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
