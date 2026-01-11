@@ -181,15 +181,29 @@ footer{
   gap:30px;
 }
 
-.banner-card{
-  background:#fff;
+banner-card{
+  background:#000;
   border-radius:18px;
   padding:50px 30px;
   text-align:center;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
   transition:0.4s;
   text-decoration:none;
-  color:#2c2c2c;
+  color:#fff;
+}
+
+.banner-card h4{
+  color:#fff;
+}
+
+.banner-card p{
+  color:#ccc;
+}
+
+.banner-card:hover{
+  transform:translateY(-10px);
+  background:#111;
+}
 }
 
 .banner-card:hover{
