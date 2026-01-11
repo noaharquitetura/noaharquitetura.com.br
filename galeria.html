@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Galeria | Noah Arquitetura</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat', sans-serif;
+}
+
+body{
+  background:#f6f6f6;
+  color:#2c2c2c;
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  padding:30px 40px;
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #e0e0e0;
+}
+
+header a{
+  text-decoration:none;
+  color:#2c2c2c;
+  font-weight:600;
+}
+
+/* GALERIA */
+.galeria{
+  max-width:1100px;
+  margin:60px auto;
+  padding:0 30px;
+}
+
+.galeria h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-weight:400;
+  letter-spacing:2px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.grid img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:12px;
+  transition:.3s;
+  cursor:pointer;
+}
+
+.grid img:hover{
+  transform:scale(1.05);
+}
+
+/* FOOTER */
+footer{
+  background:#1e1e1e;
+  color:#fff;
+  text-align:center;
+  padding:30px;
+  font-size:13px;
+  margin-top:60px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">← Voltar para o site</a>
+</header>
+
+<section class="galeria">
+<h2>Galeria de Projetos</h2>
+
+<div class="grid">
+  <img src="images/foto1.jpg">
+  <img src="images/foto2.jpg">
+  <img src="images/foto3.jpg">
+  <img src="images/foto4.jpg">
+  <img src="images/foto5.jpg">
+  <img src="images/foto6.jpg">
+</div>
+
+</section>
+
+<footer>
+<p>© Noah Arquitetura</p>
+</footer>
+
+</body>
+</html>
