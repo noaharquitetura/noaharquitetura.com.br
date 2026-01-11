@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{
@@ -142,8 +143,8 @@ section h3{
 }
 
 /* CONTATO */
-.contato p{
-  font-size:16px;
+.contato{
+  text-align:center;
 }
 
 /* FOOTER */
@@ -155,18 +156,18 @@ footer{
   font-size:13px;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-  header{
-    flex-direction:column;
-    gap:20px;
-  }
-
-  .hero h2{font-size:32px;}
-  section{padding:60px 30px;}
+.redes a{
+  font-size:28px;
+  margin:0 10px;
+  color:#fff;
+  text-decoration:none;
 }
 
-/* BANNERS FINAIS REFINADOS */
+.redes a:hover{
+  color:#25D366;
+}
+
+/* BANNERS */
 .banners-final{
   background:#f6f6f6;
   padding:80px 60px;
@@ -186,39 +187,23 @@ footer{
   padding:50px 30px;
   text-align:center;
   box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  transition:transform 0.4s ease, box-shadow 0.4s ease;
+  transition:0.4s;
   text-decoration:none;
   color:#2c2c2c;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
 }
 
 .banner-card:hover{
   transform:translateY(-10px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.12);
 }
 
-.banner-icon{
-  margin-bottom:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.banner-card h4{
-  font-size:22px;
-  margin-bottom:14px;
-  letter-spacing:0.5px;
-  font-weight:600;
-}
-
-.banner-card p{
-  font-size:15px;
-  color:#666;
-  line-height:1.6;
-  max-width:220px;
+/* MOBILE */
+@media(max-width:768px){
+  header{
+    flex-direction:column;
+    gap:20px;
+  }
+  .hero h2{font-size:32px;}
+  section{padding:60px 30px;}
 }
 </style>
 </head>
@@ -239,183 +224,120 @@ footer{
 </div>
 
 <section class="sobre-texto">
-  <h3>Noah Arquitetura – Excelência que transforma espaços</h3>
+<h3>Noah Arquitetura – Excelência que transforma espaços</h3>
 
-  <p>
-  A Noah Arquitetura nasceu da paixão por criar espaços que transcendem o comum.
-  Há mais de uma década, unimos expertise técnica e visão criativa para desenvolver projetos arquitetônicos
-  que refletem a essência e os sonhos de cada cliente.
-  </p>
+<p>
+A Noah Arquitetura nasceu da paixão por criar espaços que transcendem o comum.
+Há mais de uma década, unimos expertise técnica e visão criativa para desenvolver projetos arquitetônicos
+que refletem a essência e os sonhos de cada cliente.
+</p>
 
-  <p>
- Nossa atuação vai além do projeto arquitetônico: somos especialistas em laudos técnicos e avaliações imobiliárias
- conforme a NBR 14.653, oferecendo precisão, transparência e segurança jurídica em cada análise.
- Trabalhamos com embasamento técnico sólido para pessoas físicas, empresas e instituições financeiras.
-  </p>
+<p>
+Nossa atuação vai além do projeto arquitetônico: somos especialistas em laudos técnicos e avaliações imobiliárias
+conforme a NBR 14.653, oferecendo precisão, transparência e segurança jurídica em cada análise.
+Trabalhamos com embasamento técnico sólido para pessoas físicas, empresas e instituições financeiras.
+</p>
 
-  <p>
-    Além disso, contamos com assessoria jurídica especializada em regularização imobiliária,
-    oferecendo suporte completo nos processos de <strong>usucapião</strong>, desde a análise
-    técnica e documental até o acompanhamento jurídico, proporcionando mais segurança,
-    agilidade e tranquilidade aos nossos clientes.
-  </p>
-  <p>
-    Trabalhamos com:
-  </p>
+<p>
+Além disso, contamos com assessoria jurídica especializada em regularização imobiliária,
+oferecendo suporte completo nos processos de <strong>usucapião</strong>, desde a análise
+técnica e documental até o acompanhamento jurídico, proporcionando mais segurança,
+agilidade e tranquilidade aos nossos clientes.
+</p>
 
-  <ul>
-    <li>Projetos residenciais e comerciais</li>
-    <li>Modelagem 3D realista e vídeos 3D</li>
-    <li>Design de interiores personalizado</li>
-    <li>Paisagismo</li>
-    <li>Consultorias técnicas</li>
-    <li>Regularização de obras e documentações imobiliárias</li>
-  </ul>
+<p>Trabalhamos com:</p>
+
+<ul>
+  <li>Projetos residenciais e comerciais</li>
+  <li>Modelagem 3D realista e vídeos 3D</li>
+  <li>Design de interiores personalizado</li>
+  <li>Paisagismo</li>
+  <li>Consultorias técnicas</li>
+  <li>Regularização de obras e documentações imobiliárias</li>
+</ul>
 </section>
 
 <section id="projetos">
-  <h3>Projetos</h3>
+<h3>Projetos</h3>
 
-  <div class="projects">
-    <div class="project">
-      <img src="images/sobrados.jpeg">
-      <span>Projeto Residencial</span>
-    </div>
-
-    <div class="project">
-      <img src="images/misto.jpg">
-      <span>Projeto Residencial comercial</span>
-    </div>
-
-    <div class="project">
-      <img src="images/interior.jpeg">
-      <span>Interiores</span>
-    </div>
+<div class="projects">
+  <div class="project">
+    <img src="images/sobrados.jpeg">
+    <span>Projeto Residencial</span>
   </div>
+
+  <div class="project">
+    <img src="images/misto.jpg">
+    <span>Projeto Residencial comercial</span>
+  </div>
+
+  <div class="project">
+    <img src="images/interior.jpeg">
+    <span>Interiores</span>
+  </div>
+</div>
 </section>
 
 <section id="sobre">
-  <h3>Sobre Nós</h3>
+<h3>Sobre Nós</h3>
 
-  <div class="fotos">
-    <div class="pessoa">
-      <img src="images/arquitetosnoah.jpeg">
-      <strong>Arquiteta Patrícia e Designer Marcus </strong>
-      <span>Projetos & Avaliações</span>
-    </div>
-
-    <div class="pessoa">
-      <img src="images/engenheiro.jpeg">
-      <strong>Engenheiro Civil Carlos</strong>
-      <span>Avaliações Imobiliárias</span>
-    </div>
+<div class="fotos">
+  <div class="pessoa">
+    <img src="images/arquitetosnoah.jpeg">
+    <strong>Arquiteta Patrícia e Designer Marcus</strong>
+    <span>Projetos & Avaliações</span>
   </div>
+
+  <div class="pessoa">
+    <img src="images/engenheiro.jpeg">
+    <strong>Engenheiro Civil Carlos</strong>
+    <span>Avaliações Imobiliárias</span>
+  </div>
+</div>
 </section>
 
-<!-- BANNERS FINAIS COM SVG REFINADOS -->
 <section class="banners-final">
-  <div class="banners-grid">
-    <a href="#" class="banner-card">
-      <div class="banner-icon">
-        <!-- Troféu -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#f39c12" viewBox="0 0 24 24"><path d="M17 3H7v2h10V3zm-2 4H9v2h6V7zm-7 5h8v8H8v-8z"/></svg>
-      </div>
-      <h4>Arquitetura de Interiores</h4>
-      <p>Transformamos o ambiente em uma experiência única.</p>
-    </a>
+<div class="banners-grid">
 
-    <a href="#" class="banner-card">
-      <div class="banner-icon">
-        <!-- Régua e esquadro -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#3498db" viewBox="0 0 24 24"><path d="M2 22l20-20-2-2-20 20v2h2zm17-17l2 2-3 3-2-2 3-3z"/></svg>
-      </div>
-      <h4>Projetos Personalizados</h4>
-      <p>Cada projeto é único, feito sob medida para nossos clientes.</p>
-    </a>
+<a href="#" class="banner-card">
+<h4>Arquitetura de Interiores</h4>
+<p>Transformamos o ambiente em uma experiência única.</p>
+</a>
 
-     <a href="#" class="banner-card">
-      <div class="banner-icon">
-        <!-- Régua e esquadro -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#3498db" viewBox="0 0 24 24"><path d="M2 22l20-20-2-2-20 20v2h2zm17-17l2 2-3 3-2-2 3-3z"/></svg>
-      </div>
-      <h4>3D</h4>
-      <p>Projetos 3D com qualidade profissional e preço justo.</p>
-    </a>
+<a href="#" class="banner-card">
+<h4>Projetos Personalizados</h4>
+<p>Cada projeto é único, feito sob medida para nossos clientes.</p>
+</a>
 
-    <a href="#" class="banner-card">
-      <div class="banner-icon">
-        <!-- Folha -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#27ae60" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.48 3 8.29 7 9.5V13h6v8.5c4-1.21 7-5.02 7-9.5 0-5.52-4.48-10-10-10z"/></svg>
-      </div>
-      <h4>Avaliações Imobiliárias</h4>
-      <p>Elaboramos Laudos de avaliações e Perícias .</p>
-    </a>
-  </div>
+<a href="#" class="banner-card">
+<h4>Avaliações Imobiliárias</h4>
+<p>Elaboramos Laudos de avaliações e Perícias.</p>
+</a>
+
+</div>
 </section>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Noah Arquitetura</title>
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-.contato {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #f5f5f5;
-}
-
-.redes a {
-  font-size: 28px;
-  margin: 0 10px;
-  color: #000;
-  text-decoration: none;
-}
-
-.redes a:hover {
-  color: #25D366;
-}
-</style>
-</head>
-
-<body>
 
 <section id="contato" class="contato">
-  <h3>Contato</h3>
-  <p>
-    📧 noaharquitetura@hotmail.com<br>
-    📞 (43) 99614-1663 – PR<br>
-    📞 (48) 99686-5891 – SC
-  </p>
+<h3>Contato</h3>
+<p>
+📧 noaharquitetura@hotmail.com<br>
+📞 (43) 99614-1663 – PR<br>
+📞 (48) 99686-5891 – SC
+</p>
 </section>
 
 <footer>
+<div class="redes">
+<a href="https://www.instagram.com/noaharquitetura/" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
 
-  <div class="redes">
-    <a href="https://www.instagram.com/noaharquitetura/" 
-       target="_blank" 
-       rel="noopener noreferrer">
-      <i class="fab fa-instagram"></i>
-    </a>
+<a href="https://wa.me/5543996141663" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+</div>
 
-    <a href="https://wa.me/5543996141663" 
-       target="_blank" 
-       rel="noopener noreferrer">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-  </div>
-
-  <p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
-
+<p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
 </footer>
 
 </body>
