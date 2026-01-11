@@ -21,12 +21,7 @@ body{
   color:#2c2c2c;
   line-height:1.6;
 }
-.frase-fe{
-  margin-top:10px;
-  font-style:italic;
-  font-size:13px;
-  color:#ccc;
-}
+
 /* HEADER */
 header{
   background:#fff;
@@ -53,7 +48,7 @@ nav a{
 
 nav a:hover{opacity:0.6;}
 
-/* BANNER */
+/* HERO */
 .hero{
   height:100vh;
   background:
@@ -147,6 +142,50 @@ section h3{
   padding:12px;
 }
 
+/* BANNERS */
+.banners-final{
+  background:#f6f6f6;
+  padding:80px 60px;
+}
+
+.banners-grid{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.banner-card{
+  background:#0f0f0f;
+  border-radius:18px;
+  padding:45px 30px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,0.35);
+  transition:0.4s;
+  text-decoration:none;
+  color:#fff;
+  border:1px solid #222;
+}
+
+.banner-card h4{
+  font-size:20px;
+  margin-bottom:12px;
+  letter-spacing:1px;
+}
+
+.banner-card p{
+  font-size:14px;
+  color:#bbb;
+  line-height:1.5;
+}
+
+.banner-card:hover{
+  transform:translateY(-12px) scale(1.02);
+  background:#151515;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
 /* CONTATO */
 .contato{
   text-align:center;
@@ -172,42 +211,12 @@ footer{
   color:#25D366;
 }
 
-/* BANNERS */
-.banners-final{
-  background:#f6f6f6;
-  padding:80px 60px;
-}
-
-.banners-grid{
-  max-width:1100px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-
-.banner-card{
-  background:#000;
-  border-radius:18px;
-  padding:50px 30px;
-  text-align:center;
-  box-shadow:0 10px 30px rgba(0,0,0,0.25);
-  transition:0.4s;
-  text-decoration:none;
+.frase-fe{
+  margin-top:12px;
+  font-style:italic;
+  font-size:13px;
   color:#fff;
-}
-
-.banner-card h4{
-  color:#fff;
-}
-
-.banner-card p{
-  color:#ccc;
-}
-
-.banner-card:hover{
-  transform:translateY(-10px);
-  background:#111;
+  opacity:0.8;
 }
 
 /* MOBILE */
@@ -248,27 +257,13 @@ que refletem a essência e os sonhos de cada cliente.
 
 <p>
 Nossa atuação vai além do projeto arquitetônico: somos especialistas em laudos técnicos e avaliações imobiliárias
-conforme a NBR 14.653, oferecendo precisão, transparência e segurança jurídica em cada análise.
-Trabalhamos com embasamento técnico sólido para pessoas físicas, empresas e instituições financeiras.
+conforme a NBR 14.653, oferecendo precisão, transparência e segurança jurídica.
 </p>
 
 <p>
-Além disso, contamos com assessoria jurídica especializada em regularização imobiliária,
-oferecendo suporte completo nos processos de <strong>usucapião</strong>, desde a análise
-técnica e documental até o acompanhamento jurídico, proporcionando mais segurança,
-agilidade e tranquilidade aos nossos clientes.
+Também oferecemos assessoria jurídica em regularização imobiliária e processos de usucapião.
 </p>
 
-<p>Trabalhamos com:</p>
-
-<ul>
-  <li>Projetos residenciais e comerciais</li>
-  <li>Modelagem 3D realista e vídeos 3D</li>
-  <li>Design de interiores personalizado</li>
-  <li>Paisagismo</li>
-  <li>Consultorias técnicas</li>
-  <li>Regularização de obras e documentações imobiliárias</li>
-</ul>
 </section>
 
 <section id="projetos">
@@ -282,7 +277,7 @@ agilidade e tranquilidade aos nossos clientes.
 
   <div class="project">
     <img src="images/misto.jpg">
-    <span>Projeto Residencial comercial</span>
+    <span>Projeto Misto</span>
   </div>
 
   <div class="project">
@@ -320,12 +315,12 @@ agilidade e tranquilidade aos nossos clientes.
 
 <a href="#" class="banner-card">
 <h4>Projetos Personalizados</h4>
-<p>Cada projeto é único, feito sob medida para nossos clientes.</p>
+<p>Cada projeto é único, feito sob medida.</p>
 </a>
 
 <a href="#" class="banner-card">
 <h4>Avaliações Imobiliárias</h4>
-<p>Elaboramos Laudos de avaliações e Perícias.</p>
+<p>Laudos técnicos e perícias especializadas.</p>
 </a>
 
 </div>
@@ -353,8 +348,10 @@ agilidade e tranquilidade aos nossos clientes.
 
   <p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
 
-  <!-- FRASE DE DEUS -->
   <p class="frase-fe">
     A Deus toda honra e toda glória.
   </p>
 </footer>
+
+</body>
+</html>
