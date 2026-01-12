@@ -52,11 +52,10 @@ nav a:hover{opacity:0.6;}
 .hero{
   height:100vh;
   background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
     url('images/banner.jpeg') center/cover no-repeat;
   display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
+  align-items:flex-end;
   padding:60px;
   color:#fff;
 }
@@ -64,44 +63,25 @@ nav a:hover{opacity:0.6;}
 .hero h2{
   font-size:46px;
   font-weight:300;
-  max-width:700px;
+  max-width:650px;
 }
 
-/* BOTÃO HERO */
-.btn-hero{
-  display:inline-block;
-  margin-top:30px;
-  padding:16px 42px;
-  border:1px solid #fff;
-  color:#fff;
-  text-decoration:none;
-  font-size:14px;
-  letter-spacing:1.5px;
-  border-radius:40px;
-  background:rgba(0,0,0,0.35);
-  transition:0.3s;
-}
-
-.btn-hero:hover{
-  background:#25D366;
-  border-color:#25D366;
-  transform:translateY(-3px);
-}
-
-/* SEÇÕES */
+/* SEÇÕES PADRÃO */
 section{
   padding:80px 60px;
   max-width:1100px;
   margin:0 auto;
 }
 
-/* TEXTO SOBRE */
+/* SOBRE */
 .sobre-texto p{
   max-width:800px;
   margin-bottom:18px;
 }
 
-/* BANNER PROJETOS */
+/* =========================
+   BANNER DE PROJETOS
+========================= */
 .projetos-banner{
   background:#f2f2f2;
   padding:100px 60px;
@@ -120,6 +100,7 @@ section{
 .banner-texto h3{
   font-size:32px;
   font-weight:300;
+  letter-spacing:1px;
 }
 
 .btn-galeria{
@@ -169,73 +150,35 @@ section{
   font-weight:500;
 }
 
-/* SOBRE NÓS BANNER PRETO */
-.sobre-banner{
-  background:#000;
-  color:#fff;
-  padding:120px 60px;
+/* EQUIPE */
+.fotos{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+  margin:40px 0;
+}
+
+.pessoa{
   text-align:center;
 }
 
-.sobre-banner h3{
-  font-size:32px;
-  font-weight:300;
-  margin-bottom:60px;
-}
-
-.sobre-links{
-  display:flex;
-  justify-content:center;
-  gap:60px;
-  flex-wrap:wrap;
-}
-
-.sobre-link{
-  background:#fff;
-  color:#111;
-  text-decoration:none;
-  width:260px;
-  padding:20px;
-  border-radius:18px;
-  transition:0.3s;
-}
-
-.sobre-link:hover{
-  transform:translateY(-8px);
-}
-
-.sobre-link img{
-  width:100%;
-  height:320px;
+.pessoa img{
+  width:220px;
+  height:300px;
   object-fit:cover;
-  border-radius:14px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-.sobre-link strong{
+.pessoa strong{
   display:block;
-  margin-top:16px;
+  margin-top:12px;
 }
 
-.sobre-link span{
-  font-size:13px;
+.pessoa span{
+  font-size:14px;
   color:#666;
-}
-
-.btn-sobre{
-  display:inline-block;
-  margin-top:60px;
-  padding:14px 36px;
-  border:1px solid #fff;
-  color:#fff;
-  text-decoration:none;
-  font-size:13px;
-  letter-spacing:1px;
-  transition:0.3s;
-}
-
-.btn-sobre:hover{
-  background:#fff;
-  color:#000;
 }
 
 /* CONTATO */
@@ -266,6 +209,7 @@ footer{
 .frase-fe{
   margin-top:12px;
   font-style:italic;
+  font-size:13px;
   opacity:0.8;
 }
 
@@ -277,9 +221,12 @@ footer{
   }
   .hero h2{font-size:32px;}
   section,
-  .projetos-banner,
-  .sobre-banner{
+  .projetos-banner{
     padding:60px 30px;
+  }
+  .banner-texto{
+    flex-direction:column;
+    align-items:flex-start;
   }
 }
 </style>
@@ -289,7 +236,7 @@ footer{
 
 <header>
 <h1>
-  <a href="index.html" style="text-decoration:none;color:inherit;">
+  <a href="index.html" style="text-decoration:none; color:inherit;">
     NOAH ARQUITETURA
   </a>
 </h1>
@@ -305,12 +252,6 @@ footer{
     Arquitetura que transforma ideias em espaços que acolhem,
     inspiram pessoas e permanecem no tempo.
   </h2>
-
-  <a href="https://wa.me/5548996865891" 
-     target="_blank" 
-     class="btn-hero">
-     QUERO INICIAR MEU PROJETO
-  </a>
 </div>
 
 <section class="sobre-texto">
@@ -331,7 +272,8 @@ oferecendo precisão, transparência e segurança jurídica.
 <p>
 Também atuamos na elaboração de Projetos de Prevenção e Combate a Incêndio
 (<a href="ppci.html" target="_blank">PPCI</a>)
-e na emissão de Relatórios e Laudos de Prevenção Contra Incêndio.
+e na emissão de Relatórios e Laudos de Prevenção Contra Incêndio,
+atendendo às normas técnicas e exigências do Corpo de Bombeiros.
 </p>
 
 <p>
@@ -341,15 +283,18 @@ sempre com ética, responsabilidade e comprometimento.
 </p>
 
 <p>
-Cada projeto é pensado de forma exclusiva,
-respeitando o perfil do cliente e o contexto urbano.
+Cada projeto é pensado de forma exclusiva, respeitando o perfil do cliente,
+o contexto urbano e as melhores soluções construtivas.
 </p>
 </section>
 
 <section id="projetos" class="projetos-banner">
+
   <div class="banner-texto">
     <h3>Veja aqui alguns de nossos projetos</h3>
-    <a href="galeria.html" class="btn-galeria">Acessar galeria completa</a>
+    <a href="galeria.html" class="btn-galeria">
+      Acessar galeria completa
+    </a>
   </div>
 
   <div class="projects">
@@ -357,35 +302,36 @@ respeitando o perfil do cliente e o contexto urbano.
       <img src="images/sobrados.jpeg">
       <span>Residencial</span>
     </a>
+
     <a href="galeria.html" class="project">
       <img src="images/misto.jpg">
       <span>Residencial e comercial</span>
     </a>
+
     <a href="galeria.html" class="project">
       <img src="images/interior.jpeg">
       <span>Interiores</span>
     </a>
   </div>
+
 </section>
 
-<section id="sobre" class="sobre-banner">
+<section id="sobre">
 <h3>Sobre Nós</h3>
 
-<div class="sobre-links">
-  <a href="sobre.html" class="sobre-link">
+<div class="fotos">
+  <div class="pessoa">
     <img src="images/arquitetosnoah.jpeg">
     <strong>Arquiteta Patrícia e Designer Marcus</strong>
     <span>Projetos & Avaliações</span>
-  </a>
+  </div>
 
-  <a href="sobre.html" class="sobre-link">
+  <div class="pessoa">
     <img src="images/engenheiro.jpeg">
     <strong>Engenheiro Civil Carlos</strong>
     <span>Avaliações Imobiliárias</span>
-  </a>
+  </div>
 </div>
-
-<a href="sobre.html" class="btn-sobre">CONHEÇA NOSSA HISTÓRIA</a>
 </section>
 
 <section id="contato" class="contato">
@@ -398,17 +344,17 @@ respeitando o perfil do cliente e o contexto urbano.
 </section>
 
 <footer>
-<div class="redes">
-  <a href="https://www.instagram.com/noaharquitetura/" target="_blank">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://wa.me/5548996865891" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
+  <div class="redes">
+    <a href="https://www.instagram.com/noaharquitetura/" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/5543996141663" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
 
-<p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
-<p class="frase-fe">"A Deus toda honra e toda glória."</p>
+  <p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
+  <p class="frase-fe">"A Deus toda honra e toda glória."</p>
 </footer>
 
 </body>
