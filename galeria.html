@@ -6,8 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
+html, body {
   margin:0;
+  padding:0;
+  height:auto !important;
+  min-height:100%;
+  overflow-y:auto !important;
   font-family:Arial, Helvetica, sans-serif;
   background:#f4f4f4;
 }
@@ -19,11 +23,13 @@ body{
 
 .galeria{
   max-width:1200px;
-  margin:0 auto 80px;
+  margin:0 auto 100px;
   padding:20px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
+  height:auto !important;
+  overflow:visible !important;
 }
 
 .galeria img{
@@ -43,20 +49,16 @@ body{
 </div>
 
 <div class="galeria">
-  <img src="/images/predio1.jpg" alt="Projeto Campo Duna">
-  <img src="/images/ferrugem.jpg" alt="Projeto Ferrugem">
-  <img src="/images/fortunato.jpg" alt="Projeto Morro do Fortunato">
-  <img src="/images/palhocinha.jpg" alt="Projeto Palhocinha">
-  <img src="/images/bosqueimbituba.jpg" alt="Projeto Bosque Imbituba">
-  <img src="/images/dunas.jpg" alt="Projeto Areias">
-  <img src="/images/reforma.jpg" alt="Reforma">
-  <img src="/images/sala.jpg" alt="Projeto Cozinha Dunas">
-  <img src="/images/salabalcao.jpg" alt="Projeto Sala com Balcão">
-  <img src="/images/cozinha.jpg" alt="Projeto Cozinha">
-  <img src="/images/sala.jpg" alt="Projeto sala">
-  <img src="/images/ambrosio.jpg" alt="Projeto Cozinha">
-  <img src="/images/salaestar.jpg" alt="Projeto sala">
-  
+  <img src="/images/predio1.jpg">
+  <img src="/images/ferrugem.jpg">
+  <img src="/images/fortunato.jpg">
+  <img src="/images/palhocinha.jpg">
+  <img src="/images/bosqueimbituba.jpg">
+  <img src="/images/dunas.jpg">
+  <img src="/images/reforma.jpg">
+  <img src="/images/cozinhadunas.jpg">
+  <img src="/images/salabalcao.jpg">
+  <img src="/images/cozinha.jpg">
 </div>
 
 </body>
