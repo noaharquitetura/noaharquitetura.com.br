@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{
+
+ 
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -24,7 +25,7 @@ body{
 
 /* HEADER */
 header{
-  background:#ffffff;
+  background:#fff;
   padding:30px 40px;
   max-width:1200px;
   margin:0 auto;
@@ -39,11 +40,6 @@ header h1{
   letter-spacing:2px;
 }
 
-header h1 a{
-  text-decoration:none;
-  color:#2c2c2c;
-}
-
 nav a{
   margin-left:30px;
   text-decoration:none;
@@ -51,39 +47,35 @@ nav a{
   font-size:14px;
 }
 
-nav a:hover{
-  opacity:0.6;
-}
+nav a:hover{opacity:0.6;}
 
 /* HERO */
 .hero{
   height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-    url("images/banner.jpeg") center/cover no-repeat;
+    url('images/banner.jpeg') center/cover no-repeat;
   display:flex;
   align-items:flex-end;
   padding:60px;
-  color:#ffffff;
+  color:#fff;
 }
 
 .hero h2{
   font-size:46px;
   font-weight:300;
-  max-width:700px;
+  max-width:650px;
 }
 
 /* SEÇÕES */
 section{
   padding:80px 60px;
-  background:#ffffff;
+  background:#fff;
   max-width:1100px;
   margin:0 auto;
 }
 
-section:nth-of-type(even){
-  background:#f0f0f0;
-}
+section:nth-of-type(even){background:#f0f0f0;}
 
 section h3{
   font-size:28px;
@@ -92,7 +84,7 @@ section h3{
 
 /* SOBRE */
 .sobre-texto p{
-  max-width:850px;
+  max-width:800px;
   margin-bottom:18px;
 }
 
@@ -113,8 +105,8 @@ section h3{
   width:220px;
   height:300px;
   object-fit:cover;
-  border-radius:14px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.25);
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 .pessoa strong{
@@ -124,7 +116,7 @@ section h3{
 
 .pessoa span{
   font-size:14px;
-  color:#666666;
+  color:#666;
 }
 
 /* PROJETOS */
@@ -135,8 +127,8 @@ section h3{
 }
 
 .project{
-  background:#ffffff;
-  border:1px solid #dddddd;
+  background:#fff;
+  border:1px solid #ddd;
   text-align:center;
 }
 
@@ -149,19 +141,6 @@ section h3{
 .project span{
   display:block;
   padding:12px;
-}
-
-/* CHAMADA */
-.chamada-projetos{
-  max-width:1100px;
-  margin:60px auto 30px auto;
-  text-align:center;
-}
-
-.chamada-projetos p{
-  font-size:24px;
-  font-weight:600;
-  color:#2c2c2c;
 }
 
 /* BANNERS */
@@ -186,8 +165,8 @@ section h3{
   box-shadow:0 15px 40px rgba(0,0,0,0.35);
   transition:0.4s;
   text-decoration:none;
-  color:#ffffff;
-  border:1px solid #222222;
+  color:#fff;
+  border:1px solid #222;
 }
 
 .banner-card h4{
@@ -198,12 +177,14 @@ section h3{
 
 .banner-card p{
   font-size:14px;
-  color:#bbbbbb;
+  color:#bbb;
+  line-height:1.5;
 }
 
 .banner-card:hover{
   transform:translateY(-12px) scale(1.02);
   background:#151515;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
 }
 
 /* CONTATO */
@@ -214,7 +195,7 @@ section h3{
 /* FOOTER */
 footer{
   background:#1e1e1e;
-  color:#ffffff;
+  color:#fff;
   text-align:center;
   padding:30px;
   font-size:13px;
@@ -223,7 +204,7 @@ footer{
 .redes a{
   font-size:28px;
   margin:0 10px;
-  color:#ffffff;
+  color:#fff;
   text-decoration:none;
 }
 
@@ -235,21 +216,18 @@ footer{
   margin-top:12px;
   font-style:italic;
   font-size:13px;
+  color:#fff;
   opacity:0.8;
 }
 
-/* RESPONSIVO */
+/* MOBILE */
 @media(max-width:768px){
   header{
     flex-direction:column;
     gap:20px;
   }
-  .hero h2{
-    font-size:32px;
-  }
-  section{
-    padding:60px 30px;
-  }
+  .hero h2{font-size:32px;}
+  section{padding:60px 30px;}
 }
 </style>
 </head>
@@ -257,7 +235,11 @@ footer{
 <body>
 
 <header>
-  <h1><a href="index.html">NOAH ARQUITETURA</a></h1>
+<h1>
+  <a href="index.html" style="text-decoration:none; color:inherit;">
+    NOAH ARQUITETURA
+  </a>
+</h1>
   <nav>
     <a href="#projetos">Projetos</a>
     <a href="#sobre">Sobre Nós</a>
@@ -273,110 +255,106 @@ footer{
 </div>
 
 <section class="sobre-texto">
-  <h3>Noah Arquitetura – Excelência que transforma espaços</h3>
+<h3>Noah Arquitetura – Excelência que transforma espaços</h3>
 
-  <p>
-    A Noah Arquitetura nasceu da paixão por criar ambientes que transcendem o comum.
-    Há mais de uma década, unimos conhecimento técnico e visão criativa para desenvolver
-    projetos arquitetônicos que refletem a essência, o estilo e os sonhos de cada cliente.
-  </p>
+<p>
+A Noah Arquitetura nasceu da paixão por criar ambientes que transcendem o comum.
+Há mais de uma década, unimos conhecimento técnico e visão criativa para desenvolver
+projetos arquitetônicos que refletem a essência, o estilo e os sonhos de cada cliente.
+</p>
 
-  <p>
-    Nossa atuação vai além do projeto arquitetônico: somos especialistas em
-    laudos técnicos e avaliações imobiliárias conforme a NBR 14.653,
-    oferecendo precisão, transparência e segurança jurídica.
-  </p>
+<p>
+Nossa atuação vai além do projeto arquitetônico: somos especialistas em
+laudos técnicos e avaliações imobiliárias conforme a NBR 14.653,
+oferecendo precisão, transparência e segurança jurídica.
+</p>
+  
+<p>
+Também atuamos na elaboração de Projetos de Prevenção e Combate a Incêndio
+(<a href="ppci.html" target="_blank">PPCI</a>)
+e na emissão de Relatórios e Laudos de Prevenção Contra Incêndio,
+atendendo às normas técnicas e exigências do Corpo de Bombeiros.
+</p>
+  
+<p>
+Prestamos assessoria em regularização imobiliária,
+processos de usucapião e consultorias técnicas,
+sempre com ética, responsabilidade e comprometimento.
+</p>
 
-  <p>
-    Também atuamos na elaboração de Projetos de Prevenção e Combate a Incêndio
-    (<a href="ppci.html" target="_blank">PPCI</a>)
-    e na emissão de Relatórios e Laudos de Prevenção Contra Incêndio,
-    atendendo às normas técnicas e exigências do Corpo de Bombeiros.
-  </p>
-
-  <p>
-    Prestamos assessoria em regularização imobiliária,
-    processos de usucapião e consultorias técnicas,
-    sempre com ética, responsabilidade e comprometimento.
-  </p>
-
-  <p>
-    Cada projeto é pensado de forma exclusiva, respeitando o perfil do cliente,
-    o contexto urbano e as melhores soluções construtivas.
-  </p>
+<p>
+Cada projeto é pensado de forma exclusiva, respeitando o perfil do cliente,
+o contexto urbano e as melhores soluções construtivas.
+</p>
 </section>
 
 <section id="projetos">
-  <h3>Projetos</h3>
+<h3>Projetos</h3>
 
-  <div class="projects">
-    <div class="project">
-      <img src="images/sobrados.jpeg">
-      <span>Residencial</span>
-    </div>
-
-    <div class="project">
-      <img src="images/misto.jpg">
-      <span>Residencial e Comercial</span>
-    </div>
-
-    <div class="project">
-      <img src="images/interior.jpeg">
-      <span>Interiores</span>
-    </div>
+<div class="projects">
+  <div class="project">
+    <img src="images/sobrados.jpeg">
+    <span>Residencial</span>
   </div>
+
+  <div class="project">
+    <img src="images/misto.jpg">
+    <span>Residencial e comercial</span>
+  </div>
+
+  <div class="project">
+    <img src="images/interior.jpeg">
+    <span>Interiores</span>
+  </div>
+</div>
 </section>
 
 <section id="sobre">
-  <h3>Sobre Nós</h3>
+<h3>Sobre Nós</h3>
 
-  <div class="fotos">
-    <div class="pessoa">
-      <img src="images/arquitetosnoah.jpeg">
-      <strong>Arquiteta Patrícia e Designer Marcus</strong>
-      <span>Projetos & Avaliações</span>
-    </div>
-
-    <div class="pessoa">
-      <img src="images/engenheiro.jpeg">
-      <strong>Engenheiro Civil Carlos</strong>
-      <span>Avaliações Imobiliárias</span>
-    </div>
+<div class="fotos">
+  <div class="pessoa">
+    <img src="images/arquitetosnoah.jpeg">
+    <strong>Arquiteta Patrícia e Designer Marcus</strong>
+    <span>Projetos & Avaliações</span>
   </div>
+
+  <div class="pessoa">
+    <img src="images/engenheiro.jpeg">
+    <strong>Engenheiro Civil Carlos</strong>
+    <span>Avaliações Imobiliárias</span>
+  </div>
+</div>
 </section>
 
-<div class="chamada-projetos">
-  <p>Conheça nossos projetos e soluções</p>
-</div>
-
 <section class="banners-final">
-  <div class="banners-grid">
+<div class="banners-grid">
 
-    <a href="galeria.html" class="banner-card">
-      <h4>Arquitetura de Interiores</h4>
-      <p>Transformamos o ambiente em uma experiência única.</p>
-    </a>
+<a href="galeria.html" class="banner-card">
+<h4>Arquitetura de Interiores</h4>
+<p>Transformamos o ambiente em uma experiência única.</p>
+</a>
 
-    <a href="galeria.html" class="banner-card">
-      <h4>Projetos Personalizados</h4>
-      <p>Cada projeto é único, feito sob medida.</p>
-    </a>
+<a href="galeria.html" class="banner-card">
+<h4>Projetos Personalizados</h4>
+<p>Cada projeto é único, feito sob medida.</p>
+</a>
 
-    <a href="galeria.html" class="banner-card">
-      <h4>Layout de Plantas</h4>
-      <p>Layouts funcionais e bem distribuídos.</p>
-    </a>
+<a href="galeria.html" class="banner-card">
+<h4>Layot de Plantas</h4>
+<p>Layouts personalizados e funcionais</p>
+</a>
 
-  </div>
+</div>
 </section>
 
 <section id="contato" class="contato">
-  <h3>Contato</h3>
-  <p>
-    📧 noaharquitetura@hotmail.com<br>
-    📞 (43) 99614-1663 – PR<br>
-    📞 (48) 99686-5891 – SC
-  </p>
+<h3>Contato</h3>
+<p>
+📧 noaharquitetura@hotmail.com<br>
+📞 (43) 99614-1663 – PR<br>
+📞 (48) 99686-5891 – SC
+</p>
 </section>
 
 <footer>
@@ -384,13 +362,17 @@ footer{
     <a href="https://www.instagram.com/noaharquitetura/" target="_blank">
       <i class="fab fa-instagram"></i>
     </a>
+
     <a href="https://wa.me/5543996141663" target="_blank">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
 
   <p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
-  <p class="frase-fe">"A Deus toda honra e toda glória."</p>
+
+  <p class="frase-fe">
+    "A Deus toda honra e toda glória."
+  </p>
 </footer>
 
 </body>
