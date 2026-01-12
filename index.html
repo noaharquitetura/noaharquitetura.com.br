@@ -9,8 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
- 
+*{
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -18,7 +17,7 @@
 }
 
 body{
-  background:#f6f6f6;
+  background:#fff;
   color:#2c2c2c;
   line-height:1.6;
 }
@@ -67,25 +66,88 @@ nav a:hover{opacity:0.6;}
   max-width:650px;
 }
 
-/* SEÇÕES */
+/* SEÇÕES PADRÃO */
 section{
   padding:80px 60px;
-  background:#fff;
   max-width:1100px;
   margin:0 auto;
-}
-
-section:nth-of-type(even){background:#f0f0f0;}
-
-section h3{
-  font-size:28px;
-  margin-bottom:30px;
 }
 
 /* SOBRE */
 .sobre-texto p{
   max-width:800px;
   margin-bottom:18px;
+}
+
+/* =========================
+   BANNER DE PROJETOS
+========================= */
+.projetos-banner{
+  background:#f2f2f2;
+  padding:100px 60px;
+}
+
+.banner-texto{
+  max-width:1100px;
+  margin:0 auto 50px auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.banner-texto h3{
+  font-size:32px;
+  font-weight:300;
+  letter-spacing:1px;
+}
+
+.btn-galeria{
+  text-decoration:none;
+  border:1px solid #111;
+  padding:14px 28px;
+  font-size:13px;
+  letter-spacing:1px;
+  color:#111;
+  transition:0.3s;
+}
+
+.btn-galeria:hover{
+  background:#111;
+  color:#fff;
+}
+
+.projects{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.project{
+  text-decoration:none;
+  color:inherit;
+  background:#fff;
+  transition:0.3s;
+}
+
+.project:hover{
+  transform:translateY(-6px);
+}
+
+.project img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.project span{
+  display:block;
+  padding:14px;
+  text-align:center;
+  font-weight:500;
 }
 
 /* EQUIPE */
@@ -119,74 +181,6 @@ section h3{
   color:#666;
 }
 
-/* PROJETOS */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.project{
-  background:#fff;
-  border:1px solid #ddd;
-  text-align:center;
-}
-
-.project img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-
-.project span{
-  display:block;
-  padding:12px;
-}
-
-/* BANNERS */
-.banners-final{
-  background:#f6f6f6;
-  padding:80px 60px;
-}
-
-.banners-grid{
-  max-width:1100px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-
-.banner-card{
-  background:#0f0f0f;
-  border-radius:18px;
-  padding:45px 30px;
-  text-align:center;
-  box-shadow:0 15px 40px rgba(0,0,0,0.35);
-  transition:0.4s;
-  text-decoration:none;
-  color:#fff;
-  border:1px solid #222;
-}
-
-.banner-card h4{
-  font-size:20px;
-  margin-bottom:12px;
-  letter-spacing:1px;
-}
-
-.banner-card p{
-  font-size:14px;
-  color:#bbb;
-  line-height:1.5;
-}
-
-.banner-card:hover{
-  transform:translateY(-12px) scale(1.02);
-  background:#151515;
-  box-shadow:0 20px 50px rgba(0,0,0,0.5);
-}
-
 /* CONTATO */
 .contato{
   text-align:center;
@@ -216,7 +210,6 @@ footer{
   margin-top:12px;
   font-style:italic;
   font-size:13px;
-  color:#fff;
   opacity:0.8;
 }
 
@@ -227,7 +220,14 @@ footer{
     gap:20px;
   }
   .hero h2{font-size:32px;}
-  section{padding:60px 30px;}
+  section,
+  .projetos-banner{
+    padding:60px 30px;
+  }
+  .banner-texto{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 }
 </style>
 </head>
@@ -240,11 +240,11 @@ footer{
     NOAH ARQUITETURA
   </a>
 </h1>
-  <nav>
-    <a href="#projetos">Projetos</a>
-    <a href="#sobre">Sobre Nós</a>
-    <a href="#contato">Contato</a>
-  </nav>
+<nav>
+  <a href="#projetos">Projetos</a>
+  <a href="#sobre">Sobre Nós</a>
+  <a href="#contato">Contato</a>
+</nav>
 </header>
 
 <div class="hero">
@@ -268,14 +268,14 @@ Nossa atuação vai além do projeto arquitetônico: somos especialistas em
 laudos técnicos e avaliações imobiliárias conforme a NBR 14.653,
 oferecendo precisão, transparência e segurança jurídica.
 </p>
-  
+
 <p>
 Também atuamos na elaboração de Projetos de Prevenção e Combate a Incêndio
 (<a href="ppci.html" target="_blank">PPCI</a>)
 e na emissão de Relatórios e Laudos de Prevenção Contra Incêndio,
 atendendo às normas técnicas e exigências do Corpo de Bombeiros.
 </p>
-  
+
 <p>
 Prestamos assessoria em regularização imobiliária,
 processos de usucapião e consultorias técnicas,
@@ -288,25 +288,32 @@ o contexto urbano e as melhores soluções construtivas.
 </p>
 </section>
 
-<section id="projetos">
-<h3>Projetos</h3>
+<section id="projetos" class="projetos-banner">
 
-<div class="projects">
-  <div class="project">
-    <img src="images/sobrados.jpeg">
-    <span>Residencial</span>
+  <div class="banner-texto">
+    <h3>Veja aqui alguns de nossos projetos</h3>
+    <a href="galeria.html" class="btn-galeria">
+      Acessar galeria completa
+    </a>
   </div>
 
-  <div class="project">
-    <img src="images/misto.jpg">
-    <span>Residencial e comercial</span>
+  <div class="projects">
+    <a href="galeria.html" class="project">
+      <img src="images/sobrados.jpeg">
+      <span>Residencial</span>
+    </a>
+
+    <a href="galeria.html" class="project">
+      <img src="images/misto.jpg">
+      <span>Residencial e comercial</span>
+    </a>
+
+    <a href="galeria.html" class="project">
+      <img src="images/interior.jpeg">
+      <span>Interiores</span>
+    </a>
   </div>
 
-  <div class="project">
-    <img src="images/interior.jpeg">
-    <span>Interiores</span>
-  </div>
-</div>
 </section>
 
 <section id="sobre">
@@ -327,27 +334,6 @@ o contexto urbano e as melhores soluções construtivas.
 </div>
 </section>
 
-<section class="banners-final">
-<div class="banners-grid">
-
-<a href="galeria.html" class="banner-card">
-<h4>Arquitetura de Interiores</h4>
-<p>Transformamos o ambiente em uma experiência única.</p>
-</a>
-
-<a href="galeria.html" class="banner-card">
-<h4>Projetos Personalizados</h4>
-<p>Cada projeto é único, feito sob medida.</p>
-</a>
-
-<a href="galeria.html" class="banner-card">
-<h4>Layot de Plantas</h4>
-<p>Layouts personalizados e funcionais</p>
-</a>
-
-</div>
-</section>
-
 <section id="contato" class="contato">
 <h3>Contato</h3>
 <p>
@@ -362,17 +348,13 @@ o contexto urbano e as melhores soluções construtivas.
     <a href="https://www.instagram.com/noaharquitetura/" target="_blank">
       <i class="fab fa-instagram"></i>
     </a>
-
     <a href="https://wa.me/5543996141663" target="_blank">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
 
   <p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
-
-  <p class="frase-fe">
-    "A Deus toda honra e toda glória."
-  </p>
+  <p class="frase-fe">"A Deus toda honra e toda glória."</p>
 </footer>
 
 </body>
