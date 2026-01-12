@@ -19,7 +19,7 @@
 body{
   background:#fff;
   color:#2c2c2c;
-  line-height:1.6;
+  line-height:1.7;
 }
 
 /* HEADER */
@@ -39,15 +39,14 @@ header h1{
   letter-spacing:2px;
 }
 
-header a{
-  text-decoration:none;
-  color:inherit;
-}
-
 nav a{
   margin-left:30px;
+  text-decoration:none;
+  color:#2c2c2c;
   font-size:14px;
 }
+
+nav a:hover{opacity:0.6;}
 
 /* HERO */
 .hero{
@@ -56,61 +55,68 @@ nav a{
     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
     url('images/banner.jpeg') center/cover no-repeat;
   display:flex;
-  align-items:flex-end;
+  align-items:center;
   padding:60px;
   color:#fff;
 }
 
 .hero-conteudo{
-  max-width:700px;
+  max-width:1100px;
 }
 
 .hero h2{
   font-size:46px;
   font-weight:300;
+  max-width:720px;
+  margin-bottom:35px;
 }
 
 /* BOTÃO ORÇAMENTO */
 .banner-whatsapp{
   display:inline-block;
-  margin-top:40px;
-  padding:16px 44px;
+  padding:16px 48px;
   background:#000;
   color:#fff;
   text-decoration:none;
-  border-radius:50px;
   font-size:13px;
   letter-spacing:2px;
-  transition:.3s;
+  border-radius:50px;
+  transition:0.3s;
 }
 
 .banner-whatsapp:hover{
-  background:#222;
-  transform:translateY(-3px);
+  background:#25D366;
 }
 
 /* SEÇÕES */
 section{
-  padding:80px 60px;
+  padding:90px 60px;
   max-width:1100px;
   margin:0 auto;
 }
 
-/* SOBRE */
+/* HISTÓRIA */
+.sobre-texto h3{
+  font-size:32px;
+  font-weight:300;
+  margin-bottom:40px;
+}
+
 .sobre-texto p{
-  max-width:800px;
-  margin-bottom:18px;
+  max-width:850px;
+  margin-bottom:22px;
 }
 
 /* PROJETOS */
 .projetos-banner{
-  background:#f2f2f2;
-  padding:100px 60px;
+  background:#f3f3f3;
+  padding:110px 60px;
+  border-radius:40px;
 }
 
 .banner-texto{
   max-width:1100px;
-  margin:0 auto 50px auto;
+  margin:0 auto 60px auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -124,17 +130,17 @@ section{
 }
 
 .btn-galeria{
-  border:1px solid #111;
-  padding:14px 28px;
-  font-size:13px;
-  letter-spacing:1px;
-  color:#111;
   text-decoration:none;
-  transition:.3s;
+  border:1px solid #000;
+  padding:14px 30px;
+  font-size:13px;
+  color:#000;
+  border-radius:40px;
+  transition:0.3s;
 }
 
 .btn-galeria:hover{
-  background:#111;
+  background:#000;
   color:#fff;
 }
 
@@ -147,46 +153,29 @@ section{
 }
 
 .project{
-  background:#fff;
   text-decoration:none;
   color:inherit;
-  transition:.3s;
+  background:#fff;
+  border-radius:30px;
+  overflow:hidden;
+  transition:0.3s;
 }
 
 .project:hover{
-  transform:translateY(-6px);
+  transform:translateY(-8px);
 }
 
 .project img{
   width:100%;
-  height:220px;
+  height:230px;
   object-fit:cover;
 }
 
 .project span{
   display:block;
-  padding:14px;
+  padding:18px;
   text-align:center;
-}
-
-/* EQUIPE */
-.fotos{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap;
-  margin:40px 0;
-}
-
-.pessoa{
-  text-align:center;
-}
-
-.pessoa img{
-  width:220px;
-  height:300px;
-  object-fit:cover;
-  border-radius:12px;
+  font-weight:500;
 }
 
 /* CONTATO */
@@ -207,18 +196,32 @@ footer{
   font-size:28px;
   margin:0 10px;
   color:#fff;
+  text-decoration:none;
+}
+
+.redes a:hover{
+  color:#25D366;
 }
 
 .frase-fe{
   margin-top:12px;
   font-style:italic;
-  opacity:.8;
+  opacity:0.8;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  header{flex-direction:column;gap:20px;}
-  .hero h2{font-size:32px;}
+  header{
+    flex-direction:column;
+    gap:20px;
+  }
+  .hero h2{
+    font-size:32px;
+  }
+  section,
+  .projetos-banner{
+    padding:60px 30px;
+  }
 }
 </style>
 </head>
@@ -226,15 +229,14 @@ footer{
 <body>
 
 <header>
-  <h1><a href="index.html">NOAH ARQUITETURA</a></h1>
+  <h1>NOAH ARQUITETURA</h1>
   <nav>
     <a href="#projetos">Projetos</a>
-    <a href="#sobre">Sobre Nós</a>
+    <a href="#historia">Nossa História</a>
     <a href="#contato">Contato</a>
   </nav>
 </header>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-conteudo">
     <h2>
@@ -242,30 +244,49 @@ footer{
       inspiram pessoas e permanecem no tempo.
     </h2>
 
-    <a href="https://wa.me/5548996865891"
-       target="_blank"
-       class="banner-whatsapp">
-       FAÇA SEU ORÇAMENTO AQUI
+    <a href="https://wa.me/5548996865891" target="_blank" class="banner-whatsapp">
+      FAÇA SEU ORÇAMENTO AQUI
     </a>
   </div>
 </div>
 
-<!-- TEXTO -->
-<section class="sobre-texto">
-<h3>Noah Arquitetura – Excelência que transforma espaços</h3>
+<section id="historia" class="sobre-texto">
+  <h3>Nossa História</h3>
 
-<p>A Noah Arquitetura nasceu da paixão por criar ambientes que transcendem o comum. Há mais de uma década, unimos conhecimento técnico e visão criativa para desenvolver projetos arquitetônicos que refletem a essência, o estilo e os sonhos de cada cliente.</p>
+  <p>
+    A Noah Arquitetura nasceu do desejo de criar espaços que vão além da estética,
+    ambientes que traduzem identidade, funcionalidade e significado.
+    Desde sua fundação, o escritório atua com foco em soluções arquitetônicas
+    inteligentes, alinhadas às necessidades reais de cada cliente.
+  </p>
 
-<p>Nossa atuação vai além do projeto arquitetônico: somos especialistas em laudos técnicos e avaliações imobiliárias conforme a NBR 14.653, oferecendo precisão, transparência e segurança jurídica.</p>
+  <p>
+    Com mais de uma década de experiência, reunimos conhecimento técnico,
+    sensibilidade criativa e profundo compromisso com a qualidade.
+    Cada projeto é desenvolvido de forma exclusiva, respeitando o contexto urbano,
+    o estilo de vida do cliente e as melhores práticas construtivas.
+  </p>
 
-<p>Também atuamos na elaboração de Projetos de Prevenção e Combate a Incêndio (<a href="ppci.html">PPCI</a>) e na emissão de Relatórios e Laudos de Prevenção Contra Incêndio, atendendo às normas técnicas e exigências do Corpo de Bombeiros.</p>
+  <p>
+    Nossa atuação abrange projetos residenciais, comerciais e de interiores,
+    além de laudos técnicos e avaliações imobiliárias conforme a NBR 14.653,
+    oferecendo segurança jurídica, precisão e transparência em cada etapa.
+  </p>
 
-<p>Prestamos assessoria em regularização imobiliária, processos de usucapião e consultorias técnicas, sempre com ética, responsabilidade e comprometimento.</p>
+  <p>
+    Atuamos também na elaboração de Projetos de Prevenção e Combate a Incêndio (PPCI),
+    relatórios técnicos, regularização imobiliária, processos de usucapião
+    e consultorias especializadas junto aos órgãos competentes.
+  </p>
 
-<p>Cada projeto é pensado de forma exclusiva, respeitando o perfil do cliente, o contexto urbano e as melhores soluções construtivas.</p>
+  <p>
+    Mais do que projetar edificações, acreditamos em construir relações de confiança.
+    Nosso compromisso é entregar soluções duráveis, funcionais e atemporais,
+    que valorizem o investimento e proporcionem bem-estar a quem vive e utiliza
+    cada espaço projetado pela Noah Arquitetura.
+  </p>
 </section>
 
-<!-- PROJETOS -->
 <section id="projetos" class="projetos-banner">
   <div class="banner-texto">
     <h3>Veja aqui alguns de nossos projetos</h3>
@@ -290,20 +311,23 @@ footer{
   </div>
 </section>
 
-<!-- CONTATO -->
 <section id="contato" class="contato">
-<h3>Contato</h3>
-<p>
-📧 noaharquitetura@hotmail.com<br>
-📞 (43) 99614-1663 – PR<br>
-📞 (48) 99686-5891 – SC
-</p>
+  <h3>Contato</h3>
+  <p>
+    📧 noaharquitetura@hotmail.com<br>
+    📞 (43) 99614-1663 – PR<br>
+    📞 (48) 99686-5891 – SC
+  </p>
 </section>
 
 <footer>
   <div class="redes">
-    <a href="https://www.instagram.com/noaharquitetura/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/5548996865891" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/noaharquitetura/" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/5548996865891" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
   </div>
 
   <p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
