@@ -73,7 +73,7 @@ section{
   margin:0 auto;
 }
 
-/* SOBRE */
+/* TEXTO SOBRE */
 .sobre-texto p{
   max-width:800px;
   margin-bottom:18px;
@@ -150,35 +150,78 @@ section{
   font-weight:500;
 }
 
-/* EQUIPE */
-.fotos{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap;
-  margin:40px 0;
-}
-
-.pessoa{
+/* =========================
+   SOBRE NÓS – BANNER PRETO
+========================= */
+.sobre-banner{
+  background:#000;
+  color:#fff;
+  padding:120px 60px;
   text-align:center;
 }
 
-.pessoa img{
-  width:220px;
-  height:300px;
+.sobre-banner h3{
+  font-size:32px;
+  font-weight:300;
+  letter-spacing:1px;
+  margin-bottom:60px;
+}
+
+.sobre-links{
+  display:flex;
+  justify-content:center;
+  gap:60px;
+  flex-wrap:wrap;
+}
+
+.sobre-link{
+  background:#fff;
+  color:#111;
+  text-decoration:none;
+  width:260px;
+  padding:20px;
+  border-radius:18px;
+  transition:0.3s;
+  box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
+
+.sobre-link:hover{
+  transform:translateY(-8px);
+}
+
+.sobre-link img{
+  width:100%;
+  height:320px;
   object-fit:cover;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  border-radius:14px;
 }
 
-.pessoa strong{
+.sobre-link strong{
   display:block;
-  margin-top:12px;
+  margin-top:16px;
+  font-size:15px;
 }
 
-.pessoa span{
-  font-size:14px;
+.sobre-link span{
+  font-size:13px;
   color:#666;
+}
+
+.btn-sobre{
+  display:inline-block;
+  margin-top:60px;
+  padding:14px 36px;
+  border:1px solid #fff;
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:1px;
+  transition:0.3s;
+}
+
+.btn-sobre:hover{
+  background:#fff;
+  color:#000;
 }
 
 /* CONTATO */
@@ -221,7 +264,8 @@ footer{
   }
   .hero h2{font-size:32px;}
   section,
-  .projetos-banner{
+  .projetos-banner,
+  .sobre-banner{
     padding:60px 30px;
   }
   .banner-texto{
@@ -316,22 +360,28 @@ o contexto urbano e as melhores soluções construtivas.
 
 </section>
 
-<section id="sobre">
-<h3>Sobre Nós</h3>
+<section id="sobre" class="sobre-banner">
 
-<div class="fotos">
-  <div class="pessoa">
-    <img src="images/arquitetosnoah.jpeg">
-    <strong>Arquiteta Patrícia e Designer Marcus</strong>
-    <span>Projetos & Avaliações</span>
+  <h3>Sobre Nós</h3>
+
+  <div class="sobre-links">
+    <a href="sobre.html" class="sobre-link">
+      <img src="images/arquitetosnoah.jpeg">
+      <strong>Arquiteta Patrícia e Designer Marcus</strong>
+      <span>Projetos & Avaliações</span>
+    </a>
+
+    <a href="sobre.html" class="sobre-link">
+      <img src="images/engenheiro.jpeg">
+      <strong>Engenheiro Civil Carlos</strong>
+      <span>Avaliações Imobiliárias</span>
+    </a>
   </div>
 
-  <div class="pessoa">
-    <img src="images/engenheiro.jpeg">
-    <strong>Engenheiro Civil Carlos</strong>
-    <span>Avaliações Imobiliárias</span>
-  </div>
-</div>
+  <a href="sobre.html" class="btn-sobre">
+    CONHEÇA NOSSA HISTÓRIA
+  </a>
+
 </section>
 
 <section id="contato" class="contato">
