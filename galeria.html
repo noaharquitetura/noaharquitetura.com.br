@@ -5,121 +5,135 @@
 <title>Galeria | Noah Arquitetura</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Ícones -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 html, body {
-  margin:0;
-  padding:0;
-  min-height:100%;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#f4f4f4;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f4;
 }
 
-/* TITULO */
-.titulo{
-  text-align:center;
-  margin:50px 0 30px;
+/* TÍTULO */
+.titulo {
+  text-align: center;
+  margin: 50px 0 30px;
 }
 
-/* GALERIA */
-.galeria{
-  max-width:1200px;
-  margin:0 auto 80px;
-  padding:20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+.titulo h2 {
+  margin-bottom: 10px;
 }
 
-.galeria img{
-  width:100%;
-  height:250px;
-  object-fit:cover;
-  border-radius:12px;
+/* GALERIA DE FOTOS */
+.galeria {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-/* VIDEO */
-.video-galeria{
-  max-width:1200px;
-  margin:0 auto 100px;
-  padding:0 20px;
+.galeria img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-.video-container{
-  position:relative;
-  padding-bottom:56.25%;
-  height:0;
-  overflow:hidden;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+/* VÍDEOS */
+.video-galeria {
+  max-width: 1200px;
+  margin: 0 auto 100px;
+  padding: 0 20px;
+  display: grid;
+  gap: 40px;
 }
 
-.video-container iframe{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  background: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* FOOTER */
-footer{
-  background:#1e1e1e;
-  color:#fff;
-  text-align:center;
-  padding:40px 20px;
-  font-size:13px;
+footer {
+  background: #1e1e1e;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 13px;
 }
 
-.redes a{
-  color:#fff;
-  font-size:28px;
-  margin:0 12px;
+.redes {
+  margin-bottom: 15px;
 }
 
-.redes a:hover{
-  color:#25D366;
+.redes a {
+  color: #fff;
+  font-size: 28px;
+  margin: 0 12px;
+  text-decoration: none;
 }
 
-.frase-fe{
-  margin-top:10px;
-  font-style:italic;
-  opacity:.7;
+.redes a:hover {
+  color: #25D366;
+}
+
+.frase-fe {
+  margin-top: 10px;
+  font-style: italic;
+  opacity: 0.7;
 }
 </style>
 </head>
 
 <body>
 
+<!-- TÍTULO -->
 <div class="titulo">
   <h2>Arquitetura</h2>
   <p>Projetos desenvolvidos com funcionalidade, estética e conforto</p>
 </div>
 
-<!-- FOTOS -->
+<!-- GALERIA DE FOTOS -->
 <div class="galeria">
-  <img src="/images/predio1.jpg">
-  <img src="/images/ferrugem.jpg">
-  <img src="/images/fortunato.jpg">
-  <img src="/images/palhocinha.jpg">
-  <img src="/images/bosqueimbituba.jpg">
-  <img src="/images/dunas.jpg">
-  <img src="/images/reforma.jpg">
-  <img src="/images/sala.jpg">
-  <img src="/images/salabalcao.jpg">
-  <img src="/images/cozinhadunas.jpg">
-  <img src="/images/cozinha.jpg">
+  <img src="/images/predio1.jpg" alt="Projeto arquitetônico">
+  <img src="/images/ferrugem.jpg" alt="Projeto arquitetônico">
+  <img src="/images/fortunato.jpg" alt="Projeto arquitetônico">
+  <img src="/images/palhocinha.jpg" alt="Projeto arquitetônico">
+  <img src="/images/bosqueimbituba.jpg" alt="Projeto arquitetônico">
+  <img src="/images/dunas.jpg" alt="Projeto arquitetônico">
+  <img src="/images/reforma.jpg" alt="Projeto arquitetônico">
+  <img src="/images/sala.jpg" alt="Projeto arquitetônico">
+  <img src="/images/salabalcao.jpg" alt="Projeto arquitetônico">
+  <img src="/images/cozinhadunas.jpg" alt="Projeto arquitetônico">
+  <img src="/images/cozinha.jpg" alt="Projeto arquitetônico">
 </div>
 
-<!-- Videos 3D - Casa Rústica no Litoral -->
+<!-- VÍDEOS 3D -->
 <div class="video-galeria">
 
   <div class="video-container">
     <iframe
       src="https://www.youtube.com/embed/7syYu1Wh5dg"
-      title="Vídeo 3D do Projeto"
-      frameborder="0"
+      title="Vídeo 3D - Casa Rústica no Litoral"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
     </iframe>
@@ -127,19 +141,8 @@ footer{
 
   <div class="video-container">
     <iframe
-      src="https://www.youtube.com/watch?v=FnOQ08eqQ-g"
-      title="Vídeo 3D do Projeto"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <div class="video-container">
-    <iframe
-      src="https://www.youtube.com/embed/ID_DO_VIDEO_3"
-      title="Vídeo 3D do Projeto"
-      frameborder="0"
+      src="https://www.youtube.com/embed/FnOQ08eqQ-g"
+      title="Vídeo 3D - Reforma Residencial"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
     </iframe>
@@ -150,10 +153,10 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="redes">
-    <a href="https://www.instagram.com/noaharquitetura/" target="_blank">
+    <a href="https://www.instagram.com/noaharquitetura/" target="_blank" aria-label="Instagram">
       <i class="fab fa-instagram"></i>
     </a>
-    <a href="https://wa.me/5548996865891" target="_blank">
+    <a href="https://wa.me/5548996865891" target="_blank" aria-label="WhatsApp">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
