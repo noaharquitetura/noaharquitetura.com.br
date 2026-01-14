@@ -10,6 +10,9 @@
   <!-- Fonte Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome (ícones) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCK1E11SHM"></script>
   <script>
@@ -20,21 +23,33 @@
   </script>
 
   <style>
+    :root{
+      /* Paleta (inspirada na sua imagem) */
+      --marrom: #3A2D32;
+      --verde:  #8F9B8C;
+      --areia:  #C7B29A;
+      --off:    #F3E7DE;
+
+      --branco: #FFFFFF;
+      --sombra: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
+    }
+
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+      font-family:'Montserrat', Arial, Helvetica, sans-serif;
     }
 
     body{
-      background:#FFE3DC;
-      color:#3A2D32;
+      background: var(--off);
+      color: var(--marrom);
       line-height:1.7;
     }
 
     header{
-      background:#DBB4AD;
+      background: var(--areia);
       border-bottom:1px solid rgba(58,45,50,0.15);
     }
 
@@ -51,20 +66,57 @@
     .logo{
       font-weight:700;
       letter-spacing:1px;
-      color:#3A2D32;
+      color: var(--marrom);
       font-size:20px;
+      white-space:nowrap;
     }
 
-    nav a{
+    /* MENU */
+    .menu{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:0;
+    }
+
+    .menu a{
       margin-left:18px;
       text-decoration:none;
-      color:#3A2D32;
+      color: var(--marrom);
       font-weight:600;
       transition:0.3s;
     }
 
-    nav a:hover{
-      color:#A2AD91;
+    .menu a:hover{
+      color: var(--verde);
+    }
+
+    /* ÍCONES no menu */
+    .menu .icon{
+      margin-left:12px;
+      font-size:18px;
+      color: var(--marrom);
+      transition:0.3s;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:10px;
+    }
+
+    .menu .icon:hover{
+      transform:scale(1.08);
+      background: rgba(255,255,255,0.35);
+    }
+
+    .menu .whatsapp:hover{
+      color:#25D366;
+    }
+
+    .menu .instagram:hover{
+      color:#E1306C;
     }
 
     .container{
@@ -74,22 +126,22 @@
     }
 
     .hero{
-      background:#FFFFFF;
-      border-radius:18px;
+      background: var(--branco);
+      border-radius: var(--radius);
       padding:42px;
-      box-shadow:0 10px 30px rgba(0,0,0,.08);
+      box-shadow: var(--sombra);
     }
 
     h1{
       font-size:36px;
       line-height:1.2;
       margin-bottom:14px;
-      color:#3A2D32;
+      color: var(--marrom);
     }
 
     p{
       margin:14px 0;
-      color:#3A2D32;
+      color: var(--marrom);
     }
 
     .grid{
@@ -100,16 +152,16 @@
     }
 
     .card{
-      background:#DBB4AD;
-      border-radius:18px;
+      background: var(--areia);
+      border-radius: var(--radius);
       padding:26px;
-      box-shadow:0 10px 26px rgba(0,0,0,.06);
+      box-shadow: 0 10px 26px rgba(0,0,0,.06);
     }
 
     .card h2{
       font-size:19px;
       margin-bottom:10px;
-      color:#3A2D32;
+      color: var(--marrom);
     }
 
     ul{
@@ -132,31 +184,31 @@
       display:inline-block;
       padding:14px 22px;
       border-radius:14px;
-      background:#A2AD91;
-      color:#FFFFFF;
+      background: var(--verde);
+      color: var(--branco);
       text-decoration:none;
       font-weight:700;
       transition:0.3s;
     }
 
     .btn:hover{
-      background:#3A2D32;
+      background: var(--marrom);
     }
 
     .btn.outline{
       background:transparent;
-      color:#3A2D32;
-      border:2px solid #3A2D32;
+      color: var(--marrom);
+      border:2px solid var(--marrom);
     }
 
     .btn.outline:hover{
-      background:#3A2D32;
-      color:#FFFFFF;
+      background: var(--marrom);
+      color: var(--branco);
     }
 
     footer{
-      background:#3A2D32;
-      color:#FFE3DC;
+      background: var(--marrom);
+      color: var(--off);
       margin-top:60px;
     }
 
@@ -165,7 +217,23 @@
     }
 
     footer p{
-      color:#FFE3DC;
+      color: var(--off);
+    }
+
+    /* Responsivo */
+    @media (max-width: 720px){
+      .topo{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .menu a{
+        margin-left:0;
+        margin-right:14px;
+      }
+      .menu .icon{
+        margin-left:0;
+        margin-right:8px;
+      }
     }
   </style>
 </head>
@@ -175,10 +243,21 @@
   <header>
     <div class="topo">
       <div class="logo">Noah Arquitetura</div>
-      <nav>
+
+      <nav class="menu">
         <a href="index.html">Início</a>
         <a href="galeria.html">Galeria</a>
         <a href="contato.html">Contato</a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5543996141663 " target="_blank" class="icon whatsapp" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <!-- Instagram (troque o @ se necessário) -->
+        <a href="https://www.instagram.com/noaharquitetura" target="_blank" class="icon instagram" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
       </nav>
     </div>
   </header>
@@ -188,16 +267,16 @@
     <section class="hero">
       <h1>Arquiteto em Londrina</h1>
       <p>
-        Se você procura <strong>arquiteto em Londrina</strong> para projeto, reforma ou interiores, a Noah Arquitetura oferece
+        Se você procura <strong>arquiteto em Londrina</strong> para projeto, reforma ou interiores, a Noah Arquitetura entrega
         soluções funcionais, elegantes e com custo equilibrado — do estudo inicial ao detalhamento.
       </p>
       <p>
-        Atendemos Londrina e região com foco em <strong>arquitetura contemporânea</strong>, aproveitamento de luz natural,
-        ventilação e escolhas inteligentes de materiais para entregar um resultado bonito, técnico e viável.
+        Nosso foco é criar espaços com boa iluminação natural, ventilação e escolhas inteligentes de materiais, respeitando o estilo
+        contemporâneo e o jeito de viver no litoral.
       </p>
 
       <div class="cta">
-        <a class="btn" href="https://wa.me/5543996141663?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20arquitetura%20em%20Londrina.">Chamar no WhatsApp</a>
+        <a class="btn" href="https://wa.me/5548996865891?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20arquitetura%20em%20Imbituba.">Chamar no WhatsApp</a>
         <a class="btn outline" href="galeria.html">Ver projetos</a>
       </div>
     </section>
@@ -207,11 +286,11 @@
       <div class="card">
         <h2>Serviços em Londrina</h2>
         <ul>
-          <li>Laudos de Avaliação Imobiliária (NBR 14.653)</li>
           <li>Projeto arquitetônico residencial e comercial</li>
           <li>Reforma e ampliação</li>
           <li>Interiores</li>
           <li>Modelagem 3D e render realista</li>
+          <li>Laudos de Avaliação Imobiliária (NBR 14.653)</li>
           <li>Regularização e documentação</li>
         </ul>
       </div>
