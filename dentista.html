@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dentista | Clínica Odontológica • Atendimento Humanizado</title>
+  <meta name="description" content="Odontologia com conforto e tecnologia. Avaliação, estética, clareamento, implantes e ortodontia. Agende pelo WhatsApp." />
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <meta name="theme-color" content="#0B1B3A" />
+
+  <style>
+    :root{
+      /* PALETA: azul marinho, prata, preto e branco */
+      --navy:#0B1B3A;        /* azul marinho base */
+      --navy2:#132A52;       /* navy apoio */
+      --silver:#C7CCD6;      /* prata */
+      --silver2:#AEB6C3;     /* prata escura */
+      --black:#0A0B0F;       /* preto */
+      --white:#FFFFFF;       /* branco */
+
+      /* UI */
+      --text:#F6F8FC;
+      --muted:rgba(255,255,255,.70);
+      --line:rgba(255,255,255,.12);
+      --card:rgba(255,255,255,.06);
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; font-family:'Montserrat',sans-serif; }
+    body{
+      background:
+        radial-gradient(1100px 700px at 12% 10%, rgba(199,204,214,.14), transparent 55%),
+        radial-gradient(900px 650px at 90% 30%, rgba(19,42,82,.35), transparent 60%),
+        linear-gradient(180deg, rgba(11,27,58,1), rgba(10,11,15,1));
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width:var(--max); margin:0 auto; padding: 0 20px; }
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,27,58,.78);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:flex-start; gap:10px;
+      min-width: 240px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(199,204,214,1), rgba(199,204,214,.55));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      flex: 0 0 40px;
+    }
+    .brand h1{ font-size:14px; letter-spacing:.2px; }
+    .brand p{ font-size:12px; color:var(--muted); margin-top:2px; }
+
+    nav{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end; }
+    nav a{
+      font-size:12px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+    }
+    nav a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.10);
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px; padding:12px 16px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      transition:.2s ease;
+      cursor:pointer;
+      font-weight:600;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); }
+
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(199,204,214,1), rgba(174,182,195,.85));
+      border: 1px solid rgba(199,204,214,.50);
+      color: var(--black);
+      font-weight:800;
+    }
+    .btn.primary:hover{
+      background: linear-gradient(135deg, rgba(215,220,230,1), rgba(174,182,195,.95));
+    }
+
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* Hero */
+    .hero{ padding: 56px 0 30px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .hero h2{
+      font-size:40px;
+      line-height:1.15;
+      letter-spacing:-.6px;
+      margin:14px 0 12px;
+    }
+    .hero h2 span{ color: var(--silver); }
+    .hero p{
+      color:var(--muted);
+      font-size:15px;
+      margin-bottom:18px;
+      max-width: 60ch;
+    }
+    .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    .mini{ color:var(--muted); font-size:12px; margin-top:10px; }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(520px 220px at 30% 0%, rgba(199,204,214,.20), transparent 60%),
+        radial-gradient(600px 260px at 80% 40%, rgba(19,42,82,.30), transparent 65%);
+      pointer-events:none;
+      opacity:.95;
+    }
+    .hero-card > *{ position:relative; }
+    .hero-card h3{ font-size:14px; }
+
+    .info{
+      display:grid;
+      gap:10px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(11,27,58,.38);
+    }
+    .row{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .row b{ color:var(--text); font-weight:600; }
+
+    /* Sections */
+    section{ padding: 38px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      margin-bottom:18px;
+    }
+    .section-title h3{
+      font-size:22px;
+      letter-spacing:-.3px;
+      color: var(--white);
+    }
+    .section-title p{
+      color:var(--muted);
+      font-size:13px;
+      max-width: 72ch;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+    .item{ padding:18px; }
+    .item h4{ font-size:14px; margin-bottom:6px; color:var(--white); }
+    .item p{ color:var(--muted); font-size:13px; }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:36px; height:36px;
+      border-radius:12px;
+      margin-bottom:10px;
+      background: rgba(199,204,214,.18);
+      border: 1px solid rgba(199,204,214,.28);
+      color: var(--silver);
+      font-weight:900;
+      letter-spacing:.4px;
+    }
+
+    /* Depoimentos */
+    .quote{ padding:18px; display:flex; flex-direction:column; gap:10px; }
+    .quote p{ color:var(--text); font-size:13px; }
+    .quote .who{ color:var(--muted); font-size:12px; }
+
+    /* FAQ */
+    details{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+    details summary{
+      cursor:pointer;
+      font-weight:600;
+      font-size:13px;
+      list-style:none;
+    }
+    details summary::-webkit-details-marker{ display:none; }
+    details p{ margin-top:10px; color:var(--muted); font-size:13px; }
+    .faq{ display:grid; gap:10px; }
+
+    /* Contato */
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(11,27,58,.40);
+      color: var(--text);
+      outline:none;
+      font-size:13px;
+    }
+    textarea{ min-height:120px; resize:vertical; }
+    form{ display:grid; gap:10px; }
+
+    .footer{
+      padding: 26px 0 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* WhatsApp flutuante */
+    .wa-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:99;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .wa-float a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:54px; height:54px;
+      border-radius:18px;
+      background: linear-gradient(135deg, #25D366, #1fae53);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.20);
+      font-weight:900;
+      color:#0b0f17;
+    }
+    .wa-float span{
+      display:none;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(10,11,15,.75);
+      color: var(--muted);
+      font-size:12px;
+      max-width: 230px;
+    }
+    .wa-float:hover span{ display:block; }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns:1fr; }
+      .grid-3{ grid-template-columns:1fr; }
+      .grid-2{ grid-template-columns:1fr; }
+      nav{ display:none; }
+      .hero h2{ font-size:32px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="inner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>Dr(a). NOME SOBRENOME • CRO/UF 00000</h1>
+            <p>Odontologia • Cidade/UF • Atendimento humanizado</p>
+          </div>
+        </div>
+
+        <nav>
+          <a href="#servicos">Serviços</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#como">Como funciona</a>
+          <a href="#faq">Dúvidas</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <!-- TROQUE o WhatsApp -->
+        <a class="btn primary" href="https://wa.me/55DDDNUMEROAQUI?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20odontológica." target="_blank" rel="noopener">
+          Agendar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div>
+          <span class="pill">🦷 Conforto • Tecnologia • Resultado natural</span>
+          <h2>Seu sorriso com <span>cuidado</span>, precisão e estética.</h2>
+          <p>
+            Atendimento odontológico com foco em conforto e planejamento. Avaliação detalhada, orientação clara e
+            tratamentos personalizados conforme sua necessidade.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="https://wa.me/55DDDNUMEROAQUI?text=Olá%2C%20vim%20pelo%20site%20e%20quero%20agendar%20uma%20avaliação." target="_blank" rel="noopener">
+              Agendar avaliação
+            </a>
+            <a class="btn" href="#servicos">Ver serviços</a>
+          </div>
+
+          <div class="mini">⏱️ Retorno em até 24h úteis • 💳 Pix/Cartão • 📍 Cidade/UF</div>
+        </div>
+
+        <aside class="card hero-card">
+          <div>
+            <h3>Atendimento</h3>
+            <p style="color:var(--muted);font-size:13px;margin-top:6px;">
+              Planejamento, execução cuidadosa e acompanhamento — do início ao fim.
+            </p>
+          </div>
+
+          <div class="info">
+            <div class="row"><span>📌 Principais</span><b>Estética • Implantes</b></div>
+            <div class="row"><span>✅ Modalidade</span><b>Presencial</b></div>
+            <div class="row"><span>💳 Pagamento</span><b>Pix • Cartão</b></div>
+          </div>
+
+          <a class="btn" href="#contato">Solicitar contato</a>
+        </aside>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Serviços</h3>
+          <p>Troque os textos conforme o dentista/clinica. Mantenha claro e objetivo para aumentar conversão.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card item">
+          <div class="badge">1</div>
+          <h4>Clareamento dental</h4>
+          <p>Avaliação e indicação segura (consultório e/ou caseiro) para resultado natural e confortável.</p>
+        </div>
+
+        <div class="card item">
+          <div class="badge">2</div>
+          <h4>Lentes / Facetas</h4>
+          <p>Planejamento estético para harmonizar forma e cor, preservando ao máximo a estrutura dental.</p>
+        </div>
+
+        <div class="card item">
+          <div class="badge">3</div>
+          <h4>Implantes</h4>
+          <p>Reposição de dentes com segurança e planejamento, buscando função, estética e estabilidade.</p>
+        </div>
+      </div>
+
+      <div style="height:14px;"></div>
+
+      <div class="grid-3">
+        <div class="card item">
+          <div class="badge">4</div>
+          <h4>Ortodontia</h4>
+          <p>Alinhadores ou aparelho conforme o caso, com plano de tratamento e acompanhamento periódico.</p>
+        </div>
+
+        <div class="card item">
+          <div class="badge">5</div>
+          <h4>Limpeza e prevenção</h4>
+          <p>Profilaxia, orientação de higiene e prevenção para manter saúde bucal e evitar complicações.</p>
+        </div>
+
+        <div class="card item">
+          <div class="badge">6</div>
+          <h4>Urgências</h4>
+          <p>Avaliação para dor, fratura, restauração, inflamações e orientações iniciais com prioridade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Sobre</h3>
+          <p>Um texto curto, humano e profissional aumenta confiança. Evite prometer resultado “garantido”.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card item">
+          <h4>Quem atende</h4>
+          <p>
+            Sou Dr(a). NOME SOBRENOME, CRO/UF 00000. Atuo com foco em um atendimento acolhedor e criterioso,
+            explicando opções, prazos e cuidados para decisões mais seguras.
+          </p>
+          <p style="margin-top:10px;color:var(--muted);font-size:13px;">
+            Atendimento em Cidade/UF.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h4>Meu compromisso</h4>
+          <p>✅ Conforto no atendimento • ✅ Planejamento • ✅ Estética natural • ✅ Transparência</p>
+          <p style="margin-top:10px;color:var(--muted);font-size:13px;">
+            Cada caso é único e deve ser avaliado individualmente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Como funciona</h3>
+          <p>Um passo a passo simples ajuda a pessoa a agendar com confiança.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card item">
+          <div class="badge">A</div>
+          <h4>1) Agendamento</h4>
+          <p>Chame no WhatsApp e escolha o melhor horário para sua avaliação.</p>
+        </div>
+        <div class="card item">
+          <div class="badge">B</div>
+          <h4>2) Avaliação</h4>
+          <p>Exame clínico e, se necessário, exames complementares para diagnóstico e plano.</p>
+        </div>
+        <div class="card item">
+          <div class="badge">C</div>
+          <h4>3) Plano e tratamento</h4>
+          <p>Você recebe orientações claras, opções e próximos passos com transparência.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Depoimentos</h3>
+          <p>Use depoimentos reais e autorizados. Se não tiver, você pode remover essa seção.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card quote">
+          <p>“Atendimento super cuidadoso e sem pressa. Me senti muito acolhido(a).”</p>
+          <div class="who">— Paciente (inicial do nome), Cidade/UF</div>
+        </div>
+        <div class="card quote">
+          <p>“Explicou tudo com clareza e o resultado ficou bem natural.”</p>
+          <div class="who">— Paciente (inicial do nome), Cidade/UF</div>
+        </div>
+        <div class="card quote">
+          <p>“Clínica organizada, pontualidade e profissionalismo.”</p>
+          <div class="who">— Paciente (inicial do nome), Cidade/UF</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Dúvidas frequentes</h3>
+          <p>Respostas rápidas e claras. Você pode adaptar conforme os serviços.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Como é a avaliação?</summary>
+          <p>Na avaliação, analisamos sua queixa principal, fazemos exame clínico e orientamos as melhores opções de tratamento.</p>
+        </details>
+
+        <details>
+          <summary>Qual o valor?</summary>
+          <p>O valor depende do procedimento e do planejamento. Após a avaliação, informamos orçamento e condições com clareza.</p>
+        </details>
+
+        <details>
+          <summary>Clareamento funciona para todo mundo?</summary>
+          <p>Nem sempre. A indicação depende do tipo de mancha e da saúde dental. A avaliação define a melhor abordagem.</p>
+        </details>
+
+        <details>
+          <summary>Esta página substitui consulta?</summary>
+          <p>Não. O conteúdo é informativo. Diagnóstico e indicação dependem de avaliação individual.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Contato</h3>
+          <p>Chame no WhatsApp para agendar. Você também pode usar o formulário (opcional).</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card item">
+          <h4>Fale comigo</h4>
+          <p style="margin-top:8px;">📍 Cidade/UF</p>
+          <p>🕘 Seg a Sex • 9h às 18h</p>
+          <p>📲 WhatsApp: (DD) 9XXXX-XXXX</p>
+
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn primary" href="https://wa.me/55DDDNUMEROAQUI?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20odontológica." target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn" href="#servicos">Serviços</a>
+          </div>
+
+          <p style="margin-top:12px;color:var(--muted);font-size:12px;">
+            ⚠️ Conteúdo informativo. Procedimentos e resultados variam conforme cada caso.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h4>Formulário (opcional)</h4>
+          <p style="color:var(--muted);font-size:13px;margin:8px 0 12px;">
+            Este formulário usa o e-mail do dispositivo (mailto). Se você quiser formulário com envio automático,
+            eu te passo a versão com Formspree/Google Forms.
+          </p>
+
+          <!-- Troque o e-mail abaixo -->
+          <form action="mailto:seuemail@dominio.com?subject=Contato%20pelo%20site%20(odontologia)" method="post" enctype="text/plain">
+            <input type="text" name="Nome" placeholder="Seu nome" required>
+            <input type="tel" name="WhatsApp" placeholder="Seu WhatsApp" required>
+            <input type="text" name="Assunto" placeholder="Assunto (ex: clareamento, implante, aparelho)" required>
+            <textarea name="Mensagem" placeholder="Conte brevemente o que você precisa"></textarea>
+            <button class="btn primary" type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+      <div>© <span id="year"></span> Dr(a). NOME SOBRENOME • CRO/UF 00000</div>
+      <div style="opacity:.9;">Odontologia • Tecnologia e cuidado</div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <div class="wa-float">
+    <span>Agende sua avaliação no WhatsApp.</span>
+    <a href="https://wa.me/55DDDNUMEROAQUI?text=Olá%2C%20vim%20pelo%20site%20e%20quero%20agendar%20uma%20avaliação." target="_blank" rel="noopener" aria-label="WhatsApp">
+      WA
+    </a>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
