@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Advogado(a) | Atendimento Online e Presencial</title>
+  <meta name="description" content="Atendimento jurídico com clareza e agilidade. Consultas online e presenciais. Fale no WhatsApp." />
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- SEO/Compartilhamento (opcional) -->
+  <meta property="og:title" content="Atendimento Jurídico" />
+  <meta property="og:description" content="Orientação clara, ética e estratégica. Fale no WhatsApp." />
+  <meta name="theme-color" content="#1F3A2E">
+
+  <style>
+    :root{
+      /* PALETA (verde, marrom e bege) */
+      --verde-escuro:#1F3A2E;   /* base */
+      --verde-oliva:#3E5F4C;    /* apoio */
+      --marrom:#5A3E2B;         /* títulos/detalhes */
+      --dourado:#8B6B3E;        /* destaque premium */
+      --bege:#F2E9DC;           /* fundo claro */
+      --bege-2:#D8C4A8;         /* cards claros */
+
+      /* UI */
+      --texto:#F7F2E8;
+      --muted:rgba(242,233,220,.78);
+      --borda:rgba(242,233,220,.14);
+      --sombra: 0 18px 45px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; font-family:'Montserrat',sans-serif; }
+    body{
+      background:
+        radial-gradient(1200px 700px at 12% 5%, rgba(139,107,62,.18), transparent 55%),
+        radial-gradient(900px 650px at 90% 25%, rgba(62,95,76,.20), transparent 55%),
+        var(--verde-escuro);
+      color:var(--texto);
+      line-height:1.65;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width:var(--max); margin:0 auto; padding: 0 20px; }
+
+    /* TOPBAR */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(31,58,46,.78);
+      border-bottom:1px solid var(--borda);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:flex-start; gap:10px;
+      min-width: 250px;
+    }
+    .brand .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(139,107,62,1), rgba(90,62,43,.90));
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      flex: 0 0 40px;
+      border:1px solid rgba(242,233,220,.12);
+    }
+    .brand h1{ font-size:14px; letter-spacing:.2px; }
+    .brand p{ font-size:12px; color:var(--muted); margin-top:2px; }
+
+    nav{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end; }
+    nav a{
+      font-size:12px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+    }
+    nav a:hover{
+      color:var(--texto);
+      background: rgba(242,233,220,.06);
+      border-color: rgba(242,233,220,.10);
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px; padding:12px 16px; border-radius:14px;
+      border:1px solid rgba(242,233,220,.16);
+      background: rgba(242,233,220,.06);
+      color:var(--texto);
+      transition:.2s ease;
+      cursor:pointer;
+      font-weight:600;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(242,233,220,.09); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(139,107,62,1), rgba(90,62,43,.95));
+      border: 1px solid rgba(139,107,62,.55);
+      color: var(--bege);
+    }
+    .btn.primary:hover{
+      background: linear-gradient(135deg, rgba(160,125,72,1), rgba(90,62,43,1));
+    }
+
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(242,233,220,.16);
+      background: rgba(242,233,220,.06);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* HERO */
+    .hero{ padding: 56px 0 30px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .hero h2{
+      font-size:40px;
+      line-height:1.15;
+      letter-spacing:-.6px;
+      margin:14px 0 12px;
+    }
+    .hero h2 span{ color: #E7D3AE; }
+    .hero p{
+      color:var(--muted);
+      font-size:15px;
+      margin-bottom:18px;
+      max-width: 60ch;
+    }
+    .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    .mini{ color:var(--muted); font-size:12px; margin-top:10px; }
+
+    .card{
+      background: linear-gradient(180deg, rgba(242,233,220,.06), rgba(242,233,220,.03));
+      border:1px solid var(--borda);
+      border-radius: var(--radius);
+      box-shadow: var(--sombra);
+    }
+    .hero-card{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(520px 220px at 30% 0%, rgba(139,107,62,.24), transparent 60%),
+        radial-gradient(600px 260px at 80% 40%, rgba(62,95,76,.22), transparent 65%);
+      pointer-events:none;
+      opacity:.95;
+    }
+    .hero-card > *{ position:relative; }
+    .hero-card h3{ font-size:14px; }
+    .hero-card .info{
+      display:grid;
+      gap:10px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(242,233,220,.14);
+      background: rgba(31,58,46,.45);
+    }
+    .row{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .row b{ color:var(--texto); font-weight:600; }
+
+    /* SECTIONS */
+    section{ padding: 38px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      margin-bottom:18px;
+    }
+    .section-title h3{
+      font-size:22px;
+      letter-spacing:-.3px;
+      color: var(--bege);
+    }
+    .section-title p{
+      color:var(--muted);
+      font-size:13px;
+      max-width: 70ch;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+    .item{ padding:18px; }
+    .item h4{
+      font-size:14px;
+      margin-bottom:6px;
+      color: #F7F2E8;
+    }
+    .item p{ color:var(--muted); font-size:13px; }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:36px; height:36px;
+      border-radius:12px;
+      margin-bottom:10px;
+      background: rgba(139,107,62,.20);
+      border: 1px solid rgba(139,107,62,.30);
+      color: #EAD6B2;
+      font-weight:800;
+      letter-spacing:.4px;
+    }
+
+    /* Depoimentos */
+    .quote{ padding:18px; display:flex; flex-direction:column; gap:10px; }
+    .quote p{ color:var(--texto); font-size:13px; }
+    .quote .who{ color:var(--muted); font-size:12px; }
+
+    /* FAQ */
+    details{
+      border:1px solid rgba(242,233,220,.14);
+      background: rgba(242,233,220,.04);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+    details summary{
+      cursor:pointer;
+      font-weight:600;
+      font-size:13px;
+      list-style:none;
+    }
+    details summary::-webkit-details-marker{ display:none; }
+    details p{ margin-top:10px; color:var(--muted); font-size:13px; }
+    .faq{ display:grid; gap:10px; }
+
+    /* Contato */
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(242,233,220,.14);
+      background: rgba(31,58,46,.45);
+      color: var(--texto);
+      outline:none;
+      font-size:13px;
+    }
+    textarea{ min-height:120px; resize:vertical; }
+    form{ display:grid; gap:10px; }
+
+    .footer{
+      padding: 26px 0 40px;
+      border-top:1px solid var(--borda);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* WhatsApp flutuante */
+    .wa-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:99;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .wa-float a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:54px; height:54px;
+      border-radius:18px;
+      background: linear-gradient(135deg, #25D366, #1fae53);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      border: 1px solid rgba(242,233,220,.20);
+      font-weight:900;
+      color:#0b0f17;
+    }
+    .wa-float span{
+      display:none;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(242,233,220,.14);
+      background: rgba(31,58,46,.80);
+      color: var(--muted);
+      font-size:12px;
+      max-width: 220px;
+    }
+    .wa-float:hover span{ display:block; }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns:1fr; }
+      .grid-3{ grid-template-columns:1fr; }
+      .grid-2{ grid-template-columns:1fr; }
+      nav{ display:none; }
+      .hero h2{ font-size:32px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="inner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>Dr(a). NOME SOBRENOME • OAB/UF 000000</h1>
+            <p>Atendimento online e presencial • Cidade/UF</p>
+          </div>
+        </div>
+
+        <nav>
+          <a href="#atuacao">Atuação</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#como">Como funciona</a>
+          <a href="#faq">Dúvidas</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <!-- TROQUE o link do WhatsApp -->
+        <a class="btn primary" href="https://wa.me/55DDDNUMEROAQUI?text=Olá%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div>
+          <span class="pill">⚖️ Ética • Clareza • Estratégia</span>
+          <h2>Atendimento jurídico com <span>seriedade</span> e linguagem simples.</h2>
+          <p>
+            Orientação clara desde o primeiro contato. Atuação com transparência sobre riscos e possibilidades,
+            sempre respeitando as particularidades de cada caso.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="https://wa.me/55DDDNUMEROAQUI?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20atendimento%20jurídico." target="_blank" rel="noopener">
+              Agendar pelo WhatsApp
+            </a>
+            <a class="btn" href="#atuacao">Ver áreas de atuação</a>
+          </div>
+
+          <div class="mini">⏱️ Retorno em até 24h úteis • 💻 Online / Presencial</div>
+        </div>
+
+        <aside class="card hero-card">
+          <div>
+            <h3>Atendimento</h3>
+            <p style="color:var(--muted);font-size:13px;margin-top:6px;">
+              Um caminho direto: entender, orientar e agir com segurança jurídica.
+            </p>
+          </div>
+
+          <div class="info">
+            <div class="row"><span>📌 Áreas</span><b>Trabalhista • Cível • Família</b></div>
+            <div class="row"><span>✅ Formato</span><b>Online • Presencial</b></div>
+            <div class="row"><span>💳 Pagamento</span><b>Pix • Cartão • Boleto</b></div>
+          </div>
+
+          <a class="btn" href="#contato">Solicitar contato</a>
+        </aside>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ATUAÇÃO -->
+  <section id="atuacao">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Áreas de atuação</h3>
+          <p>Troque pelos serviços reais do escritório. Textos curtos e objetivos passam mais confiança.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card item">
+          <div class="badge">1</div>
+          <h4>Direito do Trabalho</h4>
+          <p>Verbas rescisórias, horas extras, vínculo, assédio, acordos e orientações preventivas.</p>
+        </div>
+
+        <div class="card item">
+          <div class="badge">2</div>
+          <h4>Direito de Família</h4>
+          <p>Divórcio, guarda, pensão, partilha e soluções que buscam reduzir desgaste emocional.</p>
+        </div>
+
+        <div class="card item">
+          <div class="badge">3</div>
+          <h4>Direito Cível</h4>
+          <p>Contratos, cobranças, indenizações e análise jurídica para decisões mais seguras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Sobre o escritório</h3>
+          <p>Um texto curto, humano e profissional. Evite promessas de resultado.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card item">
+          <h4>Quem atende</h4>
+          <p>
+            Sou Dr(a). NOME SOBRENOME, OAB/UF 000000. Atuo com foco em orientar clientes com clareza e estratégia,
+            prezando por ética, transparência e organização em cada etapa do atendimento.
+          </p>
+          <p style="margin-top:10px;color:var(--muted);font-size:13px;">
+            Atendimento online e presencial em Cidade/UF.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h4>Compromisso</h4>
+          <p>✅ Linguagem simples • ✅ Agilidade no retorno • ✅ Postura ética • ✅ Foco em solução</p>
+          <p style="margin-top:10px;color:var(--muted);font-size:13px;">
+            Cada caso é analisado individualmente. Esta página tem caráter informativo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Como funciona</h3>
+          <p>Passo a passo simples para a pessoa entender e decidir com segurança.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card item">
+          <div class="badge">A</div>
+          <h4>1) Primeiro contato</h4>
+          <p>Você chama no WhatsApp, explica brevemente o caso e envia documentos básicos (se houver).</p>
+        </div>
+        <div class="card item">
+          <div class="badge">B</div>
+          <h4>2) Análise e orientação</h4>
+          <p>Eu avalio o cenário e explico riscos e caminhos possíveis com clareza e transparência.</p>
+        </div>
+        <div class="card item">
+          <div class="badge">C</div>
+          <h4>3) Próximos passos</h4>
+          <p>Definimos a estratégia e você acompanha as etapas com comunicação objetiva e organizada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Depoimentos</h3>
+          <p>Use depoimentos reais e autorizados. Se não tiver, você pode remover esta seção.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card quote">
+          <p>“Atendimento rápido e muito claro. Me senti seguro(a) para decidir o caminho.”</p>
+          <div class="who">— Cliente (inicial do nome), Cidade/UF</div>
+        </div>
+        <div class="card quote">
+          <p>“Explicou tudo sem juridiquês e acompanhou o caso com transparência.”</p>
+          <div class="who">— Cliente (inicial do nome), Cidade/UF</div>
+        </div>
+        <div class="card quote">
+          <p>“Profissionalismo e agilidade. Recomendo pelo cuidado e seriedade.”</p>
+          <div class="who">— Cliente (inicial do nome), Cidade/UF</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Dúvidas frequentes</h3>
+          <p>Respostas diretas, mantendo postura ética e sem promessas de resultado.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Como funciona a consulta?</summary>
+          <p>O atendimento pode ser online ou presencial. Na consulta, analisamos informações e documentos para orientar o melhor caminho jurídico.</p>
+        </details>
+
+        <details>
+          <summary>Quanto custa?</summary>
+          <p>Os valores variam conforme complexidade e tipo de demanda. Após entender seu caso, os honorários e condições são informados com transparência.</p>
+        </details>
+
+        <details>
+          <summary>Atende outras cidades?</summary>
+          <p>Sim. Em muitos casos, é possível atender e acompanhar de forma online, dependendo da natureza da demanda.</p>
+        </details>
+
+        <details>
+          <summary>Esta página garante resultado?</summary>
+          <p>Não. O conteúdo é informativo e cada caso depende de provas, contexto e entendimento jurídico aplicável.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Contato</h3>
+          <p>Se preferir, a pessoa pode chamar direto no WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card item">
+          <h4>Fale comigo</h4>
+          <p style="margin-top:8px;">📍 Cidade/UF</p>
+          <p>🕘 Seg a Sex • 9h às 18h</p>
+          <p>📲 WhatsApp: (DD) 9XXXX-XXXX</p>
+
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn primary" href="https://wa.me/55DDDNUMEROAQUI?text=Olá%2C%20gostaria%20de%20um%20atendimento%20jurídico." target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn" href="#atuacao">Áreas</a>
+          </div>
+
+          <p style="margin-top:12px;color:var(--muted);font-size:12px;">
+            ⚠️ Conteúdo informativo. Não substitui consulta jurídica.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h4>Formulário (opcional)</h4>
+          <p style="color:var(--muted);font-size:13px;margin:8px 0 12px;">
+            Este formulário usa o e-mail do dispositivo (mailto). Se você quiser formulário com envio automático,
+            eu te passo a versão com Formspree/Google Forms.
+          </p>
+
+          <!-- Troque o e-mail abaixo -->
+          <form action="mailto:seuemail@dominio.com?subject=Contato%20pelo%20site" method="post" enctype="text/plain">
+            <input type="text" name="Nome" placeholder="Seu nome" required>
+            <input type="tel" name="WhatsApp" placeholder="Seu WhatsApp" required>
+            <input type="text" name="Assunto" placeholder="Assunto (ex: pensão, rescisão, contrato)" required>
+            <textarea name="Mensagem" placeholder="Explique brevemente seu caso"></textarea>
+            <button class="btn primary" type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+      <div>© <span id="year"></span> Dr(a). NOME SOBRENOME • OAB/UF 000000</div>
+      <div style="opacity:.9;">Atendimento jurídico • Ética e transparência</div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <div class="wa-float">
+    <span>Precisa de ajuda? Chame no WhatsApp.</span>
+    <a href="https://wa.me/55DDDNUMEROAQUI?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20atendimento." target="_blank" rel="noopener" aria-label="WhatsApp">
+      WA
+    </a>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
