@@ -2,54 +2,46 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-
 <title>Marcus Busato | Designer de Produto em Garopaba SC</title>
-
-<meta name="description" content="Marcus Busato, Designer de Produto em Garopaba SC. Modelagem 3D técnica, desenho técnico e projeto de moldes para vacuum forming.">
+<meta name="description" content="Marcus Busato, Designer de Produto em Garopaba SC. Modelagem 3D técnica, desenho técnico e projeto de moldes para vacuum forming. Atendimento local e online.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg:#1e1e1e;
-  --card:#3a3a3a;           /* CINZA MÉDIO */
+  --card:#3a3a3a;
+  --card2:#2f2f2f;
   --text:#f5f5f5;
   --muted:#d6d6d6;
   --accent:#f2a45c;
   --line:rgba(255,255,255,.14);
   --shadow:0 16px 40px rgba(0,0,0,.30);
 }
-
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
-body{background:var(--bg);color:var(--text);line-height:1.7;}
+body{background:var(--bg);color:var(--text);line-height:1.75;}
 a{text-decoration:none;color:inherit;}
-
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
+strong{color:var(--text);}
+p{color:var(--muted);}
 
 /* HEADER */
 header{
   position:sticky;top:0;z-index:10;
-  background:rgba(30,30,30,.9);
+  background:rgba(30,30,30,.92);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
-.nav{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 0;
-}
-.brand{
-  display:flex;align-items:center;gap:14px;
-}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px;}
+.brand{display:flex;align-items:center;gap:14px;}
 .logo{
   width:44px;height:44px;border-radius:14px;
   background:linear-gradient(135deg,#f2a45c,#d88a42);
   color:#1e1e1e;font-weight:800;
   display:flex;align-items:center;justify-content:center;
 }
-.brand-info b{font-size:16px;}
-.brand-info span{font-size:12px;color:var(--muted);}
-
+.brand-info b{font-size:16px;display:block;line-height:1.1;}
+.brand-info span{font-size:12px;color:var(--muted);display:block;margin-top:2px;}
 .icons{display:flex;gap:10px;}
 .icon{
   width:42px;height:42px;border-radius:14px;
@@ -57,67 +49,55 @@ header{
   background:var(--card);
   border:1px solid var(--line);
 }
-.icon.whats{
-  background:linear-gradient(135deg,#f2a45c,#d88a42);
-}
+.icon.whats{background:linear-gradient(135deg,#f2a45c,#d88a42);}
 .icon svg{width:20px;height:20px;}
 
 /* HERO */
-.hero{padding:70px 0;}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:32px;
-}
-.kicker{
-  font-size:12px;letter-spacing:.15em;
-  color:var(--muted);margin-bottom:14px;
-}
-h1{
-  font-size:46px;font-weight:800;line-height:1.05;
-  margin-bottom:18px;
-}
+.hero{padding:70px 0 40px;}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:start;}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--muted);margin-bottom:14px;}
+h1{font-size:46px;font-weight:800;line-height:1.05;margin-bottom:18px;}
 h1 span{color:var(--accent);}
-.lead{
-  font-size:18px;color:var(--muted);
-  max-width:620px;
-}
+.lead{font-size:18px;color:var(--muted);max-width:70ch;}
 
 /* CHIPS */
-.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
 .chip{
   padding:10px 16px;border-radius:999px;
-  background:linear-gradient(135deg,#f2a45c,#d88a42);
-  color:#1e1e1e;font-size:13px;font-weight:700;
+  background:var(--card);
+  border:1px solid var(--line);
+  color:var(--text);
+  font-size:13px;font-weight:700;
 }
 
-/* FOTO */
-.card{
-  background:var(--card);
-  border-radius:22px;
+/* SIDE BOX (SEM FOTO) */
+.concept{
+  background:var(--card2);
   border:1px solid var(--line);
+  border-radius:22px;
+  padding:22px;
   box-shadow:var(--shadow);
-  overflow:hidden;
 }
-.card img{
-  width:100%;
-  height:320px;
-  object-fit:cover;
-  display:block;
+.concept h3{color:var(--accent);margin-bottom:12px;font-size:18px;}
+.concept ul{margin-left:18px;color:var(--muted);line-height:1.9;}
+.concept li{margin:6px 0;}
+.note{
+  margin-top:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
+  color:var(--muted);
 }
-.card-body{padding:18px;}
-.card-body h3{color:var(--accent);margin-bottom:12px;}
-.card-body ul{padding-left:18px;color:var(--muted);}
-.card-body li{margin:8px 0;}
 
 /* SECTIONS */
-section{padding:60px 0;}
-h2{font-size:30px;margin-bottom:14px;color:var(--accent);}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:18px;
-}
+section{padding:55px 0;}
+.sectionTitle{font-size:30px;margin-bottom:14px;color:var(--accent);}
+.sectionDesc{max-width:95ch;margin-bottom:18px;}
+hr.sep{border:0;border-top:1px solid var(--line);margin:40px 0 0;}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
 .box{
   background:var(--card);
   padding:20px;
@@ -125,12 +105,14 @@ h2{font-size:30px;margin-bottom:14px;color:var(--accent);}
   border:1px solid var(--line);
   box-shadow:var(--shadow);
 }
-.box h3{color:var(--accent);margin-bottom:8px;}
-.box p{color:var(--muted);}
+.box h3{color:var(--accent);margin-bottom:8px;font-size:18px;}
+.box p{margin:0;color:var(--muted);}
+.list{margin:10px 0 0 18px;color:var(--muted);line-height:1.9;}
+.list li{margin:6px 0;}
 
 /* CTA */
 .cta{
-  margin-top:40px;
+  margin-top:26px;
   background:linear-gradient(135deg,#f2a45c,#d88a42);
   color:#1e1e1e;
   padding:26px;
@@ -139,12 +121,16 @@ h2{font-size:30px;margin-bottom:14px;color:var(--accent);}
   justify-content:space-between;
   flex-wrap:wrap;
   gap:16px;
+  box-shadow:0 22px 60px rgba(0,0,0,.35);
 }
+.cta strong{color:#1e1e1e;}
+.cta small{display:block;opacity:.85;margin-top:6px;}
 .cta a{
-  background:rgba(0,0,0,.15);
+  background:rgba(0,0,0,.18);
   padding:12px 18px;
   border-radius:14px;
-  font-weight:700;
+  font-weight:800;
+  color:#1e1e1e;
 }
 
 /* FOOTER */
@@ -167,8 +153,6 @@ footer{
 
 <header>
   <div class="wrap nav">
-
-    <!-- NOME COM LINK PARA NOAH -->
     <a href="https://noaharquitetura.com.br" class="brand">
       <div class="logo">MB</div>
       <div class="brand-info">
@@ -178,22 +162,20 @@ footer{
     </a>
 
     <div class="icons">
-      <a href="https://instagram.com/marcusbusato" target="_blank" class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
+      <a href="https://instagram.com/noaharquitetura" target="_blank" class="icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="1.8"/>
           <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.8"/>
           <circle cx="17" cy="7" r="1" fill="white"/>
         </svg>
       </a>
-
-      <a href="https://wa.me/5548999999999" target="_blank" class="icon whats">
-        <svg viewBox="0 0 24 24" fill="none">
+      <a href="https://wa.me/5548996865891" target="_blank" class="icon whats" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M20 11a8 8 0 1 1-3-6" stroke="#1e1e1e" stroke-width="1.8"/>
           <path d="M7 19l-1 4 4-1" stroke="#1e1e1e" stroke-width="1.8"/>
         </svg>
       </a>
     </div>
-
   </div>
 </header>
 
@@ -202,17 +184,12 @@ footer{
 
     <div>
       <div class="kicker">MODELAGEM 3D · DESENHO TÉCNICO · MOLDES</div>
-
-      <h1>
-        Projeto técnico industrial<br>
-        <span>com foco em vacuum forming</span>
-      </h1>
+      <h1>Projeto técnico industrial<br><span>com foco em vacuum forming</span></h1>
 
       <p class="lead">
-        Atuação no desenvolvimento de produtos industriais, com foco em
-        <strong>modelagem 3D técnica</strong>, <strong>desenho técnico</strong> e
-        <strong>projeto de moldes</strong>.
-        Experiência com <strong>Rhinoceros</strong> e <strong>AutoCAD</strong>.
+        Designer de Produto (Desenho Industrial) com atuação na <strong>fase de projeto</strong>:
+        <strong>modelagem 3D técnica</strong>, <strong>desenho técnico</strong> e <strong>projeto de moldes</strong>,
+        com entrega de arquivos para <strong>indústria</strong> e <strong>ferramentaria</strong>.
       </p>
 
       <div class="chips">
@@ -223,16 +200,18 @@ footer{
       </div>
     </div>
 
-    <aside class="card">
-      <img src="images/marcus.jpg" alt="Marcus Busato">
-      <div class="card-body">
-        <h3>Principais entregas</h3>
-        <ul>
-          <li>Modelagem 3D (Rhino)</li>
-          <li>Desenho técnico (AutoCAD)</li>
-          <li>Projeto de moldes</li>
-          <li>Documentação técnica</li>
-        </ul>
+    <aside class="concept">
+      <h3>Principais entregas</h3>
+      <ul>
+        <li>Modelagem 3D (Rhino) — produto, peça e molde</li>
+        <li>Desenho 2D (AutoCAD) — cortes, vistas, cotas e detalhes</li>
+        <li>Documentação técnica para execução em CNC/ferramentaria</li>
+        <li>Observações de processo e desmolde</li>
+      </ul>
+
+      <div class="note">
+        ⚠️ <strong>Importante:</strong> serviço restrito ao <strong>projeto</strong>.
+        Não realizo a fabricação do molde ou da peça.
       </div>
     </aside>
 
@@ -241,33 +220,122 @@ footer{
 
 <section>
   <div class="wrap">
-    <h2>O que é Vacuum Forming</h2>
+    <h2 class="sectionTitle">O que é Vacuum Forming</h2>
+
+    <p class="sectionDesc">
+      <strong>Vacuum forming</strong> (vacuum formagem) é um processo industrial para fabricar peças a partir de
+      <strong>chapas plásticas</strong>. A chapa é aquecida até ficar maleável e então é <strong>conformada por vácuo</strong>
+      sobre um <strong>molde</strong>, copiando sua geometria. Depois, a peça é resfriada, recortada e finalizada.
+    </p>
 
     <div class="grid">
-      <div class="box"><h3>Como funciona</h3><p>Aquecimento → vácuo → resfriamento → acabamento.</p></div>
-      <div class="box"><h3>Onde é utilizado</h3><p>Embalagens, bandejas, berços, capas e displays.</p></div>
-      <div class="box"><h3>Por que usar</h3><p>Menor custo e maior agilidade que injeção.</p></div>
+      <div class="box">
+        <h3>Como funciona (passo a passo)</h3>
+        <ul class="list">
+          <li><strong>1)</strong> Aquecer a chapa plástica</li>
+          <li><strong>2)</strong> Posicionar a chapa sobre o molde</li>
+          <li><strong>3)</strong> Aplicar vácuo para conformar</li>
+          <li><strong>4)</strong> Resfriar e estabilizar</li>
+          <li><strong>5)</strong> Recortar e dar acabamento</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Por que é muito usado</h3>
+        <ul class="list">
+          <li>Bom custo-benefício em séries pequenas/médias</li>
+          <li>Agilidade no desenvolvimento (protótipos)</li>
+          <li>Excelente apresentação para embalagens/PDV</li>
+          <li>Possibilidade de ajustes rápidos de molde</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Ponto crítico: o molde</h3>
+        <p>
+          Um bom projeto de molde evita deformações, rasgos, travamento no desmolde e falta de rigidez.
+          Por isso, o desenho técnico considera ângulos, raios, espessuras e recortes.
+        </p>
+      </div>
     </div>
+
+    <div class="note">
+      <strong>Detalhes técnicos considerados no projeto:</strong>
+      ângulo de saída (desmolde), raios em cantos, espessuras, reforços, recortes, tolerâncias e comportamento do material.
+    </div>
+
+    <hr class="sep">
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Tipos de aplicação</h2>
+    <h2 class="sectionTitle">Onde o Vacuum Forming é usado</h2>
+    <p class="sectionDesc">Aplicações reais e comuns no mercado:</p>
 
     <div class="grid">
-      <div class="box"><h3>Embalagens blister</h3><p>Velas, sabonetes e cosméticos.</p></div>
-      <div class="box"><h3>Bandejas industriais</h3><p>Organização e transporte.</p></div>
-      <div class="box"><h3>Capas e carenagens</h3><p>Proteções plásticas.</p></div>
-      <div class="box"><h3>PDV / Displays</h3><p>Expositores e suportes.</p></div>
+      <div class="box">
+        <h3>📦 Embalagens e blisters</h3>
+        <p>Embalagens transparentes, berços e bandejas para kits (ferramentas, eletrônicos, cosméticos).</p>
+        <p style="margin-top:10px;color:rgba(255,255,255,.75);">
+          *Velas e sabonetes: normalmente a aplicação é na <strong>embalagem</strong> (blister/berço), não no produto.
+        </p>
+      </div>
+      <div class="box">
+        <h3>🏭 Bandejas industriais</h3>
+        <p>Bandejas técnicas, berços de transporte e organizadores de linha.</p>
+      </div>
+      <div class="box">
+        <h3>🛍️ PDV e Displays</h3>
+        <p>Expositores, suportes e bases de apresentação no ponto de venda.</p>
+      </div>
+      <div class="box">
+        <h3>🛠️ Capas e proteções</h3>
+        <p>Capas de equipamentos, tampas e proteções leves com bom acabamento.</p>
+      </div>
+      <div class="box">
+        <h3>🏥 Hospitalar</h3>
+        <p>Bandejas e suportes técnicos para organização/proteção de instrumentos.</p>
+      </div>
+      <div class="box">
+        <h3>🚗 Automotivo / Náutico</h3>
+        <p>Acabamentos internos, porta-objetos e caixas técnicas em séries menores.</p>
+      </div>
     </div>
 
-    <div class="cta">
-      <div>
-        <strong>Fale com o Marcus</strong><br>
-        Garopaba/SC · Atendimento online Brasil
+    <hr class="sep">
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sectionTitle">Serviços</h2>
+
+    <div class="grid">
+      <div class="box">
+        <h3>Projeto de moldes (vacuum forming)</h3>
+        <p>Desenvolvimento do molde com foco em desmolde, rigidez, acabamento, recortes e viabilidade.</p>
       </div>
-      <a href="https://wa.me/5548999999999" target="_blank">Solicitar orçamento</a>
+      <div class="box">
+        <h3>Modelagem 3D técnica (Rhino)</h3>
+        <p>Modelos 3D precisos para produto/peça/molde, com ajustes para fabricação.</p>
+      </div>
+      <div class="box">
+        <h3>Desenho técnico (AutoCAD)</h3>
+        <p>Vistas, cortes, cotas, detalhes e observações para indústria/ferramentaria.</p>
+      </div>
+      <div class="box">
+        <h3>Arquivos e documentação</h3>
+        <p>Entrega de arquivos 3D/2D e orientações técnicas para execução (CNC/ferramentaria).</p>
+      </div>
+    </div>
+
+    <div class="cta" id="contato">
+      <div>
+        <strong>Marcus Busato - Designer </strong>
+        <small>Garopaba/SC · Atendimento online (Brasil) · Serviço focado em projeto técnico</small>
+      </div>
+      <a href="https://wa.me/5548996865891" target="_blank">Solicitar orçamento</a>
     </div>
   </div>
 </section>
@@ -279,6 +347,5 @@ footer{
 <script>
 document.getElementById("year").innerText = new Date().getFullYear();
 </script>
-
 </body>
 </html>
