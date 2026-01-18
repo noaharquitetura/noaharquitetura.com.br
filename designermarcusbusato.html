@@ -1,197 +1,238 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Marcus Busato | Designer de Produto em Garopaba SC</title>
 
-  <title>Marcus Busato | Designer de Produto • Desenho Industrial</title>
-  <meta name="description" content="Marcus Busato – Designer de Produto (Desenho Industrial). Modelagem 3D técnica, desenho técnico e projeto de moldes para vacuum forming. Atendimento Garopaba/SC e online." />
+<meta name="description" content="Designer de Produto na Noah Arquitetura em Garopaba SC. Modelagem 3D técnica, desenho técnico e projeto de moldes para vacuum forming. Atendimento local e online.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonte -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#ffffff;
-      --text:#111;
-      --muted:#555;
-      --line:#eaeaea;
-      --soft:#f7f7f7;
-      --radius:18px;
-      --shadow:0 12px 30px rgba(0,0,0,.06);
-    }
+<style>
+:root{
+  --bg:#1e1e1e;
+  --bg2:#2a2a2a;
+  --text:#f5f5f5;
+  --muted:#cfcfcf;
+  --accent:#f28c38;   /* laranja queimado */
+  --accent2:#ffb36a;  /* laranja claro */
+  --line:rgba(255,255,255,.10);
+  --shadow: 0 18px 50px rgba(0,0,0,.35);
+}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Montserrat',sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.7;
-    }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{background:var(--bg);color:var(--text);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
 
-    a{text-decoration:none;color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+/* HEADER */
+header{
+  position:sticky; top:0; z-index:10;
+  background:rgba(30,30,30,.85);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 0; gap:16px;
+}
+.brand{
+  display:flex; align-items:center; gap:12px;
+}
+.logo{
+  width:44px; height:44px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  display:grid; place-items:center;
+  font-weight:800; letter-spacing:.02em;
+  background:linear-gradient(135deg, rgba(242,140,56,.25), rgba(255,255,255,.02));
+}
+.brand b{display:block;font-size:16px;line-height:1.1;}
+.brand span{display:block;font-size:12px;color:var(--muted);}
 
-    /* HEADER */
-    header{
-      position:sticky;top:0;z-index:10;
-      background:#fff;
-      border-bottom:1px solid var(--line);
-    }
-    .nav{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:16px 0;gap:16px;
-    }
-    .brand{
-      display:flex;align-items:center;gap:12px;
-    }
-    .logo{
-      width:42px;height:42px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      display:grid;place-items:center;
-      font-weight:700;
-    }
-    nav ul{
-      list-style:none;margin:0;padding:0;
-      display:flex;gap:18px;
-    }
-    nav a{font-size:13px;font-weight:600;color:#222}
-    .btn{
-      border:1px solid #111;
-      padding:12px 14px;
-      border-radius:12px;
-      font-weight:700;
-      font-size:13px;
-      white-space:nowrap;
-    }
+/* ICON BAR (IG + WHATS) */
+.iconbar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.iconbtn{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  background:var(--bg2);
+  border:1px solid var(--line);
+  display:grid;
+  place-items:center;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, opacity .12s ease;
+}
+.iconbtn:hover{transform: translateY(-1px);opacity:.95;}
+.iconbtn.accent{
+  background:linear-gradient(135deg, rgba(242,140,56,.95), rgba(255,179,106,.85));
+  border:1px solid rgba(0,0,0,.15);
+}
 
-    /* HERO */
-    .hero{padding:60px 0 40px}
-    .heroGrid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:24px;
-    }
-    .kicker{
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:#666;
-      font-weight:700;
-      margin:0 0 10px;
-    }
-    h1{
-      margin:0 0 14px;
-      font-size:42px;
-      line-height:1.1;
-    }
-    .lead{
-      font-size:18px;
-      color:#333;
-      margin:0 0 18px;
-      max-width:55ch;
-    }
-    .chips{
-      display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;
-    }
-    .chip{
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:8px 12px;
-      font-size:13px;
-      font-weight:600;
-    }
+/* HERO */
+.hero{padding:64px 0 28px;}
+.heroGrid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:26px;
+  align-items:start;
+}
+.kicker{
+  margin:0 0 12px;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:700;
+}
+h1{
+  font-size:46px;
+  line-height:1.06;
+  margin:0 0 14px;
+  font-weight:800;
+}
+h1 .accent{color:var(--accent2);}
+.lead{
+  margin:0 0 16px;
+  font-size:18px;
+  color:var(--muted);
+  max-width:62ch;
+}
+strong{color:var(--text);}
 
-    /* FOTO */
-    .card{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      background:#fff;
-    }
-    .photoBox{
-      height:320px;
-      border-bottom:1px solid var(--line);
-      background:linear-gradient(135deg,#f2f2f2,#ffffff);
-      display:grid;
-      place-items:center;
-      text-align:center;
-      padding:20px;
-    }
-    .photoBox strong{font-size:14px}
-    .photoBox p{font-size:12px;color:var(--muted)}
-    .cardBody{padding:16px}
+/* SMALL BANNERS (chips) */
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:22px;
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  color:#1e1e1e;
+  background:linear-gradient(135deg, rgba(242,140,56,.95), rgba(255,179,106,.85));
+  box-shadow: 0 14px 40px rgba(0,0,0,.25);
+}
+.chip svg{opacity:.95}
 
-    /* SEÇÕES */
-    section{padding:40px 0}
-    .sectionTitle{
-      font-size:28px;
-      margin:0 0 10px;
-    }
-    .sectionDesc{
-      color:#333;
-      margin:0 0 20px;
-      max-width:80ch;
-    }
+/* PHOTO CARD */
+.card{
+  background:var(--bg2);
+  border:1px solid var(--line);
+  border-radius:22px;
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.photo{
+  height:320px;
+  display:grid;
+  place-items:center;
+  color:var(--muted);
+  background:
+    radial-gradient(900px 240px at 20% 10%, rgba(242,140,56,.18), transparent 60%),
+    linear-gradient(135deg, rgba(255,255,255,.05), rgba(0,0,0,.08));
+  border-bottom:1px solid var(--line);
+  text-align:center;
+  padding:18px;
+}
+.cardBody{padding:16px 18px 18px;}
+.cardBody h3{margin:0 0 10px;font-size:18px;color:var(--accent2);}
+.cardBody ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.9;}
+.cardBody li{margin:6px 0;}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:16px;
-    }
-    .box{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:16px;
-      background:#fff;
-    }
-    .box h3{margin:0 0 8px;font-size:18px}
-    .box p{margin:0;color:#333}
+/* SECTIONS */
+section{padding:44px 0;}
+.sectionTitle{
+  margin:0 0 10px;
+  font-size:30px;
+  font-weight:800;
+}
+.sectionDesc{
+  margin:0 0 18px;
+  color:var(--muted);
+  max-width:90ch;
+}
 
-    .note{
-      border:1px solid var(--line);
-      background:var(--soft);
-      border-radius:var(--radius);
-      padding:16px;
-      margin-top:16px;
-      color:#333;
-    }
+/* GRID CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+.box{
+  background:var(--bg2);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:18px;
+  box-shadow: 0 16px 45px rgba(0,0,0,.22);
+}
+.box h3{margin:0 0 8px;font-size:18px;color:var(--accent2);}
+.box p{margin:0;color:var(--muted);}
 
-    /* CONTATO */
-    .contact{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:20px;
-      background:#fff;
-      box-shadow:var(--shadow);
-    }
-    .contact a{
-      display:inline-block;
-      margin-top:10px;
-      font-weight:700;
-      border:1px solid var(--line);
-      padding:10px 14px;
-      border-radius:999px;
-      font-size:13px;
-    }
+/* NOTE */
+.note{
+  margin-top:16px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+  border-radius:22px;
+  padding:16px 18px;
+  color:var(--muted);
+}
 
-    footer{
-      border-top:1px solid var(--line);
-      padding:20px 0;
-      font-size:13px;
-      color:#555;
-    }
+/* CTA */
+.cta{
+  margin-top:24px;
+  border-radius:24px;
+  padding:22px;
+  background:linear-gradient(135deg, rgba(242,140,56,.95), rgba(255,179,106,.85));
+  color:#1e1e1e;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  box-shadow: 0 20px 55px rgba(0,0,0,.35);
+}
+.cta b{font-size:18px;}
+.cta small{display:block;opacity:.8;margin-top:4px;}
+.ctaActions{display:flex;gap:10px;flex-wrap:wrap;}
+.ctaBtn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.2);
+  background:rgba(255,255,255,.12);
+  color:#1e1e1e;
+  font-weight:800;
+}
+.ctaBtn:hover{opacity:.92}
 
-    @media(max-width:900px){
-      .heroGrid{grid-template-columns:1fr}
-      h1{font-size:36px}
-      nav ul{display:none}
-    }
-  </style>
+/* FOOTER */
+footer{
+  border-top:1px solid var(--line);
+  padding:26px 0;
+  color:rgba(255,255,255,.65);
+  font-size:13px;
+  text-align:center;
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+  .heroGrid{grid-template-columns:1fr;}
+  h1{font-size:36px;}
+}
+</style>
 </head>
 
 <body>
@@ -201,11 +242,34 @@
     <div class="brand">
       <div class="logo">MB</div>
       <div>
-        <strong>Marcus Busato</strong><br>
-        <small>Designer de Produto • Desenho Industrial</small>
+        <b>Marcus Busato</b>
+        <span>Designer de Produto • Desenho Industrial • Garopaba/SC</span>
       </div>
     </div>
-    <a class="btn" href="https://wa.me/5548996865891" target="_blank">WhatsApp</a>
+
+    <!-- ICONES (substitui o texto) -->
+    <div class="iconbar">
+      <!-- Instagram: TROQUE o link abaixo pelo @ do Marcus -->
+      <a class="iconbtn" href="https://instagram.com/noaharquitetura" target="_blank" aria-label="Instagram">
+        <!-- Instagram SVG -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="white" stroke-width="1.8"/>
+          <path d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" stroke="white" stroke-width="1.8"/>
+          <path d="M17.6 6.4h.01" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <!-- WhatsApp: NUMERO EMBUTIDO (coloque o número aqui) -->
+      <a class="iconbtn accent" href="https://wa.me/5548996865891" target="_blank" aria-label="WhatsApp">
+        <!-- WhatsApp SVG -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20.5 11.8a8.5 8.5 0 1 1-3.1-6.6 8.2 8.2 0 0 1 3.1 6.6z" stroke="#1e1e1e" stroke-width="1.8"/>
+          <path d="M8.3 19.4 4.8 20.6l1.1-3.6" stroke="#1e1e1e" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M9.2 8.8c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.3l.9 2c.1.2.1.4 0 .6l-.5.8c-.1.2-.1.4 0 .6.5 1 1.4 1.9 2.4 2.4.2.1.4.1.6 0l.8-.5c.2-.1.4-.1.6 0l2 .9c.2.1.3.3.3.5v.6c0 .3 0 .6-.5.8-.7.3-2.1.6-4.3-.5-2.4-1.2-4.2-3.9-4.4-4.3-.2-.5-.7-1.7-.2-2.5z"
+                fill="#1e1e1e" opacity=".9"/>
+        </svg>
+      </a>
+    </div>
   </div>
 </header>
 
@@ -214,31 +278,64 @@
 
     <div>
       <p class="kicker">Modelagem 3D • Desenho técnico • Moldes</p>
-      <h1>Projeto técnico industrial com foco em vacuum forming</h1>
+
+      <h1>
+        Projeto técnico industrial<br>
+        <span class="accent">com foco em vacuum forming</span>
+      </h1>
+
       <p class="lead">
         Atuação no desenvolvimento de produtos industriais, com foco em
         <strong>modelagem 3D técnica</strong>, <strong>desenho técnico</strong> e
-        <strong>projeto de moldes para vacuum forming</strong>.
+        <strong>projeto de moldes</strong>.
         Experiência com <strong>Rhinoceros</strong> e <strong>AutoCAD</strong>.
       </p>
 
-      <div class="chips">
-        <span class="chip">Projeto de moldes</span>
-        <span class="chip">Desenho técnico</span>
-        <span class="chip">Modelagem 3D técnica</span>
-        <span class="chip">Arquivos para fabricação</span>
+      <!-- banners pequenos com cor -->
+      <div class="chips" aria-label="Destaques">
+        <div class="chip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Projeto de moldes
+        </div>
+
+        <div class="chip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Desenho técnico
+        </div>
+
+        <div class="chip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Modelagem 3D técnica
+        </div>
+
+        <div class="chip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Arquivos para fabricação
+        </div>
       </div>
     </div>
 
-    <aside class="card">
-      <div class="photoBox">
-        <div>
-          <strong>📷 Espaço para foto do Marcus</strong>
-          <p>Substitua por &lt;img&gt; quando tiver a foto</p>
-        </div>
+    <aside class="card" aria-label="Foto e entregas">
+      <!-- SUBSTITUA este bloco por uma imagem -->
+      <!-- Exemplo:
+      <img src="images/DESIGNER_MARCUSBUSATO.png" alt="Marcus Busato"
+           style="width:100%;height:320px;object-fit:cover;display:block;">
+      -->
+      <div class="photo">
+        📷 Espaço para foto do Marcus<br><br>
+        <span style="font-size:12px;opacity:.9;">Substitua por &lt;img&gt; quando tiver a foto</span>
       </div>
+
       <div class="cardBody">
-        <strong>Principais entregas</strong>
+        <h3>Principais entregas</h3>
         <ul>
           <li>Modelagem 3D (Rhino)</li>
           <li>Desenho técnico (AutoCAD)</li>
@@ -255,10 +352,10 @@
   <div class="wrap">
     <h2 class="sectionTitle">O que é Vacuum Forming</h2>
     <p class="sectionDesc">
-      O <strong>vacuum forming</strong> é um processo industrial no qual uma
-      <strong>chapa plástica aquecida</strong> é conformada por vácuo sobre um molde.
+      O <strong>vacuum forming</strong> (vacuum formagem) é um processo industrial em que uma
+      <strong>chapa plástica aquecida</strong> é conformada por <strong>vácuo</strong> sobre um molde.
       Após o resfriamento, a peça mantém a forma e segue para recorte e acabamento.
-      É um processo rápido, econômico e ideal para pequenas e médias produções.
+      É muito usado por ser rápido e econômico, principalmente em protótipos e séries pequenas e médias.
     </p>
 
     <div class="grid">
@@ -277,8 +374,8 @@
     </div>
 
     <div class="note">
-      Aplicações comuns incluem embalagens para <strong>velas, sabonetes, cosméticos</strong>,
-      bandejas industriais, displays de PDV e protótipos.
+      Aplicações comuns incluem embalagens para <strong>velas, sabonetes, cosméticos</strong>, bandejas industriais,
+      displays de PDV e protótipos.
     </div>
   </div>
 </section>
@@ -295,34 +392,46 @@
       <div class="box"><h3>PDV / Displays</h3><p>Expositores e suportes personalizados.</p></div>
       <div class="box"><h3>Protótipos</h3><p>Validação de forma e encaixes.</p></div>
     </div>
-  </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <h2 class="sectionTitle">Contato</h2>
+    <div class="cta" id="contato">
+      <div>
+        <b>Fale com o Marcus - Noah Arquitetura</b>
+        <small>Garopaba/SC • Atendimento online (Brasil) • Serviço focado em projeto técnico</small>
+      </div>
 
-    <div class="contact">
-      <p>
-        Atendimento em <strong>Garopaba/SC</strong> e <strong>online (Brasil)</strong>.<br>
-        Serviço exclusivo de <strong>projeto e desenho técnico</strong>.
-      </p>
+      <div class="ctaActions">
+        <!-- WhatsApp com número embutido -->
+        <a class="ctaBtn" href="https://wa.me/5548996865891" target="_blank" aria-label="WhatsApp">
+          <!-- ícone -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20.5 11.8a8.5 8.5 0 1 1-3.1-6.6 8.2 8.2 0 0 1 3.1 6.6z" stroke="#1e1e1e" stroke-width="1.8"/>
+            <path d="M8.3 19.4 4.8 20.6l1.1-3.6" stroke="#1e1e1e" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          WhatsApp
+        </a>
 
-      <a href="https://wa.me/5548996865891" target="_blank">
-        WhatsApp: (48) 996865891
-      </a>
-
-      <p style="margin-top:12px;font-size:14px;color:#555;">
-        ⚠️ Não realizo fabricação. Entrego arquivos técnicos para execução por indústria/ferramentaria.
-      </p>
+        <!-- Instagram com usuário embutido -->
+        <a class="ctaBtn" href="https://instagram.com/SEUUSUARIOAQUI" target="_blank" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="#1e1e1e" stroke-width="1.8"/>
+            <path d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" stroke="#1e1e1e" stroke-width="1.8"/>
+            <path d="M17.6 6.4h.01" stroke="#1e1e1e" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
     </div>
+
+    <p style="margin-top:16px;color:rgba(255,255,255,.65);font-size:13px;">
+      ⚠️ <strong style="color:#fff;">Importante:</strong> o serviço é exclusivo de
+      <strong style="color:#fff;">projeto, modelagem e detalhamento técnico</strong>.
+      Não realizamos a fabricação do molde ou da peça.
+    </p>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    © <span id="year"></span> Marcus Busato • Designer de Produto • Desenho Industrial
-  </div>
+  © <span id="year"></span> Marcus Busato · Designer de Produto · Garopaba/SC
 </footer>
 
 <script>
