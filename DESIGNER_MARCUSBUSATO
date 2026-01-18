@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Marcus Busato | Designer de Produto • Desenho Industrial</title>
+  <meta name="description" content="Marcus Busato – Designer de Produto (Desenho Industrial). Modelagem 3D técnica, desenho técnico e projeto de moldes para vacuum forming. Atendimento Garopaba/SC e online." />
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111;
+      --muted:#555;
+      --line:#eaeaea;
+      --soft:#f7f7f7;
+      --radius:18px;
+      --shadow:0 12px 30px rgba(0,0,0,.06);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Montserrat',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+    /* HEADER */
+    header{
+      position:sticky;top:0;z-index:10;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:16px 0;gap:16px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+    }
+    .logo{
+      width:42px;height:42px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      display:grid;place-items:center;
+      font-weight:700;
+    }
+    nav ul{
+      list-style:none;margin:0;padding:0;
+      display:flex;gap:18px;
+    }
+    nav a{font-size:13px;font-weight:600;color:#222}
+    .btn{
+      border:1px solid #111;
+      padding:12px 14px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:13px;
+      white-space:nowrap;
+    }
+
+    /* HERO */
+    .hero{padding:60px 0 40px}
+    .heroGrid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+    }
+    .kicker{
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#666;
+      font-weight:700;
+      margin:0 0 10px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:42px;
+      line-height:1.1;
+    }
+    .lead{
+      font-size:18px;
+      color:#333;
+      margin:0 0 18px;
+      max-width:55ch;
+    }
+    .chips{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;
+    }
+    .chip{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    /* FOTO */
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      background:#fff;
+    }
+    .photoBox{
+      height:320px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(135deg,#f2f2f2,#ffffff);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:20px;
+    }
+    .photoBox strong{font-size:14px}
+    .photoBox p{font-size:12px;color:var(--muted)}
+    .cardBody{padding:16px}
+
+    /* SEÇÕES */
+    section{padding:40px 0}
+    .sectionTitle{
+      font-size:28px;
+      margin:0 0 10px;
+    }
+    .sectionDesc{
+      color:#333;
+      margin:0 0 20px;
+      max-width:80ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:16px;
+    }
+    .box{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px;
+      background:#fff;
+    }
+    .box h3{margin:0 0 8px;font-size:18px}
+    .box p{margin:0;color:#333}
+
+    .note{
+      border:1px solid var(--line);
+      background:var(--soft);
+      border-radius:var(--radius);
+      padding:16px;
+      margin-top:16px;
+      color:#333;
+    }
+
+    /* CONTATO */
+    .contact{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px;
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .contact a{
+      display:inline-block;
+      margin-top:10px;
+      font-weight:700;
+      border:1px solid var(--line);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:13px;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:20px 0;
+      font-size:13px;
+      color:#555;
+    }
+
+    @media(max-width:900px){
+      .heroGrid{grid-template-columns:1fr}
+      h1{font-size:36px}
+      nav ul{display:none}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="logo">MB</div>
+      <div>
+        <strong>Marcus Busato</strong><br>
+        <small>Designer de Produto • Desenho Industrial</small>
+      </div>
+    </div>
+    <a class="btn" href="https://wa.me/5548996865891" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="wrap heroGrid">
+
+    <div>
+      <p class="kicker">Modelagem 3D • Desenho técnico • Moldes</p>
+      <h1>Projeto técnico industrial com foco em vacuum forming</h1>
+      <p class="lead">
+        Atuação no desenvolvimento de produtos industriais, com foco em
+        <strong>modelagem 3D técnica</strong>, <strong>desenho técnico</strong> e
+        <strong>projeto de moldes para vacuum forming</strong>.
+        Experiência com <strong>Rhinoceros</strong> e <strong>AutoCAD</strong>.
+      </p>
+
+      <div class="chips">
+        <span class="chip">Projeto de moldes</span>
+        <span class="chip">Desenho técnico</span>
+        <span class="chip">Modelagem 3D técnica</span>
+        <span class="chip">Arquivos para fabricação</span>
+      </div>
+    </div>
+
+    <aside class="card">
+      <div class="photoBox">
+        <div>
+          <strong>📷 Espaço para foto do Marcus</strong>
+          <p>Substitua por &lt;img&gt; quando tiver a foto</p>
+        </div>
+      </div>
+      <div class="cardBody">
+        <strong>Principais entregas</strong>
+        <ul>
+          <li>Modelagem 3D (Rhino)</li>
+          <li>Desenho técnico (AutoCAD)</li>
+          <li>Projeto de moldes</li>
+          <li>Documentação técnica</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<section>
+  <div class="wrap">
+    <h2 class="sectionTitle">O que é Vacuum Forming</h2>
+    <p class="sectionDesc">
+      O <strong>vacuum forming</strong> é um processo industrial no qual uma
+      <strong>chapa plástica aquecida</strong> é conformada por vácuo sobre um molde.
+      Após o resfriamento, a peça mantém a forma e segue para recorte e acabamento.
+      É um processo rápido, econômico e ideal para pequenas e médias produções.
+    </p>
+
+    <div class="grid">
+      <div class="box">
+        <h3>Como funciona</h3>
+        <p>Aquecimento da chapa → conformação por vácuo → resfriamento → acabamento.</p>
+      </div>
+      <div class="box">
+        <h3>Onde é utilizado</h3>
+        <p>Embalagens blister, bandejas técnicas, berços, capas, proteções e displays.</p>
+      </div>
+      <div class="box">
+        <h3>Por que usar</h3>
+        <p>Menor custo que injeção em muitos casos e grande agilidade no desenvolvimento.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      Aplicações comuns incluem embalagens para <strong>velas, sabonetes, cosméticos</strong>,
+      bandejas industriais, displays de PDV e protótipos.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sectionTitle">Tipos de aplicação</h2>
+
+    <div class="grid">
+      <div class="box"><h3>Embalagens blister</h3><p>Projeto de moldes e desenho técnico.</p></div>
+      <div class="box"><h3>Bandejas industriais</h3><p>Organização e transporte de peças.</p></div>
+      <div class="box"><h3>Capas e carenagens</h3><p>Proteções e invólucros plásticos.</p></div>
+      <div class="box"><h3>Hospitalar</h3><p>Bandejas e suportes técnicos.</p></div>
+      <div class="box"><h3>PDV / Displays</h3><p>Expositores e suportes personalizados.</p></div>
+      <div class="box"><h3>Protótipos</h3><p>Validação de forma e encaixes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sectionTitle">Contato</h2>
+
+    <div class="contact">
+      <p>
+        Atendimento em <strong>Garopaba/SC</strong> e <strong>online (Brasil)</strong>.<br>
+        Serviço exclusivo de <strong>projeto e desenho técnico</strong>.
+      </p>
+
+      <a href="https://wa.me/5548996865891" target="_blank">
+        WhatsApp: (48) 996865891
+      </a>
+
+      <p style="margin-top:12px;font-size:14px;color:#555;">
+        ⚠️ Não realizo fabricação. Entrego arquivos técnicos para execução por indústria/ferramentaria.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> Marcus Busato • Designer de Produto • Desenho Industrial
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
