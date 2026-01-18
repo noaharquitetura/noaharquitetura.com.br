@@ -2,9 +2,10 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+
 <title>Marcus Busato | Designer de Produto em Garopaba SC</title>
 
-<meta name="description" content="Designer de Produto na Noah Arquitetura em Garopaba SC. Modelagem 3D técnica, desenho técnico e projeto de moldes para vacuum forming. Atendimento local e online.">
+<meta name="description" content="Marcus Busato, Designer de Produto em Garopaba SC. Modelagem 3D técnica, desenho técnico e projeto de moldes para vacuum forming.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,225 +13,152 @@
 <style>
 :root{
   --bg:#1e1e1e;
-  --bg2:#2a2a2a;
+  --card:#3a3a3a;           /* CINZA MÉDIO */
   --text:#f5f5f5;
-  --muted:#cfcfcf;
-  --accent:#f28c38;   /* laranja queimado */
-  --accent2:#ffb36a;  /* laranja claro */
-  --line:rgba(255,255,255,.10);
-  --shadow: 0 18px 50px rgba(0,0,0,.35);
+  --muted:#d6d6d6;
+  --accent:#f2a45c;
+  --line:rgba(255,255,255,.14);
+  --shadow:0 16px 40px rgba(0,0,0,.30);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
 body{background:var(--bg);color:var(--text);line-height:1.7;}
 a{text-decoration:none;color:inherit;}
+
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
 
 /* HEADER */
 header{
-  position:sticky; top:0; z-index:10;
-  background:rgba(30,30,30,.85);
-  backdrop-filter: blur(10px);
+  position:sticky;top:0;z-index:10;
+  background:rgba(30,30,30,.9);
+  backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
 .nav{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:18px 0; gap:16px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 0;
 }
 .brand{
-  display:flex; align-items:center; gap:12px;
+  display:flex;align-items:center;gap:14px;
 }
 .logo{
-  width:44px; height:44px;
-  border-radius:14px;
-  border:1px solid var(--line);
-  display:grid; place-items:center;
-  font-weight:800; letter-spacing:.02em;
-  background:linear-gradient(135deg, rgba(242,140,56,.25), rgba(255,255,255,.02));
+  width:44px;height:44px;border-radius:14px;
+  background:linear-gradient(135deg,#f2a45c,#d88a42);
+  color:#1e1e1e;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
 }
-.brand b{display:block;font-size:16px;line-height:1.1;}
-.brand span{display:block;font-size:12px;color:var(--muted);}
+.brand-info b{font-size:16px;}
+.brand-info span{font-size:12px;color:var(--muted);}
 
-/* ICON BAR (IG + WHATS) */
-.iconbar{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-.iconbtn{
-  width:44px;
-  height:44px;
-  border-radius:14px;
-  background:var(--bg2);
+.icons{display:flex;gap:10px;}
+.icon{
+  width:42px;height:42px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--card);
   border:1px solid var(--line);
-  display:grid;
-  place-items:center;
-  box-shadow: var(--shadow);
-  transition: transform .12s ease, opacity .12s ease;
 }
-.iconbtn:hover{transform: translateY(-1px);opacity:.95;}
-.iconbtn.accent{
-  background:linear-gradient(135deg, rgba(242,140,56,.95), rgba(255,179,106,.85));
-  border:1px solid rgba(0,0,0,.15);
+.icon.whats{
+  background:linear-gradient(135deg,#f2a45c,#d88a42);
 }
+.icon svg{width:20px;height:20px;}
 
 /* HERO */
-.hero{padding:64px 0 28px;}
-.heroGrid{
+.hero{padding:70px 0;}
+.hero-grid{
   display:grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap:26px;
-  align-items:start;
+  grid-template-columns:1.2fr .8fr;
+  gap:32px;
 }
 .kicker{
-  margin:0 0 12px;
-  font-size:12px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-  font-weight:700;
+  font-size:12px;letter-spacing:.15em;
+  color:var(--muted);margin-bottom:14px;
 }
 h1{
-  font-size:46px;
-  line-height:1.06;
-  margin:0 0 14px;
-  font-weight:800;
+  font-size:46px;font-weight:800;line-height:1.05;
+  margin-bottom:18px;
 }
-h1 .accent{color:var(--accent2);}
+h1 span{color:var(--accent);}
 .lead{
-  margin:0 0 16px;
-  font-size:18px;
-  color:var(--muted);
-  max-width:62ch;
+  font-size:18px;color:var(--muted);
+  max-width:620px;
 }
-strong{color:var(--text);}
 
-/* SMALL BANNERS (chips) */
-.chips{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:22px;
-}
+/* CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;}
 .chip{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 14px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:700;
-  color:#1e1e1e;
-  background:linear-gradient(135deg, rgba(242,140,56,.95), rgba(255,179,106,.85));
-  box-shadow: 0 14px 40px rgba(0,0,0,.25);
+  padding:10px 16px;border-radius:999px;
+  background:linear-gradient(135deg,#f2a45c,#d88a42);
+  color:#1e1e1e;font-size:13px;font-weight:700;
 }
-.chip svg{opacity:.95}
 
-/* PHOTO CARD */
+/* FOTO */
 .card{
-  background:var(--bg2);
-  border:1px solid var(--line);
+  background:var(--card);
   border-radius:22px;
-  box-shadow: var(--shadow);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
   overflow:hidden;
 }
-.photo{
+.card img{
+  width:100%;
   height:320px;
-  display:grid;
-  place-items:center;
-  color:var(--muted);
-  background:
-    radial-gradient(900px 240px at 20% 10%, rgba(242,140,56,.18), transparent 60%),
-    linear-gradient(135deg, rgba(255,255,255,.05), rgba(0,0,0,.08));
-  border-bottom:1px solid var(--line);
-  text-align:center;
-  padding:18px;
+  object-fit:cover;
+  display:block;
 }
-.cardBody{padding:16px 18px 18px;}
-.cardBody h3{margin:0 0 10px;font-size:18px;color:var(--accent2);}
-.cardBody ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.9;}
-.cardBody li{margin:6px 0;}
+.card-body{padding:18px;}
+.card-body h3{color:var(--accent);margin-bottom:12px;}
+.card-body ul{padding-left:18px;color:var(--muted);}
+.card-body li{margin:8px 0;}
 
 /* SECTIONS */
-section{padding:44px 0;}
-.sectionTitle{
-  margin:0 0 10px;
-  font-size:30px;
-  font-weight:800;
-}
-.sectionDesc{
-  margin:0 0 18px;
-  color:var(--muted);
-  max-width:90ch;
-}
-
-/* GRID CARDS */
+section{padding:60px 0;}
+h2{font-size:30px;margin-bottom:14px;color:var(--accent);}
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:16px;
+  gap:18px;
 }
 .box{
-  background:var(--bg2);
-  border:1px solid var(--line);
+  background:var(--card);
+  padding:20px;
   border-radius:22px;
-  padding:18px;
-  box-shadow: 0 16px 45px rgba(0,0,0,.22);
-}
-.box h3{margin:0 0 8px;font-size:18px;color:var(--accent2);}
-.box p{margin:0;color:var(--muted);}
-
-/* NOTE */
-.note{
-  margin-top:16px;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.03);
-  border-radius:22px;
-  padding:16px 18px;
-  color:var(--muted);
+  box-shadow:var(--shadow);
 }
+.box h3{color:var(--accent);margin-bottom:8px;}
+.box p{color:var(--muted);}
 
 /* CTA */
 .cta{
-  margin-top:24px;
-  border-radius:24px;
-  padding:22px;
-  background:linear-gradient(135deg, rgba(242,140,56,.95), rgba(255,179,106,.85));
+  margin-top:40px;
+  background:linear-gradient(135deg,#f2a45c,#d88a42);
   color:#1e1e1e;
+  padding:26px;
+  border-radius:22px;
   display:flex;
-  flex-wrap:wrap;
-  align-items:center;
   justify-content:space-between;
-  gap:14px;
-  box-shadow: 0 20px 55px rgba(0,0,0,.35);
+  flex-wrap:wrap;
+  gap:16px;
 }
-.cta b{font-size:18px;}
-.cta small{display:block;opacity:.8;margin-top:4px;}
-.ctaActions{display:flex;gap:10px;flex-wrap:wrap;}
-.ctaBtn{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:12px 14px;
+.cta a{
+  background:rgba(0,0,0,.15);
+  padding:12px 18px;
   border-radius:14px;
-  border:1px solid rgba(0,0,0,.2);
-  background:rgba(255,255,255,.12);
-  color:#1e1e1e;
-  font-weight:800;
+  font-weight:700;
 }
-.ctaBtn:hover{opacity:.92}
 
 /* FOOTER */
 footer{
   border-top:1px solid var(--line);
-  padding:26px 0;
-  color:rgba(255,255,255,.65);
-  font-size:13px;
+  padding:30px 0;
   text-align:center;
+  font-size:13px;
+  color:rgba(255,255,255,.6);
 }
 
-/* RESPONSIVO */
 @media(max-width:900px){
-  .heroGrid{grid-template-columns:1fr;}
-  h1{font-size:36px;}
+  .hero-grid{grid-template-columns:1fr;}
+  h1{font-size:34px;}
 }
 </style>
 </head>
@@ -239,49 +167,45 @@ footer{
 
 <header>
   <div class="wrap nav">
-    <div class="brand">
+
+    <!-- NOME COM LINK PARA NOAH -->
+    <a href="https://noaharquitetura.com.br" class="brand">
       <div class="logo">MB</div>
-      <div>
+      <div class="brand-info">
         <b>Marcus Busato</b>
-        <span>Designer de Produto • Desenho Industrial • Garopaba/SC</span>
+        <span>Designer de Produto · Desenho Industrial · Garopaba/SC</span>
       </div>
-    </div>
+    </a>
 
-    <!-- ICONES (substitui o texto) -->
-    <div class="iconbar">
-      <!-- Instagram: TROQUE o link abaixo pelo @ do Marcus -->
-      <a class="iconbtn" href="https://instagram.com/noaharquitetura" target="_blank" aria-label="Instagram">
-        <!-- Instagram SVG -->
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="white" stroke-width="1.8"/>
-          <path d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" stroke="white" stroke-width="1.8"/>
-          <path d="M17.6 6.4h.01" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    <div class="icons">
+      <a href="https://instagram.com/marcusbusato" target="_blank" class="icon">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.8"/>
+          <circle cx="17" cy="7" r="1" fill="white"/>
         </svg>
       </a>
 
-      <!-- WhatsApp: NUMERO EMBUTIDO (coloque o número aqui) -->
-      <a class="iconbtn accent" href="https://wa.me/5548996865891" target="_blank" aria-label="WhatsApp">
-        <!-- WhatsApp SVG -->
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M20.5 11.8a8.5 8.5 0 1 1-3.1-6.6 8.2 8.2 0 0 1 3.1 6.6z" stroke="#1e1e1e" stroke-width="1.8"/>
-          <path d="M8.3 19.4 4.8 20.6l1.1-3.6" stroke="#1e1e1e" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M9.2 8.8c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.3l.9 2c.1.2.1.4 0 .6l-.5.8c-.1.2-.1.4 0 .6.5 1 1.4 1.9 2.4 2.4.2.1.4.1.6 0l.8-.5c.2-.1.4-.1.6 0l2 .9c.2.1.3.3.3.5v.6c0 .3 0 .6-.5.8-.7.3-2.1.6-4.3-.5-2.4-1.2-4.2-3.9-4.4-4.3-.2-.5-.7-1.7-.2-2.5z"
-                fill="#1e1e1e" opacity=".9"/>
+      <a href="https://wa.me/5548999999999" target="_blank" class="icon whats">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M20 11a8 8 0 1 1-3-6" stroke="#1e1e1e" stroke-width="1.8"/>
+          <path d="M7 19l-1 4 4-1" stroke="#1e1e1e" stroke-width="1.8"/>
         </svg>
       </a>
     </div>
+
   </div>
 </header>
 
 <main class="hero">
-  <div class="wrap heroGrid">
+  <div class="wrap hero-grid">
 
     <div>
-      <p class="kicker">Modelagem 3D • Desenho técnico • Moldes</p>
+      <div class="kicker">MODELAGEM 3D · DESENHO TÉCNICO · MOLDES</div>
 
       <h1>
         Projeto técnico industrial<br>
-        <span class="accent">com foco em vacuum forming</span>
+        <span>com foco em vacuum forming</span>
       </h1>
 
       <p class="lead">
@@ -291,48 +215,17 @@ footer{
         Experiência com <strong>Rhinoceros</strong> e <strong>AutoCAD</strong>.
       </p>
 
-      <!-- banners pequenos com cor -->
-      <div class="chips" aria-label="Destaques">
-        <div class="chip">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M20 6 9 17l-5-5" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Projeto de moldes
-        </div>
-
-        <div class="chip">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M20 6 9 17l-5-5" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Desenho técnico
-        </div>
-
-        <div class="chip">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M20 6 9 17l-5-5" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Modelagem 3D técnica
-        </div>
-
-        <div class="chip">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M20 6 9 17l-5-5" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Arquivos para fabricação
-        </div>
+      <div class="chips">
+        <div class="chip">Projeto de moldes</div>
+        <div class="chip">Desenho técnico</div>
+        <div class="chip">Modelagem 3D técnica</div>
+        <div class="chip">Arquivos para fabricação</div>
       </div>
     </div>
 
-    <aside class="card" aria-label="Foto e entregas">
-          <img src="images/LOGONOAH.jpeg" alt="Marcus Busato"
-           style="width:100%;height:320px;object-fit:cover;display:block;">
-      -->
-      <div class="photo">
-        📷 Espaço para foto do Marcus<br><br>
-        <span style="font-size:12px;opacity:.9;">Substitua por &lt;img&gt; quando tiver a foto</span>
-      </div>
-
-      <div class="cardBody">
+    <aside class="card">
+      <img src="images/marcus.jpg" alt="Marcus Busato">
+      <div class="card-body">
         <h3>Principais entregas</h3>
         <ul>
           <li>Modelagem 3D (Rhino)</li>
@@ -348,92 +241,43 @@ footer{
 
 <section>
   <div class="wrap">
-    <h2 class="sectionTitle">O que é Vacuum Forming</h2>
-    <p class="sectionDesc">
-      O <strong>vacuum forming</strong> (vacuum formagem) é um processo industrial em que uma
-      <strong>chapa plástica aquecida</strong> é conformada por <strong>vácuo</strong> sobre um molde.
-      Após o resfriamento, a peça mantém a forma e segue para recorte e acabamento.
-      É muito usado por ser rápido e econômico, principalmente em protótipos e séries pequenas e médias.
-    </p>
+    <h2>O que é Vacuum Forming</h2>
 
     <div class="grid">
-      <div class="box">
-        <h3>Como funciona</h3>
-        <p>Aquecimento da chapa → conformação por vácuo → resfriamento → acabamento.</p>
-      </div>
-      <div class="box">
-        <h3>Onde é utilizado</h3>
-        <p>Embalagens blister, bandejas técnicas, berços, capas, proteções e displays.</p>
-      </div>
-      <div class="box">
-        <h3>Por que usar</h3>
-        <p>Menor custo que injeção em muitos casos e grande agilidade no desenvolvimento.</p>
-      </div>
-    </div>
-
-    <div class="note">
-      Aplicações comuns incluem embalagens para <strong>velas, sabonetes, cosméticos</strong>, bandejas industriais,
-      displays de PDV e protótipos.
+      <div class="box"><h3>Como funciona</h3><p>Aquecimento → vácuo → resfriamento → acabamento.</p></div>
+      <div class="box"><h3>Onde é utilizado</h3><p>Embalagens, bandejas, berços, capas e displays.</p></div>
+      <div class="box"><h3>Por que usar</h3><p>Menor custo e maior agilidade que injeção.</p></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2 class="sectionTitle">Tipos de aplicação</h2>
+    <h2>Tipos de aplicação</h2>
 
     <div class="grid">
-      <div class="box"><h3>Embalagens blister</h3><p>Projeto de moldes e desenho técnico.</p></div>
-      <div class="box"><h3>Bandejas industriais</h3><p>Organização e transporte de peças.</p></div>
-      <div class="box"><h3>Capas e carenagens</h3><p>Proteções e invólucros plásticos.</p></div>
-      <div class="box"><h3>Hospitalar</h3><p>Bandejas e suportes técnicos.</p></div>
-      <div class="box"><h3>PDV / Displays</h3><p>Expositores e suportes personalizados.</p></div>
-      <div class="box"><h3>Protótipos</h3><p>Validação de forma e encaixes.</p></div>
+      <div class="box"><h3>Embalagens blister</h3><p>Velas, sabonetes e cosméticos.</p></div>
+      <div class="box"><h3>Bandejas industriais</h3><p>Organização e transporte.</p></div>
+      <div class="box"><h3>Capas e carenagens</h3><p>Proteções plásticas.</p></div>
+      <div class="box"><h3>PDV / Displays</h3><p>Expositores e suportes.</p></div>
     </div>
 
-    <div class="cta" id="contato">
+    <div class="cta">
       <div>
-        <b>Fale com o Marcus - Noah Arquitetura</b>
-        <small>Garopaba/SC • Atendimento online (Brasil) • Serviço focado em projeto técnico</small>
+        <strong>Fale com o Marcus</strong><br>
+        Garopaba/SC · Atendimento online Brasil
       </div>
-
-      <div class="ctaActions">
-        <!-- WhatsApp com número embutido -->
-        <a class="ctaBtn" href="https://wa.me/5548996865891" target="_blank" aria-label="WhatsApp">
-          <!-- ícone -->
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M20.5 11.8a8.5 8.5 0 1 1-3.1-6.6 8.2 8.2 0 0 1 3.1 6.6z" stroke="#1e1e1e" stroke-width="1.8"/>
-            <path d="M8.3 19.4 4.8 20.6l1.1-3.6" stroke="#1e1e1e" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-          WhatsApp
-        </a>
-
-        <!-- Instagram com usuário embutido -->
-        <a class="ctaBtn" href="https://instagram.com/noaharquitetura" target="_blank" aria-label="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="#1e1e1e" stroke-width="1.8"/>
-            <path d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" stroke="#1e1e1e" stroke-width="1.8"/>
-            <path d="M17.6 6.4h.01" stroke="#1e1e1e" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-          Instagram
-        </a>
-      </div>
+      <a href="https://wa.me/5548999999999" target="_blank">Solicitar orçamento</a>
     </div>
-
-    <p style="margin-top:16px;color:rgba(255,255,255,.65);font-size:13px;">
-      ⚠️ <strong style="color:#fff;">Importante:</strong> o serviço é exclusivo de
-      <strong style="color:#fff;">projeto, modelagem e detalhamento técnico</strong>.
-      Não realizamos a fabricação do molde ou da peça.
-    </p>
   </div>
 </section>
 
 <footer>
-  © <span id="year"></span> Marcus Busato · Designer de Produto · Garopaba/SC
+  © <span id="year"></span> Marcus Busato · Designer de Produto
 </footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").innerText = new Date().getFullYear();
 </script>
 
 </body>
