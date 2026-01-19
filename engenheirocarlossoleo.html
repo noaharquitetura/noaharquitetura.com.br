@@ -1,569 +1,323 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>Eng. Carlos Soléo | Engenharia de Avaliações e Perícias</title>
+<meta name="description" content="Eng. Carlos Soléo. Avaliações imobiliárias, laudos técnicos, vistorias e relatórios conforme NBR 14.653. Atendimento em Londrina/PR e Garopaba/SC e online em todo o Brasil.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <title>Engenharia de Avaliações e Perícias | Eng. Carlos Soléo</title>
-  <meta name="description" content="Engenharia de Avaliações e Perícias: laudos, vistorias e relatórios conforme NBR 14.653. Atendimento em Londrina/PR e Garopaba/SC, e online em todo o Brasil." />
+<style>
+:root{
+  --bg:#1e1e1e;
+  --card:#3a3a3a;
+  --card2:#2f2f2f;
+  --text:#f5f5f5;
+  --muted:#d6d6d6;
 
-  <!-- Ícones (Whats/Instagram) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  /* TROCA AQUI: laranja -> azul celeste */
+  --accent:#58c7ff;
 
-  <style>
-    :root{
-      --navy:#0b1f3a;       /* azul marinho */
-      --blue:#2b6cb0;       /* azul médio */
-      --beige:#f3eadb;      /* bege cards */
-      --bg:#f7f4ee;         /* fundo suave */
-      --text:#1f2937;       /* texto principal */
-      --muted:#475569;      /* texto secundário */
-      --border: rgba(11,31,58,.18);
-      --shadow: 0 12px 26px rgba(11,31,58,.12);
-      --radius: 18px;
-    }
+  --line:rgba(255,255,255,.14);
+  --shadow:0 16px 40px rgba(0,0,0,.30);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{background:var(--bg);color:var(--text);line-height:1.75;}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
+strong{color:var(--text);}
+p{color:var(--muted);}
 
-    *{ box-sizing:border-box; }
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(30,30,30,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px;}
+.brand{display:flex;align-items:center;gap:14px;}
+.logo{
+  width:44px;height:44px;border-radius:14px;
+  background:linear-gradient(135deg,var(--accent),#2aa7e6);
+  color:#1e1e1e;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.brand-info b{font-size:16px;display:block;line-height:1.1;}
+.brand-info span{font-size:12px;color:var(--muted);display:block;margin-top:2px;}
+.icons{display:flex;gap:10px;}
+.icon{
+  width:42px;height:42px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--card);
+  border:1px solid var(--line);
+}
+.icon.whats{background:linear-gradient(135deg,var(--accent),#2aa7e6);}
+.icon svg{width:20px;height:20px;}
 
-    body{
-      font-family: Arial, Helvetica, sans-serif;
-      margin:0;
-      padding:0;
-      background: var(--bg);
-      color: var(--text);
-      line-height:1.6;
-    }
+/* HERO */
+.hero{padding:70px 0 40px;}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:start;}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--muted);margin-bottom:14px;}
+h1{font-size:46px;font-weight:800;line-height:1.05;margin-bottom:18px;}
+h1 span{color:var(--accent);}
+.lead{font-size:18px;color:var(--muted);max-width:70ch;}
 
-    a{ color: var(--blue); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
+/* CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+.chip{
+  padding:10px 16px;border-radius:999px;
+  background:var(--card);
+  border:1px solid var(--line);
+  color:var(--text);
+  font-size:13px;font-weight:700;
+}
 
-    .container{
-      max-width:1100px;
-      margin:0 auto;
-      padding:0 20px;
-    }
+/* SIDE BOX (SEM FOTO) */
+.concept{
+  background:var(--card2);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+.concept h3{color:var(--accent);margin-bottom:12px;font-size:18px;}
+.concept ul{margin-left:18px;color:var(--muted);line-height:1.9;}
+.concept li{margin:6px 0;}
+.note{
+  margin-top:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
+  color:var(--muted);
+}
 
-    /* HERO / TOPO */
-    .hero{
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(43,108,176,.25), transparent 60%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(243,234,219,.18), transparent 55%),
-                  var(--navy);
-      color:#fff;
-      padding:64px 0;
-      border-bottom: 1px solid rgba(255,255,255,.12);
-    }
+/* SECTIONS */
+section{padding:55px 0;}
+.sectionTitle{font-size:30px;margin-bottom:14px;color:var(--accent);}
+.sectionDesc{max-width:95ch;margin-bottom:18px;}
+hr.sep{border:0;border-top:1px solid var(--line);margin:40px 0 0;}
 
-    .perfil-container{
-      display:flex;
-      gap:40px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.box{
+  background:var(--card);
+  padding:20px;
+  border-radius:22px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.box h3{color:var(--accent);margin-bottom:8px;font-size:18px;}
+.box p{margin:0;color:var(--muted);}
+.list{margin:10px 0 0 18px;color:var(--muted);line-height:1.9;}
+.list li{margin:6px 0;}
 
-    .perfil-foto img{
-      width:220px;
-      height:220px;
-      border-radius: 16px;
-      object-fit: cover;
-      border: 2px solid rgba(255,255,255,.14);
-      box-shadow: 0 14px 30px rgba(0,0,0,.22);
-      background: rgba(255,255,255,.06);
-    }
+/* CTA */
+.cta{
+  margin-top:26px;
+  background:linear-gradient(135deg,var(--accent),#2aa7e6);
+  color:#1e1e1e;
+  padding:26px;
+  border-radius:22px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+  box-shadow:0 22px 60px rgba(0,0,0,.35);
+}
+.cta strong{color:#1e1e1e;}
+.cta small{display:block;opacity:.85;margin-top:6px;}
+.cta a{
+  background:rgba(0,0,0,.18);
+  padding:12px 18px;
+  border-radius:14px;
+  font-weight:800;
+  color:#1e1e1e;
+}
 
-    .hero h1{
-      margin:0 0 10px;
-      font-size: 42px;
-      letter-spacing: -0.02em;
-    }
+/* FOOTER */
+footer{
+  border-top:1px solid var(--line);
+  padding:30px 0;
+  text-align:center;
+  font-size:13px;
+  color:rgba(255,255,255,.6);
+}
 
-    .hero .tagline{
-      margin:0 0 14px;
-      font-weight: 700;
-      color: rgba(255,255,255,.92);
-      font-size: 18px;
-    }
-
-    .hero p{
-      margin:0 0 10px;
-      color: rgba(255,255,255,.88);
-      max-width: 820px;
-    }
-
-    .badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 16px;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.92);
-      font-size: 14px;
-    }
-
-    .cta-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top: 18px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.10);
-      color:#fff;
-      font-weight: 700;
-      transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
-    }
-    .btn:hover{
-      text-decoration:none;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(0,0,0,.18);
-      filter: brightness(1.03);
-    }
-
-    .btn.primary{
-      background: var(--blue);
-      border-color: rgba(255,255,255,.0);
-    }
-
-    /* SEÇÕES */
-    section{
-      padding: 56px 0;
-    }
-
-    .section-title{
-      margin:0 0 18px;
-      font-size: 26px;
-      letter-spacing: -0.01em;
-      color: var(--navy);
-    }
-
-    .section-sub{
-      margin:0 0 26px;
-      color: var(--muted);
-      max-width: 860px;
-    }
-
-    /* CARDS */
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-    }
-
-    .card{
-      background: var(--beige);
-      padding: 20px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow:hidden;
-    }
-
-    .card:before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: radial-gradient(500px 200px at 0% 0%, rgba(43,108,176,.18), transparent 60%);
-      pointer-events:none;
-    }
-
-    .card h4{
-      margin:0 0 10px;
-      color: var(--navy);
-      font-size: 18px;
-    }
-
-    .card p{
-      margin:0;
-      color: #334155;
-    }
-
-    /* ÁREA DE ATUAÇÃO */
-    .atuacao{
-      background: #fff;
-      border-top: 1px solid rgba(0,0,0,.06);
-      border-bottom: 1px solid rgba(0,0,0,.06);
-      padding: 44px 0;
-    }
-
-    .atuacao-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .atuacao-box{
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: 0 10px 22px rgba(11,31,58,.08);
-    }
-
-    .atuacao-box h4{
-      margin:0 0 8px;
-      color: var(--navy);
-    }
-
-    .atuacao-box p{
-      margin:0;
-      color: var(--muted);
-    }
-
-    /* NBR LISTA */
-    .nbr{
-      background: #fff;
-    }
-
-    .nbr ul{
-      margin: 14px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .nbr li{ margin-bottom: 6px; }
-
-    /* FAQ */
-    #faq{
-      background: #fff;
-    }
-
-    .faq{
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    details{
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin-bottom: 12px;
-      box-shadow: 0 10px 20px rgba(11,31,58,.06);
-    }
-
-    summary{
-      cursor:pointer;
-      font-weight: 800;
-      color: var(--navy);
-      list-style:none;
-    }
-
-    summary::-webkit-details-marker{ display:none; }
-
-    details p{
-      margin: 10px 0 0;
-      color: var(--muted);
-    }
-
-    /* FOOTER */
-    footer{
-      background: var(--navy);
-      color: rgba(255,255,255,.92);
-      text-align:center;
-      padding: 34px 20px;
-      border-top: 1px solid rgba(255,255,255,.12);
-    }
-
-    footer p{
-      margin: 6px 0;
-    }
-
-    .social-icons{
-      display:flex;
-      justify-content:center;
-      gap: 16px;
-      margin-top: 14px;
-    }
-
-    .social-icons a{
-      width: 48px;
-      height: 48px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius: 50%;
-      text-decoration:none;
-      font-size: 22px;
-      transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
-      border: 1px solid rgba(255,255,255,.14);
-    }
-
-    .social-icons a.whatsapp{
-      background:#25D366;
-      color:#fff;
-      border-color: rgba(255,255,255,.0);
-    }
-    .social-icons a.instagram{
-      background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
-      color:#fff;
-      border-color: rgba(255,255,255,.0);
-    }
-    .social-icons a:hover{
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 10px 22px rgba(0,0,0,.22);
-      filter: brightness(1.02);
-    }
-
-    /* BOTÃO FLUTUANTE WHATS */
-    .whats-float{
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background:#25D366;
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size: 26px;
-      box-shadow: 0 16px 30px rgba(37,211,102,.35);
-      z-index: 9999;
-      text-decoration:none;
-    }
-    .whats-float:hover{
-      transform: scale(1.06);
-      filter: brightness(1.02);
-    }
-
-    /* RESPONSIVO */
-    @media (max-width: 600px){
-      .hero{
-        padding: 46px 0;
-      }
-      .hero h1{
-        font-size: 32px;
-      }
-      .perfil-foto img{
-        width: 170px;
-        height: 170px;
-      }
-    }
-  </style>
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}
+  h1{font-size:34px;}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO / PERFIL -->
-  <header class="hero">
-    <div class="container perfil-container">
-
-      <div class="perfil-foto">
-        <img src="img/engenheirocivil.png" alt="Engenheiro Carlos Soléo">
+<header>
+  <div class="wrap nav">
+    <a href="#topo" class="brand" aria-label="Topo">
+      <div class="logo">CS</div>
+      <div class="brand-info">
+        <b>Eng. Carlos Soléo</b>
+        <span>Avaliações · Perícias · Laudos · Londrina/PR · Garopaba/SC</span>
       </div>
+    </a>
 
-      <div class="perfil-texto">
-        <h1>Eng. Carlos Soléo</h1>
-        <p class="tagline">Engenharia de Avaliações e Perícias</p>
-
-        <p>
-          Engenheiro especializado em avaliações imobiliárias, elaboração de laudos técnicos,
-          vistorias e relatórios conforme a <strong>NBR 14.653</strong>, atuando com responsabilidade técnica,
-          clareza e segurança jurídica.
-        </p>
-
-        <p>
-          Atendimento presencial em <strong>Londrina/PR</strong> e <strong>Garopaba/SC</strong>,
-          com atuação <strong>online em todo o Brasil</strong>.
-        </p>
-
-        <div class="badges">
-          <span class="badge"><i class="fa-solid fa-clipboard-check"></i> Laudos e Perícias</span>
-          <span class="badge"><i class="fa-solid fa-house-chimney"></i> Avaliação Imobiliária</span>
-          <span class="badge"><i class="fa-solid fa-scale-balanced"></i> Segurança Técnica</span>
-        </div>
-
-        <div class="cta-row">
-          <a class="btn primary" href="https://wa.me/5543999803465" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> Solicitar orçamento
-          </a>
-          <a class="btn" href="#servicos">
-            <i class="fa-solid fa-list-check"></i> Ver serviços
-          </a>
-          <a class="btn" href="#faq">
-            <i class="fa-regular fa-circle-question"></i> Dúvidas (FAQ)
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </header>
-
-  <!-- SERVIÇOS -->
-  <section id="servicos">
-    <div class="container">
-      <h2 class="section-title">Serviços Técnicos</h2>
-      <p class="section-sub">
-        Atuação com foco em clareza, padronização e documentação completa, conforme exigências técnicas
-        e necessidades do cliente.
-      </p>
-
-      <div class="cards">
-        <div class="card">
-          <h4>Laudo de Avaliação de Imóvel</h4>
-          <p>Avaliações conforme a NBR 14.653, com fundamentação técnica e valor de mercado.</p>
-        </div>
-
-        <div class="card">
-          <h4>Relatório Técnico para Financiamento</h4>
-          <p>Documentação exigida por instituições financeiras.</p>
-        </div>
-
-        <div class="card">
-          <h4>Orçamento e Cronograma de Obra (PCI)</h4>
-          <p>Planilha técnica para financiamento e controle de obras.</p>
-        </div>
-
-        <div class="card">
-          <h4>Medição de Obra</h4>
-          <p>Relatórios de medição física e financeira.</p>
-        </div>
-
-        <div class="card">
-          <h4>Vistoria Pré e Pós-Locação</h4>
-          <p>Relatórios fotográficos e descritivos completos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ÁREA DE ATUAÇÃO -->
-  <section class="atuacao">
-    <div class="container">
-      <h2 class="section-title">Área de Atuação</h2>
-
-      <div class="atuacao-grid">
-        <div class="atuacao-box">
-          <h4><i class="fa-solid fa-location-dot"></i> Atendimento Presencial</h4>
-          <p>Londrina/PR • Garopaba/SC e região</p>
-        </div>
-
-        <div class="atuacao-box">
-          <h4><i class="fa-solid fa-globe"></i> Atendimento Online/Remoto</h4>
-          <p>Todo o Brasil</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NBR -->
-  <section class="nbr">
-    <div class="container">
-      <h2 class="section-title">Engenharia de Avaliações – NBR 14.653</h2>
-
-      <p class="section-sub">
-        A <strong>NBR 14.653</strong> é a norma técnica da ABNT que estabelece critérios, métodos e procedimentos
-        para a avaliação de bens no Brasil.
-      </p>
-
-      <p style="color:var(--muted); max-width: 900px;">
-        Um laudo elaborado conforme a NBR 14.653 garante segurança técnica, credibilidade e transparência,
-        reduzindo riscos de questionamentos e indeferimentos por instituições financeiras ou judiciais.
-      </p>
-
-      <p style="margin-top:16px; color:var(--navy); font-weight:800;">O laudo técnico considera:</p>
-      <ul>
-        <li>Objetivo da avaliação;</li>
-        <li>Caracterização do imóvel e entorno;</li>
-        <li>Levantamento de dados de mercado;</li>
-        <li>Métodos adequados (comparativo, renda ou custo);</li>
-        <li>Critérios técnicos e estatísticos;</li>
-        <li>Relatório claro com fotos, cálculos e anexos.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <h2 class="section-title" style="text-align:center;">Perguntas Frequentes</h2>
-      <p class="section-sub" style="margin-left:auto;margin-right:auto;text-align:center;">
-        Respostas diretas para as dúvidas mais comuns sobre laudos, vistorias e atendimentos.
-      </p>
-    </div>
-
-    <div class="faq">
-      <details class="faq-item" open>
-        <summary>Um laudo de avaliação serve para financiamento?</summary>
-        <p>
-          Depende da operação e das exigências do agente financeiro. Cada caso é analisado
-          para evitar retrabalho ou indeferimento.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>A vistoria pré e pós-locação precisa ter fotos?</summary>
-        <p>
-          Sim. O relatório fotográfico é essencial para registrar o estado do imóvel e reduzir
-          conflitos entre as partes.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Vocês atendem fora de Londrina e Garopaba?</summary>
-        <p>
-          Sim. Há atendimento online em todo o Brasil. Quando necessário, avaliamos a viabilidade
-          da vistoria presencial.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Quais documentos ajudam a agilizar o atendimento?</summary>
-        <p>
-          Matrícula, IPTU, endereço completo, fotos, plantas (se houver) e a finalidade do laudo.
-        </p>
-      </details>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="contato">
-    <p><strong>Eng. Carlos Soléo</strong> | Engenharia de Avaliações e Perícias</p>
-    <p>📍 Londrina/PR • Garopaba/SC | 🌎 Atendimento Nacional</p>
-    <p>📲 WhatsApp: (43) 99980-3465</p>
-
-    <div class="social-icons">
-      <a href="https://wa.me/5543999803465" target="_blank" class="whatsapp" aria-label="WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
+    <div class="icons">
+      <a href="https://instagram.com/csoleo" target="_blank" class="icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.8"/>
+          <circle cx="17" cy="7" r="1" fill="white"/>
+        </svg>
       </a>
+      <a href="https://wa.me/5543999803465" target="_blank" class="icon whats" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20 11a8 8 0 1 1-3-6" stroke="#1e1e1e" stroke-width="1.8"/>
+          <path d="M7 19l-1 4 4-1" stroke="#1e1e1e" stroke-width="1.8"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
 
-    <a href="https://www.instagram.com/csoleo" target="_blank" class="instagram" aria-label="Instagram">
-  <i class="fa-brands fa-instagram"></i>
-</a>
+<main class="hero" id="topo">
+  <div class="wrap hero-grid">
 
-    <p style="margin-top:14px; font-size: 13px; color: rgba(255,255,255,.7);">
-      © <span id="year"></span> Eng. Carlos Soléo — Todos os direitos reservados.
+    <div>
+      <div class="kicker">AVALIAÇÕES · VISTORIAS · LAUDOS · NBR 14.653</div>
+      <h1>Engenharia de avaliações<br><span>com clareza e segurança técnica</span></h1>
+
+      <p class="lead">
+        Engenheiro com atuação em <strong>avaliações imobiliárias</strong>, <strong>vistorias</strong>,
+        <strong>laudos técnicos</strong> e relatórios conforme a <strong>NBR 14.653</strong>.
+        Documentação organizada para reduzir riscos de <strong>questionamentos</strong> e <strong>retrabalho</strong>.
+      </p>
+
+      <div class="chips">
+        <div class="chip">Laudo de avaliação</div>
+        <div class="chip">Relatório para financiamento</div>
+        <div class="chip">Vistoria pré/pós-locação</div>
+        <div class="chip">Medição de obra</div>
+      </div>
+    </div>
+
+    <aside class="concept">
+      <h3>Principais entregas</h3>
+      <ul>
+        <li>Laudo de avaliação (NBR 14.653) — valor de mercado e fundamentação</li>
+        <li>Relatórios técnicos para financiamento — documentação exigida</li>
+        <li>Vistorias com relatório fotográfico e descrição detalhada</li>
+        <li>Medição física/financeira e acompanhamento por relatório</li>
+      </ul>
+
+      <div class="note">
+        ⚠️ <strong>Importante:</strong> o serviço é focado na <strong>documentação técnica</strong>
+        (laudos/relatórios/vistorias). Para cada caso, confirmo a finalidade e requisitos antes de iniciar.
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<section>
+  <div class="wrap">
+    <h2 class="sectionTitle">NBR 14.653 — por que isso importa</h2>
+
+    <p class="sectionDesc">
+      A <strong>NBR 14.653</strong> é a norma da ABNT que orienta critérios, métodos e procedimentos para
+      avaliação de bens no Brasil. Um laudo conforme norma oferece <strong>segurança técnica</strong>,
+      melhora a <strong>aceitação</strong> e reduz riscos de inconsistências.
     </p>
-  </footer>
 
-  <!-- Whats flutuante -->
-  <a class="whats-float" href="https://wa.me/5543999803465" target="_blank" aria-label="WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+    <div class="grid">
+      <div class="box">
+        <h3>O que um laudo considera</h3>
+        <ul class="list">
+          <li><strong>1)</strong> Objetivo da avaliação</li>
+          <li><strong>2)</strong> Caracterização do imóvel e entorno</li>
+          <li><strong>3)</strong> Levantamento de dados de mercado</li>
+          <li><strong>4)</strong> Método adequado (comparativo/renda/custo)</li>
+          <li><strong>5)</strong> Critérios técnicos e estatísticos</li>
+        </ul>
+      </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+      <div class="box">
+        <h3>Para que serve</h3>
+        <ul class="list">
+          <li>Compra e venda com base técnica</li>
+          <li>Financiamento / garantias</li>
+          <li>Inventário / partilha / disputas</li>
+          <li>Locação e prevenção de conflitos</li>
+        </ul>
+      </div>
 
+      <div class="box">
+        <h3>O diferencial</h3>
+        <p>
+          Documento claro, rastreável e bem organizado, com descrição, fotos e anexos quando necessário,
+          reduzindo chances de indeferimento e questionamentos.
+        </p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Atendimento:</strong> presencial em <strong>Londrina/PR</strong> e <strong>Garopaba/SC</strong>.
+      Online/Remoto para <strong>todo o Brasil</strong> (conforme o caso).
+    </div>
+
+    <hr class="sep">
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sectionTitle">Serviços</h2>
+
+    <div class="grid">
+      <div class="box">
+        <h3>Laudo de Avaliação de Imóvel</h3>
+        <p>Avaliação conforme NBR 14.653, com fundamentação técnica e estimativa de valor de mercado.</p>
+      </div>
+      <div class="box">
+        <h3>Relatório Técnico para Financiamento</h3>
+        <p>Documentação exigida por instituições financeiras, conforme finalidade e requisitos.</p>
+      </div>
+      <div class="box">
+        <h3>Vistoria Pré e Pós-Locação</h3>
+        <p>Relatório fotográfico e descritivo completo para registrar o estado do imóvel e reduzir conflitos.</p>
+      </div>
+      <div class="box">
+        <h3>Medição de Obra</h3>
+        <p>Relatórios de medição física e financeira com organização e rastreabilidade.</p>
+      </div>
+      <div class="box">
+        <h3>Orçamento e Cronograma (PCI)</h3>
+        <p>Planilha técnica para financiamento e controle de obra (quando aplicável ao caso).</p>
+      </div>
+      <div class="box">
+        <h3>Laudos Técnicos e Perícias</h3>
+        <p>Documentação técnica clara e objetiva para embasar decisões e reduzir riscos de questionamentos.</p>
+      </div>
+    </div>
+
+    <div class="cta" id="contato">
+      <div>
+        <strong>Eng. Carlos Soléo — Avaliações e Perícias</strong>
+        <small>Londrina/PR · Garopaba/SC · Atendimento online (Brasil)</small>
+      </div>
+      <a href="https://wa.me/5543999803465" target="_blank">Solicitar orçamento</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Eng. Carlos Soléo · Engenharia de Avaliações e Perícias
+</footer>
+
+<script>
+document.getElementById("year").innerText = new Date().getFullYear();
+</script>
 </body>
 </html>
