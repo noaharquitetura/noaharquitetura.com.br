@@ -1,77 +1,246 @@
 <!DOCTYPE html>
-<div class="card">
-<h4>Laudo de Avaliação de Imóvel</h4>
-<p>Avaliações conforme a NBR 14.653, com fundamentação técnica e valor de mercado.</p>
-</div>
-<div class="card">
-<h4>Relatório Técnico para Financiamento</h4>
-<p>Documentação exigida por instituições financeiras.</p>
-</div>
-<div class="card">
-<h4>Orçamento e Cronograma de Obra (PCI)</h4>
-<p>Planilha técnica para financiamento e controle de obras.</p>
-</div>
-<div class="card">
-<h4>Medição de Obra</h4>
-<p>Relatórios de medição física e financeira.</p>
-</div>
-<div class="card">
-<h4>Vistoria Pré e Pós-Locação</h4>
-<p>Relatórios fotográficos e descritivos completos.</p>
-</div>
-</div>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Engenharia de Avaliações e Perícias | Eng. Carlos Soléo</title>
+
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+section {
+  padding: 60px 20px;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+h2, h3, h4 {
+  color: #222;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* PERFIL */
+.perfil-container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.perfil-foto img {
+  width: 220px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.perfil-texto p {
+  margin-bottom: 10px;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #555;
+}
+
+/* ATUAÇÃO */
+.atuacao {
+  background: #f0f0f0;
+  text-align: center;
+}
+
+/* FAQ */
+.faq {
+  max-width: 900px;
+  margin: auto;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PERFIL -->
+<section>
+  <div class="container perfil-container">
+
+    <div class="perfil-foto">
+      <img src="img/engenheirocivil.jpg" alt="Engenheiro Carlos Soléo">
+    </div>
+
+    <div class="perfil-texto">
+      <h2>Eng. Carlos Soléo</h2>
+      <p><strong>Engenharia de Avaliações e Perícias</strong></p>
+
+      <p>
+        Engenheiro especializado em avaliações imobiliárias,
+        elaboração de laudos técnicos, vistorias e relatórios
+        conforme a <strong>NBR 14.653</strong>, atuando com
+        responsabilidade técnica, clareza e segurança jurídica.
+      </p>
+
+      <p>
+        Atendimento presencial em <strong>Londrina/PR</strong> e
+        <strong>Garopaba/SC</strong>, com atuação
+        <strong>online em todo o Brasil</strong>.
+      </p>
+    </div>
+
+  </div>
 </section>
 
+<!-- SERVIÇOS -->
+<section>
+  <div class="container">
+    <h3>Serviços Técnicos</h3>
 
-<div id="atuacao" class="atuacao">
-<h3>Área de Atuação</h3>
-<p><strong>Atendimento Presencial:</strong> Londrina/PR • Garopaba/SC e região</p>
-<p><strong>Atendimento Online/Remoto:</strong> Todo o Brasil</p>
+    <div class="cards">
+      <div class="card">
+        <h4>Laudo de Avaliação de Imóvel</h4>
+        <p>Avaliações conforme a NBR 14.653, com fundamentação técnica e valor de mercado.</p>
+      </div>
+
+      <div class="card">
+        <h4>Relatório Técnico para Financiamento</h4>
+        <p>Documentação exigida por instituições financeiras.</p>
+      </div>
+
+      <div class="card">
+        <h4>Orçamento e Cronograma de Obra (PCI)</h4>
+        <p>Planilha técnica para financiamento e controle de obras.</p>
+      </div>
+
+      <div class="card">
+        <h4>Medição de Obra</h4>
+        <p>Relatórios de medição física e financeira.</p>
+      </div>
+
+      <div class="card">
+        <h4>Vistoria Pré e Pós-Locação</h4>
+        <p>Relatórios fotográficos e descritivos completos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREA DE ATUAÇÃO -->
+<div class="atuacao">
+  <h3>Área de Atuação</h3>
+  <p><strong>Atendimento Presencial:</strong> Londrina/PR • Garopaba/SC e região</p>
+  <p><strong>Atendimento Online/Remoto:</strong> Todo o Brasil</p>
 </div>
 
-
+<!-- NBR -->
 <section class="nbr">
-<h3>Engenharia de Avaliações – NBR 14.653</h3>
-<p>A NBR 14.653 é a principal referência técnica brasileira para avaliações de bens, ajudando a garantir laudos mais seguros, transparentes e fundamentados — essenciais para financiamentos, partilhas, inventários e negociações imobiliárias.</p>
-<p><strong>O que um laudo bem fundamentado costuma considerar:</strong> objetivo da avaliação, caracterização do imóvel, levantamento de dados de mercado, método adequado (comparativo, renda ou custo, quando aplicável) e apresentação clara com registros e anexos.</p>
+  <div class="container">
+    <h3>Engenharia de Avaliações – NBR 14.653</h3>
+
+    <p>
+      A <strong>NBR 14.653</strong> é a norma técnica da ABNT que estabelece os critérios,
+      métodos e procedimentos para a avaliação de bens no Brasil.
+    </p>
+
+    <p>
+      Um laudo elaborado conforme a NBR 14.653 garante segurança técnica,
+      credibilidade e transparência, reduzindo riscos de questionamentos
+      e indeferimentos por instituições financeiras ou judiciais.
+    </p>
+
+    <p><strong>O laudo técnico considera:</strong></p>
+    <ul>
+      <li>Objetivo da avaliação;</li>
+      <li>Caracterização do imóvel e entorno;</li>
+      <li>Levantamento de dados de mercado;</li>
+      <li>Métodos adequados (comparativo, renda ou custo);</li>
+      <li>Critérios técnicos e estatísticos;</li>
+      <li>Relatório claro com fotos, cálculos e anexos.</li>
+    </ul>
+  </div>
 </section>
 
-
+<!-- FAQ -->
 <section id="faq">
-<h3>Perguntas Frequentes</h3>
-<div class="faq">
-<details class="faq-item" open>
-<summary>Um laudo de avaliação serve para financiamento?</summary>
-<p>Depende do tipo de operação e das exigências do agente financeiro. Em muitos casos há padrões e informações específicas. Eu analiso o seu caso e indico o caminho correto para evitar retrabalho e indeferimentos.</p>
-</details>
+  <h3 style="text-align:center;">Perguntas Frequentes</h3>
 
+  <div class="faq">
 
-<details class="faq-item">
-<summary>A vistoria pré e pós-locação precisa ter fotos?</summary>
-<p>Sim. O relatório fotográfico e descritivo é essencial para registrar o estado do imóvel e reduzir conflitos, protegendo locador e locatário.</p>
-</details>
+    <details class="faq-item" open>
+      <summary>Um laudo de avaliação serve para financiamento?</summary>
+      <p>
+        Depende da operação e das exigências do agente financeiro.
+        Cada caso é analisado para evitar retrabalho ou indeferimento.
+      </p>
+    </details>
 
+    <details class="faq-item">
+      <summary>A vistoria pré e pós-locação precisa ter fotos?</summary>
+      <p>
+        Sim. O relatório fotográfico é essencial para registrar o estado do imóvel
+        e reduzir conflitos entre as partes.
+      </p>
+    </details>
 
-<details class="faq-item">
-<summary>Vocês atendem fora de Londrina e Garopaba?</summary>
-<p>Sim. Há atendimento <strong>online/remoto</strong> em todo o Brasil (conforme o serviço). Quando há necessidade de vistoria presencial, avaliamos viabilidade e agenda.</p>
-</details>
+    <details class="faq-item">
+      <summary>Vocês atendem fora de Londrina e Garopaba?</summary>
+      <p>
+        Sim. Há atendimento online em todo o Brasil.
+        Quando necessário, avaliamos a viabilidade da vistoria presencial.
+      </p>
+    </details>
 
+    <details class="faq-item">
+      <summary>Quais documentos ajudam a agilizar o atendimento?</summary>
+      <p>
+        Matrícula, IPTU, endereço completo, fotos, plantas (se houver)
+        e a finalidade do laudo.
+      </p>
+    </details>
 
-<details class="faq-item">
-<summary>Quais documentos ajudam a agilizar o atendimento?</summary>
-<p>Em geral: matrícula/registro, IPTU, endereço completo, fotos, plantas (se houver) e a finalidade do laudo (financiamento, venda, locação, partilha etc.).</p>
-</details>
-</div>
+  </div>
 </section>
 
-
+<!-- FOOTER -->
 <footer id="contato">
-<p><strong>Eng. Carlos Soléo</strong> | Engenharia de Avaliações e Perícias</p>
-<p>📍 Londrina/PR • Garopaba/SC | 🌎 Atendimento Nacional</p>
-<p>📲 WhatsApp: (43) 99980-3465</p>
+  <p><strong>Eng. Carlos Soléo</strong> | Engenharia de Avaliações e Perícias</p>
+  <p>📍 Londrina/PR • Garopaba/SC | 🌎 Atendimento Nacional</p>
+  <p>📲 WhatsApp: (43) 99980-3465</p>
 </footer>
-
 
 </body>
 </html>
