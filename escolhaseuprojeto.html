@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escolha seu projeto | Noah Arquitetura</title>
+
+  <!-- Fonte moderna -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Paleta (exata da imagem) */
+      --bg:#A4A579;            /* verde claro (fundo) */
+      --brand:#40574D;         /* verde escuro (header/rodape/banners) */
+      --cream:#EDDBC5;         /* bege claro (texto claro/fundos) */
+      --brown:#AC7B70;         /* marrom (acentos/botões) */
+
+      --text:#2f3f38;          /* texto principal (variação do verde escuro) */
+      --muted:rgba(47,63,56,.72);
+      --line:rgba(64,87,77,.20);
+
+      --card:rgba(237,219,197,.92);
+      --card2:rgba(237,219,197,.72);
+
+      --shadow: 0 18px 55px rgba(0,0,0,.16);
+      --shadow2: 0 10px 28px rgba(0,0,0,.14);
+
+      --radius: 18px;
+      --radius2: 14px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: linear-gradient(180deg, rgba(164,165,121,1) 0%, rgba(164,165,121,.92) 40%, rgba(164,165,121,.86) 100%);
+      color: var(--text);
+      line-height:1.7;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* Top Bar */
+    .topbar{
+      background: rgba(64,87,77,.92);
+      color: rgba(237,219,197,.95);
+      font-size: 12px;
+      padding: 10px 16px;
+      text-align:center;
+      border-bottom: 1px solid rgba(237,219,197,.18);
+    }
+    .topbar strong{color: var(--cream)}
+    .topbar a{
+      color: var(--cream);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+
+    /* Header */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(64,87,77,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(237,219,197,.18);
+    }
+    .header-wrap{
+      max-width: 1200px;
+      margin: auto;
+      padding: 16px 18px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+    }
+    .logo{
+      width:38px;height:38px;
+      border-radius: 12px;
+      background: rgba(237,219,197,.16);
+      border:1px solid rgba(237,219,197,.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--cream);
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    .brand-name{
+      color: var(--cream);
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-size: 14px;
+      text-transform: uppercase;
+      line-height:1.1;
+    }
+    .brand-sub{
+      color: rgba(237,219,197,.75);
+      font-size: 11px;
+      margin-top: 2px;
+      letter-spacing: .4px;
+    }
+
+    /* Search */
+    .search{
+      flex: 1;
+      display:flex;
+      justify-content:center;
+    }
+    .searchbar{
+      width: min(560px, 100%);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(237,219,197,.14);
+      border: 1px solid rgba(237,219,197,.22);
+    }
+    .searchbar svg{opacity:.9}
+    .searchbar input{
+      width:100%;
+      border:0;
+      outline:none;
+      background: transparent;
+      color: var(--cream);
+      font-size: 13px;
+      font-family: inherit;
+    }
+    .searchbar input::placeholder{color: rgba(237,219,197,.70)}
+
+    /* Nav */
+    nav{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .navlink, .dropbtn{
+      color: rgba(237,219,197,.95);
+      font-size: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      transition: .2s;
+      border: 1px solid transparent;
+      background: transparent;
+      cursor:pointer;
+      font-family: inherit;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .navlink:hover, .dropbtn:hover{
+      background: rgba(237,219,197,.12);
+      border-color: rgba(237,219,197,.18);
+    }
+
+    .dropdown{position:relative}
+    .menu{
+      position:absolute;
+      right:0;
+      top: 46px;
+      width: 260px;
+      background: rgba(237,219,197,.98);
+      color: #2a3530;
+      border-radius: 16px;
+      border: 1px solid rgba(64,87,77,.16);
+      box-shadow: var(--shadow2);
+      padding: 10px;
+      display:none;
+    }
+    .dropdown.open .menu{display:block}
+    .menu .group{
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(47,63,56,.65);
+      padding: 10px 10px 6px;
+    }
+    .menu a{
+      display:block;
+      padding: 10px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #2a3530;
+    }
+    .menu a:hover{background: rgba(64,87,77,.10)}
+
+    /* Layout */
+    .container{
+      max-width: 1200px;
+      margin: 26px auto 90px;
+      padding: 0 18px;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .hero-left{
+      background: linear-gradient(135deg, rgba(64,87,77,.92), rgba(52,70,63,.96));
+      border: 1px solid rgba(237,219,197,.22);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      color: var(--cream);
+      position: relative;
+      overflow:hidden;
+      min-height: 210px;
+    }
+    .hero-left:before{
+      content:"";
+      position:absolute;
+      inset:-80px -60px auto auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle at 30% 30%, rgba(172,123,112,.55), transparent 60%);
+      transform: rotate(18deg);
+      opacity: .9;
+    }
+    .hero-title{
+      font-size: 28px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: .3px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-sub{
+      font-size: 13px;
+      opacity: .92;
+      max-width: 62ch;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-badges{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+      position: relative;
+      z-index: 2;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(237,219,197,.14);
+      border: 1px solid rgba(237,219,197,.22);
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(237,219,197,.95);
+    }
+
+    .hero-right{
+      background: rgba(237,219,197,.90);
+      border: 1px solid rgba(64,87,77,.18);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      min-height: 210px;
+    }
+    .mini-title{
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(47,63,56,.80);
+    }
+    .mini-card{
+      background: rgba(255,255,255,.35);
+      border: 1px solid rgba(64,87,77,.14);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .mini-card p{
+      font-size: 12px;
+      color: rgba(47,63,56,.78);
+      margin-top: 6px;
+    }
+    .mini-cta{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 8px;
+    }
+    .btn{
+      border:0;
+      cursor:pointer;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-family: inherit;
+      font-size: 12px;
+      letter-spacing: .2px;
+      transition: .2s;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background: var(--brown);
+      color: var(--cream);
+      box-shadow: 0 10px 22px rgba(0,0,0,.12);
+    }
+    .btn-primary:hover{transform: translateY(-1px); background: #9b6b60}
+    .btn-outline{
+      background: transparent;
+      color: rgba(47,63,56,.92);
+      border: 1px solid rgba(64,87,77,.22);
+    }
+    .btn-outline:hover{background: rgba(64,87,77,.08)}
+    .btn-dark{
+      background: var(--brand);
+      color: var(--cream);
+    }
+    .btn-dark:hover{transform: translateY(-1px); background: #34463F}
+
+    /* Toolbar / filtros */
+    .toolbar{
+      margin-top: 16px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .filters{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .select, .chip{
+      background: rgba(237,219,197,.88);
+      border: 1px solid rgba(64,87,77,.18);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(47,63,56,.90);
+      outline:none;
+      font-family: inherit;
+    }
+    .chip{
+      cursor:pointer;
+      transition:.2s;
+    }
+    .chip:hover{background: rgba(237,219,197,.98)}
+    .chip.active{
+      background: rgba(64,87,77,.92);
+      color: var(--cream);
+      border-color: rgba(237,219,197,.22);
+    }
+    .count{
+      font-size: 12px;
+      color: rgba(47,63,56,.80);
+      font-weight: 700;
+      background: rgba(237,219,197,.55);
+      border: 1px solid rgba(64,87,77,.14);
+      padding: 10px 12px;
+      border-radius: 999px;
+    }
+
+    /* Grid de produtos */
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .card{
+      grid-column: span 4;
+      background: var(--card);
+      border: 1px solid rgba(64,87,77,.18);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+      transition: .22s;
+      display:flex;
+      flex-direction:column;
+      min-height: 100%;
+    }
+    .card:hover{transform: translateY(-3px)}
+    .thumb{
+      aspect-ratio: 16/10;
+      background: rgba(64,87,77,.10);
+      position: relative;
+      overflow:hidden;
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform: scale(1.02);
+      transition: .28s;
+      filter: saturate(1.02) contrast(1.02);
+    }
+    .card:hover .thumb img{transform: scale(1.05)}
+    .pill{
+      position:absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(64,87,77,.92);
+      color: var(--cream);
+      border: 1px solid rgba(237,219,197,.22);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+    .price-pill{
+      position:absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(172,123,112,.92);
+      color: var(--cream);
+      border: 1px solid rgba(237,219,197,.22);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .body{
+      padding: 14px 14px 12px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      flex:1;
+    }
+    .name{
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      line-height: 1.2;
+      color: rgba(47,63,56,.98);
+    }
+    .code{
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(47,63,56,.65);
+      margin-top: 2px;
+    }
+    .desc{
+      font-size: 12px;
+      color: rgba(47,63,56,.78);
+    }
+    .meta{
+      display:flex;
+      gap: 8px;
+      flex-wrap:wrap;
+    }
+    .meta span{
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(47,63,56,.85);
+      background: rgba(255,255,255,.40);
+      border: 1px solid rgba(64,87,77,.12);
+      padding: 7px 10px;
+      border-radius: 999px;
+    }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .btn-sm{
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      flex:1;
+      justify-content:center;
+    }
+    .btn-soft{
+      background: rgba(64,87,77,.10);
+      color: rgba(47,63,56,.95);
+      border: 1px solid rgba(64,87,77,.18);
+    }
+    .btn-soft:hover{background: rgba(64,87,77,.14)}
+    .btn-buy{
+      background: var(--brown);
+      color: var(--cream);
+    }
+    .btn-buy:hover{background: #9b6b60}
+
+    /* CTA grande final */
+    .cta-wide{
+      margin-top: 18px;
+      background: linear-gradient(135deg, rgba(64,87,77,.92), rgba(52,70,63,.96));
+      border: 1px solid rgba(237,219,197,.22);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      color: var(--cream);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+    }
+    .cta-wide h3{
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+    .cta-wide p{
+      font-size: 12px;
+      opacity:.92;
+      margin-top: 6px;
+      max-width: 70ch;
+    }
+    .cta-wide .right{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+
+    /* Footer */
+    footer{
+      background: rgba(64,87,77,.95);
+      border-top: 1px solid rgba(237,219,197,.18);
+      color: rgba(237,219,197,.92);
+      padding: 42px 18px;
+    }
+    .footer-wrap{
+      max-width: 1200px;
+      margin:auto;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr 1fr;
+      gap: 18px;
+      align-items:start;
+    }
+    .foot-title{
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+    .foot p, .foot a{
+      font-size: 12px;
+      color: rgba(237,219,197,.85);
+      line-height: 1.7;
+    }
+    .foot a:hover{text-decoration: underline; text-underline-offset:3px}
+    .foot-links{
+      display:grid;
+      gap: 8px;
+    }
+    .copyright{
+      max-width: 1200px;
+      margin: 18px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid rgba(237,219,197,.18);
+      font-size: 12px;
+      color: rgba(237,219,197,.82);
+      text-align:center;
+    }
+
+    /* Responsivo */
+    @media (max-width: 1020px){
+      .hero{grid-template-columns:1fr}
+      .brand{min-width:auto}
+    }
+    @media (max-width: 980px){
+      .card{grid-column: span 6}
+      .search{display:none}
+    }
+    @media (max-width: 620px){
+      .card{grid-column: span 12}
+      .header-wrap{gap:10px}
+      nav{gap:6px}
+      .navlink, .dropbtn{padding:10px 10px}
+      .hero-title{font-size: 24px}
+      .footer-wrap{grid-template-columns: 1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <strong>Escolha seu projeto</strong> — projetos selecionados para você escolher, adaptar e transformar em realidade.
+    <a href="#como-funciona">Como funciona</a>
+  </div>
+
+  <header>
+    <div class="header-wrap">
+      <div class="brand">
+        <div class="logo">N</div>
+        <div>
+          <div class="brand-name"><a href="index.html">Noah Arquitetura</a></div>
+          <div class="brand-sub">Projetos • Arquitetura • Interiores</div>
+        </div>
+      </div>
+
+      <div class="search">
+        <div class="searchbar" title="Buscar projetos">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 21l-4.3-4.3m1.3-5.2a7.5 7.5 0 1 1-15 0a7.5 7.5 0 0 1 15 0Z" stroke="rgba(237,219,197,.85)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input id="searchInput" type="text" placeholder="Buscar por nome, código, quartos, m²..." />
+        </div>
+      </div>
+
+      <nav>
+        <a class="navlink" href="index.html">Home</a>
+
+        <div class="dropdown" data-dd>
+          <button class="dropbtn" type="button">Projetos ▾</button>
+          <div class="menu" role="menu">
+            <div class="group">Categorias</div>
+            <a href="#" data-cat="Residencial">Residencial</a>
+            <a href="#" data-cat="Casa de Campo">Casa de Campo</a>
+          </div>
+        </div>
+
+        <div class="dropdown" data-dd>
+          <button class="dropbtn" type="button">Saiba Mais ▾</button>
+          <div class="menu" role="menu">
+            <a href="quem-somos.html">Quem somos?</a>
+            <a href="#como-funciona">Como funciona?</a>
+            <a href="sistemas-construtivos.html">Sistemas Construtivos</a>
+            <a href="faq.html">Perguntas Frequentes</a>
+          </div>
+        </div>
+
+        <a class="navlink" href="area-do-cliente.html">Área do cliente</a>
+        <a class="navlink" href="contato.html">Contato</a>
+        <a class="navlink" href="blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-title">Escolha seu projeto</div>
+        <div class="hero-sub">
+          Aqui você encontra projetos com estética sofisticada e funcionalidade, prontos para você escolher.
+          Depois, você pode solicitar <strong>orçamento</strong> e <strong>adaptações</strong> conforme seu terreno, normas locais e necessidades.
+        </div>
+        <div class="hero-badges">
+          <span class="badge">Arquitetura com identidade</span>
+          <span class="badge">Tons naturais & elegantes</span>
+          <span class="badge">Atendimento online</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="mini-title">Comece por aqui</div>
+
+        <div class="mini-card">
+          <div class="mini-title" style="margin:0;letter-spacing:.8px;text-transform:none">Precisa de adaptação?</div>
+          <p>Você escolhe o projeto e nós orientamos a melhor forma de adaptar para seu lote, recuos e programa.</p>
+          <div class="mini-cta">
+            <a class="btn btn-primary" href="contato.html">Solicitar orçamento</a>
+            <button class="btn btn-outline" id="whatsTopBtn" type="button">WhatsApp</button>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-title" style="margin:0;letter-spacing:.8px;text-transform:none">Quer ver como funciona?</div>
+          <p>Veja o passo a passo do processo: escolha, informações do terreno, orçamento e ajustes.</p>
+          <a class="btn btn-dark" href="#como-funciona">Como funciona</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLBAR / FILTROS -->
+    <section class="toolbar">
+      <div class="filters">
+        <button class="chip active" data-chip="all" type="button">Todos</button>
+        <button class="chip" data-chip="Residencial" type="button">Residencial</button>
+        <button class="chip" data-chip="Casa de Campo" type="button">Casa de Campo</button>
+
+        <select class="select" id="sortSelect" aria-label="Ordenar">
+          <option value="relevancia">Ordenar: Relevância</option>
+          <option value="menor_preco">Menor preço</option>
+          <option value="maior_preco">Maior preço</option>
+          <option value="menor_area">Menor área</option>
+          <option value="maior_area">Maior área</option>
+        </select>
+      </div>
+
+      <div class="count" id="countText">0 projetos</div>
+    </section>
+
+    <!-- GRID DE PRODUTOS -->
+    <section class="grid" id="grid">
+
+      <!-- CARD 1 -->
+      <article class="card" data-cat="Residencial" data-name="Casa ESM" data-code="ESM" data-price="0" data-area="170.51" data-tags="3 quartos 2 vagas contemporânea térrea">
+        <a class="thumb" href="casa-esm.html" aria-label="Abrir Casa ESM">
+          <span class="pill">Residencial</span>
+          <span class="price-pill">Orçamento</span>
+          <!-- Troque por sua imagem -->
+          <img src="images/casa-esm.jpg" alt="Casa ESM" onerror="this.style.display='none'; this.parentElement.style.background='rgba(64,87,77,.10)';">
+        </a>
+        <div class="body">
+          <div>
+            <div class="name">Casa ESM</div>
+            <div class="code">Projeto • ESM</div>
+          </div>
+          <div class="desc">
+            Residência térrea contemporânea, ambientes integrados e varanda gourmet. Ideal para família.
+          </div>
+          <div class="meta">
+            <span>170,51 m²</span>
+            <span>3 quartos</span>
+            <span>2 vagas</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-sm btn-soft" href="casa-esm.html">Ver detalhes</a>
+            <button class="btn btn-sm btn-buy" type="button" data-whats="Casa ESM (ESM)">Solicitar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="card" data-cat="Residencial" data-name="Casa Mykonos" data-code="C014" data-price="841" data-area="140.10" data-tags="3 quartos 2 vagas moderna telhado escondido">
+        <a class="thumb" href="produto-casa-mykonos-c014.html" aria-label="Abrir Casa Mykonos">
+          <span class="pill">Residencial</span>
+          <span class="price-pill">R$ 841,00</span>
+          <img src="images/casa-mykonos.jpg" alt="Casa Mykonos – C014" onerror="this.style.display='none'; this.parentElement.style.background='rgba(64,87,77,.10)';">
+        </a>
+        <div class="body">
+          <div>
+            <div class="name">Casa Mykonos</div>
+            <div class="code">Código • C014</div>
+          </div>
+          <div class="desc">
+            Tropical + mediterrâneo, planta aberta e circulação íntima mais reservada. Excelente para terrenos urbanos.
+          </div>
+          <div class="meta">
+            <span>140,10 m²</span>
+            <span>3 quartos</span>
+            <span>2 vagas</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-sm btn-soft" href="produto-casa-mykonos-c014.html">Ver detalhes</a>
+            <button class="btn btn-sm btn-buy" type="button" data-whats="Casa Mykonos (C014)">Comprar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="card" data-cat="Casa de Campo" data-name="Casa Serra" data-code="CC07" data-price="0" data-area="198.00" data-tags="campo varanda lareira madeira 3 quartos">
+        <a class="thumb" href="casa-serra-cc07.html" aria-label="Abrir Casa Serra">
+          <span class="pill">Casa de Campo</span>
+          <span class="price-pill">Orçamento</span>
+          <img src="images/casa-serra.jpg" alt="Casa Serra – CC07" onerror="this.style.display='none'; this.parentElement.style.background='rgba(64,87,77,.10)';">
+        </a>
+        <div class="body">
+          <div>
+            <div class="name">Casa Serra</div>
+            <div class="code">Projeto • CC07</div>
+          </div>
+          <div class="desc">
+            Casa de campo com varanda ampla e áreas sociais aconchegantes. Ótima para clima frio e lazer.
+          </div>
+          <div class="meta">
+            <span>198 m²</span>
+            <span>3 quartos</span>
+            <span>varanda</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-sm btn-soft" href="casa-serra-cc07.html">Ver detalhes</a>
+            <button class="btn btn-sm btn-buy" type="button" data-whats="Casa Serra (CC07)">Solicitar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 4 -->
+      <article class="card" data-cat="Residencial" data-name="Casa Dunas" data-code="R021" data-price="0" data-area="220.00" data-tags="litoral varanda gourmet 4 quartos 2 suites">
+        <a class="thumb" href="casa-dunas-r021.html" aria-label="Abrir Casa Dunas">
+          <span class="pill">Residencial</span>
+          <span class="price-pill">Orçamento</span>
+          <img src="images/casa-dunas.jpg" alt="Casa Dunas – R021" onerror="this.style.display='none'; this.parentElement.style.background='rgba(64,87,77,.10)';">
+        </a>
+        <div class="body">
+          <div>
+            <div class="name">Casa Dunas</div>
+            <div class="code">Projeto • R021</div>
+          </div>
+          <div class="desc">
+            Projeto pensado para litoral: ventilação cruzada, integração com área externa e espaços sociais amplos.
+          </div>
+          <div class="meta">
+            <span>220 m²</span>
+            <span>4 quartos</span>
+            <span>gourmet</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-sm btn-soft" href="casa-dunas-r021.html">Ver detalhes</a>
+            <button class="btn btn-sm btn-buy" type="button" data-whats="Casa Dunas (R021)">Solicitar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 5 -->
+      <article class="card" data-cat="Casa de Campo" data-name="Casa Bosque" data-code="CC12" data-price="0" data-area="156.00" data-tags="campo madeira telhado aparente 2 quartos chalé">
+        <a class="thumb" href="casa-bosque-cc12.html" aria-label="Abrir Casa Bosque">
+          <span class="pill">Casa de Campo</span>
+          <span class="price-pill">Orçamento</span>
+          <img src="images/casa-bosque.jpg" alt="Casa Bosque – CC12" onerror="this.style.display='none'; this.parentElement.style.background='rgba(64,87,77,.10)';">
+        </a>
+        <div class="body">
+          <div>
+            <div class="name">Casa Bosque</div>
+            <div class="code">Projeto • CC12</div>
+          </div>
+          <div class="desc">
+            Compacta e acolhedora, com foco em luz natural e integração com a paisagem. Ideal para refúgio de fim de semana.
+          </div>
+          <div class="meta">
+            <span>156 m²</span>
+            <span>2 quartos</span>
+            <span>madeira</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-sm btn-soft" href="casa-bosque-cc12.html">Ver detalhes</a>
+            <button class="btn btn-sm btn-buy" type="button" data-whats="Casa Bosque (CC12)">Solicitar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 6 -->
+      <article class="card" data-cat="Residencial" data-name="Casa Fortunato" data-code="R033" data-price="0" data-area="260.00" data-tags="4 quartos 3 suites telhado escondido moderna">
+        <a class="thumb" href="casa-fortunato-r033.html" aria-label="Abrir Casa Fortunato">
+          <span class="pill">Residencial</span>
+          <span class="price-pill">Orçamento</span>
+          <img src="images/casa-fortunato.jpg" alt="Casa Fortunato – R033" onerror="this.style.display='none'; this.parentElement.style.background='rgba(64,87,77,.10)';">
+        </a>
+        <div class="body">
+          <div>
+            <div class="name">Casa Fortunato</div>
+            <div class="code">Projeto • R033</div>
+          </div>
+          <div class="desc">
+            Residência ampla com fachada contemporânea e setorização inteligente. Ideal para quem busca conforto com elegância.
+          </div>
+          <div class="meta">
+            <span>260 m²</span>
+            <span>4 quartos</span>
+            <span>3 suítes</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-sm btn-soft" href="casa-fortunato-r033.html">Ver detalhes</a>
+            <button class="btn btn-sm btn-buy" type="button" data-whats="Casa Fortunato (R033)">Solicitar</button>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-wide" id="como-funciona">
+      <div>
+        <h3>Como funciona a compra / orçamento</h3>
+        <p>
+          1) Você escolhe o projeto • 2) Envia informações do terreno (cidade/UF, medidas, recuos e regras do condomínio/prefeitura) •
+          3) Recebe orçamento e prazo • 4) Caso queira, solicitamos as adaptações conforme sua necessidade.
+        </p>
+      </div>
+      <div class="right">
+        <a class="btn btn-primary" href="contato.html">Solicitar orçamento</a>
+        <button class="btn btn-outline" id="whatsBottomBtn" type="button">WhatsApp</button>
+        <a class="btn btn-dark" href="faq.html">Perguntas frequentes</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-wrap">
+      <div class="foot">
+        <div class="foot-title">Noah Arquitetura</div>
+        <p>
+          Projetos selecionados com estética natural e funcionalidade. Você escolhe o projeto e nós orientamos o melhor caminho
+          para orçamento e adaptações conforme o seu terreno.
+        </p>
+      </div>
+
+      <div class="foot">
+        <div class="foot-title">Links</div>
+        <div class="foot-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#projetos">Projetos</a>
+          <a href="contato.html">Contato</a>
+          <a href="blog.html">Blog</a>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="foot-title">Atendimento</div>
+        <p>Online • Brasil</p>
+        <p><a href="https://www.instagram.com/noaharquitetura/" target="_blank" rel="noopener">Instagram: @noaharquitetura</a></p>
+        <p><a href="#" id="whatsFooterLink">WhatsApp</a></p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2014 · Noah Arquitetura · Todos os direitos reservados — “A Deus toda honra e toda glória.”
+    </div>
+  </footer>
+
+  <script>
+    // ===== DROPDOWNS =====
+    const dropdowns = document.querySelectorAll("[data-dd]");
+    dropdowns.forEach(dd => {
+      const btn = dd.querySelector("button");
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdowns.forEach(x => { if (x !== dd) x.classList.remove("open"); });
+        dd.classList.toggle("open");
+      });
+    });
+    document.addEventListener("click", () => dropdowns.forEach(dd => dd.classList.remove("open")));
+
+    // ===== WHATSAPP =====
+    const WHATS_PHONE = "5548996865891";
+    function openWhats(message){
+      const url = `https://wa.me/${WHATS_PHONE}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+
+    document.getElementById("whatsTopBtn").addEventListener("click", () => {
+      openWhats("Olá! Quero ajuda para escolher um projeto na página 'Escolha seu projeto'. Pode me orientar?");
+    });
+    document.getElementById("whatsBottomBtn").addEventListener("click", () => {
+      openWhats("Olá! Gostaria de solicitar orçamento e entender como funciona o processo de escolha/adaptação do projeto.");
+    });
+    document.getElementById("whatsFooterLink").addEventListener("click", (e) => {
+      e.preventDefault();
+      openWhats("Olá! Vim pela página 'Escolha seu projeto' e gostaria de atendimento.");
+    });
+
+    // Botões de comprar/solicitar em cada card
+    document.querySelectorAll("[data-whats]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const nome = btn.getAttribute("data-whats");
+        openWhats(`Olá! Tenho interesse no ${nome}. Pode me passar detalhes, valor (se aplicável) e como solicitar adaptações?`);
+      });
+    });
+
+    // ===== FILTRO POR CHIPS =====
+    const chips = document.querySelectorAll(".chip");
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const countText = document.getElementById("countText");
+    const searchInput = document.getElementById("searchInput");
+    const sortSelect = document.getElementById("sortSelect");
+
+    let activeCat = "all";
+    let query = "";
+
+    function formatCount(n){
+      countText.textContent = `${n} ${n === 1 ? "projeto" : "projetos"}`;
+    }
+
+    function matchesSearch(card, q){
+      if(!q) return true;
+      const hay = [
+        card.dataset.name || "",
+        card.dataset.code || "",
+        card.dataset.cat || "",
+        card.dataset.tags || ""
+      ].join(" ").toLowerCase();
+      return hay.includes(q.toLowerCase());
+    }
+
+    function apply(){
+      // filtra
+      const visible = [];
+      cards.forEach(card => {
+        const catOk = (activeCat === "all") || (card.dataset.cat === activeCat);
+        const searchOk = matchesSearch(card, query);
+        const show = catOk && searchOk;
+        card.style.display = show ? "" : "none";
+        if(show) visible.push(card);
+      });
+
+      // ordena (apenas os visíveis)
+      const mode = sortSelect.value;
+      const sorted = [...visible].sort((a,b) => {
+        const pa = parseFloat(a.dataset.price || "0");
+        const pb = parseFloat(b.dataset.price || "0");
+        const aa = parseFloat(a.dataset.area || "0");
+        const ab = parseFloat(b.dataset.area || "0");
+
+        if(mode === "menor_preco") return pa - pb;
+        if(mode === "maior_preco") return pb - pa;
+        if(mode === "menor_area") return aa - ab;
+        if(mode === "maior_area") return ab - aa;
+        // relevância: mantém a ordem original
+        return 0;
+      });
+
+      // re-anexa na ordem
+      const grid = document.getElementById("grid");
+      sorted.forEach(c => grid.appendChild(c));
+
+      formatCount(visible.length);
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        chips.forEach(c => c.classList.remove("active"));
+        chip.classList.add("active");
+        activeCat = chip.dataset.chip;
+        apply();
+      });
+    });
+
+    if(searchInput){
+      searchInput.addEventListener("input", (e) => {
+        query = e.target.value.trim();
+        apply();
+      });
+    }
+
+    sortSelect.addEventListener("change", apply);
+
+    // Links do menu "Projetos" filtrando
+    document.querySelectorAll(".menu a[data-cat]").forEach(a => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        const cat = a.dataset.cat;
+        activeCat = cat;
+        chips.forEach(c => c.classList.toggle("active", c.dataset.chip === cat));
+        apply();
+      });
+    });
+
+    // Inicializa contagem
+    apply();
+  </script>
+
+</body>
+</html>
