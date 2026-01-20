@@ -3,651 +3,485 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Escolha seu projeto | Noah Arquitetura</title>
+  <title>Casa Mykonos – C014 | Noah Arquitetura</title>
 
-  <!-- Fonte moderna -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* ✅ CORES (como você pediu) */
-      --bg:#f2f0ea;            /* fundo geral OFF-WHITE */
-      --brand:#000000;         /* onde era verde escuro -> PRETO */
-      --cream:#ffffff;         /* letras no escuro -> BRANCO */
-      --brown:#A4A579;         /* onde era rose/marrom -> VERDE CLARO (acentos/botões) */
+      /* PALETA NOVA (da sua imagem) */
+      --bg:#A4A579;               /* fundo verde claro */
+      --card:#EDDBC5;             /* creme */
+      --card2:rgba(237,219,197,.72);
+      --text:#2f3f38;             /* texto principal (verde bem escuro suave) */
+      --muted:rgba(47,63,56,.78);
+      --line:rgba(64,87,77,.22);
+      --shadow:0 18px 50px rgba(0,0,0,.16);
 
-      /* ✅ BANNERS / CARDS OFF-WHITE */
-      --card:#faf8f2;
-      --card2:#f6f3ec;
+      --brand:#40574D;            /* header/topbar/footer */
+      --accent:#AC7B70;           /* marrom (botões) */
+      --accent2:#8E5F56;          /* marrom hover */
 
-      /* Texto em áreas claras */
-      --text:#171717;
-      --muted:rgba(23,23,23,.70);
-
-      --line:rgba(0,0,0,.12);
-      --shadow: 0 18px 55px rgba(0,0,0,.12);
-      --shadow2: 0 10px 28px rgba(0,0,0,.10);
-
-      --radius: 18px;
-      --radius2: 14px;
+      --pill:rgba(64,87,77,.12);  /* fundo suave verdinho */
+      --creamText:#EDDBC5;        /* textos claros */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background:var(--bg);
+      color:var(--text);
       line-height:1.7;
     }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
 
-    /* Top Bar */
+    /* TOP BAR */
     .topbar{
-      background: rgba(0,0,0,.96);
-      color: rgba(255,255,255,.92);
-      font-size: 12px;
-      padding: 10px 16px;
+      background:var(--brand);
+      color:var(--creamText);
+      font-size:13px;
+      padding:10px 16px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      align-items:center;
       text-align:center;
-      border-bottom: 1px solid rgba(255,255,255,.10);
+      border-bottom:1px solid rgba(237,219,197,.18);
     }
-    .topbar strong{color: var(--cream)}
-    .topbar a{
-      color: var(--cream);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      font-weight: 700;
-      margin-left: 10px;
-    }
+    .topbar strong{font-weight:700}
+    .topbar a{color:var(--creamText);text-decoration:underline; text-underline-offset:3px}
 
-    /* Header */
+    /* HEADER / NAV */
     header{
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(0,0,0,.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,.10);
+      background:rgba(237,219,197,.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(6px);
     }
     .header-wrap{
-      max-width: 1200px;
-      margin: auto;
-      padding: 16px 18px;
+      max-width:1200px;
+      margin:auto;
+      padding:18px 18px;
       display:flex;
+      justify-content:space-between;
       align-items:center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 220px;
+      gap:18px;
     }
     .logo{
-      width:38px;height:38px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color: var(--cream);
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-weight:800;
+      letter-spacing:2px;
+      font-size:18px;
+      white-space:nowrap;
+      color:var(--brand);
     }
-    .brand-name{
-      color: var(--cream);
-      font-weight: 800;
-      letter-spacing: 2px;
-      font-size: 14px;
-      text-transform: uppercase;
-      line-height:1.1;
-    }
-    .brand-sub{
-      color: rgba(255,255,255,.70);
-      font-size: 11px;
-      margin-top: 2px;
-      letter-spacing: .4px;
-    }
-
-    /* Search */
-    .search{
-      flex: 1;
-      display:flex;
-      justify-content:center;
-    }
-    .searchbar{
-      width: min(560px, 100%);
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.14);
-    }
-    .searchbar input{
-      width:100%;
-      border:0;
-      outline:none;
-      background: transparent;
-      color: var(--cream);
-      font-size: 13px;
-      font-family: inherit;
-    }
-    .searchbar input::placeholder{color: rgba(255,255,255,.70)}
-
-    /* Nav */
     nav{
       display:flex;
+      gap:18px;
       align-items:center;
-      gap: 10px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
-    .navlink, .dropbtn{
-      color: rgba(255,255,255,.92);
-      font-size: 12px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      transition: .2s;
-      border: 1px solid transparent;
-      background: transparent;
-      cursor:pointer;
-      font-family: inherit;
-      font-weight: 700;
-      letter-spacing: .2px;
+    .nav-link{
+      font-size:13px;
+      color:var(--brand);
+      padding:10px 10px;
+      border-radius:10px;
+      transition:.2s;
+      font-weight:600;
     }
-    .navlink:hover, .dropbtn:hover{
-      background: rgba(255,255,255,.10);
-      border-color: rgba(255,255,255,.14);
-    }
+    .nav-link:hover{background:rgba(64,87,77,.10)}
 
+    /* Dropdown */
     .dropdown{position:relative}
+    .dropdown > button{
+      border:0;
+      background:transparent;
+      font-family:inherit;
+      cursor:pointer;
+      font-size:13px;
+      padding:10px 10px;
+      border-radius:10px;
+      transition:.2s;
+      color:var(--brand);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-weight:600;
+    }
+    .dropdown > button:hover{background:rgba(64,87,77,.10)}
     .menu{
       position:absolute;
+      top:44px;
       right:0;
-      top: 46px;
-      width: 260px;
-      background: var(--card);
-      color: var(--text);
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow2);
-      padding: 10px;
+      width:240px;
+      background:rgba(237,219,197,.98);
+      border:1px solid var(--line);
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      padding:10px;
       display:none;
-    }
-    .dropdown.open .menu{display:block}
-    .menu .group{
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(23,23,23,.55);
-      padding: 10px 10px 6px;
+      z-index:50;
     }
     .menu a{
       display:block;
-      padding: 10px 10px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text);
+      padding:10px 12px;
+      border-radius:10px;
+      font-size:13px;
+      color:var(--brand);
+      font-weight:600;
     }
-    .menu a:hover{background: rgba(164,165,121,.20)}
+    .menu a:hover{background:rgba(64,87,77,.10)}
+    .menu .group{
+      padding:8px 12px 6px;
+      font-size:11px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+    .dropdown.open .menu{display:block}
 
-    /* Layout */
+    /* LAYOUT */
     .container{
-      max-width: 1200px;
-      margin: 26px auto 90px;
-      padding: 0 18px;
+      max-width:1200px;
+      margin:28px auto 90px;
+      padding:0 18px;
     }
-
-    /* Hero */
-    .hero{
+    .crumb{
+      font-size:12px;
+      color:rgba(47,63,56,.78);
+      margin-bottom:12px;
+    }
+    .grid{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 16px;
-      margin-top: 18px;
+      grid-template-columns: 1.05fr .95fr;
+      gap:22px;
+      align-items:start;
     }
-    .hero-left{
-      background: linear-gradient(135deg, rgba(0,0,0,.96), rgba(0,0,0,.92));
-      border: 1px solid rgba(0,0,0,.18);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      color: var(--cream);
-      position: relative;
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+      .menu{left:0; right:auto}
+    }
+
+    /* PRODUCT GALLERY */
+    .card{
+      background:rgba(237,219,197,.92);
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+    .gallery{
       overflow:hidden;
-      min-height: 210px;
     }
-    .hero-left:before{
-      content:"";
-      position:absolute;
-      inset:-80px -60px auto auto;
-      width: 230px;
-      height: 230px;
-      background: radial-gradient(circle at 30% 30%, rgba(164,165,121,.45), transparent 60%);
-      transform: rotate(18deg);
-      opacity: .95;
-    }
-    .hero-title{
-      font-size: 28px;
-      line-height: 1.15;
-      font-weight: 800;
-      letter-spacing: .3px;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 2;
-    }
-    .hero-sub{
-      font-size: 13px;
-      opacity: .92;
-      max-width: 62ch;
-      position: relative;
-      z-index: 2;
-    }
-    .hero-badges{
+    .gallery-main{
+      aspect-ratio: 16 / 10;
+      background:rgba(64,87,77,.10);
       display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      margin-top: 14px;
-      position: relative;
-      z-index: 2;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.14);
-      font-size: 11px;
-      font-weight: 700;
-      color: rgba(255,255,255,.92);
-    }
-
-    .hero-right{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      min-height: 210px;
-    }
-    .mini-title{
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(23,23,23,.70);
-    }
-    .mini-card{
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-    }
-    .mini-card p{
-      font-size: 12px;
-      color: rgba(23,23,23,.70);
-      margin-top: 6px;
-    }
-    .mini-cta{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      margin-top: 8px;
-    }
-
-    .btn{
-      border:0;
-      cursor:pointer;
-      padding: 12px 14px;
-      border-radius: 14px;
-      font-weight: 800;
-      font-family: inherit;
-      font-size: 12px;
-      letter-spacing: .2px;
-      transition: .2s;
-      display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap: 10px;
-      white-space:nowrap;
+      color:rgba(47,63,56,.70);
+      font-size:13px;
     }
-    .btn-primary{
-      background: var(--brown); /* verde claro */
-      color: #101010;
-      box-shadow: 0 10px 22px rgba(0,0,0,.10);
-    }
-    .btn-primary:hover{transform: translateY(-1px); filter: brightness(.96)}
-    .btn-outline{
-      background: transparent;
-      color: rgba(23,23,23,.92);
-      border: 1px solid rgba(0,0,0,.18);
-    }
-    .btn-outline:hover{background: rgba(164,165,121,.20)}
-    .btn-dark{
-      background: var(--brand);
-      color: var(--cream);
-    }
-    .btn-dark:hover{transform: translateY(-1px); background:#000}
-
-    /* Toolbar / filtros */
-    .toolbar{
-      margin-top: 16px;
-      display:flex;
-      gap: 12px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .filters{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .select, .chip{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 10px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      color: rgba(23,23,23,.90);
-      outline:none;
-      font-family: inherit;
-    }
-    .chip{
-      cursor:pointer;
-      transition:.2s;
-    }
-    .chip:hover{background: #fff}
-    .chip.active{
-      background: var(--brand);
-      color: var(--cream);
-      border-color: rgba(0,0,0,.30);
-    }
-    .count{
-      font-size: 12px;
-      color: rgba(23,23,23,.78);
-      font-weight: 700;
-      background: var(--card);
-      border: 1px solid var(--line);
-      padding: 10px 12px;
-      border-radius: 999px;
-    }
-
-    /* Grid de produtos */
-    .grid{
-      margin-top: 16px;
+    .thumbs{
       display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+      padding:14px;
+      border-top:1px solid var(--line);
+      background:rgba(237,219,197,.70);
     }
-    .card{
-      grid-column: span 4;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow:hidden;
-      box-shadow: var(--shadow2);
-      transition: .22s;
-      display:flex;
-      flex-direction:column;
-      min-height: 100%;
-    }
-    .card:hover{transform: translateY(-3px)}
     .thumb{
-      aspect-ratio: 16/10;
-      background: rgba(0,0,0,.06);
-      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.35);
+      cursor:pointer;
       overflow:hidden;
+      position:relative;
     }
     .thumb img{
       width:100%;
       height:100%;
       object-fit:cover;
-      transform: scale(1.02);
-      transition: .28s;
-      filter: saturate(1.02) contrast(1.02);
+      transition:.25s;
     }
-    .card:hover .thumb img{transform: scale(1.05)}
-    .pill{
+    .thumb:hover img{transform:scale(1.04)}
+    .badge{
       position:absolute;
-      top: 12px;
-      left: 12px;
-      background: rgba(0,0,0,.92);
-      color: var(--cream);
-      border: 1px solid rgba(255,255,255,.14);
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-    }
-    .price-pill{
-      position:absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(164,165,121,.95); /* verde claro */
-      color: #101010;
-      border: 1px solid rgba(0,0,0,.10);
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .6px;
-      text-transform: uppercase;
+      left:10px;
+      top:10px;
+      background:rgba(64,87,77,.92);
+      color:var(--creamText);
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(237,219,197,.22);
     }
 
-    .body{
-      padding: 14px 14px 12px;
+    /* PRODUCT SUMMARY */
+    .summary{
+      padding:18px;
+    }
+    .title{
+      font-size:26px;
+      line-height:1.25;
+      margin-bottom:8px;
+      font-weight:800;
+      letter-spacing:.2px;
+      color:var(--brand);
+    }
+    .sku{
+      color:rgba(47,63,56,.78);
+      font-size:12px;
+      margin-bottom:14px;
+    }
+    .price{
       display:flex;
-      flex-direction:column;
-      gap: 10px;
-      flex:1;
+      align-items:baseline;
+      gap:10px;
+      margin:10px 0 16px;
     }
-    .name{
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: .2px;
-      line-height: 1.2;
-      color: rgba(23,23,23,.95);
+    .price strong{
+      font-size:30px;
+      color:var(--brand);
+      letter-spacing:.2px;
     }
-    .code{
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(23,23,23,.55);
-      margin-top: 2px;
+    .price span{
+      font-size:12px;
+      color:rgba(47,63,56,.78);
     }
-    .desc{
-      font-size: 12px;
-      color: rgba(23,23,23,.70);
+
+    .included{
+      border:1px dashed rgba(64,87,77,.35);
+      background:rgba(64,87,77,.10);
+      border-radius:14px;
+      padding:14px;
+      margin-bottom:14px;
     }
-    .meta{
+    .included h4{
+      font-size:13px;
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:var(--brand);
+    }
+    .included ul{padding-left:18px}
+    .included li{font-size:13px}
+
+    .qty-row{
       display:flex;
-      gap: 8px;
+      align-items:center;
+      gap:12px;
+      margin:14px 0 10px;
       flex-wrap:wrap;
     }
-    .meta span{
-      font-size: 11px;
-      font-weight: 700;
-      color: rgba(23,23,23,.82);
-      background: #fff;
-      border: 1px solid rgba(0,0,0,.10);
-      padding: 7px 10px;
-      border-radius: 999px;
+    .qty{
+      display:flex;
+      align-items:center;
+      border:1px solid var(--line);
+      border-radius:12px;
+      overflow:hidden;
+      background:rgba(255,255,255,.45);
+    }
+    .qty button{
+      width:44px;
+      height:44px;
+      border:0;
+      background:rgba(64,87,77,.10);
+      cursor:pointer;
+      font-size:18px;
+      transition:.2s;
+      color:var(--brand);
+      font-weight:800;
+    }
+    .qty button:hover{background:rgba(64,87,77,.16)}
+    .qty input{
+      width:64px;
+      height:44px;
+      border:0;
+      text-align:center;
+      font-size:14px;
+      outline:none;
+      background:transparent;
+      color:var(--brand);
+      font-weight:700;
+    }
+    .total{
+      font-size:12px;
+      color:rgba(47,63,56,.78);
     }
 
     .actions{
-      display:flex;
-      gap: 10px;
-      margin-top: auto;
-    }
-    .btn-sm{
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 800;
-      flex:1;
-      justify-content:center;
-    }
-    .btn-soft{
-      background: #fff;
-      color: rgba(23,23,23,.95);
-      border: 1px solid rgba(0,0,0,.12);
-    }
-    .btn-soft:hover{background: rgba(164,165,121,.18)}
-    .btn-buy{
-      background: var(--brown); /* verde claro */
-      color: #101010;
-      border: 1px solid rgba(0,0,0,.10);
-    }
-    .btn-buy:hover{filter: brightness(.96)}
-
-    /* CTA grande final */
-    .cta-wide{
-      margin-top: 18px;
-      background: var(--brand);
-      border: 1px solid rgba(0,0,0,.22);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      color: var(--cream);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      flex-wrap:wrap;
-    }
-    .cta-wide h3{
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: .4px;
-      text-transform: uppercase;
-    }
-    .cta-wide p{
-      font-size: 12px;
-      opacity:.90;
-      margin-top: 6px;
-      max-width: 70ch;
-      color: rgba(255,255,255,.85);
-    }
-    .cta-wide .right{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-    }
-
-    /* Footer */
-    footer{
-      background: var(--brand);
-      border-top: 1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.86);
-      padding: 42px 18px;
-    }
-    .footer-wrap{
-      max-width: 1200px;
-      margin:auto;
       display:grid;
-      grid-template-columns: 1.2fr .8fr 1fr;
-      gap: 18px;
-      align-items:start;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top:10px;
     }
-    .foot-title{
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--cream);
-      margin-bottom: 10px;
+    .btn{
+      border:0;
+      cursor:pointer;
+      padding:14px 14px;
+      border-radius:14px;
+      font-weight:700;
+      font-family:inherit;
+      transition:.2s;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      font-size:14px;
     }
-    .foot p, .foot a{
-      font-size: 12px;
-      color: rgba(255,255,255,.78);
-      line-height: 1.7;
+    .btn-primary{
+      background:var(--accent);
+      color:var(--creamText);
     }
-    .foot a:hover{text-decoration: underline; text-underline-offset:3px}
-    .foot-links{display:grid;gap: 8px}
-    .copyright{
-      max-width: 1200px;
-      margin: 18px auto 0;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      font-size: 12px;
-      color: rgba(255,255,255,.72);
-      text-align:center;
+    .btn-primary:hover{background:var(--accent2)}
+    .btn-ghost{
+      background:rgba(237,219,197,.88);
+      border:1px solid var(--line);
+      color:var(--brand);
+    }
+    .btn-ghost:hover{background:rgba(237,219,197,1)}
+    .small-note{
+      font-size:12px;
+      color:rgba(47,63,56,.78);
+      margin-top:10px;
     }
 
-    /* Responsivo */
-    @media (max-width: 1020px){
-      .hero{grid-template-columns:1fr}
-      .brand{min-width:auto}
+    /* TAGS / META */
+    .meta{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
     }
-    @media (max-width: 980px){
-      .card{grid-column: span 6}
-      .search{display:none}
+    .meta strong{font-size:12px;color:var(--brand)}
+    .tags{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
     }
-    @media (max-width: 620px){
-      .card{grid-column: span 12}
-      .header-wrap{gap:10px}
-      nav{gap:6px}
-      .navlink, .dropbtn{padding:10px 10px}
-      .hero-title{font-size: 24px}
-      .footer-wrap{grid-template-columns: 1fr}
+    .tag{
+      background:rgba(64,87,77,.10);
+      border:1px solid rgba(64,87,77,.18);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      color:var(--brand);
+      font-weight:600;
     }
+
+    /* CONTENT SECTIONS */
+    .sections{
+      margin-top:22px;
+      display:grid;
+      gap:14px;
+    }
+    .section{
+      padding:18px;
+    }
+    .section h3{
+      font-size:18px;
+      margin-bottom:10px;
+      color:var(--brand);
+    }
+    .section p{
+      color:rgba(47,63,56,.92);
+      font-size:14px;
+    }
+
+    .table-wrap{overflow:auto}
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:rgba(255,255,255,.45);
+    }
+    th, td{
+      padding:12px 12px;
+      font-size:13px;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+      vertical-align:top;
+      white-space:nowrap;
+    }
+    th{
+      background:rgba(64,87,77,.10);
+      color:var(--brand);
+      font-weight:800;
+    }
+    tr:last-child td{border-bottom:0}
+
+    .divider{
+      height:1px;
+      background:var(--line);
+      margin:12px 0;
+    }
+
+    .list{
+      padding-left:18px;
+      margin-top:10px;
+    }
+    .list li{
+      margin:6px 0;
+      font-size:14px;
+      color:rgba(47,63,56,.92);
+    }
+
+    /* FOOTER */
+    footer{
+      background:var(--brand);
+      color:var(--creamText);
+      padding:40px 18px;
+      text-align:center;
+      font-size:13px;
+      border-top:1px solid rgba(237,219,197,.18);
+    }
+    .footer-links{
+      display:flex;
+      gap:18px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+      opacity:.95;
+    }
+    .footer-links a{color:var(--creamText);text-decoration:underline;text-underline-offset:3px}
   </style>
 </head>
 
 <body>
 
   <div class="topbar">
-    <strong>Escolha seu projeto</strong> — projetos selecionados para você escolher, adaptar e transformar em realidade.
+    <span><strong>Projetos prontos para você escolher.</strong> Clique, veja os detalhes e peça pelo WhatsApp.</span>
     <a href="#como-funciona">Como funciona</a>
   </div>
 
   <header>
     <div class="header-wrap">
-      <div class="brand">
-        <div class="logo">N</div>
-        <div>
-          <div class="brand-name"><a href="index.html">Noah Arquitetura</a></div>
-          <div class="brand-sub">Projetos • Arquitetura • Interiores</div>
-        </div>
-      </div>
-
-      <div class="search">
-        <div class="searchbar" title="Buscar projetos">
-          <input id="searchInput" type="text" placeholder="Buscar por nome, código, quartos, m²..." />
-        </div>
-      </div>
+      <div class="logo"><a href="index.html">NOAH ARQUITETURA</a></div>
 
       <nav>
-        <a class="navlink" href="index.html">Home</a>
+        <a class="nav-link" href="index.html">Home</a>
 
         <div class="dropdown" data-dd>
-          <button class="dropbtn" type="button">Projetos ▾</button>
+          <button type="button" aria-haspopup="true" aria-expanded="false">
+            Projetos ▾
+          </button>
           <div class="menu" role="menu">
             <div class="group">Categorias</div>
-            <a href="#" data-cat="Residencial">Residencial</a>
-            <a href="#" data-cat="Casa de Campo">Casa de Campo</a>
+            <a href="projetos-residencial.html">Residencial</a>
+            <a href="projetos-casa-de-campo.html">Casa de Campo</a>
           </div>
         </div>
 
         <div class="dropdown" data-dd>
-          <button class="dropbtn" type="button">Saiba Mais ▾</button>
+          <button type="button" aria-haspopup="true" aria-expanded="false">
+            Saiba Mais ▾
+          </button>
           <div class="menu" role="menu">
             <a href="quem-somos.html">Quem somos?</a>
             <a href="#como-funciona">Como funciona?</a>
@@ -656,284 +490,305 @@
           </div>
         </div>
 
-        <a class="navlink" href="area-do-cliente.html">Área do cliente</a>
-        <a class="navlink" href="contato.html">Contato</a>
-        <a class="navlink" href="blog.html">Blog</a>
+        <a class="nav-link" href="area-do-cliente.html">Área do cliente</a>
+        <a class="nav-link" href="contato.html">Contato</a>
+        <a class="nav-link" href="blog.html">Blog</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-left">
-        <div class="hero-title">Escolha seu projeto</div>
-        <div class="hero-sub">
-          Aqui você encontra projetos prontos para escolher. Depois, você pode solicitar <strong>orçamento</strong> e
-          <strong>adaptações</strong> conforme seu terreno, normas locais e necessidades.
-        </div>
-        <div class="hero-badges">
-          <span class="badge">Estética moderna</span>
-          <span class="badge">Atendimento online</span>
-          <span class="badge">Projetos selecionados</span>
-        </div>
-      </div>
+    <div class="crumb">Projetos / Residencial / <strong>Casa Mykonos – C014</strong></div>
 
-      <div class="hero-right">
-        <div class="mini-title">Comece por aqui</div>
+    <div class="grid">
 
-        <div class="mini-card">
-          <div class="mini-title" style="margin:0;letter-spacing:.8px;text-transform:none">Precisa de adaptação?</div>
-          <p>Você escolhe o projeto e nós orientamos o melhor caminho para adaptar ao seu lote e regras locais.</p>
-          <div class="mini-cta">
-            <a class="btn btn-primary" href="contato.html">Solicitar orçamento</a>
-            <button class="btn btn-outline" id="whatsTopBtn" type="button">WhatsApp</button>
-          </div>
+      <!-- COLUNA ESQUERDA: GALERIA -->
+      <section class="card gallery">
+        <div class="gallery-main" id="mainView">
+          <span>Coloque aqui a imagem principal do projeto</span>
         </div>
 
-        <div class="mini-card">
-          <div class="mini-title" style="margin:0;letter-spacing:.8px;text-transform:none">Quer ver como funciona?</div>
-          <p>Veja o passo a passo: escolha, dados do terreno, orçamento e ajustes.</p>
-          <a class="btn btn-dark" href="#como-funciona">Como funciona</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOOLBAR / FILTROS -->
-    <section class="toolbar">
-      <div class="filters">
-        <button class="chip active" data-chip="all" type="button">Todos</button>
-        <button class="chip" data-chip="Residencial" type="button">Residencial</button>
-        <button class="chip" data-chip="Casa de Campo" type="button">Casa de Campo</button>
-
-        <select class="select" id="sortSelect" aria-label="Ordenar">
-          <option value="relevancia">Ordenar: Relevância</option>
-          <option value="menor_preco">Menor preço</option>
-          <option value="maior_preco">Maior preço</option>
-          <option value="menor_area">Menor área</option>
-          <option value="maior_area">Maior área</option>
-        </select>
-      </div>
-
-      <div class="count" id="countText">0 projetos</div>
-    </section>
-
-    <!-- GRID DE PRODUTOS -->
-    <section class="grid" id="grid">
-
-      <article class="card" data-cat="Residencial" data-name="Casa ESM" data-code="ESM" data-price="0" data-area="170.51" data-tags="3 quartos 2 vagas contemporânea térrea">
-        <a class="thumb" href="casa-esm.html">
-          <span class="pill">Residencial</span>
-          <span class="price-pill">Orçamento</span>
-          <img src="images/casa-esm.jpg" alt="Casa ESM" onerror="this.style.display='none';">
-        </a>
-        <div class="body">
-          <div>
-            <div class="name">Casa ESM</div>
-            <div class="code">Projeto • ESM</div>
+        <div class="thumbs">
+          <div class="thumb" data-src="images/mykonos-01.jpg" title="Fachada">
+            <span class="badge">Fachada</span>
+            <img src="images/mykonos-01.jpg" alt="Fachada Casa Mykonos">
           </div>
-          <div class="desc">Residência térrea contemporânea, ambientes integrados e varanda gourmet. Ideal para família.</div>
-          <div class="meta">
-            <span>170,51 m²</span>
-            <span>3 quartos</span>
-            <span>2 vagas</span>
+          <div class="thumb" data-src="images/mykonos-02.jpg" title="Sala">
+            <img src="images/mykonos-02.jpg" alt="Sala Casa Mykonos">
           </div>
-          <div class="actions">
-            <a class="btn btn-sm btn-soft" href="casa-esm.html">Ver detalhes</a>
-            <button class="btn btn-sm btn-buy" type="button" data-whats="Casa ESM (ESM)">Solicitar</button>
+          <div class="thumb" data-src="images/mykonos-planta.jpg" title="Planta Baixa">
+            <img src="images/mykonos-planta.jpg" alt="Planta Baixa Casa Mykonos">
+          </div>
+          <div class="thumb" data-src="images/mykonos-03.jpg" title="Área externa">
+            <img src="images/mykonos-03.jpg" alt="Área externa Casa Mykonos">
           </div>
         </div>
-      </article>
+      </section>
 
-      <article class="card" data-cat="Residencial" data-name="Casa Mykonos" data-code="C014" data-price="841" data-area="140.10" data-tags="3 quartos 2 vagas moderna telhado escondido">
-        <a class="thumb" href="produto-casa-mykonos-c014.html">
-          <span class="pill">Residencial</span>
-          <span class="price-pill">R$ 841,00</span>
-          <img src="images/casa-mykonos.jpg" alt="Casa Mykonos – C014" onerror="this.style.display='none';">
-        </a>
-        <div class="body">
-          <div>
-            <div class="name">Casa Mykonos</div>
-            <div class="code">Código • C014</div>
+      <!-- COLUNA DIREITA: COMPRA -->
+      <aside class="card summary">
+        <h1 class="title">Casa Mykonos – C014</h1>
+        <div class="sku">Código do projeto: <strong>C014</strong></div>
+
+        <div class="price">
+          <strong id="unitPriceText">R$ 841,00</strong>
+          <span>valor do projeto</span>
+        </div>
+
+        <div class="included">
+          <h4>Incluso</h4>
+          <ul>
+            <li>Projeto Arquitetônico</li>
+          </ul>
+        </div>
+
+        <div class="qty-row">
+          <div class="qty" aria-label="Quantidade">
+            <button type="button" id="minusBtn">–</button>
+            <input type="number" id="qtyInput" value="1" min="1" step="1" />
+            <button type="button" id="plusBtn">+</button>
           </div>
-          <div class="desc">Tropical + mediterrâneo, planta aberta e circulação íntima mais reservada.</div>
-          <div class="meta">
-            <span>140,10 m²</span>
-            <span>3 quartos</span>
-            <span>2 vagas</span>
-          </div>
-          <div class="actions">
-            <a class="btn btn-sm btn-soft" href="produto-casa-mykonos-c014.html">Ver detalhes</a>
-            <button class="btn btn-sm btn-buy" type="button" data-whats="Casa Mykonos (C014)">Comprar</button>
+          <div class="total">
+            Total: <strong id="totalPriceText">R$ 841,00</strong>
           </div>
         </div>
-      </article>
 
-    </section>
+        <div class="actions">
+          <button class="btn btn-primary" id="buyWhatsappBtn" type="button">
+            Comprar pelo WhatsApp
+          </button>
+          <button class="btn btn-ghost" id="addCartBtn" type="button">
+            Adicionar ao carrinho (demo)
+          </button>
+        </div>
 
-    <section class="cta-wide" id="como-funciona">
-      <div>
-        <h3>Como funciona a compra / orçamento</h3>
+        <div class="small-note">
+          * Para aprovar em prefeitura/condomínio, é necessário responsável técnico local.
+        </div>
+
+        <div class="meta">
+          <div><strong>MODIFIQUE SEU PROJETO</strong></div>
+          <div style="margin-top:6px;font-size:13px;color:var(--muted);">
+            Categoria: <strong>Residencial</strong> · Etiquetas:
+          </div>
+          <div class="tags">
+            <span class="tag">2 Garagens</span>
+            <span class="tag">201 a 300m²</span>
+            <span class="tag">3 Banheiros</span>
+            <span class="tag">3 Quartos</span>
+            <span class="tag">3 Suítes</span>
+            <span class="tag">Telhado Escondido</span>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- SEÇÕES DE CONTEÚDO -->
+    <div class="sections">
+
+      <section class="card section">
+        <h3>Informações Gerais</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Área (m²)</th>
+                <th>Largura x Fundo (m)</th>
+                <th>Lote mínimo (m)</th>
+                <th>Quartos</th>
+                <th>Suíte</th>
+                <th>Banheiros</th>
+                <th>Vagas</th>
+                <th>Churrasqueira</th>
+                <th>Piscina</th>
+                <th>Escritório</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>140,10</td>
+                <td>10,50 x 14,25</td>
+                <td>12 x 25</td>
+                <td>3</td>
+                <td>1</td>
+                <td>2</td>
+                <td>2</td>
+                <td>Não</td>
+                <td>Não</td>
+                <td>Possível</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card section">
+        <h3>Descrição</h3>
         <p>
-          1) Você escolhe o projeto • 2) Envia informações do terreno • 3) Recebe orçamento e prazo •
-          4) Se quiser, fazemos adaptações.
+          Mesclando o tropical e o mediterrâneo, a Casa Mykonos permite que você desfrute da paz das ilhas
+          gregas sem sair de casa. Pensada com uma planta de conceito aberto, reúne todos os ambientes
+          sociais em uma grande área com acesso aos fundos. Os quartos podem ser acessados por uma ala
+          lateral, de maneira privativa e com layout amplo, permitindo grandes espaços de armazenagem e
+          muito conforto para você e sua família.
         </p>
-      </div>
-      <div class="right">
-        <a class="btn btn-primary" href="contato.html">Solicitar orçamento</a>
-        <button class="btn btn-outline" id="whatsBottomBtn" type="button">WhatsApp</button>
-        <a class="btn btn-dark" href="faq.html">Perguntas frequentes</a>
-      </div>
-    </section>
+      </section>
+
+      <section class="card section" id="planta-baixa">
+        <h3>Planta Baixa</h3>
+        <p>Substitua a imagem abaixo pela sua planta (ex: <code>images/mykonos-planta.jpg</code>).</p>
+        <div class="divider"></div>
+        <img src="images/mykonos-planta.jpg" alt="Planta baixa Casa Mykonos" style="border-radius:14px;border:1px solid var(--line);">
+      </section>
+
+      <section class="card section" id="tour-virtual">
+        <h3>Tour Virtual</h3>
+        <p>Você pode embutir um link do YouTube, Matterport ou vídeo do projeto.</p>
+        <div class="divider"></div>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:#000;">
+          <iframe
+            src="https://www.youtube.com/embed/7syYu1Wh5dg"
+            title="Tour Virtual - Casa Mykonos"
+            style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+            allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <section class="card section">
+        <h3>O que você recebe?</h3>
+        <p><strong>Arquitetura</strong></p>
+        <ul class="list">
+          <li>Implantação</li>
+          <li>Plantas baixas</li>
+          <li>Planta de cobertura</li>
+          <li>Isométricas BIM</li>
+          <li>Cortes da edificação</li>
+          <li>Elevações da edificação</li>
+          <li>Quadro resumo de esquadrias</li>
+          <li>Detalhes executivos</li>
+          <li>Renderizações</li>
+          <li>Quadro resumo de áreas</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <p style="color:var(--muted)">
+          Este é o principal projeto! Ele rege todos os outros projetos envolvidos numa obra. Você deve utilizá-lo
+          para obtenção do Alvará de Construção junto à prefeitura do seu município e aprovação em seu condomínio,
+          se for o caso. Você precisará contratar um profissional responsável para os trâmites legais,
+          acompanhamento e execução da obra.
+        </p>
+      </section>
+
+      <section class="card section" id="como-funciona">
+        <h3>Como funciona?</h3>
+        <p>
+          Você escolhe um projeto pronto, envia seus dados (cidade, medidas do terreno, recuos e exigências do condomínio/prefeitura)
+          e nós orientamos sobre os próximos passos. Se desejar, você pode solicitar adaptações (layout, fachada, metragem, etc.).
+        </p>
+      </section>
+
+    </div>
 
   </main>
 
   <footer>
-    <div class="footer-wrap">
-      <div class="foot">
-        <div class="foot-title">Noah Arquitetura</div>
-        <p>Projetos selecionados com estética moderna e funcionalidade. Orçamento e adaptações conforme o seu terreno.</p>
-      </div>
-
-      <div class="foot">
-        <div class="foot-title">Links</div>
-        <div class="foot-links">
-          <a href="index.html">Home</a>
-          <a href="index.html#projetos">Projetos</a>
-          <a href="contato.html">Contato</a>
-          <a href="blog.html">Blog</a>
-        </div>
-      </div>
-
-      <div class="foot">
-        <div class="foot-title">Atendimento</div>
-        <p>Online • Brasil</p>
-        <p><a href="https://www.instagram.com/noaharquitetura/" target="_blank" rel="noopener">Instagram: @noaharquitetura</a></p>
-        <p><a href="#" id="whatsFooterLink">WhatsApp</a></p>
-      </div>
+    <div class="footer-links">
+      <a href="contato.html">Contato</a>
+      <a href="faq.html">Perguntas frequentes</a>
+      <a href="quem-somos.html">Quem somos</a>
+      <a href="blog.html">Blog</a>
     </div>
-
-    <div class="copyright">
-      © 2014 · Noah Arquitetura · Todos os direitos reservados — “A Deus toda honra e toda glória.”
-    </div>
+    <div>© 2014 · Noah Arquitetura · Todos os direitos reservados</div>
+    <div style="opacity:.75;margin-top:8px">"A Deus toda honra e toda glória."</div>
   </footer>
 
   <script>
-    // Dropdowns
-    const dropdowns = document.querySelectorAll("[data-dd]");
+    // ===== DROPDOWNS =====
+    const dropdowns = document.querySelectorAll('[data-dd]');
     dropdowns.forEach(dd => {
-      const btn = dd.querySelector("button");
-      btn.addEventListener("click", (e) => {
+      const btn = dd.querySelector('button');
+      btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        dropdowns.forEach(x => { if (x !== dd) x.classList.remove("open"); });
-        dd.classList.toggle("open");
+        dropdowns.forEach(x => { if (x !== dd) x.classList.remove('open'); });
+        dd.classList.toggle('open');
+        btn.setAttribute('aria-expanded', dd.classList.contains('open') ? 'true' : 'false');
       });
     });
-    document.addEventListener("click", () => dropdowns.forEach(dd => dd.classList.remove("open")));
+    document.addEventListener('click', () => dropdowns.forEach(dd => dd.classList.remove('open')));
 
-    // WhatsApp
-    const WHATS_PHONE = "5548996865891";
-    function openWhats(message){
-      window.open(`https://wa.me/${WHATS_PHONE}?text=${encodeURIComponent(message)}`, "_blank");
+    // ===== GALLERY =====
+    const mainView = document.getElementById('mainView');
+    const thumbs = document.querySelectorAll('.thumb');
+
+    function setMain(src){
+      mainView.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Imagem do projeto';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      mainView.appendChild(img);
     }
-    document.getElementById("whatsTopBtn").addEventListener("click", () => {
-      openWhats("Olá! Quero ajuda para escolher um projeto na página 'Escolha seu projeto'. Pode me orientar?");
-    });
-    document.getElementById("whatsBottomBtn").addEventListener("click", () => {
-      openWhats("Olá! Gostaria de solicitar orçamento e entender como funciona o processo de escolha/adaptação do projeto.");
-    });
-    document.getElementById("whatsFooterLink").addEventListener("click", (e) => {
-      e.preventDefault();
-      openWhats("Olá! Vim pela página 'Escolha seu projeto' e gostaria de atendimento.");
-    });
-    document.querySelectorAll("[data-whats]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        openWhats(`Olá! Tenho interesse no ${btn.getAttribute("data-whats")}. Pode me passar detalhes e como solicitar adaptações?`);
-      });
-    });
+    if (thumbs.length) setMain(thumbs[0].dataset.src);
+    thumbs.forEach(t => t.addEventListener('click', () => setMain(t.dataset.src)));
 
-    // Filtro / busca / ordenar
-    const chips = document.querySelectorAll(".chip");
-    const cards = Array.from(document.querySelectorAll(".card"));
-    const countText = document.getElementById("countText");
-    const searchInput = document.getElementById("searchInput");
-    const sortSelect = document.getElementById("sortSelect");
+    // ===== PRICE / QTY =====
+    const unitPrice = 841.00; // altere aqui o preço
+    const qtyInput = document.getElementById('qtyInput');
+    const minusBtn = document.getElementById('minusBtn');
+    const plusBtn  = document.getElementById('plusBtn');
+    const totalPriceText = document.getElementById('totalPriceText');
+    const unitPriceText = document.getElementById('unitPriceText');
 
-    let activeCat = "all";
-    let query = "";
-
-    function formatCount(n){
-      countText.textContent = `${n} ${n === 1 ? "projeto" : "projetos"}`;
+    function formatBRL(value){
+      return value.toLocaleString('pt-BR', { style:'currency', currency:'BRL' });
     }
-    function matchesSearch(card, q){
-      if(!q) return true;
-      const hay = [
-        card.dataset.name || "",
-        card.dataset.code || "",
-        card.dataset.cat || "",
-        card.dataset.tags || ""
-      ].join(" ").toLowerCase();
-      return hay.includes(q.toLowerCase());
+    unitPriceText.textContent = formatBRL(unitPrice);
+
+    function clampQty(){
+      let q = parseInt(qtyInput.value || '1', 10);
+      if (isNaN(q) || q < 1) q = 1;
+      qtyInput.value = q;
+      return q;
     }
-    function apply(){
-      const visible = [];
-      cards.forEach(card => {
-        const catOk = (activeCat === "all") || (card.dataset.cat === activeCat);
-        const searchOk = matchesSearch(card, query);
-        const show = catOk && searchOk;
-        card.style.display = show ? "" : "none";
-        if(show) visible.push(card);
-      });
-
-      const mode = sortSelect.value;
-      const sorted = [...visible].sort((a,b) => {
-        const pa = parseFloat(a.dataset.price || "0");
-        const pb = parseFloat(b.dataset.price || "0");
-        const aa = parseFloat(a.dataset.area || "0");
-        const ab = parseFloat(b.dataset.area || "0");
-        if(mode === "menor_preco") return pa - pb;
-        if(mode === "maior_preco") return pb - pa;
-        if(mode === "menor_area") return aa - ab;
-        if(mode === "maior_area") return ab - aa;
-        return 0;
-      });
-
-      const grid = document.getElementById("grid");
-      sorted.forEach(c => grid.appendChild(c));
-      formatCount(visible.length);
+    function updateTotal(){
+      const q = clampQty();
+      totalPriceText.textContent = formatBRL(unitPrice * q);
     }
+    minusBtn.addEventListener('click', () => {
+      qtyInput.value = Math.max(1, (parseInt(qtyInput.value||'1',10) - 1));
+      updateTotal();
+    });
+    plusBtn.addEventListener('click', () => {
+      qtyInput.value = (parseInt(qtyInput.value||'1',10) + 1);
+      updateTotal();
+    });
+    qtyInput.addEventListener('input', updateTotal);
+    updateTotal();
 
-    chips.forEach(chip => {
-      chip.addEventListener("click", () => {
-        chips.forEach(c => c.classList.remove("active"));
-        chip.classList.add("active");
-        activeCat = chip.dataset.chip;
-        apply();
-      });
+    // ===== WHATSAPP BUY =====
+    const buyWhatsappBtn = document.getElementById('buyWhatsappBtn');
+    buyWhatsappBtn.addEventListener('click', () => {
+      const q = clampQty();
+      const total = formatBRL(unitPrice * q);
+      const msg =
+        `Olá! Tenho interesse no projeto Casa Mykonos – C014.%0A` +
+        `Quantidade: ${q}%0A` +
+        `Valor unitário: ${formatBRL(unitPrice)}%0A` +
+        `Total: ${total}%0A%0A` +
+        `Pode me orientar sobre o processo de compra e adaptações?`;
+      const phone = '5548996865891';
+      window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
     });
 
-    if(searchInput){
-      searchInput.addEventListener("input", (e) => {
-        query = e.target.value.trim();
-        apply();
-      });
-    }
-    sortSelect.addEventListener("change", apply);
-
-    document.querySelectorAll(".menu a[data-cat]").forEach(a => {
-      a.addEventListener("click", (e) => {
-        e.preventDefault();
-        const cat = a.dataset.cat;
-        activeCat = cat;
-        chips.forEach(c => c.classList.toggle("active", c.dataset.chip === cat));
-        apply();
-      });
+    // ===== CART DEMO =====
+    document.getElementById('addCartBtn').addEventListener('click', () => {
+      alert('Adicionado ao carrinho (demo). Se quiser, eu crio a página de carrinho + checkout.');
     });
-
-    apply();
   </script>
 
 </body>
 </html>
-
