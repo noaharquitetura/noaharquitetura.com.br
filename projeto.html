@@ -1,1 +1,722 @@
 
+/* Card do projeto */
+.project-card{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 1.1rem;
+  align-items: stretch;
+}
+
+.project-media{
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: 0 14px 45px rgba(0,0,0,.35);
+}
+
+.project-media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  transform: scale(1.01);
+  transition: .25s transform;
+}
+
+.project-media:hover img{ transform: scale(1.04); }
+
+.project-overlay{
+  position:absolute;
+  left:14px;
+  right:14px;
+  bottom:14px;
+  padding: .85rem .9rem;
+  border-radius: 16px;
+  background: rgba(10,14,18,.62);
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(8px);
+}
+
+.project-title{
+  font-weight: 850;
+  letter-spacing: .2px;
+  margin:0 0 .25rem;
+}
+
+.project-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.45rem;
+}
+
+.badge{
+  display:inline-flex;
+  padding:.25rem .6rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  color: rgba(233,240,247,.82);
+  font-size:.82rem;
+}
+
+.project-info{
+  padding: 1.05rem;
+  border-radius: 18px;
+  background: rgba(17,24,36,.55);
+  border:1px solid rgba(255,255,255,.10);
+}
+
+.project-info h3{
+  margin:0 0 .5rem;
+  font-size: 1.12rem;
+}
+
+.project-info p{
+  margin:.35rem 0 0;
+  color: rgba(233,240,247,.78);
+  line-height: 1.55;
+}
+
+.project-cta{
+  display:flex;
+  gap:.6rem;
+  flex-wrap:wrap;
+  margin-top: .9rem;
+}
+
+@media (max-width: 900px){
+  .project-card{ grid-template-columns: 1fr; }
+}
+2) Cole este HTML onde você quer que apareça (ex.: dentro de <main>)
+<section id="projeto-serena">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Projeto em destaque</h2>
+        <p>Clique na imagem para ver o catálogo no WhatsApp.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+
+      <!-- IMAGEM CLICÁVEL -->
+      <a class="project-media"
+         href="https://wa.me/c/55SEUDDDSEUNUMERO"
+         target="_blank" rel="noopener"
+         aria-label="Abrir catálogo no WhatsApp">
+
+        <!-- Troque o src pela sua imagem -->
+        <img src="opcao1SERENA.jpeg.jpg" alt="Projeto residencial - fachada e planta" />
+
+        <!-- Overlay com metragem e dados rápidos -->
+        <div class="project-overlay">
+          <p class="project-title">Casa térrea contemporânea</p>
+          <div class="project-meta">
+            <span class="badge">Área: <b>&nbsp;45 m²</b></span>
+            <span class="badge">2 dormitórios</span>
+            <span class="badge">1 banheiro</span>
+            <span class="badge">Cozinha + estar</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- BLOCO PARA SEU TEXTO -->
+      <div class="project-info">
+        <h3>Resumo do projeto</h3>
+
+        <p>
+          Aqui é o lugar para você escrever seu texto. Exemplo:
+          Projeto funcional e aconchegante, com fachada em ripado de madeira e grandes panos de vidro,
+          valorizando luz natural e integração com o paisagismo tropical.
+        </p>
+
+        <p>
+          <b>Dados do projeto:</b><br>
+          • Área total: 45 m²<br>
+          • 2 dormitórios<br>
+          • Sala de estar integrada<br>
+          • Cozinha com bancada<br>
+          • Área de serviço<br>
+        </p>
+
+        <div class="project-cta">
+          <a class="btn" href="https://wa.me/c/55SEUDDDSEUNUMERO" target="_blank" rel="noopener">
+            Ver catálogo no WhatsApp
+          </a>
+          <a class="btn secondary" href="#contato">
+            Solicitar orçamento
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+3) Importante: link do catálogo do WhatsApp
+O mais comum para catálogo é:
+
+Catálogo: https://wa.me/c/55SEUDDDSEUNUMERO
+
+Se você não usar catálogo e quiser abrir conversa com mensagem:
+
+Chat com mensagem: https://wa.me/55SEUDDDSEUNUMERO?text=Quero%20ver%20esse%20projeto
+
+Você pode trocar o href por qualquer um desses.
+
+Se você me passar a metragem total certa (ex.: 45 m²? 47 m²?) e quantos quartos/banheiros exatamente, eu já te devolvo o texto pronto + os badges certinhos (bem estilo Instagram/portfólio).
+
+
+Você disse:
+
+
+
+eu quero que vc faça uma pagina projeto pronto no mesmo layout do site.nas mesmas cores e fundos , mesma letra
+
+O ChatGPT disse:
+Perfeito — eu montei uma página “Projeto Pronto” no estilo desse seu site: barra preta no topo, header branco com menu, hero com imagem grande, texto em fundo branco, faixa preta “Faça seu orçamento aqui”, e bloco cinza com cards arredondados.
+E a imagem do projeto fica clicável levando direto pro catálogo do WhatsApp.
+
+👉 Copie tudo abaixo e salve como projeto.html (é 1 arquivo só).
+Depois troque apenas: WHATSAPP_CATALOGO, imagens e textos.
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projeto Pronto | NOAH Arquitetura</title>
+
+  <!-- Fonte parecida com o layout do print -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --black:#0b0b0b;
+      --text:#1f1f1f;
+      --muted:#6b6b6b;
+      --bg:#ffffff;
+      --soft:#f2f2f2;
+      --line:#e9e9e9;
+      --radius:22px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .container{
+      width:min(1200px, 92vw);
+      margin:0 auto;
+    }
+
+    /* Top bar (preta) */
+    .topbar{
+      background:var(--black);
+      height:44px;
+      display:flex;
+      align-items:center;
+    }
+    .topbar .container{
+      display:flex;
+      justify-content:flex-end;
+      gap:14px;
+    }
+    .iconbtn{
+      width:28px; height:28px;
+      display:grid; place-items:center;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      opacity:.95;
+      transition:.2s opacity, .2s transform;
+    }
+    .iconbtn:hover{ opacity:1; transform:translateY(-1px); }
+
+    /* Header branco */
+    header{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      height:88px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      font-size:22px;
+      letter-spacing:.18em;
+      font-weight:500;
+    }
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:34px;
+      margin:0;
+      padding:0;
+      align-items:center;
+      color:#4a4a4a;
+      font-weight:400;
+      font-size:15px;
+    }
+    nav a{ color:#4a4a4a; }
+    nav a:hover{ color:#111; }
+
+    /* Hero imagem grande */
+    .hero{
+      position:relative;
+      height:520px;
+      background:#ddd;
+      overflow:hidden;
+    }
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:saturate(.98);
+      transform:scale(1.01);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.22); /* leve “cinza” como no print */
+    }
+    .hero-content{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:flex-end;
+      padding:28px 0;
+      z-index:2;
+    }
+    .hero-box{
+      width:min(680px, 92vw);
+      color:#fff;
+    }
+    .hero-title{
+      font-size:40px;
+      font-weight:500;
+      margin:0 0 8px;
+      letter-spacing:.02em;
+    }
+    .hero-sub{
+      margin:0;
+      opacity:.92;
+      font-weight:300;
+      line-height:1.6;
+    }
+
+    /* Conteúdo */
+    .section{
+      padding:48px 0;
+    }
+    .kicker{
+      font-size:13px;
+      letter-spacing:.14em;
+      color:#8a8a8a;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+    h2{
+      margin:0 0 14px;
+      font-weight:500;
+      font-size:28px;
+      letter-spacing:.02em;
+    }
+    .text{
+      color:#4a4a4a;
+      line-height:1.9;
+      font-weight:300;
+      font-size:16px;
+    }
+
+    /* Faixa preta CTA */
+    .cta-band{
+      background:var(--black);
+      color:#fff;
+      text-align:center;
+      padding:42px 0;
+      margin-top:12px;
+    }
+    .cta-band h3{
+      margin:0;
+      font-weight:300;
+      font-size:34px;
+      letter-spacing:.02em;
+    }
+
+    /* Bloco “Veja alguns de nossos projetos” (cinza + container branco arredondado) */
+    .soft-area{
+      background:#fff;
+      padding:56px 0 70px;
+    }
+    .soft-card{
+      background:var(--soft);
+      border-radius:32px;
+      padding:44px 44px 36px;
+    }
+    .soft-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:26px;
+    }
+    .soft-head h2{
+      font-size:40px;
+      font-weight:300;
+      margin:0;
+      color:#2a2a2a;
+    }
+    .ghost-btn{
+      padding:12px 18px;
+      border:1px solid #2a2a2a;
+      background:#fff;
+      cursor:pointer;
+      font-family:inherit;
+      font-weight:400;
+      border-radius:2px;
+    }
+    .ghost-btn:hover{ background:#f8f8f8; }
+
+    /* Card do projeto pronto (imagem + dados + texto) */
+    .project-ready{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:22px;
+      align-items:stretch;
+      margin-bottom:28px;
+    }
+    .media-link{
+      border-radius:22px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:0 18px 55px rgba(0,0,0,.18);
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .media-link img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      min-height:420px;
+      transition:.25s transform;
+    }
+    .media-link:hover img{ transform:scale(1.03); }
+    .overlay{
+      position:absolute;
+      left:16px; right:16px; bottom:16px;
+      background:rgba(0,0,0,.55);
+      color:#fff;
+      padding:14px 14px;
+      border-radius:18px;
+      backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,.16);
+    }
+    .overlay .title{
+      margin:0 0 8px;
+      font-weight:500;
+      letter-spacing:.02em;
+    }
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .badge{
+      font-size:12.5px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.10);
+      font-weight:300;
+    }
+
+    .info-box{
+      background:#fff;
+      border-radius:22px;
+      padding:20px 20px;
+      border:1px solid rgba(0,0,0,.07);
+    }
+    .info-box h3{
+      margin:0 0 10px;
+      font-weight:500;
+      letter-spacing:.02em;
+      font-size:18px;
+    }
+    .info-box p{
+      margin:0 0 14px;
+      color:#4a4a4a;
+      font-weight:300;
+      line-height:1.8;
+      font-size:15.5px;
+    }
+    .info-list{
+      margin:0;
+      padding-left:18px;
+      color:#4a4a4a;
+      font-weight:300;
+      line-height:1.9;
+      font-size:15.5px;
+    }
+    .cta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:4px;
+      border:1px solid #111;
+      background:#111;
+      color:#fff;
+      font-weight:400;
+      font-size:14px;
+    }
+    .btn:hover{ opacity:.92; }
+    .btn-outline{
+      background:#fff;
+      color:#111;
+    }
+
+    /* Grid de cards (igual “galeria”) */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:22px;
+      margin-top:10px;
+    }
+    .gcard{
+      background:#fff;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.07);
+    }
+    .gthumb{
+      aspect-ratio: 4 / 3;
+      background:#d8d8d8;
+      overflow:hidden;
+    }
+    .gthumb img{ width:100%; height:100%; object-fit:cover; }
+    .gcap{
+      padding:16px;
+      text-align:center;
+      font-weight:300;
+      color:#2f2f2f;
+    }
+
+    /* Whats flutuante */
+    .whats-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      background:#25D366;
+      display:grid;
+      place-items:center;
+      box-shadow:0 18px 45px rgba(0,0,0,.25);
+      z-index:999;
+    }
+    .whats-float svg{ fill:#fff; }
+
+    /* Responsivo */
+    @media (max-width: 980px){
+      nav ul{ display:none; }
+      .hero{ height:420px; }
+      .hero-title{ font-size:30px; }
+      .project-ready{ grid-template-columns:1fr; }
+      .media-link img{ min-height:320px; }
+      .soft-card{ padding:28px; }
+      .soft-head h2{ font-size:28px; }
+      .grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <!-- Troque os links se quiser -->
+      <a class="iconbtn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+        <!-- camera -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a class="iconbtn" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <!-- whatsapp -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M20 11.9a8 8 0 0 1-11.6 7.1L4 20l1.1-4.2A8 8 0 1 1 20 11.9Z" stroke="currentColor" stroke-width="1.6" />
+          <path d="M8.7 9.2c.2-.4.4-.4.6-.4h.5c.2 0 .4 0 .5.3l.8 1.9c.1.3.1.5-.1.7l-.5.6c-.1.2-.2.3 0 .6.2.3.8 1.3 1.8 2.1.9.8 1.7 1 2 .9l.8-.3c.3-.1.5-.1.7.1l1.6 1c.3.2.3.4.2.7-.2.6-1.1 1.5-1.9 1.6-.8.1-1.7 0-3.2-.8-1.6-.8-2.8-2.2-3.6-3.4-.8-1.2-1.3-2.5-1.4-3.2 0-.7.2-1.4.5-1.8Z" fill="currentColor" opacity=".95"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">NOAH ARQUITETURA</div>
+      <nav aria-label="Menu">
+        <ul>
+          <li><a href="#">Arquiteto em Garopaba</a></li>
+          <li><a href="#projeto">Projetos</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <!-- Troque pela imagem grande do topo -->
+    <img src="hero.jpg" alt="Imagem destaque do projeto" />
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-box">
+          <h1 class="hero-title">Projeto Pronto</h1>
+          <p class="hero-sub">
+            Casa térrea contemporânea com fachada em ripado e paisagismo tropical.
+            Clique na imagem do projeto para acessar o catálogo no WhatsApp.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Texto do projeto -->
+  <section class="section" id="projeto">
+    <div class="container">
+      <p class="kicker">Detalhes do Projeto</p>
+      <h2>Casa térrea — apresentação completa</h2>
+
+      <div class="text">
+        <p>
+          Aqui você coloca seu texto do projeto (do jeitinho que está no seu site: leve, elegante e bem espaçado).
+          Ex.: Este projeto foi pensado para unir funcionalidade e estética, com materiais naturais, iluminação
+          acolhedora e uma fachada contemporânea que valoriza o contexto local.
+        </p>
+
+        <p>
+          Você pode escrever mais parágrafos, colocar observações, explicar o layout e destacar diferenciais.
+          (O espaçamento e o “respiro” estão iguais ao padrão do layout do seu print.)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="cta-band">
+    <div class="container">
+      <h3>Faça seu orçamento aqui</h3>
+    </div>
+  </section>
+
+  <!-- Área cinza com cards -->
+  <section class="soft-area">
+    <div class="container">
+      <div class="soft-card">
+
+        <div class="soft-head">
+          <h2>Veja o projeto pronto</h2>
+          <a class="ghost-btn" href="#galeria">Galeria completa</a>
+        </div>
+
+        <!-- PROJETO PRONTO: imagem clicável + dados + texto -->
+        <div class="project-ready">
+          <!-- Troque o link para seu CATÁLOGO -->
+          <a class="media-link" href="https://wa.me/c/55SEUDDDSEUNUMERO" target="_blank" rel="noopener">
+            <!-- Troque para sua imagem (aquela com fachada + planta) -->
+            <img src="opcao1SERENA.jpeg.jpg" alt="Projeto pronto - fachada e planta" />
+            <div class="overlay">
+              <p class="title">Projeto Serena • Casa Térrea</p>
+              <div class="badges">
+                <span class="badge">Área: <b>&nbsp;XX m²</b></span>
+                <span class="badge">2 dormitórios</span>
+                <span class="badge">1 banheiro</span>
+                <span class="badge">Cozinha + estar</span>
+                <span class="badge">Área de serviço</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="info-box">
+            <h3>Dados do projeto</h3>
+            <p>
+              Aqui é o seu “lugar do texto”: descrição curta, o que o cliente recebe,
+              para quem é indicado, e observações (ex.: adaptações possíveis).
+            </p>
+
+            <ul class="info-list">
+              <li><b>Área total:</b> XX m²</li>
+              <li><b>Ambientes:</b> sala + cozinha, 2 dormitórios, 1 banheiro</li>
+              <li><b>Complementos:</b> serviço (lavanderia)</li>
+              <li><b>Entrega:</b> planta, layout, fachadas e imagens</li>
+            </ul>
+
+            <div class="cta-row">
+              <a class="btn" href="https://wa.me/c/55SEUDDDSEUNUMERO" target="_blank" rel="noopener">
+                Ver no catálogo do WhatsApp
+              </a>
+              <a class="btn btn-outline" href="https://wa.me/55SEUDDDSEUNUMERO?text=Olá!%20Quero%20orçamento%20do%20Projeto%20Serena."
+                 target="_blank" rel="noopener">
+                Pedir orçamento
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- “Galeria / cards” no mesmo estilo do print -->
+        <div class="grid" id="galeria">
+          <article class="gcard">
+            <div class="gthumb"><img src="galeria-1.jpg" alt="Residencial"></div>
+            <div class="gcap">Residencial</div>
+          </article>
+
+          <article class="gcard">
+            <div class="gthumb"><img src="galeria-2.jpg" alt="Residencial e Comercial"></div>
+            <div class="gcap">Residencial e Comercial</div>
+          </article>
+
+          <article class="gcard">
+            <div class="gthumb"><img src="galeria-3.jpg" alt="Interiores"></div>
+            <div class="gcap">Interiores</div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Whats flutuante -->
+  <a class="whats-float"
+     href="https://wa.me/55SEUDDDSEUNUMERO?text=Olá!%20Quero%20informações%20sobre%20projetos%20prontos."
+     target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24">
+      <path d="M20 11.9a8 8 0 0 1-11.6 7.1L4 20l1.1-4.2A8 8 0 1 1 20 11.9Z"/>
+      <path d="M8.7 9.2c.2-.4.4-.4.6-.4h.5c.2 0 .4 0 .5.3l.8 1.9c.1.3.1.5-.1.7l-.5.6c-.1.2-.2.3 0 .6.2.3.8 1.3 1.8 2.1.9.8 1.7 1 2 .9l.8-.3c.3-.1.5-.1.7.1l1.6 1c.3.2.3.4.2.7-.2.6-1.1 1.5-1.9 1.6-.8.1-1.7 0-3.2-.8-1.6-.8-2.8-2.2-3.6-3.4-.8-1.2-1.3-2.5-1.4-3.2 0-.7.2-1.4.5-1.8Z" fill="#25D366"/>
+    </svg>
+  </a>
+
+</body>
+</html>
