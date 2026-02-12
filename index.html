@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
@@ -149,6 +149,7 @@ section{
   align-items:center;
   flex-wrap:wrap;
   margin-bottom:40px;
+  gap:16px;
 }
 
 .banner-texto h3{
@@ -156,17 +157,46 @@ section{
   font-weight:300;
 }
 
-.btn-galeria{
-  border:1px solid #000;
-  padding:14px 28px;
+/* NOVO: BANNERS (GALERIA + PROJETOS PRONTOS) */
+.banner-links{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-end;
+}
+
+.btn-banner{
+  display:inline-block;
+  padding:14px 22px;
   text-decoration:none;
-  color:#000;
   font-size:13px;
+  border-radius:10px;
+  border:1px solid transparent;
+  transition:0.25s;
+  letter-spacing:0.3px;
+}
+
+/* Banner preto - Galeria */
+.btn-galeria{
+  background:#000;
+  color:#fff;
+  border-color:#000;
 }
 
 .btn-galeria:hover{
-  background:#000;
+  opacity:0.85;
+}
+
+/* Banner verde - Projetos Prontos */
+.btn-projetos-prontos{
+  background:#6b7459; /* verde elegante */
   color:#fff;
+  border-color:#6b7459;
+}
+
+.btn-projetos-prontos:hover{
+  opacity:0.88;
 }
 
 .projects{
@@ -229,7 +259,7 @@ section{
   color:#666;
 }
 
-    .pessoa-link {
+.pessoa-link {
   text-decoration: none;
   color: inherit;
   display: inline-block;
@@ -291,19 +321,42 @@ footer{
     flex-direction:column;
     align-items:flex-start;
   }
-}
-    /* ⬇️ COLE EXATAMENTE AQUI ⬇️ */
-.equipe {
-  max-width: 1100px;
-  margin: 80px auto;
-  padding: 0 40px;
-  text-align: center;
+
+  .banner-links{
+    justify-content:flex-start;
+  }
 }
 
-.equipe h3 {
-  margin-bottom: 40px;
+/* ⬇️ AJUSTE: equipe sem brigar com section padding ⬇️ */
+.equipe{
+  text-align:center;
+}
+.equipe h3{
+  margin-bottom:40px;
+  font-size:32px;
+  font-weight:300;
+}
+
+/* ✅ WHATSAPP FLUTUANTE (NOVO) */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
   font-size: 32px;
-  font-weight: 300;
+  line-height: 60px;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
 }
 </style>
 
@@ -324,6 +377,7 @@ footer{
 <header>
 <h1><a href="/" style="text-decoration:none;color:inherit;">NOAH ARQUITETURA</a></h1>
 <nav>
+  <a href="projeto.html">Projetos Prontos</a>
   <a href="arquiteto-em-garopaba.html">Arquiteto em Garopaba</a>
   <a href="#projetos">Projetos</a>
   <a href="galeria.html">Galeria</a>
@@ -357,20 +411,25 @@ footer{
 <section id="projetos" class="projetos-banner">
 <div class="banner-texto">
 <h3>Veja alguns de nossos projetos</h3>
-<a href="galeria.html" class="btn-galeria">Galeria completa</a>
+
+<div class="banner-links">
+  <a href="galeria.html" class="btn-banner btn-galeria">Galeria</a>
+  <a href="projeto.html" class="btn-banner btn-projetos-prontos">Projetos Prontos</a>
+</div>
+
 </div>
 
 <div class="projects">
   <a href="galeria.html" class="project">
-    <img src="images/sobrados.jpg">
+    <img src="images/sobrados.jpg" alt="Residencial">
     <span>Residencial</span>
   </a>
   <a href="galeria.html" class="project">
-    <img src="images/misto.jpg">
+    <img src="images/misto.jpg" alt="Residencial e Comercial">
     <span>Residencial e Comercial</span>
   </a>
   <a href="galeria.html" class="project">
-    <img src="images/salaclara.jpg">
+    <img src="images/salaclara.jpg" alt="Interiores">
     <span>Interiores</span>
   </a>
 </div>
@@ -416,7 +475,13 @@ footer{
   <a href="https://www.instagram.com/noaharquitetura/" target="_blank"><i class="fab fa-instagram"></i></a>
   <a href="https://wa.me/5548996865891" target="_blank"><i class="fab fa-whatsapp"></i></a>
 </div>
-    
+
+<p>
+  <a href="projeto.html" style="color:#fff;text-decoration:none;">
+    Projetos Prontos
+  </a>
+</p>
+
 <p>
   <a href="arquiteto-em-garopaba.html" style="color:#fff;text-decoration:none;">
     Arquiteto em Garopaba
@@ -434,29 +499,6 @@ footer{
    aria-label="Fale conosco pelo WhatsApp">
    <i class="fab fa-whatsapp"></i>
 </a>
-
-<style>
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #25d366;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 32px;
-  line-height: 60px;
-  z-index: 9999;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-</style>
 
 </body>
 </html>
