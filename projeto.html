@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -19,8 +18,10 @@
       --soft:#f2f2f2;
       --line:#e9e9e9;
       --radius:22px;
-      --green:#6F7A5A;
-      --greenHover:#5E684C;
+
+      /* Verde do botão */
+      --olive:#6F7A5A;
+      --olive-dark:#5E684C;
     }
 
     *{ box-sizing:border-box; }
@@ -96,13 +97,13 @@
     .hero{ width:100%; padding:0; margin:0; }
     .banner-img{ width:100%; height:auto; display:block; }
 
-    /* faixa preta fina (igual topbar) */
+    /* Faixa preta (fina, sem texto) */
     .cta-band{
       background:var(--black);
-      height:44px;
+      height:44px; /* mesma altura da topbar */
     }
 
-    /* Área principal (cards projetos prontos) */
+    /* Área principal */
     .soft-area{
       background:#fff;
       padding:56px 0 70px;
@@ -126,14 +127,14 @@
       color:#2a2a2a;
     }
 
-    /* Grid de 4 projetos */
+    /* Grid */
     .grid-projetos{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:30px;
     }
 
-    /* Card de cada projeto */
+    /* Card */
     .project-ready{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -145,34 +146,38 @@
       padding:18px;
     }
 
+    /* Coluna esquerda: imagem + “banner” ABAIXO (sem cobrir a foto) */
+    .media-col{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
     .media-link{
       border-radius:22px;
       overflow:hidden;
       position:relative;
       box-shadow:0 18px 55px rgba(0,0,0,.12);
       border:1px solid rgba(0,0,0,.06);
-      min-height:320px;
+      display:block;
     }
     .media-link img{
       width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:.25s transform;
+      height:auto;
+      display:block;
     }
-    .media-link:hover img{ transform:scale(1.03); }
 
-    .overlay{
-      position:absolute;
-      left:14px; right:14px; bottom:14px;
+    /* “Banner” do projeto (agora fora da foto) */
+    .media-meta{
       background:rgba(0,0,0,.55);
       color:#fff;
       padding:14px;
       border-radius:18px;
-      backdrop-filter: blur(6px);
       border:1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(6px);
     }
-    .overlay .title{
-      margin:0 0 8px;
+    .media-meta .title{
+      margin:0 0 10px;
       font-weight:500;
       letter-spacing:.02em;
     }
@@ -190,6 +195,7 @@
       font-weight:300;
     }
 
+    /* Info direita */
     .info-box{
       background:#fff;
       border-radius:22px;
@@ -210,6 +216,7 @@
       line-height:1.9;
       font-size:15.5px;
     }
+
     .cta-row{
       display:flex;
       gap:10px;
@@ -230,16 +237,16 @@
     }
     .btn:hover{ opacity:.92; }
 
-    /* botão verde (Pedir orçamento) */
+    /* Botão “Pedir orçamento” verde */
     .btn-outline{
-      background:var(--green);
+      background:var(--olive);
       color:#fff;
-      border:1px solid var(--green);
+      border:1px solid var(--olive);
       transition:0.2s ease;
     }
     .btn-outline:hover{
-      background:var(--greenHover);
-      border-color:var(--greenHover);
+      background:var(--olive-dark);
+      border-color:var(--olive-dark);
     }
 
     /* Whats flutuante */
@@ -265,7 +272,6 @@
       .soft-head h2{ font-size:30px; }
       .grid-projetos{ grid-template-columns:1fr; }
       .project-ready{ grid-template-columns:1fr; }
-      .media-link{ min-height:260px; }
     }
   </style>
 </head>
@@ -299,23 +305,23 @@
       <nav aria-label="Menu">
         <ul>
           <li><a href="#">Arquiteto em Garopaba</a></li>
-          <li><a href="#projetos-prontos">Projetos</a></li>
-          <li><a href="#projetos-prontos">Galeria</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#galeria">Galeria</a></li>
           <li><a href="#projetos-prontos">Projeto Pronto</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- HERO (somente banner) -->
+  <!-- HERO -->
   <section class="hero">
     <img src="./images/hero.jpeg" alt="" class="banner-img">
   </section>
 
-  <!-- faixa preta -->
+  <!-- faixa preta fina -->
   <section class="cta-band"></section>
 
-  <!-- PROJETOS PRONTOS (4 MODELOS) -->
+  <!-- PROJETOS PRONTOS -->
   <section class="soft-area" id="projetos-prontos">
     <div class="container">
       <div class="soft-card">
@@ -328,11 +334,16 @@
 
           <!-- CASA SERENA -->
           <div class="project-ready">
-            <a class="media-link"
-               href="https://wa.me/5548996865891?text=Olá!%20Quero%20informações%20do%20Projeto%2001%20(Casa%20Serena)."
-               target="_blank" rel="noopener">
-              <img src="./images/projeto1.jpg" alt="Projeto 01 - Casa Serena" />
-              <div class="overlay">
+            <div class="media-col">
+              <!-- link do clique na imagem -->
+              <a class="media-link"
+                 href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2001%20no%20catálogo."
+                 target="_blank" rel="noopener">
+                <img src="./images/projeto1.jpg" alt="Projeto 01 - Casa Serena" />
+              </a>
+
+              <!-- “banner” fora da imagem -->
+              <div class="media-meta">
                 <p class="title">Projeto 01 • CASA SERENA</p>
                 <div class="badges">
                   <span class="badge">Área: <b>&nbsp;68 m²</b></span>
@@ -341,7 +352,7 @@
                   <span class="badge">Sala e cozinha integrada</span>
                 </div>
               </div>
-            </a>
+            </div>
 
             <div class="info-box">
               <h3>TERRENO</h3>
@@ -351,11 +362,11 @@
               </ul>
               <div class="cta-row">
                 <a class="btn"
-                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20catálogo%20de%20projetos%20prontos."
+                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2001%20no%20catálogo."
                    target="_blank" rel="noopener">Ver no catálogo</a>
 
                 <a class="btn btn-outline"
-                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20orçamento%20do%20Projeto%2001%20(Casa%20Serena)."
+                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20orçamento%20do%20Projeto%2001."
                    target="_blank" rel="noopener">Pedir orçamento</a>
               </div>
             </div>
@@ -363,20 +374,24 @@
 
           <!-- CASA BRISA -->
           <div class="project-ready">
-            <a class="media-link"
-               href="https://wa.me/5548996865891?text=Olá!%20Quero%20informações%20do%20Projeto%2002%20(Casa%20Brisa)."
-               target="_blank" rel="noopener">
-              <img src="./images/projeto2.jpg" alt="Projeto 02 - Casa Brisa" />
-              <div class="overlay">
+            <div class="media-col">
+              <a class="media-link"
+                 href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2002%20no%20catálogo."
+                 target="_blank" rel="noopener">
+                <img src="./images/projeto2.jpg" alt="Projeto 02 - Casa Brisa" />
+              </a>
+
+              <div class="media-meta">
                 <p class="title">Projeto 02 • CASA BRISA</p>
                 <div class="badges">
                   <span class="badge">Área: <b>&nbsp;38 m²</b></span>
                   <span class="badge">1 dormitório</span>
                   <span class="badge">Sala e cozinha integrada</span>
                   <span class="badge">Varanda</span>
+                  <span class="badge">1 banheiro</span>
                 </div>
               </div>
-            </a>
+            </div>
 
             <div class="info-box">
               <h3>TERRENO</h3>
@@ -386,11 +401,11 @@
               </ul>
               <div class="cta-row">
                 <a class="btn"
-                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20catálogo%20de%20projetos%20prontos."
+                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2002%20no%20catálogo."
                    target="_blank" rel="noopener">Ver no catálogo</a>
 
                 <a class="btn btn-outline"
-                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20orçamento%20do%20Projeto%2002%20(Casa%20Brisa)."
+                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20orçamento%20do%20Projeto%2002."
                    target="_blank" rel="noopener">Pedir orçamento</a>
               </div>
             </div>
@@ -398,19 +413,22 @@
 
           <!-- PROJETO 3 -->
           <div class="project-ready">
-            <a class="media-link"
-               href="https://wa.me/5548996865891?text=Olá!%20Quero%20informações%20do%20Projeto%2003."
-               target="_blank" rel="noopener">
-              <img src="./images/projeto3.jpg" alt="Projeto 03" />
-              <div class="overlay">
-                <p class="title">Projeto 03 • Casa Térrea</p>
+            <div class="media-col">
+              <a class="media-link"
+                 href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2003%20no%20catálogo."
+                 target="_blank" rel="noopener">
+                <img src="./images/projeto3.jpg" alt="Projeto 03" />
+              </a>
+
+              <div class="media-meta">
+                <p class="title">Projeto 03 • (nome do projeto)</p>
                 <div class="badges">
                   <span class="badge">Área: <b>&nbsp;XX m²</b></span>
-                  <span class="badge">2 dormitórios</span>
-                  <span class="badge">1 banheiro</span>
+                  <span class="badge">X dormitórios</span>
+                  <span class="badge">X banheiros</span>
                 </div>
               </div>
-            </a>
+            </div>
 
             <div class="info-box">
               <h3>TERRENO</h3>
@@ -420,7 +438,7 @@
               </ul>
               <div class="cta-row">
                 <a class="btn"
-                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20catálogo%20de%20projetos%20prontos."
+                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2003%20no%20catálogo."
                    target="_blank" rel="noopener">Ver no catálogo</a>
 
                 <a class="btn btn-outline"
@@ -432,19 +450,22 @@
 
           <!-- PROJETO 4 -->
           <div class="project-ready">
-            <a class="media-link"
-               href="https://wa.me/5548996865891?text=Olá!%20Quero%20informações%20do%20Projeto%2004."
-               target="_blank" rel="noopener">
-              <img src="./images/projeto4.jpg" alt="Projeto 04" />
-              <div class="overlay">
-                <p class="title">Projeto 04 • Casa Térrea</p>
+            <div class="media-col">
+              <a class="media-link"
+                 href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2004%20no%20catálogo."
+                 target="_blank" rel="noopener">
+                <img src="./images/projeto4.jpg" alt="Projeto 04" />
+              </a>
+
+              <div class="media-meta">
+                <p class="title">Projeto 04 • (nome do projeto)</p>
                 <div class="badges">
                   <span class="badge">Área: <b>&nbsp;XX m²</b></span>
-                  <span class="badge">2 dormitórios</span>
-                  <span class="badge">1 banheiro</span>
+                  <span class="badge">X dormitórios</span>
+                  <span class="badge">X banheiros</span>
                 </div>
               </div>
-            </a>
+            </div>
 
             <div class="info-box">
               <h3>TERRENO</h3>
@@ -454,7 +475,7 @@
               </ul>
               <div class="cta-row">
                 <a class="btn"
-                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20catálogo%20de%20projetos%20prontos."
+                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2004%20no%20catálogo."
                    target="_blank" rel="noopener">Ver no catálogo</a>
 
                 <a class="btn btn-outline"
@@ -476,7 +497,7 @@
      target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg width="26" height="26" viewBox="0 0 24 24">
       <path d="M20 11.9a8 8 0 0 1-11.6 7.1L4 20l1.1-4.2A8 8 0 1 1 20 11.9Z"/>
-      <path d="M8.7 9.2c.2-.4.4-.4.6-.4h.5c.2 0 .4 0 .5.3l.8 1.9c.1.3.1.5-.1.7l-.5.6c-.1.2-.2.3 0 .6.2.3.8 1.3 1.8 2.1.9.8 1.7 1 2 .9l.8-.3c.3-.1.5-.1.7.1l1.6 1c.3.2.3.4.2 .7-.2.6-1.1 1.5-1.9 1.6-.8.1-1.7 0-3.2-.8-1.6-.8-2.8-2.2-3.6-3.4-.8-1.2-1.3-2.5-1.4-3.2 0-.7.2-1.4.5-1.8Z" fill="#25D366"/>
+      <path d="M8.7 9.2c.2-.4.4-.4.6-.4h.5c.2 0 .4 0 .5.3l.8 1.9c.1.3.1.5-.1.7l-.5.6c-.1.2-.2.3 0 .6.2.3.8 1.3 1.8 2.1.9.8 1.7 1 2 .9l.8-.3c.3-.1.5-.1.7.1l1.6 1c.3.2.3.4.2.7-.2.6-1.1 1.5-1.9 1.6-.8.1-1.7 0-3.2-.8-1.6-.8-2.8-2.2-3.6-3.4-.8-1.2-1.3-2.5-1.4-3.2 0-.7.2-1.4.5-1.8Z" fill="#25D366"/>
     </svg>
   </a>
 
