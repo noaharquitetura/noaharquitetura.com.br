@@ -1,183 +1,4 @@
 
-/* Card do projeto */
-.project-card{
-  display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 1.1rem;
-  align-items: stretch;
-}
-
-.project-media{
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow: 0 14px 45px rgba(0,0,0,.35);
-}
-
-.project-media img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-  transform: scale(1.01);
-  transition: .25s transform;
-}
-
-.project-media:hover img{ transform: scale(1.04); }
-
-.project-overlay{
-  position:absolute;
-  left:14px;
-  right:14px;
-  bottom:14px;
-  padding: .85rem .9rem;
-  border-radius: 16px;
-  background: rgba(10,14,18,.62);
-  border:1px solid rgba(255,255,255,.14);
-  backdrop-filter: blur(8px);
-}
-
-.project-title{
-  font-weight: 850;
-  letter-spacing: .2px;
-  margin:0 0 .25rem;
-}
-
-.project-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.45rem;
-}
-
-.badge{
-  display:inline-flex;
-  padding:.25rem .6rem;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  color: rgba(233,240,247,.82);
-  font-size:.82rem;
-}
-
-.project-info{
-  padding: 1.05rem;
-  border-radius: 18px;
-  background: rgba(17,24,36,.55);
-  border:1px solid rgba(255,255,255,.10);
-}
-
-.project-info h3{
-  margin:0 0 .5rem;
-  font-size: 1.12rem;
-}
-
-.project-info p{
-  margin:.35rem 0 0;
-  color: rgba(233,240,247,.78);
-  line-height: 1.55;
-}
-
-.project-cta{
-  display:flex;
-  gap:.6rem;
-  flex-wrap:wrap;
-  margin-top: .9rem;
-}
-
-@media (max-width: 900px){
-  .project-card{ grid-template-columns: 1fr; }
-}
-2) Cole este HTML onde você quer que apareça (ex.: dentro de <main>)
-<section id="projeto-serena">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <h2>Projeto em destaque</h2>
-        <p>Clique na imagem para ver o catálogo no WhatsApp.</p>
-      </div>
-    </div>
-
-    <div class="project-card">
-
-      <!-- IMAGEM CLICÁVEL -->
-      <a class="project-media"
-         href="https://wa.me/c/55SEUDDDSEUNUMERO"
-         target="_blank" rel="noopener"
-         aria-label="Abrir catálogo no WhatsApp">
-
-        <!-- Troque o src pela sua imagem -->
-        <img src="opcao1SERENA.jpeg.jpg" alt="Projeto residencial - fachada e planta" />
-
-        <!-- Overlay com metragem e dados rápidos -->
-        <div class="project-overlay">
-          <p class="project-title">Casa térrea contemporânea</p>
-          <div class="project-meta">
-            <span class="badge">Área: <b>&nbsp;45 m²</b></span>
-            <span class="badge">2 dormitórios</span>
-            <span class="badge">1 banheiro</span>
-            <span class="badge">Cozinha + estar</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- BLOCO PARA SEU TEXTO -->
-      <div class="project-info">
-        <h3>Resumo do projeto</h3>
-
-        <p>
-          Aqui é o lugar para você escrever seu texto. Exemplo:
-          Projeto funcional e aconchegante, com fachada em ripado de madeira e grandes panos de vidro,
-          valorizando luz natural e integração com o paisagismo tropical.
-        </p>
-
-        <p>
-          <b>Dados do projeto:</b><br>
-          • Área total: 45 m²<br>
-          • 2 dormitórios<br>
-          • Sala de estar integrada<br>
-          • Cozinha com bancada<br>
-          • Área de serviço<br>
-        </p>
-
-        <div class="project-cta">
-          <a class="btn" href="https://wa.me/c/55SEUDDDSEUNUMERO" target="_blank" rel="noopener">
-            Ver catálogo no WhatsApp
-          </a>
-          <a class="btn secondary" href="#contato">
-            Solicitar orçamento
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-3) Importante: link do catálogo do WhatsApp
-O mais comum para catálogo é:
-
-Catálogo: https://wa.me/c/55SEUDDDSEUNUMERO
-
-Se você não usar catálogo e quiser abrir conversa com mensagem:
-
-Chat com mensagem: https://wa.me/55SEUDDDSEUNUMERO?text=Quero%20ver%20esse%20projeto
-
-Você pode trocar o href por qualquer um desses.
-
-Se você me passar a metragem total certa (ex.: 45 m²? 47 m²?) e quantos quartos/banheiros exatamente, eu já te devolvo o texto pronto + os badges certinhos (bem estilo Instagram/portfólio).
-
-
-Você disse:
-
-
-
-eu quero que vc faça uma pagina projeto pronto no mesmo layout do site.nas mesmas cores e fundos , mesma letra
-
-O ChatGPT disse:
-Perfeito — eu montei uma página “Projeto Pronto” no estilo desse seu site: barra preta no topo, header branco com menu, hero com imagem grande, texto em fundo branco, faixa preta “Faça seu orçamento aqui”, e bloco cinza com cards arredondados.
-E a imagem do projeto fica clicável levando direto pro catálogo do WhatsApp.
-
-👉 Copie tudo abaixo e salve como projeto.html (é 1 arquivo só).
-Depois troque apenas: WHATSAPP_CATALOGO, imagens e textos.
 
 <!doctype html>
 <html lang="pt-BR">
@@ -596,7 +417,7 @@ Depois troque apenas: WHATSAPP_CATALOGO, imagens e textos.
         <div class="hero-box">
           <h1 class="hero-title">Projeto Pronto</h1>
           <p class="hero-sub">
-            Casa térrea contemporânea com fachada em ripado e paisagismo tropical.
+            CASA SERENA - térrea contemporânea com fachada em ripado e paisagismo tropical.
             Clique na imagem do projeto para acessar o catálogo no WhatsApp.
           </p>
         </div>
@@ -612,14 +433,12 @@ Depois troque apenas: WHATSAPP_CATALOGO, imagens e textos.
 
       <div class="text">
         <p>
-          Aqui você coloca seu texto do projeto (do jeitinho que está no seu site: leve, elegante e bem espaçado).
-          Ex.: Este projeto foi pensado para unir funcionalidade e estética, com materiais naturais, iluminação
+          Este projeto foi pensado para unir funcionalidade e estética, com materiais naturais, iluminação
           acolhedora e uma fachada contemporânea que valoriza o contexto local.
         </p>
 
         <p>
-          Você pode escrever mais parágrafos, colocar observações, explicar o layout e destacar diferenciais.
-          (O espaçamento e o “respiro” estão iguais ao padrão do layout do seu print.)
+          Possui sala integrada com a cozinha, dois dormitórios, 1 banheiro, área de serviço e varanda.
         </p>
       </div>
     </div>
@@ -645,7 +464,7 @@ Depois troque apenas: WHATSAPP_CATALOGO, imagens e textos.
         <!-- PROJETO PRONTO: imagem clicável + dados + texto -->
         <div class="project-ready">
           <!-- Troque o link para seu CATÁLOGO -->
-          <a class="media-link" href="https://wa.me/c/55SEUDDDSEUNUMERO" target="_blank" rel="noopener">
+          <a class="media-link" href="https://wa.me/c/55996865891" target="_blank" rel="noopener">
             <!-- Troque para sua imagem (aquela com fachada + planta) -->
             <img src="opcao1SERENA.jpeg.jpg" alt="Projeto pronto - fachada e planta" />
             <div class="overlay">
@@ -661,24 +480,24 @@ Depois troque apenas: WHATSAPP_CATALOGO, imagens e textos.
           </a>
 
           <div class="info-box">
-            <h3>Dados do projeto</h3>
+            <h3>TERRENO</h3>
             <p>
-              Aqui é o seu “lugar do texto”: descrição curta, o que o cliente recebe,
-              para quem é indicado, e observações (ex.: adaptações possíveis).
+              Indicado para terrenos a partir de 12x30 ( GAROPABA-SC)
+              e 12x25 (IMBITUBA-SC), nas demais cidades orientamos ao cliente verificar o zoneamento local permitido.
             </p>
 
             <ul class="info-list">
-              <li><b>Área total:</b> XX m²</li>
+              <li><b>Área total:</b> 68 m²</li>
               <li><b>Ambientes:</b> sala + cozinha, 2 dormitórios, 1 banheiro</li>
               <li><b>Complementos:</b> serviço (lavanderia)</li>
-              <li><b>Entrega:</b> planta, layout, fachadas e imagens</li>
+              <li><b>Entrega:</b> planta, layout, fachadas e 1 imagem 3D</li>
             </ul>
 
             <div class="cta-row">
-              <a class="btn" href="https://wa.me/c/55SEUDDDSEUNUMERO" target="_blank" rel="noopener">
+              <a class="btn" href="https://wa.me/c/55996865891" target="_blank" rel="noopener">
                 Ver no catálogo do WhatsApp
               </a>
-              <a class="btn btn-outline" href="https://wa.me/55SEUDDDSEUNUMERO?text=Olá!%20Quero%20orçamento%20do%20Projeto%20Serena."
+              <a class="btn btn-outline" href="https://wa.me/55S48996865891?text=Olá!%20Quero%20orçamento%20do%20Projeto%20Serena."
                  target="_blank" rel="noopener">
                 Pedir orçamento
               </a>
@@ -710,7 +529,7 @@ Depois troque apenas: WHATSAPP_CATALOGO, imagens e textos.
 
   <!-- Whats flutuante -->
   <a class="whats-float"
-     href="https://wa.me/55SEUDDDSEUNUMERO?text=Olá!%20Quero%20informações%20sobre%20projetos%20prontos."
+     href="https://wa.me/5548996865891?text=Olá!%20Quero%20informações%20sobre%20projetos%20prontos."
      target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg width="26" height="26" viewBox="0 0 24 24">
       <path d="M20 11.9a8 8 0 0 1-11.6 7.1L4 20l1.1-4.2A8 8 0 1 1 20 11.9Z"/>
