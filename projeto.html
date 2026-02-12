@@ -132,6 +132,7 @@
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:30px;
+      align-items:stretch; /* ajuda a alinhar as linhas */
     }
 
     /* Card */
@@ -139,18 +140,19 @@
       display:grid;
       grid-template-columns: 1.15fr .85fr;
       gap:20px;
-      align-items:stretch;
+      align-items:stretch; /* ESSENCIAL */
       background:#fff;
       border-radius:22px;
       border:1px solid rgba(0,0,0,.07);
       padding:18px;
     }
 
-    /* Coluna esquerda: imagem + “banner” ABAIXO (sem cobrir a foto) */
+    /* Coluna esquerda */
     .media-col{
       display:flex;
       flex-direction:column;
       gap:12px;
+      height:100%;
     }
 
     .media-link{
@@ -160,14 +162,19 @@
       box-shadow:0 18px 55px rgba(0,0,0,.12);
       border:1px solid rgba(0,0,0,.06);
       display:block;
+      width:100%;
+
+      /* padroniza altura da área da imagem */
+      aspect-ratio: 4 / 5; /* ajuste se quiser: 3/4, 1/1, etc */
     }
     .media-link img{
       width:100%;
-      height:auto;
+      height:100%;
+      object-fit:cover;
       display:block;
     }
 
-    /* “Banner” do projeto (agora fora da foto) */
+    /* “Banner” fora da imagem */
     .media-meta{
       background:rgba(0,0,0,.55);
       color:#fff;
@@ -201,6 +208,11 @@
       border-radius:22px;
       padding:16px;
       border:1px solid rgba(0,0,0,.07);
+
+      /* deixa os botões sempre alinhados no final */
+      display:flex;
+      flex-direction:column;
+      height:100%;
     }
     .info-box h3{
       margin:0 0 10px;
@@ -208,21 +220,29 @@
       letter-spacing:.02em;
       font-size:18px;
     }
+
+    /* >>> AQUI: tirei as bolinhas (•) <<< */
     .info-list{
+      list-style:none;
       margin:0;
-      padding-left:18px;
+      padding:0;
       color:#4a4a4a;
       font-weight:300;
       line-height:1.9;
       font-size:15.5px;
     }
+    .info-list li + li{ margin-top:6px; }
 
     .cta-row{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:14px;
+
+      /* empurra pro final da coluna */
+      margin-top:auto;
+      padding-top:14px;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -272,6 +292,9 @@
       .soft-head h2{ font-size:30px; }
       .grid-projetos{ grid-template-columns:1fr; }
       .project-ready{ grid-template-columns:1fr; }
+      .media-link{ aspect-ratio:auto; } /* no mobile deixa livre */
+      .media-link img{ height:auto; object-fit:initial; }
+      .cta-row{ margin-top:14px; }
     }
   </style>
 </head>
@@ -335,16 +358,14 @@
           <!-- CASA SERENA -->
           <div class="project-ready">
             <div class="media-col">
-              <!-- link do clique na imagem -->
               <a class="media-link"
                  href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2001%20no%20catálogo."
                  target="_blank" rel="noopener">
-                <img src="./images/projeto1.jpg" alt="Projeto 01 - Casa Serena" />
+                <img src="./images/projeto1.png" alt=" Casa Serena" />
               </a>
 
-              <!-- “banner” fora da imagem -->
               <div class="media-meta">
-                <p class="title">Projeto 01 • CASA SERENA</p>
+                <p class="title">• CASA SERENA</p>
                 <div class="badges">
                   <span class="badge">Área: <b>&nbsp;68 m²</b></span>
                   <span class="badge">2 dormitórios</span>
@@ -355,11 +376,12 @@
             </div>
 
             <div class="info-box">
-              <h3>TERRENO</h3>
+              <h3></h3>
               <ul class="info-list">
                 <li><b>Indicação:</b> terreno a partir de 12x30</li>
                 <li><b>Entrega:</b> planta baixa, cortes, fachadas e 1 imagem 3D</li>
               </ul>
+
               <div class="cta-row">
                 <a class="btn"
                    href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2001%20no%20catálogo."
@@ -378,11 +400,11 @@
               <a class="media-link"
                  href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2002%20no%20catálogo."
                  target="_blank" rel="noopener">
-                <img src="./images/projeto2.jpg" alt="Projeto 02 - Casa Brisa" />
+                <img src="./images/projeto2.jpg" alt=" Casa Brisa" />
               </a>
 
               <div class="media-meta">
-                <p class="title">Projeto 02 • CASA BRISA</p>
+                <p class="title"> CASA BRISA</p>
                 <div class="badges">
                   <span class="badge">Área: <b>&nbsp;38 m²</b></span>
                   <span class="badge">1 dormitório</span>
@@ -394,14 +416,15 @@
             </div>
 
             <div class="info-box">
-              <h3>TERRENO</h3>
+              <h3></h3>
               <ul class="info-list">
                 <li><b>Indicação:</b> terreno a partir de 12x30</li>
                 <li><b>Entrega:</b> planta baixa, cortes, fachadas e 1 imagem 3D</li>
               </ul>
+
               <div class="cta-row">
                 <a class="btn"
-                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2002%20no%20catálogo."
+                   href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%20002%20no%20catálogo."
                    target="_blank" rel="noopener">Ver no catálogo</a>
 
                 <a class="btn btn-outline"
@@ -436,6 +459,7 @@
                 <li><b>Indicação:</b> terreno a partir de XXxXX</li>
                 <li><b>Entrega:</b> planta baixa, cortes, fachadas e 1 imagem 3D</li>
               </ul>
+
               <div class="cta-row">
                 <a class="btn"
                    href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2003%20no%20catálogo."
@@ -473,6 +497,7 @@
                 <li><b>Indicação:</b> terreno a partir de XXxXX</li>
                 <li><b>Entrega:</b> planta baixa, cortes, fachadas e 1 imagem 3D</li>
               </ul>
+
               <div class="cta-row">
                 <a class="btn"
                    href="https://wa.me/5548996865891?text=Olá!%20Quero%20ver%20o%20Projeto%2004%20no%20catálogo."
