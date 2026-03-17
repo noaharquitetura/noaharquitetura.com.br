@@ -1,205 +1,369 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Galeria | Noah Arquitetura</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Galeria | Noah Arquitetura</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Ícones -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f4f4f4;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-/* TÍTULO */
-.titulo {
-  text-align: center;
-  margin: 50px 0 30px;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+    }
 
-.titulo h2 {
-  margin-bottom: 10px;
-}
+    body {
+      line-height: 1.5;
+    }
 
-/* GALERIA DE FOTOS */
-.galeria {
-  max-width: 1200px;
-  margin: 0 auto 80px;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
+    /* HEADER */
+    header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fff;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-.galeria img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 12px;
-}
+    .logo-site {
+      font-size: 22px;
+      letter-spacing: 2px;
+      margin: 0;
+    }
 
-/* VÍDEOS */
-.video-galeria {
-  max-width: 1200px;
-  margin: 0 auto 100px;
-  padding: 0 20px;
-  display: grid;
-  gap: 40px;
-}
+    .logo-site a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  background: #000;
-}
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
 
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+    nav a {
+      text-decoration: none;
+      color: #2c2c2c;
+      font-size: 14px;
+      transition: color 0.3s ease, opacity 0.3s ease;
+    }
 
-/* FOOTER */
-footer {
-  background: #1e1e1e;
-  color: #fff;
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 13px;
-}
+    nav a:hover {
+      opacity: 0.7;
+    }
 
-.redes {
-  margin-bottom: 15px;
-}
+    nav a.ativo {
+      font-weight: 600;
+    }
 
-.redes a {
-  color: #fff;
-  font-size: 28px;
-  margin: 0 12px;
-  text-decoration: none;
-}
+    /* TÍTULO */
+    .titulo {
+      text-align: center;
+      margin: 55px 20px 35px;
+    }
 
-.redes a:hover {
-  color: #25D366;
-}
+    .titulo h2 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      font-weight: 600;
+      color: #1f1f1f;
+    }
 
-.frase-fe {
-  margin-top: 10px;
-  font-style: italic;
-  opacity: 0.7;
-}
-</style>
+    .titulo p {
+      margin: 0;
+      color: #666;
+      font-size: 16px;
+    }
+
+    /* GALERIA DE FOTOS */
+    .galeria {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .galeria img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      background: #ddd;
+    }
+
+    .galeria img:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+    }
+
+    /* SEÇÃO DE VÍDEOS */
+    .videos-3d {
+      max-width: 1200px;
+      margin: 0 auto 100px;
+      padding: 0 20px;
+    }
+
+    .videos-3d .subtitulo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .videos-3d .subtitulo h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      color: #1f1f1f;
+      font-weight: 600;
+    }
+
+    .videos-3d .subtitulo p {
+      margin: 0;
+      color: #666;
+      font-size: 15px;
+    }
+
+    .video-galeria {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #000;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-container:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1e1e1e;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 13px;
+    }
+
+    .redes {
+      margin-bottom: 15px;
+    }
+
+    .redes a {
+      color: #fff;
+      font-size: 28px;
+      margin: 0 12px;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+      display: inline-block;
+    }
+
+    .redes a:hover {
+      color: #25D366;
+      transform: scale(1.08);
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    .frase-fe {
+      margin-top: 10px;
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      header {
+        padding: 25px 20px;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .logo-site {
+        font-size: 20px;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .titulo h2 {
+        font-size: 28px;
+      }
+
+      .titulo p {
+        font-size: 15px;
+      }
+
+      .videos-3d .subtitulo h3 {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .galeria {
+        grid-template-columns: 1fr;
+      }
+
+      .galeria img {
+        height: 230px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .redes a {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header style="max-width:1200px;margin:auto;padding:30px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e5e5e5;background:#fff;">
-  <h1 style="font-size:22px;letter-spacing:2px;margin:0;">
-    <a href="index.html" style="text-decoration:none;color:inherit;">NOAH ARQUITETURA</a>
-  </h1>
+  <header>
+    <h1 class="logo-site">
+      <a href="index.html">NOAH ARQUITETURA</a>
+    </h1>
 
-  <nav>
-    <a href="arquiteto-em-garopaba.html" style="margin-left:25px;text-decoration:none;color:#2c2c2c;font-size:14px;">Arquiteto em Garopaba</a>
-    <a href="index.html#projetos" style="margin-left:25px;text-decoration:none;color:#2c2c2c;font-size:14px;">Projetos</a>
-    <a href="galeria.html" style="margin-left:25px;text-decoration:none;color:#2c2c2c;font-size:14px;font-weight:600;">Galeria</a>
-    <a href="index.html#contato" style="margin-left:25px;text-decoration:none;color:#2c2c2c;font-size:14px;">Contato</a>
-  </nav>
-</header>
+    <nav>
+      <a href="arquiteto-em-garopaba.html">Arquiteto em Garopaba</a>
+      <a href="index.html#projetos">Projetos</a>
+      <a href="galeria.html" class="ativo">Galeria</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+  </header>
 
-<!-- TÍTULO -->
-<div class="titulo">
-  <h2>Arquitetura</h2>
-  <p>Projetos desenvolvidos com funcionalidade, estética e conforto</p>
-</div>
+  <!-- TÍTULO -->
+  <section class="titulo">
+    <h2>Arquitetura</h2>
+    <p>Projetos desenvolvidos com funcionalidade, estética e conforto</p>
+  </section>
 
-<!-- GALERIA DE FOTOS -->
-<div class="galeria">
-  <img src="/images/predio1.jpg" alt="Projeto arquitetônico">
-  <img src="/images/ferrugem.jpg" alt="Projeto arquitetônico">
-  <img src="/images/espetacular.jpg" alt="Projeto arquitetônico">
-  <img src="/images/1.jpg" alt="Projeto arquitetônico">
-  <img src="/images/encantada.jpg" alt="Projeto arquitetônico">
-  <img src="/images/sobrados.jpg" alt="Projeto arquitetônico">
-  <img src="/images/quitinete1.png" alt="Projeto arquitetônico">
-  <img src="/images/casaibira.png" alt="Projeto arquitetônico">
-  <img src="/images/casaibira1.png" alt="Projeto arquitetônico">
-  <img src="/images/casaestreito.png" alt="Projeto arquitetônico">
-  <img src="/images/casapedra.png" alt="Projeto arquitetônico">
-  <img src="/images/bosqueimbituba.jpg" alt="Projeto arquitetônico">
-  <img src="/images/casafundo.jpg" alt="Projeto arquitetônico">
-  <img src="/images/LOGO.png" alt="Projeto arquitetônico">
-  <img src="/images/LOGO3.png" alt="Projeto arquitetônico">
-  <img src="/images/casa1.jpg" alt="Projeto arquitetônico">
-  <img src="/images/dunas.jpg" alt="Projeto arquitetônico">
-  <img src="/images/reforma.jpg" alt="Projeto arquitetônico">
-  <img src="/images/fortunato.jpg" alt="Projeto arquitetônico">
-  <img src="/images/layoutambrosio1.jpg" alt="Projeto arquitetônico">
-  <img src="/images/layoutambrosio2.jpg" alt="Projeto arquitetônico">
-  <img src="/images/salaclara.jpg" alt="Projeto arquitetônico">
-  <img src="/images/salalareira.png" alt="Projeto arquitetônico">
-   <img src="/images/salaintegrada.jpg" alt="Projeto arquitetônico">
-  <img src="/images/cozinhaintegrada.jpg" alt="Projeto arquitetônico">
-   <img src="/images/salarustica.jpg" alt="Projeto arquitetônico">
- 
-   
-<!-- VÍDEOS 3D -->
-<div class="video-galeria">
+  <!-- GALERIA DE FOTOS -->
+  <section class="galeria">
+    <img src="/images/predio1.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/ferrugem.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/espetacular.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/1.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/encantada.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/sobrados.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/quitinete1.png" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/casaibira.png" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/casaibira1.png" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/casaestreito.png" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/casapedra.png" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/bosqueimbituba.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/casafundo.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/LOGO.png" alt="Identidade visual Noah Arquitetura" loading="lazy">
+    <img src="/images/LOGO3.png" alt="Identidade visual Noah Arquitetura" loading="lazy">
+    <img src="/images/casa1.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/dunas.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/reforma.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/fortunato.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/layoutambrosio1.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/layoutambrosio2.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/salaclara.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/salalareira.png" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/salaintegrada.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/cozinhaintegrada.jpg" alt="Projeto arquitetônico" loading="lazy">
+    <img src="/images/salarustica.jpg" alt="Projeto arquitetônico" loading="lazy">
+  </section>
 
-  <div class="video-container">
-    <iframe
-      src="https://www.youtube.com/embed/7syYu1Wh5dg"
-      title="Vídeo 3D - Casa Rústica no Litoral"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <!-- VÍDEOS 3D -->
+  <section class="videos-3d">
+    <div class="subtitulo">
+      <h3>Animações 3D</h3>
+      <p>Apresentações visuais para valorizar cada projeto com mais realismo e impacto</p>
+    </div>
 
-  <div class="video-container">
-    <iframe
-      src="https://www.youtube.com/embed/OcvLkEz9Poo"
-      title="Vídeo 3D - Animações em 3D"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
+    <div class="video-galeria">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/7syYu1Wh5dg"
+          title="Vídeo 3D - Casa Rústica no Litoral"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-  <div class="video-container">
-    <iframe
-      src="https://www.youtube.com/embed/FnOQ08eqQ-g"
-      title="Vídeo 3D - Reforma Residencial"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/OcvLkEz9Poo"
+          title="Vídeo 3D - Animações em 3D"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-</div>
-<!-- FOOTER -->
-<footer>
-  <div class="redes">
-    <a href="https://www.instagram.com/noaharquitetura/" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://wa.me/5548996865891" target="_blank" aria-label="WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-  </div>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/FnOQ08eqQ-g"
+          title="Vídeo 3D - Reforma Residencial"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
 
-  <p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
-  <p class="frase-fe">"A Deus toda honra e toda glória."</p>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="redes">
+      <a href="https://www.instagram.com/noaharquitetura/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://wa.me/5548996865891" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+
+    <p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
+    <p class="frase-fe">"A Deus toda honra e toda glória."</p>
+  </footer>
 
 </body>
 </html>
