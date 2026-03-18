@@ -1,542 +1,559 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="GqiQt01IGH3dSSGa_6nB_LQXCWNMEzCZggCciFyRgMk" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="google-site-verification" content="GqiQt01IGH3dSSGa_6nB_LQXCWNMEzCZggCciFyRgMk" />
-
-    <!-- GOOGLE ANALYTICS -->
+  <!-- GOOGLE ANALYTICS -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCK1E11SHM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-YCK1E11SHM');
   </script>
 
-<title>Noah Arquitetura</title>
+  <title>Noah Arquitetura</title>
 
-<link rel="canonical" href="https://noaharquitetura.com.br/">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://noaharquitetura.com.br/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  /* AJUSTE TEXTO SOBRE */
-.sobre-texto {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  line-height: 1.7;
-  text-align: justify;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Montserrat', sans-serif;
+    }
 
-.sobre-texto h3 {
-  text-align: center;
-  margin-bottom: 25px;
-}
+    body{
+      background:#fff;
+      color:#2c2c2c;
+      line-height:1.7;
+    }
 
-.sobre-texto h4 {
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
+    /* TOPO SOCIAL */
+    .topo-social{
+      background:#111;
+      padding:10px 0;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+    }
 
-.sobre-texto p {
-  margin-bottom: 16px;
-}
+    .topo-social a{
+      color:#fff;
+      font-size:20px;
+      transition:0.3s;
+    }
 
-.sobre-texto strong {
-  display: inline-block;
-  margin-bottom: 4px;
-}  
-   
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Montserrat', sans-serif;
-}
+    .topo-social a:hover{
+      color:#cfa670;
+    }
 
-body{
-  background:#fff;
-  color:#2c2c2c;
-  line-height:1.7;
-}
-/* TOPO SOCIAL */
-.topo-social {
-  background:#111;
-  padding:10px 0;
-  display:flex;
-  justify-content:center;
-  gap:20px;
-}
+    /* HEADER */
+    header{
+      max-width:1200px;
+      margin:auto;
+      padding:30px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid #e5e5e5;
+    }
 
-.topo-social a{
-  color:#fff;
-  font-size:20px;
-  transition:0.3s;
-}
+    header h1{
+      font-size:22px;
+      letter-spacing:2px;
+    }
 
-.topo-social a:hover{
-  color:#cfa670;
-}
-/* HEADER */
-header{
-  max-width:1200px;
-  margin:auto;
-  padding:30px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #e5e5e5;
-}
+    nav a{
+      margin-left:25px;
+      text-decoration:none;
+      color:#2c2c2c;
+      font-size:14px;
+    }
 
-header h1{
-  font-size:22px;
-  letter-spacing:2px;
-}
+    nav a:hover{
+      opacity:0.6;
+    }
 
-nav a{
-  margin-left:25px;
-  text-decoration:none;
-  color:#2c2c2c;
-  font-size:14px;
-}
+    /* HERO */
+    .hero{
+      height:100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('images/banner.jpg') center/cover no-repeat;
+      display:flex;
+      align-items:flex-end;
+      padding:60px;
+      color:#fff;
+    }
 
-nav a:hover{opacity:0.6;}
+    .hero h2{
+      font-size:44px;
+      font-weight:300;
+      max-width:700px;
+    }
 
-/* HERO */
-.hero{
-  height:100vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-    url('images/banner.jpg') center/cover no-repeat;
-  display:flex;
-  align-items:flex-end;
-  padding:60px;
-  color:#fff;
-}
+    /* SEÇÕES */
+    section{
+      max-width:1100px;
+      margin:auto;
+      padding:80px 40px;
+    }
 
-.hero h2{
-  font-size:44px;
-  font-weight:300;
-  max-width:700px;
-}
+    /* AJUSTE TEXTO SOBRE */
+    .sobre-texto{
+      max-width:850px;
+      margin:0 auto;
+      padding:30px 20px;
+      line-height:1.7;
+      text-align:justify;
+    }
 
-/* SEÇÕES */
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:80px 40px;
-}
+    .sobre-texto h3{
+      text-align:center;
+      margin-bottom:25px;
+    }
 
-/* SOBRE TEXTO */
-.sobre-texto p{
-  max-width:850px;
-  margin-bottom:18px;
-}
+    .sobre-texto h4{
+      margin-top:40px;
+      margin-bottom:20px;
+    }
 
-/* BANNER ORÇAMENTO */
-.banner-orcamento{
-  background:#000;
-  color:#fff;
-  text-align:center;
-  padding:30px 20px;   /* altura menor */
-  margin:40px 0;
-  border-radius:20px;
-}
+    .sobre-texto p{
+      margin-bottom:16px;
+    }
 
-.banner-orcamento a{
-  color:#fff;
-  text-decoration:none;
-  font-size:28px;
-  font-weight:300;
-  letter-spacing:1px;
-}
+    .sobre-texto strong{
+      display:inline-block;
+      margin-bottom:4px;
+    }
 
-.banner-orcamento a:hover{
-  opacity:0.8;
-}
+    /* BANNER ORÇAMENTO */
+    .banner-orcamento{
+      background:#000;
+      color:#fff;
+      text-align:center;
+      padding:30px 20px;
+      margin:40px auto;
+      border-radius:20px;
+      max-width:1100px;
+    }
 
-/* PROJETOS */
-.projetos-banner{
-  background:#f4f4f4;
-  border-radius:24px;
-  padding:80px 40px;
-}
+    .banner-orcamento a{
+      color:#fff;
+      text-decoration:none;
+      font-size:28px;
+      font-weight:300;
+      letter-spacing:1px;
+    }
 
-.banner-texto{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  margin-bottom:40px;
-  gap:16px;
-}
+    .banner-orcamento a:hover{
+      opacity:0.8;
+    }
 
-.banner-texto h3{
-  font-size:32px;
-  font-weight:300;
-}
+    /* PROJETOS */
+    .projetos-banner{
+      background:#f4f4f4;
+      border-radius:24px;
+      padding:80px 40px;
+    }
 
-/* NOVO: BANNERS (GALERIA + PROJETOS PRONTOS) */
-.banner-links{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:flex-end;
-}
+    .banner-texto{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-bottom:40px;
+      gap:16px;
+    }
 
-.btn-banner{
-  display:inline-block;
-  padding:14px 22px;
-  text-decoration:none;
-  font-size:13px;
-  border-radius:10px;
-  border:1px solid transparent;
-  transition:0.25s;
-  letter-spacing:0.3px;
-}
+    .banner-texto h3{
+      font-size:32px;
+      font-weight:300;
+    }
 
-/* Banner preto - Galeria */
-.btn-galeria{
-  background:#000;
-  color:#fff;
-  border-color:#000;
-}
+    /* BANNERS */
+    .banner-links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
 
-.btn-galeria:hover{
-  opacity:0.85;
-}
+    .btn-banner{
+      display:inline-block;
+      padding:14px 22px;
+      text-decoration:none;
+      font-size:13px;
+      border-radius:10px;
+      border:1px solid transparent;
+      transition:0.25s;
+      letter-spacing:0.3px;
+    }
 
-/* Banner verde - Projetos Prontos */
-.btn-projetos-prontos{
-  background:#6b7459; /* verde elegante */
-  color:#fff;
-  border-color:#6b7459;
-}
+    .btn-galeria{
+      background:#000;
+      color:#fff;
+      border-color:#000;
+    }
 
-.btn-projetos-prontos:hover{
-  opacity:0.88;
-}
+    .btn-galeria:hover{
+      opacity:0.85;
+    }
 
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
+    .btn-projetos-prontos{
+      background:#6b7459;
+      color:#fff;
+      border-color:#6b7459;
+    }
 
-.project{
-  text-decoration:none;
-  color:inherit;
-  background:#fff;
-  border-radius:16px;
-  overflow:hidden;
-  transition:.3s;
-}
+    .btn-projetos-prontos:hover{
+      opacity:0.88;
+    }
 
-.project:hover{transform:translateY(-6px);}
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:30px;
+    }
 
-.project img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
+    .project{
+      text-decoration:none;
+      color:inherit;
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      transition:.3s;
+    }
 
-.project span{
-  display:block;
-  padding:16px;
-  text-align:center;
-}
+    .project:hover{
+      transform:translateY(-6px);
+    }
 
-/* SOBRE NÓS */
-.fotos{
-  display:flex;
-  gap:40px;
-  flex-wrap:wrap;
-  margin-top:40px;
-  justify-content:center;   /* CENTRALIZA HORIZONTAL */
-}
+    .project img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      display:block;
+    }
 
-.pessoa{
-  text-align:center;
-}
+    .project span{
+      display:block;
+      padding:16px;
+      text-align:center;
+    }
 
-.pessoa img{
-  width:240px;
-  height:320px;
-  object-fit:cover;
-  border-radius:18px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
+    /* SOBRE NÓS */
+    .fotos{
+      display:flex;
+      gap:40px;
+      flex-wrap:wrap;
+      margin-top:40px;
+      justify-content:center;
+    }
 
-.pessoa strong{
-  display:block;
-  margin-top:14px;
-}
+    .pessoa{
+      text-align:center;
+    }
 
-.pessoa span{
-  font-size:14px;
-  color:#666;
-}
+    .pessoa img{
+      width:240px;
+      height:320px;
+      object-fit:cover;
+      border-radius:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    }
 
-.pessoa-link {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-}
+    .pessoa strong{
+      display:block;
+      margin-top:14px;
+    }
 
-/* CONTATO */
-.contato{text-align:center;}
+    .pessoa span{
+      font-size:14px;
+      color:#666;
+    }
 
-/* FOOTER */
-footer{
-  background:#1e1e1e;
-  color:#fff;
-  text-align:center;
-  padding:40px 20px;
-  font-size:13px;
-}
+    .pessoa-link{
+      text-decoration:none;
+      color:inherit;
+      display:inline-block;
+    }
 
-.redes a{
-  color:#fff;
-  font-size:28px;
-  margin:0 10px;
-}
+    /* CONTATO */
+    .contato{
+      text-align:center;
+    }
 
-.redes a:hover{color:#25D366;}
+    /* FOOTER */
+    footer{
+      background:#1e1e1e;
+      color:#fff;
+      text-align:center;
+      padding:40px 20px;
+      font-size:13px;
+    }
 
-.frase-fe{
-  margin-top:10px;
-  font-style:italic;
-  opacity:.7;
-}
+    .redes a{
+      color:#fff;
+      font-size:28px;
+      margin:0 10px;
+    }
 
-@media(max-width:768px){
-  .hero h2{font-size:30px;}
+    .redes a:hover{
+      color:#25D366;
+    }
 
-  header{
-    flex-direction:column;
-    align-items:center;
-    gap:20px;
-    padding:20px;
-  }
+    .frase-fe{
+      margin-top:10px;
+      font-style:italic;
+      opacity:.7;
+    }
 
-  nav{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:12px;
-  }
+    /* EQUIPE */
+    .equipe{
+      text-align:center;
+    }
 
-  nav a{
-    margin-left:0;
-    display:block;
-    width:100%;
-    text-align:center;
-    padding:10px 0;
-  }
+    .equipe h3{
+      margin-bottom:40px;
+      font-size:32px;
+      font-weight:300;
+    }
 
-  .banner-texto{
-    flex-direction:column;
-    align-items:flex-start;
-  }
+    /* WHATSAPP FLUTUANTE */
+    .whatsapp-float{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      width:60px;
+      height:60px;
+      background-color:#25d366;
+      color:#fff;
+      border-radius:50%;
+      text-align:center;
+      font-size:32px;
+      line-height:60px;
+      z-index:9999;
+      box-shadow:0 4px 10px rgba(0,0,0,0.3);
+      transition:transform 0.3s ease;
+    }
 
-  .banner-links{
-    justify-content:flex-start;
-  }
-}
+    .whatsapp-float:hover{
+      transform:scale(1.1);
+    }
 
-/* ⬇️ AJUSTE: equipe sem brigar com section padding ⬇️ */
-.equipe{
-  text-align:center;
-}
-.equipe h3{
-  margin-bottom:40px;
-  font-size:32px;
-  font-weight:300;
-}
+    @media (max-width:768px){
+      .hero h2{
+        font-size:30px;
+      }
 
-/* ✅ WHATSAPP FLUTUANTE (NOVO) */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #25d366;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 32px;
-  line-height: 60px;
-  z-index: 9999;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-}
+      header{
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+        padding:20px;
+      }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-</style>
+      nav{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:12px;
+      }
 
+      nav a{
+        margin-left:0;
+        display:block;
+        width:100%;
+        text-align:center;
+        padding:10px 0;
+      }
+
+      .banner-texto{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .banner-links{
+        justify-content:flex-start;
+      }
+
+      .banner-orcamento a{
+        font-size:22px;
+      }
+
+      section{
+        padding:60px 20px;
+      }
+
+      .hero{
+        padding:30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- TOPO SOCIAL -->
-<div class="topo-social">
-  <a href="https://www.instagram.com/noaharquitetura/" target="_blank">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://wa.me/5548996865891" target="_blank">
+  <!-- TOPO SOCIAL -->
+  <div class="topo-social">
+    <a href="https://www.instagram.com/noaharquitetura/" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/5548996865891" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <header>
+    <h1>
+      <a href="/" style="text-decoration:none; color:inherit;">NOAH ARQUITETURA</a>
+    </h1>
+
+    <nav>
+      <a href="projeto.html">Projetos Prontos</a>
+      <a href="arquiteto-em-garopaba.html">Arquiteto em Garopaba</a>
+      <a href="#projetos">Projetos</a>
+      <a href="galeria.html">Galeria</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Arquitetura que acolhe, inspira e permanece.</h2>
+  </div>
+
+  <section class="sobre-texto">
+    <h3>Noah Arquitetura</h3>
+
+    <p>A Noah Arquitetura atua em Imbituba, Garopaba, Paulo Lopes e região, com atendimento também no norte do Paraná, abrangendo Londrina e região. É especializada em projetos residenciais, comerciais, reformas e interiores, unindo técnica, sensibilidade e criatividade em cada detalhe.</p>
+
+    <p>Com mais de uma década de atuação, desenvolvemos projetos arquitetônicos personalizados que refletem o estilo, a essência e as necessidades de cada cliente, sempre respeitando o contexto urbano, a funcionalidade e a estética.</p>
+
+    <p>Nossa atuação vai além do projeto arquitetônico. Somos especialistas em laudos técnicos e avaliações imobiliárias conforme a NBR 14.653, garantindo precisão, transparência e segurança jurídica em cada trabalho.</p>
+
+    <p>Também atuamos na elaboração de Projetos de Prevenção e Combate a Incêndio (<a href="ppci.html">PPCI</a>), além da emissão de relatórios técnicos em conformidade com as exigências do Corpo de Bombeiros.</p>
+
+    <p>Prestamos assessoria completa em regularização imobiliária, incluindo processos de usucapião e consultorias técnicas, sempre conduzidos com ética, responsabilidade e comprometimento.</p>
+
+    <h4>Nossa equipe</h4>
+
+    <p><strong>Patricia Busato</strong> é Arquiteta formada pela UNIMAR (SP) e atua desde 2014 como profissional terceirizada da Caixa Econômica Federal na elaboração de laudos e avaliações imobiliárias. Com a crescente demanda por projetos arquitetônicos, passou a expandir sua atuação, desenvolvendo projetos residenciais e comerciais com foco em qualidade, viabilidade e identidade arquitetônica.</p>
+
+    <p><strong>Marcus Busato</strong> é servidor público, analista de projetos, graduado em Desenho Industrial pela PUC Curitiba e formado como Técnico em Edificações pelo SENAI, contribuindo com conhecimento técnico e visão prática no desenvolvimento dos projetos.</p>
+
+    <p>A equipe conta também com o <strong>Engenheiro Civil Carlos Soléo</strong>, profissional com mais de 20 anos de atuação como terceirizado da Caixa Econômica Federal, especializado em avaliações imobiliárias, garantindo respaldo técnico e confiabilidade aos serviços prestados.</p>
+
+    <p>No âmbito jurídico, contamos com a <strong>Advogada Dra. Cassia Soléo</strong>, responsável pelos processos de usucapião e assessoria em regularização imobiliária em Garopaba e região, assegurando suporte legal completo aos nossos clientes.</p>
+
+    <p>Cada projeto é desenvolvido de forma exclusiva, buscando equilíbrio entre estética, funcionalidade e viabilidade construtiva, sempre com o objetivo de proporcionar qualidade de vida, segurança e valorização do imóvel.</p>
+  </section>
+
+  <div class="banner-orcamento">
+    <a href="https://wa.me/5548996865891" target="_blank" rel="noopener noreferrer">Faça seu orçamento aqui</a>
+  </div>
+
+  <section id="projetos" class="projetos-banner">
+    <div class="banner-texto">
+      <h3>Veja alguns de nossos projetos</h3>
+
+      <div class="banner-links">
+        <a href="galeria.html" class="btn-banner btn-galeria">Galeria</a>
+        <a href="projeto.html" class="btn-banner btn-projetos-prontos">Projetos Prontos</a>
+      </div>
+    </div>
+
+    <div class="projects">
+      <a href="galeria.html" class="project">
+        <img src="images/casaibira1.png" alt="Residencial">
+        <span>Residencial</span>
+      </a>
+
+      <a href="galeria.html" class="project">
+        <img src="images/misto.jpg" alt="Residencial e Comercial">
+        <span>Residencial e Comercial</span>
+      </a>
+
+      <a href="galeria.html" class="project">
+        <img src="images/salaclara.jpg" alt="Interiores">
+        <span>Interiores</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="equipe">
+    <h3>Conheça nossa Equipe</h3>
+
+    <div class="fotos">
+      <a href="designermarcusbusato.html" class="pessoa-link">
+        <div class="pessoa">
+          <img src="images/arquitetosnoah.jpeg" alt="Arquiteta Patrícia e Designer Marcus">
+          <strong>Arquiteta Patrícia &amp; Designer Marcus</strong>
+          <span>Projetos &amp; Avaliações</span>
+        </div>
+      </a>
+
+      <a href="engenheirocarlossoleo.html" class="pessoa-link">
+        <div class="pessoa">
+          <img src="images/engenheiro.jpeg" alt="Engenheiro Civil Carlos">
+          <strong>Eng. Civil Carlos</strong>
+          <span>Avaliações Imobiliárias</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <h3>Contato</h3>
+    <p>
+      📧 noaharquitetura@hotmail.com<br>
+      📞 (43) 99614-1663 – PR<br>
+      📞 (48) 99686-5891 – SC
+    </p>
+  </section>
+
+  <footer>
+    <div class="redes">
+      <a href="https://www.instagram.com/noaharquitetura/" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://wa.me/5548996865891" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+
+    <p>
+      <a href="projeto.html" style="color:#fff; text-decoration:none;">Projetos Prontos</a>
+    </p>
+
+    <p>
+      <a href="arquiteto-em-garopaba.html" style="color:#fff; text-decoration:none;">Arquiteto em Garopaba</a>
+    </p>
+
+    <p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
+    <p class="frase-fe">"A Deus toda honra e toda glória."</p>
+  </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5548996865891"
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Fale conosco pelo WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
-</div>
-
-<header>
-<h1><a href="/" style="text-decoration:none;color:inherit;">NOAH ARQUITETURA</a></h1>
-<nav>
-  <a href="projeto.html">Projetos Prontos</a>
-  <a href="arquiteto-em-garopaba.html">Arquiteto em Garopaba</a>
-  <a href="#projetos">Projetos</a>
-  <a href="galeria.html">Galeria</a>
-</nav>
-</header>
-
-<div class="hero">
-<h2>Arquitetura que acolhe, inspira e permanece.</h2>
-</div>
-
-<section class="sobre-texto">
-  <h3>Noah Arquitetura</h3>
-
-  <p>A Noah Arquitetura atua em Imbituba, Garopaba, Paulo Lopes e região, com atendimento também no norte do Paraná, abrangendo Londrina e região. É especializada em projetos residenciais, comerciais, reformas e interiores, unindo técnica, sensibilidade e criatividade em cada detalhe.</p>
-
-  <p>Com mais de uma década de atuação, desenvolvemos projetos arquitetônicos personalizados que refletem o estilo, a essência e as necessidades de cada cliente, sempre respeitando o contexto urbano, a funcionalidade e a estética.</p>
-
-  <p>Nossa atuação vai além do projeto arquitetônico. Somos especialistas em laudos técnicos e avaliações imobiliárias conforme a NBR 14.653, garantindo precisão, transparência e segurança jurídica em cada trabalho.</p>
-
-  <p>Também atuamos na elaboração de Projetos de Prevenção e Combate a Incêndio (<a href="ppci.html">PPCI</a>), além da emissão de relatórios técnicos em conformidade com as exigências do Corpo de Bombeiros.</p>
-
-  <p>Prestamos assessoria completa em regularização imobiliária, incluindo processos de usucapião e consultorias técnicas, sempre conduzidos com ética, responsabilidade e comprometimento.</p>
-
-  <h4>Nossa equipe</h4>
-
-  <p><strong>Patricia Busato</strong> é Arquiteta formada pela UNIMAR (SP) e atua desde 2014 como profissional terceirizada da Caixa Econômica Federal na elaboração de laudos e avaliações imobiliárias. Com a crescente demanda por projetos arquitetônicos, passou a expandir sua atuação, desenvolvendo projetos residenciais e comerciais com foco em qualidade, viabilidade e identidade arquitetônica.</p>
-
-  <p><strong>Marcus Busato</strong> é Servidor público, analista de projetos e graduado em Desenho Industrial pela PUC Curitiba e formado como Técnico em Edificações pelo SENAI, contribuindo com conhecimento técnico e visão prática no desenvolvimento dos projetos.</p>
-
-  <p>A equipe conta também com o <strong>Engenheiro Civil Carlos Soléo</strong>, profissional com mais de 20 anos de atuação como terceirizado da Caixa Econômica Federal, especializado em avaliações imobiliárias, garantindo respaldo técnico e confiabilidade aos serviços prestados.</p>
-
-  <p>No âmbito jurídico, contamos com a <strong>Advogada Dra. Cassia Soléo</strong>, responsável pelos processos de usucapião e assessoria em regularização imobiliária em Garopaba e região, assegurando suporte legal completo aos nossos clientes.</p>
-
-  <p>Cada projeto é desenvolvido de forma exclusiva, buscando equilíbrio entre estética, funcionalidade e viabilidade construtiva, sempre com o objetivo de proporcionar qualidade de vida, segurança e valorização do imóvel.</p>
-</section>
-
-<div class="banner-orcamento">
-<a href="https://wa.me/5548996865891" target="_blank">Faça seu orçamento aqui</a>
-</div>
-
-<section id="projetos" class="projetos-banner">
-<div class="banner-texto">
-<h3>Veja alguns de nossos projetos</h3>
-
-<div class="banner-links">
-  <a href="galeria.html" class="btn-banner btn-galeria">Galeria</a>
-  <a href="projeto.html" class="btn-banner btn-projetos-prontos">Projetos Prontos</a>
-</div>
-
-</div>
-
-<div class="projects">
-  <a href="galeria.html" class="project">
-    <img src="images/casaibira1.png" alt="Residencial">
-    <span>Residencial</span>
-  </a>
-  <a href="galeria.html" class="project">
-    <img src="images/misto.jpg" alt="Residencial e Comercial">
-    <span>Residencial e Comercial</span>
-  </a>
-  <a href="galeria.html" class="project">
-    <img src="images/salaclara.jpg" alt="Interiores">
-    <span>Interiores</span>
-  </a>
-</div>
-</section>
-
-<section class="equipe">
-  <h3>Conheça nossa Equipe</h3>
-
-  <div class="fotos">
-
-    <!-- MARCUS -->
-    <a href="designermarcusbusato.html" class="pessoa-link">
-      <div class="pessoa">
-        <img src="images/arquitetosnoah.jpeg" alt="Arquiteta Patrícia & Designer Marcus">
-        <strong>Arquiteta Patrícia & Designer Marcus</strong>
-        <span>Projetos & Avaliações</span>
-      </div>
-    </a>
-
-    <!-- CARLOS -->
-    <a href="engenheirocarlossoleo.html" class="pessoa-link">
-      <div class="pessoa">
-        <img src="images/engenheiro.jpeg" alt="Eng. Civil Carlos">
-        <strong>Eng. Civil Carlos</strong>
-        <span>Avaliações Imobiliárias</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<section id="contato" class="contato">
-<h3>Contato</h3>
-<p>
-📧 noaharquitetura@hotmail.com<br>
-📞 (43) 99614-1663 – PR<br>
-📞 (48) 99686-5891 – SC
-</p>
-</section>
-
-<footer>
-<div class="redes">
-  <a href="https://www.instagram.com/noaharquitetura/" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="https://wa.me/5548996865891" target="_blank"><i class="fab fa-whatsapp"></i></a>
-</div>
-
-<p>
-  <a href="projeto.html" style="color:#fff;text-decoration:none;">
-    Projetos Prontos
-  </a>
-</p>
-
-<p>
-  <a href="arquiteto-em-garopaba.html" style="color:#fff;text-decoration:none;">
-    Arquiteto em Garopaba
-  </a>
-</p>
-
-<p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
-<p class="frase-fe">"A Deus toda honra e toda glória."</p>
-</footer>
-
-<!-- ✅ WHATSAPP FLUTUANTE (NOVO) -->
-<a href="https://wa.me/5548996865891"
-   class="whatsapp-float"
-   target="_blank"
-   aria-label="Fale conosco pelo WhatsApp">
-   <i class="fab fa-whatsapp"></i>
-</a>
 
 </body>
 </html>
