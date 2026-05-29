@@ -1,1 +1,263 @@
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dicas Noah | Noah Arquitetura</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: 'Montserrat', Arial, sans-serif;
+  background:#f5f5f5;
+  color:#222;
+}
+
+/* HEADER */
+
+header{
+  max-width:1200px;
+  margin:auto;
+  padding:30px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#fff;
+  border-bottom:1px solid #e5e5e5;
+}
+
+.logo-site{
+  font-size:22px;
+  letter-spacing:2px;
+}
+
+.logo-site a{
+  text-decoration:none;
+  color:#222;
+}
+
+nav{
+  display:flex;
+  gap:18px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#2c2c2c;
+  font-size:14px;
+}
+
+nav a:hover{
+  opacity:.7;
+}
+
+.ativo{
+  font-weight:600;
+}
+
+/* TITULO */
+
+.titulo{
+  text-align:center;
+  padding:60px 20px 40px;
+}
+
+.titulo h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.titulo p{
+  color:#666;
+  max-width:700px;
+  margin:auto;
+}
+
+/* GALERIA */
+
+.galeria{
+  max-width:1300px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:25px;
+}
+
+.galeria img{
+  width:100%;
+  border-radius:18px;
+  display:block;
+  box-shadow:0 10px 25px rgba(0,0,0,.10);
+  transition:.3s;
+}
+
+.galeria img:hover{
+  transform:translateY(-5px);
+}
+
+/* FOOTER */
+
+footer{
+  background:#1e1e1e;
+  color:#fff;
+  text-align:center;
+  padding:40px 20px;
+  margin-top:60px;
+}
+
+.redes{
+  margin-bottom:15px;
+}
+
+.redes a{
+  color:#fff;
+  font-size:28px;
+  margin:0 10px;
+}
+
+.redes a:hover{
+  color:#25D366;
+}
+
+.frase-fe{
+  margin-top:10px;
+  opacity:.7;
+  font-style:italic;
+}
+
+/* WHATSAPP */
+
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:60px;
+  height:60px;
+  background:#25D366;
+  color:white;
+  border-radius:50%;
+  text-align:center;
+  line-height:60px;
+  font-size:32px;
+  z-index:999;
+  box-shadow:0 4px 10px rgba(0,0,0,.3);
+}
+
+@media(max-width:768px){
+
+header{
+  flex-direction:column;
+  gap:20px;
+  text-align:center;
+}
+
+nav{
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.galeria{
+  grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1 class="logo-site">
+<a href="index.html">NOAH ARQUITETURA</a>
+</h1>
+
+<nav>
+<a href="projeto.html">Projetos Prontos</a>
+<a href="arquiteto-em-garopaba.html">Arquiteto em Garopaba</a>
+<a href="index.html#projetos">Projetos</a>
+<a href="galeria.html">Galeria</a>
+<a href="dicas-noah.html" class="ativo">Dicas Noah</a>
+</nav>
+
+</header>
+
+<section class="titulo">
+
+<h2>Dicas Noah Arquitetura</h2>
+
+<p>
+Aprenda sobre arquitetura, conforto, insolação,
+ventilação, interiores, layout de mobiliário e
+planejamento residencial através de conteúdos
+desenvolvidos pela Noah Arquitetura.
+</p>
+
+</section>
+
+<section class="galeria">
+
+<img src="images/posicao-solar.jpg" alt="Posição Solar e Ventilação Cruzada">
+
+<img src="images/layout-dormitorio.jpg" alt="Layout de Dormitório">
+
+<img src="images/layout-sala.jpg" alt="Layout de Sala">
+
+<img src="images/mesa-jantar.jpg" alt="Mesa de Jantar">
+
+<img src="images/garagem.jpg" alt="Garagem">
+
+<img src="images/cozinha.jpg" alt="Cozinha Integrada">
+
+<img src="images/iluminacao-natural.jpg" alt="Iluminação Natural">
+
+<img src="images/paisagismo.jpg" alt="Paisagismo">
+
+<img src="images/eps.jpg" alt="Construção em EPS">
+
+<img src="images/aprovacao.jpg" alt="Aprovação de Projetos">
+
+</section>
+
+<footer>
+
+<div class="redes">
+
+<a href="https://www.instagram.com/noaharquitetura/" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://wa.me/5548996865891" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+
+<p>© 2014 · Noah Arquitetura · Todos os direitos reservados</p>
+
+<p class="frase-fe">
+"A Deus toda honra e toda glória."
+</p>
+
+</footer>
+
+<a href="https://wa.me/5548996865891"
+class="whatsapp-float"
+target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
