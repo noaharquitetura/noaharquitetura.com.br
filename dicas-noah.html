@@ -1,304 +1,576 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ambientes & Inspirações | Noah Arquitetura</title>
+<title>Ambientes &amp; Inspirações | Noah Arquitetura</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
+body {
   font-family: 'Montserrat', Arial, sans-serif;
-  background:#f5f5f5;
-  color:#222;
+  background: #f5f5f5;
+  color: #222;
+  line-height: 1.7;
 }
 
 /* HEADER */
 
-header{
-  max-width:1200px;
-  margin:auto;
-  padding:30px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:#fff;
-  border-bottom:1px solid #e5e5e5;
+header {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.logo-site{
-  font-size:22px;
-  letter-spacing:2px;
+.logo-site {
+  font-size: 22px;
+  letter-spacing: 2px;
+  line-height: 1.4;
 }
 
-.logo-site a{
-  text-decoration:none;
-  color:#222;
+.logo-site a {
+  text-decoration: none;
+  color: #222;
 }
 
-nav{
-  display:flex;
-  gap:18px;
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
 }
 
-nav a{
-  text-decoration:none;
-  color:#2c2c2c;
-  font-size:14px;
+nav a {
+  text-decoration: none;
+  color: #2c2c2c;
+  font-size: 14px;
 }
 
-nav a:hover{
-  opacity:.7;
+nav a:hover {
+  opacity: .7;
 }
 
-.ativo{
-  font-weight:600;
+.ativo {
+  font-weight: 600;
 }
 
-/* TITULO */
+/* TÍTULO E INTRODUÇÃO */
 
-.titulo{
-  text-align:center;
-  padding:60px 20px 40px;
+.titulo {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  padding: 55px 20px 30px;
 }
 
-.titulo h2{
-  font-size:36px;
-  margin-bottom:10px;
+.titulo h2 {
+  font-size: 36px;
+  line-height: 1.3;
+  margin-bottom: 16px;
 }
 
-.titulo p{
-  color:#666;
-  max-width:700px;
-  margin:auto;
+.titulo .subtitulo {
+  color: #596341;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.titulo p {
+  color: #666;
+}
+
+/* SERVIÇOS */
+
+.servicos {
+  max-width: 1100px;
+  margin: auto;
+  padding: 10px 20px;
+  display: grid;
+  gap: 24px;
+}
+
+.servico {
+  background: #f6f1e8;
+  border: 1px solid #e4ddcf;
+  border-radius: 18px;
+  padding: 32px;
+  text-align: left;
+}
+
+.servico h3 {
+  color: #596341;
+  font-size: 24px;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.servico p {
+  color: #505049;
+  margin-bottom: 16px;
+}
+
+.servico p:last-child {
+  margin-bottom: 0;
+}
+
+.servico .destaque {
+  color: #596341;
+  font-weight: bold;
+}
+
+.servico ul {
+  color: #505049;
+  padding-left: 24px;
+  margin-bottom: 18px;
+}
+
+.servico li {
+  margin-bottom: 8px;
+}
+
+/* ESCOLHA DO SERVIÇO */
+
+.escolha {
+  max-width: 1060px;
+  margin: 30px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 18px;
+  text-align: left;
+}
+
+.escolha h3 {
+  color: #596341;
+  font-size: 24px;
+  line-height: 1.4;
+  margin-bottom: 22px;
+}
+
+.escolha p {
+  color: #505049;
+  margin-bottom: 20px;
+}
+
+.botao-contato {
+  display: inline-block;
+  background: #596341;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.botao-contato:hover {
+  background: #424b2f;
 }
 
 /* GALERIA */
 
-.galeria{
-  max-width:1300px;
-  margin:auto;
-  padding:20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-  gap:25px;
+.galeria {
+  max-width: 1300px;
+  margin: auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(350px, 100%), 1fr)
+  );
+  gap: 25px;
 }
 
-.galeria img{
-  width:100%;
-  border-radius:18px;
-  display:block;
-  box-shadow:0 10px 25px rgba(0,0,0,.10);
-  transition:.3s;
+.galeria img {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
+  transition: transform .3s;
 }
 
-.galeria img:hover{
-  transform:translateY(-5px);
+.galeria img:hover {
+  transform: translateY(-5px);
 }
 
 /* FOOTER */
 
-footer{
-  background:#1e1e1e;
-  color:#fff;
-  text-align:center;
-  padding:40px 20px;
-  margin-top:60px;
+footer {
+  background: #1e1e1e;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px 90px;
+  margin-top: 60px;
 }
 
-.redes{
-  margin-bottom:15px;
+.redes {
+  margin-bottom: 15px;
 }
 
-.redes a{
-  color:#fff;
-  font-size:28px;
-  margin:0 10px;
+.redes a {
+  color: #fff;
+  font-size: 28px;
+  margin: 0 10px;
 }
 
-.redes a:hover{
-  color:#25D366;
+.redes a:hover {
+  color: #25D366;
 }
 
-.frase-fe{
-  margin-top:10px;
-  opacity:.7;
-  font-style:italic;
+.frase-fe {
+  margin-top: 10px;
+  opacity: .7;
+  font-style: italic;
 }
 
 /* WHATSAPP */
 
-.whatsapp-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:60px;
-  height:60px;
-  background:#25D366;
-  color:white;
-  border-radius:50%;
-  text-align:center;
-  line-height:60px;
-  font-size:32px;
-  z-index:999;
-  box-shadow:0 4px 10px rgba(0,0,0,.3);
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 32px;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
 }
 
-@media(max-width:768px){
+/* CELULAR */
 
-header{
-  flex-direction:column;
-  gap:20px;
-  text-align:center;
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px 20px;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .titulo {
+    padding-top: 40px;
+  }
+
+  .titulo h2 {
+    font-size: 28px;
+  }
+
+  .servico {
+    padding: 24px;
+  }
+
+  .servico h3,
+  .escolha h3 {
+    font-size: 22px;
+  }
+
+  .escolha {
+    margin: 25px 20px;
+    padding: 24px;
+  }
+
+  .galeria {
+    grid-template-columns: 1fr;
+  }
 }
-
-nav{
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.galeria{
-  grid-template-columns:1fr;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
 <header>
+  <h1 class="logo-site">
+    <a href="index.html">NOAH ARQUITETURA</a>
+  </h1>
 
-<h1 class="logo-site">
-<a href="index.html">NOAH ARQUITETURA</a>
-</h1>
-
-<nav>
-
-<a href="arquiteto-em-garopaba.html">Arquiteto em Garopaba</a>
-<a href="index.html#projetos">Projetos</a>
-<a href="galeria.html">Galeria</a>
-<a href="dicas-noah.html" class="ativo">Dicas Noah</a>
-</nav>
-
+  <nav aria-label="Menu principal">
+    <a href="arquiteto-em-garopaba.html">Arquiteto em Garopaba</a>
+    <a href="index.html#projetos">Projetos</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="dicas-noah.html" class="ativo" aria-current="page">
+      Dicas Noah
+    </a>
+  </nav>
 </header>
 
-<section class="titulo">
+<main>
 
-<h2>Serviços Noah Arquitetura</h2>
+  <section class="titulo">
+    <h2>Serviços Noah Arquitetura</h2>
 
-<p>
+    <p class="subtitulo">
+      INTERIORES | ESCOLHA O SERVIÇO IDEAL PARA O SEU ESPAÇO
+    </p>
 
-INTERIORES | ESCOLHA O SERVIÇO IDEAL PARA O SEU ESPAÇO
+    <p>
+      Na Noah Arquitetura, cada cliente pode escolher o nível de
+      atendimento que mais combina com sua necessidade — desde
+      uma orientação rápida para transformar um ambiente até
+      o desenvolvimento completo do projeto de interiores.
+    </p>
+  </section>
 
-Na Noah Arquitetura, cada cliente pode escolher o nível de atendimento que mais combina com sua necessidade — desde uma orientação rápida para transformar um ambiente até o desenvolvimento completo do projeto de interiores.
+  <section class="servicos" aria-label="Modalidades de atendimento">
 
-CONSULTORIA ONLINE DE INTERIORES
-Uma orientação profissional para quem precisa de ideias e direcionamento.
+    <article class="servico">
+      <h3>Consultoria Online de Interiores</h3>
 
-Você nos envia fotos, medidas básicas e referências do ambiente e conta o que gostaria de transformar.
+      <p class="destaque">
+        Uma orientação profissional para quem precisa de ideias
+        e direcionamento.
+      </p>
 
-A partir do nosso olhar profissional, analisamos o espaço e apresentamos sugestões para melhorar sua composição, estética e funcionalidade.
+      <p>
+        Você nos envia fotos, medidas básicas e referências do
+        ambiente e conta o que gostaria de transformar.
+      </p>
 
-A consultoria pode incluir até duas imagens conceituais desenvolvidas com auxílio de Inteligência Artificial, permitindo visualizar possibilidades para o ambiente.
+      <p>
+        A partir do nosso olhar profissional, analisamos o espaço
+        e apresentamos sugestões para melhorar sua composição,
+        estética e funcionalidade.
+      </p>
 
-Ideal para quem já possui um espaço pronto e quer saber o que mudar, melhorar ou acrescentar, sem contratar um projeto completo.
+      <p>
+        A consultoria pode incluir até duas imagens conceituais
+        desenvolvidas com auxílio de Inteligência Artificial,
+        permitindo visualizar possibilidades para o ambiente.
+      </p>
 
+      <p>
+        Ideal para quem já possui um espaço pronto e quer saber
+        o que mudar, melhorar ou acrescentar, sem contratar
+        um projeto completo.
+      </p>
+    </article>
 
+    <article class="servico">
+      <h3>Ambientação + Curadoria de Interiores</h3>
 
-AMBIENTAÇÃO + CURADORIA DE INTERIORES
-Para quem deseja ir além da ideia e quer ajuda para fazer as escolhas certas.
+      <p class="destaque">
+        Para quem deseja ir além da ideia e quer ajuda para
+        fazer as escolhas certas.
+      </p>
 
-Além da proposta visual para o ambiente, realizamos uma curadoria personalizada dos principais elementos que irão compor o espaço.
+      <p>
+        Além da proposta visual para o ambiente, realizamos
+        uma curadoria personalizada dos principais elementos
+        que irão compor o espaço.
+      </p>
 
-Podemos orientar a escolha de:
+      <p>Podemos orientar a escolha de:</p>
 
-• mobiliário e decoração;  
-• iluminação e luminárias;  
-• cores, revestimentos e materiais;  
-• cortinas, tapetes e tecidos;  
-• painéis, ripados, marcenaria conceitual e outros elementos decorativos;  
-• objetos e elementos que complementam a composição.
+      <ul>
+        <li>Mobiliário e decoração;</li>
+        <li>Iluminação e luminárias;</li>
+        <li>Cores, revestimentos e materiais;</li>
+        <li>Cortinas, tapetes e tecidos;</li>
+        <li>
+          Painéis, ripados, marcenaria conceitual e outros
+          elementos decorativos;
+        </li>
+        <li>
+          Objetos e elementos que complementam a composição.
+        </li>
+      </ul>
 
-Criamos uma proposta coerente com o estilo do cliente, buscando equilíbrio entre materiais, cores, proporções e mobiliário.
+      <p>
+        Criamos uma proposta coerente com o estilo do cliente,
+        buscando equilíbrio entre materiais, cores, proporções
+        e mobiliário.
+      </p>
 
-É uma ótima opção para quem deseja transformar e ambientar um espaço sem a necessidade de desenvolver todo o projeto técnico de interiores.
+      <p>
+        É uma ótima opção para quem deseja transformar e
+        ambientar um espaço sem a necessidade de desenvolver
+        todo o projeto técnico de interiores.
+      </p>
+    </article>
 
+    <article class="servico">
+      <h3>Projeto Completo de Interiores</h3>
 
+      <p class="destaque">
+        Do conceito aos detalhes necessários para a execução.
+      </p>
 
-PROJETO COMPLETO DE INTERIORES
-Do conceito aos detalhes necessários para a execução.
+      <p>
+        Para quem está construindo, reformando ou deseja uma
+        transformação mais completa, desenvolvemos o Projeto
+        de Interiores, considerando arquitetura, funcionalidade,
+        estética e as necessidades específicas de cada ambiente.
+      </p>
 
-Para quem está construindo, reformando ou deseja uma transformação mais completa, desenvolvemos o Projeto de Interiores, considerando arquitetura, funcionalidade, estética e as necessidades específicas de cada ambiente.
+      <p>
+        Nesta modalidade, o projeto pode ser desenvolvido de
+        forma integrada e compatibilizada com o projeto
+        arquitetônico e os projetos complementares, como
+        elétrico, hidrossanitário, iluminação, pontos de
+        equipamentos e demais necessidades técnicas.
+      </p>
 
-Nesta modalidade, o projeto pode ser desenvolvido de forma integrada e compatibilizada com o projeto arquitetônico e os projetos complementares, como elétrico, hidrossanitário, iluminação, pontos de equipamentos e demais necessidades técnicas.
+      <p>
+        São desenvolvidos os desenhos, especificações e
+        detalhamentos previstos no escopo contratado para
+        orientar a execução e reduzir interferências entre
+        arquitetura, interiores e instalações.
+      </p>
 
-São desenvolvidos os desenhos, especificações e detalhamentos previstos no escopo contratado para orientar a execução e reduzir interferências entre arquitetura, interiores e instalações.
+      <p>
+        Quando a Noah Arquitetura também desenvolve o projeto
+        arquitetônico, podemos pensar arquitetura e interiores
+        desde o início de forma integrada, criando maior unidade
+        entre espaços, materiais, iluminação e soluções técnicas.
+      </p>
+    </article>
 
-Quando a Noah Arquitetura também desenvolve o projeto arquitetônico, podemos pensar arquitetura e interiores desde o início de forma integrada, criando maior unidade entre espaços, materiais, iluminação e soluções técnicas.
+  </section>
 
-QUAL SERVIÇO É IDEAL PARA VOCÊ?
-Precisa apenas de orientação e novas ideias?**  
-Escolha a Consultoria Online.
+  <section class="escolha">
+    <h3>Qual serviço é ideal para você?</h3>
 
-Quer visualizar a transformação e receber ajuda na escolha de materiais, mobiliário e decoração?**  
-Escolha Ambientação + Curadoria.
+    <p>
+      <strong>
+        Precisa apenas de orientação e novas ideias?
+      </strong>
+      <br>
+      Escolha a Consultoria Online.
+    </p>
 
-Vai construir ou reformar e precisa de detalhamento e integração técnica?**  
-Escolha o Projeto Completo de Interiores.
+    <p>
+      <strong>
+        Quer visualizar a transformação e receber ajuda na
+        escolha de materiais, mobiliário e decoração?
+      </strong>
+      <br>
+      Escolha Ambientação + Curadoria.
+    </p>
 
-Fale com a Noah Arquitetura e conte um pouco sobre o seu espaço. Vamos indicar a modalidade mais adequada para você.
-</p>
+    <p>
+      <strong>
+        Vai construir ou reformar e precisa de detalhamento
+        e integração técnica?
+      </strong>
+      <br>
+      Escolha o Projeto Completo de Interiores.
+    </p>
 
-</section>
+    <p>
+      Fale com a Noah Arquitetura e conte um pouco sobre o seu
+      espaço. Vamos indicar a modalidade mais adequada para você.
+    </p>
 
-<section class="galeria">
-<img src="images/cozinhasite.png" alt="Decoração Náutica">
-<img src="images/saladeestar.png" alt="Sala de estar e cozinha integrada">
-<img src="images/saladejantar.png" alt="Banho">
-<img src="images/lavabo.png" alt="Banho">
-<img src="images/areagourmet.png" alt="Sala de estar">
-<img src="images/SERVICOS.png" alt="Banho">
+    <a
+      href="https://wa.me/5548996865891"
+      class="botao-contato"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Fale com a Noah pelo WhatsApp
+    </a>
+  </section>
 
-</section>
+  <section class="galeria" aria-label="Ambientes e inspirações">
+    <img
+      src="images/cozinhasite.png"
+      alt="Inspiração de cozinha"
+      loading="lazy"
+    >
+
+    <img
+      src="images/saladeestar.png"
+      alt="Inspiração de sala de estar"
+      loading="lazy"
+    >
+
+    <img
+      src="images/saladejantar.png"
+      alt="Inspiração de sala de jantar"
+      loading="lazy"
+    >
+
+    <img
+      src="images/lavabo.png"
+      alt="Inspiração de lavabo"
+      loading="lazy"
+    >
+
+    <img
+      src="images/areagourmet.png"
+      alt="Inspiração de área gourmet"
+      loading="lazy"
+    >
+
+    <img
+      src="images/SERVICOS.png"
+      alt="Serviços Noah Arquitetura"
+      loading="lazy"
+    >
+  </section>
+
+</main>
 
 <footer>
+  <div class="redes">
+    <a
+      href="https://www.instagram.com/noaharquitetura/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram da Noah Arquitetura"
+    >
+      <i class="fab fa-instagram" aria-hidden="true"></i>
+    </a>
 
-<div class="redes">
+    <a
+      href="https://wa.me/5548996865891"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp da Noah Arquitetura"
+    >
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+  </div>
 
-<a href="https://www.instagram.com/noaharquitetura/" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
+  <p>
+    © 2026 · Noah Arquitetura · Todos os direitos reservados
+  </p>
 
-<a href="https://wa.me/5548996865891" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-</div>
-
-<p>© 2026 · Noah Arquitetura · Todos os direitos reservados</p>
-
-<p class="frase-fe">
-"A Deus toda honra e toda glória."
-</p>
-
+  <p class="frase-fe">
+    "A Deus toda honra e toda glória."
+  </p>
 </footer>
 
-<a href="https://wa.me/5548996865891"
-class="whatsapp-float"
-target="_blank">
-<i class="fab fa-whatsapp"></i>
+<a
+  href="https://wa.me/5548996865891"
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Entre em contato pelo WhatsApp"
+>
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
 </a>
 
 </body>
